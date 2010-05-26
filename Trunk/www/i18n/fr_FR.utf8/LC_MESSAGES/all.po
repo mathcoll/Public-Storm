@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Public-Storm\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-25 21:03+0100\n"
-"PO-Revision-Date: 2010-05-25 21:03+0100\n"
+"POT-Creation-Date: 2010-05-26 21:41+0100\n"
+"PO-Revision-Date: 2010-05-26 21:56+0100\n"
 "Last-Translator: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "Language-Team: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "MIME-Version: 1.0\n"
@@ -469,13 +469,12 @@ msgid "contribuez_p2"
 msgstr "Développez en utilisant les API de Public-Storm ;"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:45
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:51
-msgid "next"
-msgstr "<small>Prochainement...</small>"
+msgid "contribuez_p3"
+msgstr "<a href=\"http://github.com/mathcoll/Public-Storm\">Public-Storm sur GitHub</a>"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:46
-msgid "contribuez_p3"
-msgstr "ou suivez nous sur <a href=\"http://twitter.com/publicstorm\"><img height=\"28\" title=\"Twitter\" alt=\"Twitter\" src=\"http://public-storm.internetcollaboratif.info/themes/ps/templates/img/twitter.png\"/></a> <a href=\"http://identi.ca/publicstorm\"><img height=\"28\" title=\"Identi.ca\" alt=\"Identi.ca\" src=\"http://public-storm.internetcollaboratif.info/themes/ps/templates/img/identica.png\"/></a> <a href=\"http://public-storm.internetcollaboratif.info/backend/rss.php\"><img height=\"28\" title=\"Rss\" alt=\"Rss\" src=\"http://public-storm.internetcollaboratif.info/themes/ps/templates/img/rss.png\"/></a>"
+msgid "contribuez_p4"
+msgstr "...ou suivez-nous sur <a href=\"http://twitter.com/publicstorm\"><img height=\"28\" title=\"Twitter\" alt=\"Twitter\" src=\"http://public-storm.internetcollaboratif.info/themes/ps/templates/img/twitter.png\"/></a> <a href=\"http://identi.ca/publicstorm\"><img height=\"28\" title=\"Identi.ca\" alt=\"Identi.ca\" src=\"http://public-storm.internetcollaboratif.info/themes/ps/templates/img/identica.png\"/></a> <a href=\"http://public-storm.internetcollaboratif.info/backend/rss.php\"><img height=\"28\" title=\"Rss\" alt=\"Rss\" src=\"http://public-storm.internetcollaboratif.info/themes/ps/templates/img/rss.png\"/></a>"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:47
 msgid "discutez"
@@ -492,6 +491,10 @@ msgstr "Téléchargez"
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:50
 msgid "telechargez_p1"
 msgstr "Public-Storm est sous licence GNU/GPL v3"
+
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:51
+msgid "telechargez_p2"
+msgstr "<a href=\"http://github.com/mathcoll/Public-Storm\">Télécharger Public-Storm depuis GitHub</a>"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:54
 msgid "Ajouter ce 'Storm' :"
@@ -630,6 +633,8 @@ msgstr "Nouveau storm créé : %s %s"
 msgid "Erreur lors de la création du storm %s"
 msgstr "Erreur lors de la création du storm %s"
 
+#~ msgid "next"
+#~ msgstr "<small>Prochainement...</small>"
 #~ msgid "%1"
 #~ msgstr "%1"
 #~ msgid "inscription"

@@ -42,13 +42,13 @@ gettext("by");
 gettext("contribuez");
 gettext("contribuez_p1");
 gettext("contribuez_p2");
-gettext("next");
 gettext("contribuez_p3");
+gettext("contribuez_p4");
 gettext("discutez");
 gettext("discutez_p1");
 gettext("telechargez");
 gettext("telechargez_p1");
-gettext("next");
+gettext("telechargez_p2");
 
 ?><?php
 gettext("Ajouter ce 'Storm' :");
