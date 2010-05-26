@@ -21,7 +21,7 @@ for file in ./themes/ps/templates/plugins/*; do
 done
 mkdir -p "./i18n/sources/plugins/all/"
 php tsmarty2c.php ./themes/ps/templates/*.tpl > "./i18n/sources/main.gettext.php"
-
+rm -f ./cache/*.php
 
 
 # régénérer le fichier po
