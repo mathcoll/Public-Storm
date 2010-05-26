@@ -1,0 +1,33 @@
+.dropshadow1 {
+	margin: 3px;
+	padding: 0px;
+	border: 1px #e8ebf4 solid; /* outer shadow */
+	}
+.dropshadow2 {
+	background-color: #c5cad9; /* inner shadow */
+	margin: 0px;
+	padding: 0px;
+	border: 1px #dfe3ef solid;    /* mid shadow */
+	}
+.shadbox {
+	position: relative;
+	background-color: #fff;
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	top: -2px;
+	left: -2px;
+	}
+.sh_label p {color:#aaa;}
+.sh_label {
+	float:left;
+	position:relative;
+	left:4px;
+	bottom:0px;
+}
+:root .sh_label {bottom:10px !important; margin-bottom:-10px;} 
+/* Moz sees this, Opera and IE don't. It's valid CSS3. */
+
+tr.robot {display:none;}
+a#humanslink {color:#000;text-decoration:none;}
+.titlebar{background:url(../images/hdr.jpg) repeat-x center;}

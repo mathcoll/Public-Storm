@@ -1,0 +1,76 @@
+/* This file is part of BBClone (The PHP web counter on steroids)
+ *
+ * $Header: /cvs/bbclone/doc/thanks.txt,v 1.45 2009/08/30 09:35:45 joku Exp $
+ *
+ * Copyright (C) 2001-2009, the BBClone Team (see file doc/authors.txt
+ * distributed with this library)
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * See doc/copying.txt for details
+ */
+Thanks go out to:
+
+* paHpa.
+* Niek Van der Maas for his Dutch translation of BBClone.
+* Erik Englund for his Swedish translation of BBClone.
+* Jonathan Fromer for his Danish translation of BBClone.
+* Andreas Liebschner for his Italian translation of BBClone.
+* Darek Kramin for his Polish translation of BBClone.
+* Henrik Sorensen for his bug detection in bbc_plot().
+* Matteo Spreafico for his Italian correction.
+* Hu ChangSong for his Chinese translation
+* Ciprian Manea for his Romanian translation
+* Neil Muller for his suggestions on making bbclone work with register_globals
+  off
+* Carlos Oliva for his Spanish translation
+* Vilius Simonaitis for his Lithuanian translation
+* Chad Schmidt for his numerous corrections
+* Gregori Arjona for his Catalan translation
+* Engelbert Gruber for his suggestions on correcting fopenlock()
+* Josef Pinc for his Czech translation
+* John Marino and Njörd Eriksson for their help in tracking down critical
+  BBClone issues connected with high server load
+* Thijs Kaper for his valuable suggestions concerning locking and writing to
+  files
+* Martin Halachev for his Bulgarian translation and his submitted patches
+* Alexey Rozenvaser for his Russian translation
+* Ville Pohjanheimo for his Finnish translation
+* Serkan Sisman for his Turkish translation
+* Taras Pavliv for his Ukrainian translation
+* François Pradignac for his MacOs X specific detection patterns, bug reports,
+  CSS fixes and French translation updates
+* Daniele Raffo for updating the Italian translation and his translation of
+  install.txt
+* Katsunori Shiota for his Japanese translation
+* Bryant Quan for providing access to an IIS server to study its behavior
+* Clopy for his Greek translation
+* Vladislav Korotkov for updating and completing the Russian translation
+* Sándor Dibuz for his Hungarian translation
+* Hans Fredrik Nordhaug for his Norwegian (Bokmål) translation
+* Oriol Torra Sellares for fixing and updating the Catalan translation
+* Luke Woodward for adding missing flags and code suggestions
+* Rok Potoènik for his Slovenian translation
+* Daniel Bergman for updating the Swedish translation
+* Zdeno Sekerak for his Slovak translation
+* Nanna Ellegaard for updating and fixing the Danish translation
+* Pavel Trefil for updating the Czech translation
+* Damian at Systrum.net for providing decent background noise whilst being busy
+  with coding
+* Peter Hou for reviving the Traditional Chinese translation.
+* Paul Bischoff for updating the Danish translation
+* Miralem Halilovic for translating BBClone into Bosnian
+* Georgi Stanojevski for translating BBClone into Macedonian
+* Dr. Wael for translating BBClone into Arabic
+* Leppa for updating both Ukrainian and Russian translations
+* Ionnis Cherouvim for updating the Greek translation
+* Harald Janssen for updating the Spanish translation
+* Isriya Paireepairit for translating BBClone into Thai
+* Firejune for translating BBClone into Korean
+* Antonio de la Torre for updating and completing the Spanish translation
+* Yudie Hidayat for translate BBClone into Indonesian
+* Rui Pinto for translate BBClone into Potruguese
+* Kaarel Hellakivi for translate BBClone into Estonian

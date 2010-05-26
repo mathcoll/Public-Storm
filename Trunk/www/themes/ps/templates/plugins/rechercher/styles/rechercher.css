@@ -1,0 +1,34 @@
+/* plugin de recherche */
+ul#res_recherche
+{
+	
+}
+
+ul#res_recherche li
+{
+	list-style: none;
+}
+
+ul#res_recherche li div.row_resultat
+{
+	padding: .5em 0;
+}
+
+ul#res_recherche li div.row_resultat span.num
+{
+	font-size: 18px;
+	color: #0e0e0e;
+}
+ul#res_recherche li div.row_resultat span.name
+{
+	position: absolute;
+	left: 80px;
+	margin: 6px 0 0 20px;
+}
+ul#res_recherche li div.row_resultat span.type
+{
+	position: absolute;
+	margin: 6px 0 0 20px;
+	left: 300px;
+	font-size: 11px;
+}

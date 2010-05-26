@@ -1,0 +1,589 @@
+/* This file is part of BBClone (The PHP web counter on steroids)
+ *
+ * $Header: /cvs/bbclone/doc/changelog.txt,v 1.178 2009/08/30 09:35:45 joku Exp $
+ *
+ * Copyright (C) 2001-2009, the BBClone Team (see file doc/authors.txt
+ * distributed with this library)
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * See doc/copying.txt for details
+ */
+0.5.0
+-----
+* Add support to export the detailed stats to XML
+* Add experimental SQL backend
+* Add menu for development features
+
+0.4.9
+------
+* add many robots and many browser
+* add favorite weekend mod from the forums
+* add regression suite to evaluate correctness of expressions
+* add most of the mobile browsers out there
+* add some rare user agents like the PSP
+* add color in detailed stats for access of the local ip-adress to spot
+  yourself in the log
+* Updated ip2ext database
+
+0.4.8b
+------
+* Fixed wrong reference usage in io.php
+* Fixed broken referrers once they contain multibyte characters
+* Replaced broken cyrillic detection with mb_detect_encoding
+* Replaced Javascript redirector with conventional Javascript generated links
+* Changed processing order in lib/marker.php to block unwanted things as early
+  as possible
+* Changed behaviour of $BBC_IGNORE_REFER to truly ignore visitors/bots with
+  unwanted referrers
+* Added Korean and Thai translation
+* Updated Greek and Spanish translation
+* Updated a lot of broken detection patterns
+* Updated W3C validator url
+* Updated ip2ext database
+
+0.4.8a
+------
+* Fixed uninitialised variable with $BBC_IGNORE_AGENT set to "1" (Dave)
+* Fixed language not recognised in Opera if multiple languages are set (Olliver)
+* Fixed implicit usage of multibyte function in lib/referrer.php (Olliver)
+* Don't list www*. aliases of multiple frontends as separated referrers
+  (Olliver)
+* Open external links in new window again (Nanna Ellegaard)
+* Added <noscript> for javascript links to address "Cynthia Says" warnings
+  (Olliver)
+* Extended javascript code to create anchor tags as well (Olliver)
+* Updated both Ukrainian and Russian translation (Leppa)
+* Doc updates (Olliver)
+
+0.4.8
+------
+* Cleaned up checking for loaded extensions (Olliver)
+* Fixed utf8 page titles getting not properly truncated if they become too long
+  (Olliver)
+* Fixed broken keywords when utf8 as encoding is chosen (regression) (Olliver)
+* Simplified file locking and improved its performance (Olliver)
+* Javascript based redirector to make external links unreadable for robots
+  (Olliver)
+* Improved and simplified keyword grabbing (Olliver)
+* Another attempt at making KHTML browsers happy (François Pradignac)
+* Added whois support for Afrinic (Olliver)
+* Added Bosnian translation (Miralem Halilovic)
+* Added Macedonian translation (Georgi Stanojevski)
+* Added Arabic translation (Dr. Wael)
+* Updated French translation (François Pradignac)
+* Documentation changes (Olliver)
+* Ip2ext and detection rules updates
+
+0.4.7
+------
+* Fixed addition of empty referrers and keywords in global stats (Olliver)
+* Fixed b0rked timestats with KHTML rendering engine and other CSS
+  optimisations (François Pradignac)
+* Use unbuffered writing to avoid file corruption due to race conditions
+  (Olliver)
+* sed -i "s/bbc_mag/bbc_msg/g" show_*.php (Olliver)
+* Improved keyword grabbing (Olliver)
+* Added a whois feature which dynamically selects the appropriate RIR (Olliver)
+* Added redirect which erases the referrer when following external links
+  (Olliver)
+* Updated Norwegian (Bokmål) translation (Hans Fredrik Nordhaug)
+* ip2ext update (Olliver)
+* Robot and browser additions (Olliver)
+
+0.4.6e
+------
+* Fixed broken $BBC_KILL_STATS switch (Olliver)
+* Fixed broken removal of stale lockfiles (Olliver)
+* Fixed broken Google image search (Olliver)
+* Fixed phantom connections in detailed stats on servers with unreliable file
+  locking (Olliver)
+* Removed unnecessary variable grabbing for MacOs X (Olliver)
+* Updated Hatena (Olliver)
+
+0.4.6d
+------
+* Fixed $BBC_PURGE_SINGLE adding "not_specified" again :-( (Olliver)
+
+0.4.6c
+------
+* Fixed visits sometimes appearing with the server's address on MacOsX (Olliver)
+* Fixed possible file corruption issue with buffered data (Olliver)
+* Fixed missing search engine keywords on servers with broken iconv (Olliver)
+* Fixed BBClone missing out on keywords of various search engines (Olliver)
+* Fixed BBClone not returning the approprate country if genuine visitors from
+  countries known as generic extensions (like "to", "st" or "ag") pass by
+  (Olliver)
+* Rewrote file writing to work around some broken PHP versions which would mess
+  up stats files otherwise (Olliver)
+* Use the last visit for calculating the visit length if there's no other value
+  (Olliver)
+* Only point to the referrer's root directory in our listing (Olliver)
+* Add each new referrer and keywords we get during a visit to our listing and
+  display their changes in detailed stats (Olliver)
+* Indicate user agent changes if $BBC_IGNORE_AGENT is activated in detailed
+  stats (Olliver)
+* Removed useless "not specified" entry from referrer listing (Olliver)
+* Open external referrers and show_views link in detailed stats in new browser
+  window (Olliver)
+* Use one common set of functions for all file operations to reduce code
+  redundency (Olliver)
+* Don't run update loops over and over again (Olliver)
+* Use file() for reading counter files because it appears to be faster (Olliver)
+* Added reset option for keywords, referrers, pages and hosts (Olliver)
+* Added support for rel="nofollow" tag to make referrer spam effectively useless
+  (Olliver)
+* Added an underscore to architecture detection, so ia_64 can be properly
+  displayed (Luke Woodward)
+* Revived Traditional Chinese translation (Peter Hou)
+* Updated Czech translation (Pavel Trefil)
+* Updated Danish translation (Paul Bischoff)
+* Updated Hungarian translation (Sándor Dibuz)
+* Fixed typo in Lithuanian translation (Viaèeslav Giedroit)
+* Fixed a couple of broken detection rules and added new ones (Olliver)
+* Code cleanups (Olliver)
+* Documentation updates (Olliver)
+* Icon updates (Olliver)
+* Ip2ext fixes (Olliver)
+
+0.4.6a
+------
+* Removed html decoding feature because it causes errors on some PHP
+  configurations (Olliver)
+* Fixed b0rked table width with Internet Explorer in global stats (Olliver)
+* Fixed height of each bar in time stats (Olliver)
+* Fixed Goo and Spurlbot detection (Olliver)
+* Separate notice for ip2ext (Olliver)
+* ip2ext update (Olliver)
+
+0.4.6
+-----
+* Fixed "array to string conversion" error in bbc_fix_title() (Olliver)
+* Fixed warning on first run of the counter due to a missing check (Olliver)
+* Fixed paths in language selection (html.php) (Olliver)
+* Added missing checks for local referrers in bbc_filter_ref() (Olliver)
+* Added "b" flag to read/write operations to prevent Windows from opening files
+  in Asci mode (Olliver)
+* Fancy icons and mouseover effects for navigation bar (Martin Halachev)
+* HTML workarounds for Opera (Martin Halachev)
+* Major rework of the HTML output (Olliver)
+* Some code cleanups (Olliver)
+* Use HTML entities for all iso-8859-15 languages (Olliver)
+* Updated Bulgarian translation (Martin Halachev)
+* Updated Czech translation (Pavel Trefil)
+* Updated Danish translation (Nanna Ellegaard)
+* Updated Hungarian translation (Sándor Dibuz)
+* Updated Norwegian (Bokmål) translation (Hans Fredrik Nordhaug)
+* Updated Slovene translation (Rok Potoènik)
+* Icon updates and fixes (Olliver)
+* Updated ip2ext database (Olliver)
+
+0.4.5-RC2
+---------
+* Fixed bbc_ftok() calculating unexpected values and possibly causing problems
+  on some Unix flavors (Olliver)
+* Updated Japanese translation (Katsunori Shiota)
+* Updated Italian translation (Olliver)
+* Dave Higgins joined the BBClone team :-)
+
+0.4.5-RC1
+---------
+* Fixed notice in io.php if ignored clients visit the site (Olliver)
+* Fixed upgrade code for old BBClone versions (Olliver)
+* Fixed missing encoding handler for Slovak (Olliver)
+* Reverted ip2ext lookup scheme to pre 0.4.4 behavior (Olliver)
+* Indicate and count ignored referrers in both detailed and global stats
+  (Olliver)
+* Decode HTML entities first in bbc_clean() to prevent messy page titles
+  (Olliver)
+* Added last visited page and search query as new columns in detailed stats
+  (Olliver)
+* Added fix for page titles that got messed up with htmlentities (Olliver)
+* Added handler in case a code snippet only returns empty page titles (Olliver)
+* Check PHP features with extension_loaded() for performance reasons (Olliver)
+* Improved search string detection (Olliver)
+* Fixed Centrum detection and added Seznam (both Czech bots) (Olliver)
+* Updated Livedoor detection to omit version numbers (Olliver)
+* Added Slovak translation (Zdeno Sekerak)
+* Updated Swedish translation (Daniel Bergman)
+* Updated French translation (François Pradignac)
+* Lowered the minimum length of search expressions from 3 to 2 characters
+  (Olliver)
+* A lot of code cleanups in various files (Olliver)
+* s/Slovenian/Slovene/g ;-) (Olliver)
+* Documentation: configuration options as separate file (Olliver)
+* Major ip2ext update with 60% more data than any previous release (Olliver)
+
+0.4.4a
+------
+* Fixed warning due to a broken regexp in robot.php (Olliver)
+* Fixed Onet.pl and Simpy detection (Olliver)
+* Do not use strtolower with UTF-8 as custom charset (Olliver)
+* Made code in lib/charconv.php more appealing (Olliver)
+* Replaced some outdated flags (Olliver)
+* Added missing extensions (Olliver)
+* Updated German, Russian and Simplified Chinese translation (Olliver)
+* Updated Japanese translation (Katsunori Shiota)
+
+0.4.4
+-----
+* Fixed broken referrers by Google's image search (Olliver)
+* Fixed ignored ip slips through if acting as/pretending to be a proxy server
+  (Olliver)
+* Fixed recode function ignoring $BBC_CUSTOM_CHARSET (Olliver)
+* Fixed error in show_global.php and show_detailed.php when trying to print an
+  error message about inaccessible files (Olliver)
+* Don't count characters over and over again in charconv.php (Olliver)
+* Don't execute bbc_filter_ref() when there's no referrer (Olliver)
+* $BBC_IGNORE_REFER fine tuning: if keyword starts with a slash, it will be
+  compared with the referrers uri, else with its hostname (Olliver)
+* Try to use recode for keyword conversion if mbstring functions aren't
+  available (Olliver)
+* Prefer iconv for keyword conversion if applicable (Olliver)
+* Merged with BBClone old and implemented a PHP version check (Olliver)
+* Display the exact amount of visits in bubbles (alternative text for images) in
+  timestats (Olliver)
+* Updated French translation (François Pradignac)
+* Updated Lithuanian translation (Vilius Simonaitis)
+* Updated Hungarian translation (Sándor Dibuz)
+* Rules and ip2ext fixes and updates (Olliver)
+
+0.4.4-RC5
+---------
+* Fixed broken legacy extension detection, which always returned "unknown"
+  (Olliver)
+* Fixed broken removal of non alphanumeric chararacters (Olliver)
+* Fixed malformed referrer hosts being counted (Olliver)
+* Fixed a few bots which changed their user agent recently (Olliver)
+* Don't look up extensions unless there's a new connection (Olliver)
+* Merged with BBClone-sem and BBClone-dio and created $BBC_USE_LOCK for
+  specifying the favorite locking mode (Olliver)
+* Wrote an ftok() emulation so SysV Semaphores can be used as flock() substitute
+  on php < 4.2.0 as well (Olliver)
+* Replaced $BBC_NO_STRING with a really talkative debug mode ($BBC_DEBUG)
+  (Olliver)
+* ip2ext fixes and update (as usual) (Olliver)
+
+0.4.4-RC4
+---------
+* Fixed broken special characters and umlauts in search engine keywords
+  (Olliver)
+* Fixed detection rules unnecessarily included twice (Olliver)
+* Fixed server added as external referrer under certain circumstances (Olliver)
+* Fixed broken paths in page ranking with ORIG_* headers (Olliver)
+* Fixed missing check for the presence of referrer.php (Olliver)
+* Fixed cache results listed as keyword if the cache id contains a dash
+  (Olliver)
+* Don't look up hostnames unless there's actually a new unique visitor (Olliver)
+* Added support for Japanese and Cyrillic charset detection and keywords
+  conversion (Olliver)
+* Don't take the client address of a transparent proxy if it doesn't match up
+  against a country (Olliver)
+* Look up each address in our ip2ext database unless we don't have an entry
+  (Olliver)
+* Moved bbc_clean() of the marker class to io.php (Olliver)
+* Added lib/charconv.php which converts the keywords into appropriate encodings
+  (Olliver)
+* Added charset switch for customised translations (ie. UTF-8 versions)
+  (Olliver)
+* Extended $BBC_PURGE_SINGLE to clean up single keyword entries as well
+  (Olliver)
+* Added Slovene translation (Rok Potoènik)
+* Treat Java and libwww as robot (Olliver)
+* Ip2ext database updates and fixes (Olliver)
+* Browser, OS and robots updates (Olliver)
+
+0.4.4-RC3
+---------
+* Fixed unescaped characters in urlencoded strings messing up the stats
+  (Olliver)
+* Fixed stylesheets printed as text in ancient browsers (Anybrowser check)
+  (Olliver)
+* Remove referrers from robots because of their excessive abuse (Olliver)
+* Updated ip2ext database and fixed some inconsistencies (Olliver)
+
+0.4.4-RC2
+---------
+* Reverted UTF-8 conversion due to compatibility issues (Olliver)
+* Removed keyword conversion code due to compatibility issues (Olliver)
+* Fixed some detection rules (Olliver)
+* Fixed some ranges in ip2ext database (Olliver)
+
+0.4.4-RC1
+---------
+* Fixed broken paths in page ranking on some servers (Olliver)
+* Fixed keywords not found in image searches (Olliver)
+* Leave BBClone's comments turned off by default (Olliver)
+* Regard User Agent changes as new visit by default (Olliver)
+* Strip non alpha numeric characters at the beginning or end of a keyword
+  (Olliver)
+* Convert keywords to UTF-8 if an encoding charset was given (Olliver)
+* Extended the scope of $BBC_IGNORE_REFER to the whole path instead the
+  hostname only (Olliver)
+* Added a lot of missing country flags (Luke Woodward)
+* Use UTF-8 for all translations (Olliver)
+* Removed Traditional Chinese because it's broken beyond repair (Olliver)
+* Updated Japanese translation (Katsunori Shiota)
+* Updated Bulgarian translation (Martin Halachev)
+* Huge detection rules update (mostly Japanese bots) (Olliver)
+* Updated ip2ext database (Olliver)
+
+0.4.3
+-----
+* Fixed some invalid ip2ext database entries and added new ranges (Olliver)
+* Fixed occurence of unwanted slashes with some php configurations (Olliver)
+* Fixed Digital and Tru64 version number detection (Olliver)
+* Fixed PalmOs detection (Olliver)
+* Don't list search engine cache indicator as keyword (Olliver)
+* Limit keyword length to 50 chars (Olliver)
+* Make keywords work with Mat'Kurja, too (Olliver)
+* Updated the reserved ip ranges published by IANA in lib/marker.php (Olliver)
+* Removed "not_specified" stuff for top hosts listing (Olliver)
+* Emphasize hits and unique visits on bottom of the global stats (Olliver)
+* More robot additions (Olliver)
+
+0.4.3 RC2
+---------
+* Fixed empty keywords being added to the ranking (Olliver)
+* Fixed WWWC being considered a browser though it's a robot (Olliver)
+* Don't add a new keyword unless it has at least 3 characters (Olliver)
+* Added handling for HTTP_PC_REMOTE_ADDR to make MacOs servers happy (Olliver)
+* Added handling for non existing entries in our rules (Olliver)
+
+0.4.3 RC1
+---------
+* Fixed wrong score of unknown referrers (Olliver)
+* Fixed wrong file name of Swedish translation (Olliver)
+* Fixed notices on a fresh install due to a missing check (Olliver)
+* Fixed MacOsX being identified as Windows (Olliver)
+* Fixed a lot of wrong entries in ip2ext database (Olliver)
+* New Feature: Top keywords from search engines (Olliver)
+* Added quite a few new detection rules (Olliver)
+* Added some missing flags (Luke Woodward)
+* Referrer related processing as separate file (lib/referrer.php) (Olliver)
+* Modified global stats output (Olliver)
+* Updated ip2ext database (Olliver)
+* Updated Italian translation (Daniele Raffo)
+* Updated Catalan translation (Oriol Torra Sellares)
+
+0.4.2
+-----
+* Fixed missing error message if var/ isn't writable on Win32 (Olliver)
+* Fixed some detection rules (Olliver)
+* Fixed spelling errors in Dutch and German translation (Olliver)
+* Limit maximum accepted input to 512 bytes (Olliver)
+* Read counter files and ip2ext data line by line (Olliver)
+* Cleaned up a lot of code ugliness (Olliver)
+* Don't forcefully implode data in lib/marker.php (Olliver)
+* Removed useless code fragment in lib/marker.php (Olliver)
+* Removed "Verdana" as font in html.php (Olliver)
+* Updated Hungarian translation (Sándor Dibuz)
+* Updated Japanese translation (Katsunori Shiota)
+* Updated ip2ext database (Olliver)
+
+0.4.2 RC4
+---------
+* Fixed random phantom connections appearing in detailed stats (Olliver)
+* Fixed randomly b0rked visits in detailed stats (Olliver)
+* A couple of new detection patterns (Olliver)
+
+0.4.2 RC3
+---------
+* Don't turn integers to strings in access.php and last.php (Olliver)
+* Empty last stats if $BBC_MAXVISIBLE is <= 0 (Olliver)
+* Print error message if var/ directory is read-only on Windows systems
+  (Olliver)
+* Cleaned up some messy code (Olliver)
+* Updated Norwegian (Bokmål) translation (Hans Fredrik Nordhaug)
+* Updated French translation (François Pradignac)
+* Updated Bulgarian translation (Martin Halachev)
+* Updated the ip2ext database (Olliver)
+* Updated documentation (Olliver)
+
+0.4.2 RC2
+---------
+* Fixed broken unique counting in global stats (Olliver)
+* Fixed broken extension counting (Olliver)
+* Fixed missing sanity check for $last['traffic'] in show_views.php (Olliver)
+* Fixed "headers sent by" warning if stats are reset with $BBC_NO_STRING
+  activated (Olliver)
+* Separated detection by rules from updating global stats (Olliver)
+* Leave out the complete robots <td> if no robots are desired (Olliver)
+* Updated the ip2ext database (Olliver)
+* More code cleanups in mark_page.php (Olliver)
+
+0.4.2 RC1
+---------
+* Fixed several wrong entries in ip2ext database and added new ranges (Olliver)
+* Fixed wrong value for $BBC_LANGUAGE in show_config.php (Olliver)
+* Fixed lockfile being indicated as directory on error (Olliver)
+* Fixed rare bug with multiple ip addresses (Olliver)
+* Don't use foreach for huge arrays (it wastes a lot of memory) (Olliver)
+* Don't include detection rules in global namespace (Olliver)
+* Define true fontsize in config instead of setting arbitrarily defined
+  integers (Olliver)
+* Added option to completely ignore robots (Olliver)
+* Added "last reset" display (Olliver)
+* Html lib as class in order to reduce global variables pollution (Olliver)
+* Page stats as own function in log_processor.php (Olliver)
+* Cleaned up messy code in mark_page.php (Olliver)
+* New ip2ext database format with up to 30% smaller files (Olliver)
+* Added 198.18/15 to the exclusion list (RFC 2544) (Olliver)
+* Re-introduction of IP swapping (based on the proxy type in use) (Olliver)
+* Added Norwegian (Bokmål) translation (Hans Fredrik Nordhaug)
+* Updated Dutch translation (Matthijs)
+* Updated Japanese translation (Katsunori Shiota)
+* Updated Hungarian translation (Sándor Dibuz)
+* Removed the "v" in all BBClone version strings (Olliver)
+
+0.4.1
+-----
+* Fixed inconsistency in database and added new ranges (Olliver)
+* Fixed updating of time in after changing timezone in detailed stats (Olliver)
+* Fixed some broken detection patterns (Olliver)
+* Fixed wrong calculation of hours in visit stats (Olliver)
+* Fixed exclusion pattern for test nets (192.0.2/24) (Olliver)
+* Fixed variable name conflict with TikiWiki (Olliver)
+* Fixed function name conflict with a phpBB extension (Olliver)
+* Truncate page titles if > 60 characters (Olliver)
+* Take the first address in proxy chains instead of the last one (Olliver)
+* Don't swap the ip because it's unreliable (Olliver)
+* Added switch to clean up one time hosts and referrers on demand (Olliver)
+* Added missing explanation for referrer column in detailed stats (Olliver)
+* Added Hungarian translation (Sándor Dibuz)
+* Updated French translation (François Pradignac)
+* Updated German translation (Olliver)
+* Updated Italian translation (Daniele Raffo)
+* Updated Russian translation (Vladislav Korotkov)
+* Added more common bots and browsers (Olliver)
+* Shortened the GPL license header (Olliver)
+* Documentation update (Olliver)
+
+0.4.0
+-----
+* Fixed incorrect visit length in visit stats (Olliver)
+* Fixed reverse proxy address being displayed as visitor (regression) (Olliver)
+* Fixed a couple of detection rules which have been broken for ages (Olliver)
+* Display the connection age just like in detailed stats (Olliver)
+* If there's a proxy chain take the last address from the list (Olliver)
+* Moved bbc_plot() to show_time.php because it's only used in the time stats
+  (Olliver)
+* Upgraded to XHTML 1.0 transitional compliance (Olliver)
+* Make html output look consistant on each page (Olliver)
+* Row generation of detailed stats as own function (Olliver)
+* Major update of our ip2ext database (Olliver)
+* Removed $BBC_VIEW_LIM because it has become obsolete with the usage of
+  $BBC_MAXVISIBLE (Olliver)
+* Code cleanups (Olliver)
+* Documentation updates (Olliver)
+* Updated bots and browsers (Olliver)
+* Updated Dutch translation (Matthijs)
+* Updated Japanese translation (Katsunori Shiota)
+* Updated Russian translation (Vladislav Korotkov)
+
+0.4.0 RC2
+---------
+* Fixed visits stats getting out of sync (Olliver)
+* Fixed missing uri in page stats if $PATH_TRANSLATED isn't available (Olliver)
+* Fixed time_offset() unnecessarily being called when there's nothing to do
+  (Olliver)
+* Fixed annoying notices if $BBC_MAXVISIBLE < 1 (Olliver)
+* Fixed counting of reloads in visits stats (Olliver)
+* Fixed a couple of errors in the German translation (Olliver)
+* Don't show more than $BBC_MAXVISIBLE pages in visits stats (Olliver)
+* Summarise successive calls of the same page in visits stats (Olliver)
+* Added stricter checks for the correct data type (Olliver)
+* Added Greek translation (Clopy)
+* Added more bots and browsers (Olliver)
+* Removed lib/codelang.php and lib/extension.php (Olliver)
+* Updated Bulgarian translation (Martin Halachev)
+
+0.4.0 RC1
+---------
+* Fixed braindead usage of $BBCLONE_DIR for setting the rootdir in constants.php
+  (Olliver)
+* Fixed fatal error when transforming and merging old access.php entries
+  (Olliver)
+* Fixed defunct $BBC_COUNTER_FILES switch in constants.php (Olliver)
+* Fixed wrong variable name in FAQs (Olliver)
+* Fixed large numbers in time stats don't keep the first figure after the dot
+  (Olliver)
+* Fixed wrong paths in page stats if PHP is running as cgi (Olliver)
+* Fixed require_once woes with log_processor.php and access.php (Olliver)
+* Fixed hardcoded fontsize in top hosts listing and time stats (Olliver)
+* Fixed path disclosure of bbclone directory and counter files (Olliver)
+* Fixed messy timezone code (Olliver)
+* Fixed missing extensions in translation files (Olliver)
+* Added top ten stats for hosts and updated both translation and show_config.php
+  accordingly (Olliver)
+* Added switch to turn off name resolving if necessary (Olliver)
+* Added switch to modify the counting mode if desired (hits or unique visits)
+  (Olliver)
+* Added switch to select whether a different user agent of the same address
+  should be treated as new (unique) visit (Olliver)
+* Added switch for resetting the stats if desired (Olliver)
+* Added visit stats with page history, visit time and more details about the
+  selected visitor (Olliver)
+* Added resolving of countries by means of looking up our own database (Olliver)
+* Added more extensions which shouldn't be treated as hostname (Olliver)
+* Added switch for filtering robots in the top ten hosts stats (Olliver)
+* Added a switch for adjusting the time in case the server time mismatches the
+  local time (Olliver)
+* Bumped minimum requirement to 4.1.0 (Olliver)
+* Use superglobals instead of legacy stuff to solve PHP 5 issues (Olliver)
+* Write to .htalock and check whether it's still empty before updating the stats
+  to improve reliability on hosts where flock() can't control all processes
+  (Olliver)
+* Changed write mode and truncating of access.php to increase speed and decrease
+  CPU usage (Olliver)
+* Changed status report of counter files to yield more useful information
+  (Olliver)
+* Improve security by unsetting variables we want to use in global space first
+  (Olliver)
+* replaced htmlentities() with htmlspecialchars() to enable page titles in non
+  Latin based charsets as well (Russian, Bulgarian, Japanese, Chinese...)
+  (Olliver)
+* Make sure "var" is actually a directory before doing anything (Olliver)
+* Added error message in case flock() doesn't work so people have an idea about
+  what's going on (Olliver)
+* Separated detailed stats from static data in global and time stats (Olliver)
+* Rewrote show_config stuff and turned it into a reference for available options
+  (Olliver)
+* Use 16 counter files instead of 10 (Olliver)
+* Have timestats spread over 3 rows to avoid horizontal scrollbar madness on
+  heavily visited hosts (Olliver)
+* Changed proxy detection to look through all relevant headers and notice
+  hexadecimal client addresses (Olliver)
+* Removed reverse DNS check, as its sufficient to resolve the IP address to a
+  hostname to get the same result (Olliver)
+* Moved referrer stuff from io.php to marker.php to make the code look cleaner
+  (Olliver)
+* Removed display of blacklisted IPs because it's sufficient not to count them
+  (Olliver)
+* Removed braindead update code for page stats which hosed our previous releases
+  (Olliver)
+* Removed braindead repetition of title variables in show_config.php (Olliver)
+* Removed counting of new and new unique visits in both show_global.php and
+  log_processor.php because it doesn't yield any useful information anyway
+  (Olliver)
+* Removed $BBC_AUTO_UPDATE in constants.php because we will immediately update
+  our stats (Olliver)
+* Moved navbar stuff in global space into the appropriate function in html.php
+  (Olliver)
+* Moved time manipulation stuff from log_processor.php into a separate file
+  (Olliver)
+* Moved extension handling from log_processor.php into a separate file (Olliver)
+* Moved marker class from mark_page.php into a separate file (Olliver)
+* Replaced ereg_* with preg* to improve performance (Olliver)
+* Replaced 96 icons to make IE users happy again (broken *png support) (Olliver)
+* HTML output adjustments to make things look nicer (Olliver)
+* Make "Last Page" no longer appear as hardcoded string (Olliver)
+* Bulgarian and Italian translation updates (Martin Halachev, Daniele Raffo)
+* Documentation updates (Olliver)
+* Update of Dutch install.txt (Matthijs)
+* Changed default settings in config.php (Olliver)
+* Use one timestamp defined in constants.php for the stat (Olliver)
+* A couple of robots and browsers additions (Olliver)

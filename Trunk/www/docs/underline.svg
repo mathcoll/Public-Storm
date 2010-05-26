@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="underline.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="473.03693"
+     inkscape:cy="680.21435"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="969"
+     inkscape:window-x="0"
+     inkscape:window-y="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g3219"
+       inkscape:export-filename="/home/mathieu/Projets/current/public-storm/Trunk/www/themes/ps/templates/img/underline.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97">
+      <path
+         inkscape:export-ydpi="97"
+         inkscape:export-xdpi="97"
+         inkscape:export-filename="/home/mathieu/Projets/current/public-storm/Trunk/www/themes/ps/templates/img/underline.png"
+         sodipodi:nodetypes="csssssc"
+         id="path3213"
+         d="M 170.8408,109.94989 C 173.06654,109.86572 181.71256,111.04716 189.48551,111.04716 C 201.9803,111.04716 212.00466,109.4479 224.67804,110.16219 C 245.03602,111.30959 264.27913,107.15093 284.34707,109.03414 C 295.7645,110.10557 355.39621,110.10557 364.67078,109.03414 C 374.51037,107.89744 383.15063,109.59816 392.97532,109.59816 C 395.09117,109.59816 408.42811,109.99467 410.83958,109.95752"
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#156e1e;stroke-width:1.30052495;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#156e1e;stroke-width:1.30052495;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 410.80955,109.94989 C 413.03529,109.86572 421.68131,111.04716 429.45426,111.04716 C 441.94905,111.04716 451.97341,109.4479 464.64679,110.16219 C 485.00477,111.30959 504.24788,107.15093 524.31582,109.03414 C 535.73325,110.10557 595.36496,110.10557 604.63953,109.03414 C 614.47912,107.89744 623.11938,109.59816 632.94407,109.59816 C 635.05992,109.59816 648.39686,109.99467 650.80833,109.95752"
+         id="path3217"
+         sodipodi:nodetypes="csssssc"
+         inkscape:export-filename="/home/mathieu/Projets/current/public-storm/Trunk/www/themes/ps/templates/img/underline.png"
+         inkscape:export-xdpi="97"
+         inkscape:export-ydpi="97" />
+    </g>
+  </g>
+</svg>

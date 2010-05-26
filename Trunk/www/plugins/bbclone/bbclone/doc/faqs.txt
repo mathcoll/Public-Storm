@@ -1,0 +1,470 @@
+/* This file is part of BBClone (The PHP web counter on steroids)
+ *
+ * $Header: /cvs/bbclone/doc/faqs.txt,v 1.22 2009/08/30 09:35:45 joku Exp $
+ *
+ * Copyright (C) 2001-2009, the BBClone Team (see file doc/authors.txt
+ * distributed with this library)
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * See doc/copying.txt for details
+ */
+BBCLONE FAQS
+============
+
+
+I installed BBClone and now it doesn't work
+-------------------------------------------
+
+The first step should be to activate debug mode in config.php by setting
+$BBC_DEBUG = 1; Then load your page in your browser once more. You should see
+some verbose messages, which may already help you solving your problem.
+
+READ THE DOCUMENTATION BEFORE GOING AHEAD!
+
+Sometimes a particular server configuration may be not yet compatible with
+BBClone, then you may see messages triggered from the PHP interpreter. Saving
+them into a file for later reference is a good idea, because this very message
+can contain valuable informations for the developer in order to address the
+problem. If you haven't got the latest version of BBClone running, this would
+be the moment to install it. Sometimes the bug will be mentioned in the
+Changelog, if not it may have been fixed as side effect of other code changes.
+
+If you still see your error, visit the forum and perform a search whether the
+bug already has been discussed. If you can't find the topic it's likely you
+found a bug the BBClone team hasn't been aware of and should report it by
+posting a message in our forums. Don't wait for others doing the job, because
+chances are the bug has a specific nature and other people usually don't stumble
+upon it. When reporting, please be descriptive about what exactly you are
+seeing (exact error message would be great), what you already tried and on what
+platform BBClone is running.
+
+
+How do I upgrade from BBClone 0.3x?
+-----------------------------------
+
+The following procedure has proved as a safe and reliable method:
+
+- make a backup of access.php which resides in the var/ directory of the BBClone
+  installation. It contains your stat data
+- Copy all files of the package to your bbclone directory and overwrite all
+  files, including conf/config.php.
+- Take your backup of access.php and copy it to the var/ directory of your
+  BBClone installation
+- Make everything except .htaccess writable in the var/ directory. In case you
+  made a backup of some settings, make sure you just insert the values and not
+  variables and values, because some variables were renamed
+
+That's it. Your detailed stats will be reset because of some internal changes,
+but your collected stats will remain intact.
+
+
+How do I upgrade from BBClone 0.4x?
+-----------------------------------
+
+The following procedure has proved as a safe and reliable method:
+
+- Copy all files of the package except the var/ directory and its contents to
+  your bbclone directory and overwrite all files except the var/ directory and
+  its contents, including conf/config.php.
+- Reconfigure BBClone. There are a couple of options which may be of interest
+  for you that have been recently added and aren't turned on by default. They
+  are listed in the file doc/options.txt.
+
+
+What permissions do I have to set for BBClone?
+----------------------------------------------
+
+You need to make counter[0-15].inc, lock, access.php and last.php in the
+var/ directory of your BBClone installation writable for the server, which is
+in most cases by applying chmod 666. In case you have shell access, use the
+following commands:
+chmod 666 *
+chmod 666 lock
+You need to use it twice because the first wildcard will ignore hidden files.
+IIS may use a different command, please consult your documentation regarding it.
+Attention Windows users: You have to make the var/ directory writable for the
+server, else PHP is unable to write to the files inside. This is an
+inconsistency in the NTFS file system, hence it can't be fixed by the BBClone
+team.
+
+If your PHP installation acts as cgi and scripts are executed under your user
+id it's sufficient to have them chmod'ed to 644. Rule of thumb: If you see
+BBClone complaining about read-only files as comment in the generated HTML
+source you can assume that the current permissions are insufficient.
+
+
+I installed BBClone and now application xxx no longer works and I'm getting
+---------------------------------------------------------------------------
+errors about already defined functions.
+---------------------------------------
+
+Your application is using the same function names as BBClone. Upgrading to
+version 0.4.1 solves the issue as a common prefix for all functions will be
+used.
+
+
+Why is BBClone still not working with application xxxxx though the problem has
+------------------------------------------------------------------------------
+been around for/since...?
+-------------------------
+
+Because none of the developers is using application xxxxx and nobody was
+notifying them that a problem would exist with it. BBClone can only work as good
+as people participate in reporting problems.
+
+
+BBClone doesn't work and I only see the inclusion in the source
+---------------------------------------------------------------
+
+You put the inclusion into a *.htm, *.html page. This doesn't work because the
+server only will use the php interpreter if the file itself is marked as php
+page. Thus you either have to rename the file to *.php first or add the line:
+AddType application/x-httpd-php .htm .html to .htaccess in order to make it work
+with BBClone. Please note, that BBClone does require PHP and doesn't run on
+accounts which are only allowed to use html. Also you may not be allowed to
+define options in your .htaccess or to use .htaccess at all.
+
+
+BBClone doesn't work and I can't see any status at all in the source
+--------------------------------------------------------------------
+
+There are quite a few possibilities:
+
+- The directory you specified in your inclusion doesn't contain a trailing
+  slash. This, however, is necessary for getting a valid path to the counter.
+- The file "config.php" can't be read by the server. Either because it's missing
+  or an invalid path was specified to it
+- You entered a path like: http://myserver.com/mybbclone/ as _BBCLONE_DIR. This
+  doesn't work because BBClone relies on relative paths.
+- You are running Solaris with a PHP version older than 4.3.1. Usage of relative
+  paths is broken in these versions. A workaround would be using absolute local
+  paths for both the inclusion and the paths specified in constants.php
+
+
+BBClone prints the following message in debug mode:
+---------------------------------------------------
+
+File xxxxx is read-only. You may have to check whether it has the right
+permissions or is even missing
+
+It means that BBClone failed to write to a file which is needed for counting.
+You will have to make that fail writable for the server
+
+
+File demo/var/lock is inaccessible. You may have to check whether it has the
+right permissions or is even missing.
+
+You did not include the file "lock" which is necessary for writing to
+access.php and last.php. If you upgrade from an older installation, please
+include all files from the package.
+
+
+BBClone isn't able to read its configuration data. This is likely because you
+embedded BBClone's code snippet into a function. Please use BBClone as suggested
+in the documentation
+
+You may face this message after you have included the snippet into a header or
+footer of an content management system which is including its files via
+functions (often accompanied with a html code cleanup function). In this case
+you need to place the snippet elsewhere until the message is gone. This is a
+known limitation of BBClone and will be addressed in later revisions.
+
+
+File xxxxx is inaccessible. You may have to check whether it has the right
+permissions or is even missing
+
+The reasons why files are missing are mostly related to the file transfer.
+Either the connection was closed from the remote site (also responsible for
+missing icons) or the FTP client's settings prevented uploading of all files.
+You have to make sure that the client uploads files from all directories
+(recursive), updates the remote files even if they are present and that the
+client automatically creates directories if missing.
+
+
+BBClone isn't able to lock files for writing with its current setting. You may
+use $BBC_USE_LOCK = "yyy"; in config.php however
+
+The standard method of locking files isn't working for you. If an alternative is
+offered, you only need change the setting according to the printed suggestion
+and your problem should be solved. If no alternative is offered, however you
+cannot run BBClone, because flat files need to be locked for writing in order to
+avoid file corruption.
+
+If you are using Win95/98/ME as server OS there's no workaround because these
+systems don't contain a locking mechanism which is needed for updating the
+stats. If this is happening with Windows XP check whether "Use simple file
+sharing" in "Tools" -> "Folder Options" -> "View menu" is checked. If so,
+uncheck it in order to get the traditional NT security tab in which you can
+set the permissions.
+
+
+BBClone doesn't count though it states everything would be ok
+-------------------------------------------------------------
+
+This is a Windows specific problem: Contrary to MacOs X and other Unix like
+systems, Windows' NTFS file system can't write to files inside of a read-only
+directory. Unfortunately there's a bug in NTFS which causes the system to return
+"true" if PHP checks whether a file can be written to where it should return
+"false". The solution is to make the var/ directory writable for the server.
+Attention: You'll have to use the "security" tab of your file properties menu to
+modify the setting.
+
+
+BBClone spits "permission denied" and "failed to open stream" messages
+----------------------------------------------------------------------
+
+BBClone checks whether it's allowed to write to a file before doing so. This
+will work as long as the file system is returning the correct state to PHP. Some
+filesystems like NTFS however may return flags, that PHP 4.x don't understand
+and then it will result in error messages despite having an error handler. If
+this is happening on Windows, you'll need to check, whether you granted write
+permissions to both BBClone's var directory and the files inside (except
+.htaccess which should remain readable). Please note that you have to change the
+settings of the security tab and not the casual file properties dialog. In fact,
+both tabs can contradict each other and cause unexpected behavior. A workaround
+for these issues has been implemented in PHP 5.x, so that even on Windows with
+NTFS PHP will work as expected.
+
+
+My detailed stats only have one entry that gets constantly overwritten
+----------------------------------------------------------------------
+
+You set one of the following options to "0" or "":
+$BBC_MAXHOST, $BBC_MAXKEY, $BBC_MAXORIGIN, $BBC_MAXPAGE, $BBC_MAXVISIBLE.
+
+By the time you've set it like this, BBClone assumes you want to reset one of
+these categories. But each reset requires the reset of last.php as well, because
+otherwise this file would contain invalid data.
+
+
+I'm using "sem" as locking method and keep getting "Warning: semget() failed for
+--------------------------------------------------------------------------------
+key xxxxx: No space left on device in xxxxx"
+--------------------------------------------
+
+Your server does not allocate sufficient resources for SysV Semaphores to use
+them for locking files. In case you have root access you should modify the
+system settings to increase them. Otherwise you can try whether you can use
+"dio" or the default "flk" as value for $BBC_USE_LOCK in config.php. If that's
+not possible either it probably means that BBClone won't work for your server
+configuration.
+
+
+Some of my visitors are displayed with my server's ip address / hostname
+------------------------------------------------------------------------
+
+This problem can occur with some MacOs X configurations. Updating to BBClone
+0.4.6b solves the problem.
+
+
+BBClone doesn't display special characters in keywords correctly
+----------------------------------------------------------------
+
+This was due to a problem with UTF-8 encoded strings and had been solved in
+BBClone 0.4.4 and higher.
+
+
+But I do use the latest version and still the keywords are messed up
+--------------------------------------------------------------------
+
+BBClone doesn't clean up old keywords, because they can't be recovered in a
+useful way. But you can reset the keyword counter in BBClone 0.4.6b by setting
+$BBC_MAX_KEY to "0". In case you are seeing messy keywords with a fresh install
+or newly added keywords, chances are that your PHP version doesn't provide
+support for either mbstring, iconv or gettext. If Japanese or Chinese is your
+page's language you probably didn't set the correct value for $BBC_LANGUAGE.
+
+
+I'm randomly losing my stats
+----------------------------
+
+If this is happing with 0.33.5 up to 0.33.6pre it means, flock() wasn't able to
+protect the files from being corrupted by other processes. This usually happens,
+if multiple servers (not visitors!) try to write to the counter files
+simultaneously. Upgrading to 0.4.0 and greater adds an additionial layer of
+locking and will cure the issue in most cases. Remaining issues were related to
+race conditions triggered by slow name resolving. This problem was first
+addressed in BBClone 0.4.4 RC4. Note that by its design BBClone isn't suitable
+and useful for high traffic sites.
+
+
+BBClone slows down my page as hell
+----------------------------------
+
+DNS resolving is too slow or unreliable in your network. If it's within a local
+Windows network: Your machines don't know each other. Adding them in each of the
+machines' "hosts" file should solve the issue (except you got slow and
+unreliable DNS servers). If you can't change the configuration set $BBC_NO_DNS
+to "1", this will turn off hostname lookups.
+
+
+BBclone randomly fails to determine the visitors' country or displays obviously
+-------------------------------------------------------------------------------
+wrong results
+-------------
+
+You are using the wrong ip2ext database for your BBClone installation. If your
+version is 0.4.0 RC1 to 0.4.1 you have to use ip2ext-old. BBClone 0.4.2 RC1 and
+newer will need ip2ext-new.
+
+
+BBclone doesn't resolve ip addresses or extensions to countries
+---------------------------------------------------------------
+
+Check the permissions of the files inside of the ip2ext directory, whether they
+are reasable for the server. If this is happening after an upgrade you didn't
+copy the ip2ext directory, which contains the country information.
+
+
+I want to track htm/html files with the .htaccess method but it doesn't work
+----------------------------------------------------------------------------
+
+There can be numerous reasons for it:
+
+- Your pages use XHTML or XML and PHP is configured with short_open_tag set to
+  "On". In this case PHP will attempt to parse XML data as PHP which is likely
+  to fail with either a blank page or a parse error. In this case the workaround
+  is to add the following option to .htaccess:
+  php_value short_open_tag "Off"
+  This will instruct PHP to parse <?php ?> tags only
+- Your path to the BBClone installation is invalid. It has to be an absolute
+  local path
+- You didn't add:
+  AddType "application/x-httpd-php .htm .html" to your .htaccess
+- You aren't allowed to use this feature
+- You don't use an Apache server or aren't allowed to use PHP
+- A BBClone configuration error (see "BBClone doesn't work and I can't see any
+  status at all" for more details)
+
+BBClone doesn't show any referrers from my visitors
+---------------------------------------------------
+
+Either you are using frames and put the inclusion into one of the frame pages or
+you put it into an php page which will be bound into the main page (ie. header
+or footer file). The visitors' referrer from external sites, however, is only
+kept for the first document requested, which will be either the frameset or the
+first included php file. Hence all pages loaded afterwards only will refer to
+local pages (in the order they've been called). Adding the inclusion into the
+frameset or the first included document should make the problem go away.
+
+
+But my page doesn't use any frames and still I don't get referrers
+------------------------------------------------------------------
+
+Some sellers of toplevel domains simply create a framed redirect to your actual
+location. As a result your page is caught in a frame and therefore referrers
+can't be fetched. If that's not the case either, there's a huge change that your
+site is running on a server with a broken iconv implementation. In such cases,
+the character conversion will be aborted and cause the keywords to be omitted.
+In case your server has support for mbstring upgrading to BBClone 0.4.6b should
+solve the problem and make the keywords reappear.
+
+
+I run a couple of different sites and don't want to have them listed in my
+--------------------------------------------------------------------------
+referrer ranking. How do I archieve that?
+-----------------------------------------
+
+For this constellation BBClone offers $BBC_IGNORE_REFER as feature. It accepts
+hostname or parts of it as input and whenever a referrer matches the host on
+that list, they'll be ignored and treated as empty. You can also use a comma
+separated list if there are more sites you wish to ignore.
+
+
+I'm running a blog and get lots of fake referrers from spam bots. What can I do?
+--------------------------------------------------------------------------------
+
+See previous point. You can use $BBC_IGNORE_REFER to block unwanted referrers.
+If the spambot never changes its hostname, you can save a lot of typing by
+simply adding its ip address (displayed in the page history) to your
+$BBC_IGNORE_IP list.
+
+
+A spammer completely messed up my referrer ranking. Is there a way to reset it?
+-------------------------------------------------------------------------------
+
+As of BBClone 0.4.6b you can reset your referrer ranking by setting $BBC_MAX_ORIGIN
+to "0".
+
+
+My hostname listing in the global stats doesn't contain any entries
+-------------------------------------------------------------------
+
+You upgraded from BBClone 0.3.x and didn't overwrite your config.php file as
+suggested. As a result a couple of variables are now missing, and missing
+variables will be read as if an option has been deactivated.
+
+
+I upgraded BBClone and now I'm getting the error "called to undefined
+---------------------------------------------------------------------
+function..."
+------------
+
+You didn't overwrite all files when upgrading or overwrite new files with old
+versions. When upgrading, however, it's safe to leave your access.php and, if
+available, last.php in order to keep your collected stats.
+
+
+BBClone doesn't ignore my hostname and put it on the blacklist, though I did
+----------------------------------------------------------------------------
+enter it correctly
+------------------
+
+$BBC_IGNORE_IP only accepts IP addresses or parts of it (read from left to
+right). If you wish to block a particular hostname you may like to use the
+following as workaround in your config.php:
+
+$BBC_IGNORE_IP = gethostbyname("my.host.name.org");
+
+This way it will be turned into an ip address first and the restriction no
+longer applies. You may also like to apply this workaround if you haven't got a
+static IP address but a static hostname (ie. from Dyndns or No-ip) so the
+correct address is being blocked without the necessity of manually changing it.
+
+In case you upgraded from an older BBClone version, you should know that
+$BBC_IGNOREIP in BBClone 0.3x was renamed to $BBC_IGNORE_IP as of 0.4.0 RC1.
+Hence you can't simply copy and paste the line without adding an underscore to
+the variable. It's suggested to copy values only, since variable names are
+subject to changes in future versions.
+
+
+Why didn't you reply to my inquiry I sent via the contact form?
+---------------------------------------------------------------
+
+Probably because the mail
+- was sent with an invalid reply address
+- was about download problems
+- server is rejecting the responses
+- contained questions about subjects already covered in the FAQ
+- lacked a useful problem description (just "doesn't work" isn't)
+- sounded like an order what has to be done and/or fixed
+- abused the support offer for things unrelated to BBClone
+- sounded like spam and/or social engineering
+- was of an insulting nature or sounded like a trolling attempt
+
+
+The BBClone download doesn't work
+---------------------------------
+
+If it's only happening with a particular browser it means it is broken and you
+either have to update it or use a different product. If it's happening with any
+tool, however, it means that either an application firewall or proxy server is
+intercepting your download attempts. Contact your administrator or your vendor's
+support to discuss the issue.
+
+
+Why doesn't BBClone come along with an install script?
+------------------------------------------------------
+
+Because then all files would be owned by the server (except for PHP running as
+CGI) and cause various issues an ordinary user may not be able to solve on one's
+own like not being able to edit, replace or delete files. Apart from that,
+putting the inclusion into your pages can't be automatically done anyway so
+there's little gained by an install script.
+
+
+The BBClone team

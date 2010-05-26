@@ -1,0 +1,1 @@
+<li><a href="{$base_url}/{$code}/" class="{$selected}">{t 1=$name}language name{/t}</a></li>

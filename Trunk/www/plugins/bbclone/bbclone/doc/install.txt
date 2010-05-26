@@ -1,0 +1,200 @@
+/* This file is part of BBClone (The PHP web counter on steroids)
+ *
+ * $Header: /cvs/bbclone/doc/install.txt,v 1.30 2009/08/30 09:35:45 joku Exp $
+ *
+ * Copyright (C) 2001-2009, the BBClone Team (see file doc/authors.txt
+ * distributed with this library)
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * See doc/copying.txt for details
+ */
+The following description applies to a generic BBClone installation, that does
+not reflect particular weblogs/content management systems. For this purpose it's
+recommended you take a look at our links page first, which features a listing to
+external resources.
+
+
+Setup
+=====
+
+If you are a Windows user you should prefer the *.zip package because its
+included documentation uses Windows style formatting, which means it will be
+readable in applications like Notepad, too. If your favorite editor hasn't got
+a problem with Unix formatted documents, you can also download the *.tar.gz
+archive.
+
+There are two ways to upload BBClone via FTP. Either you upload the package and
+extract it on the server or you upload the already extracted files. As a rule
+of thumb, whenever shell access is available, you should extract the archive on
+the server because it will save you a lot of time and ensures all files are
+copied to their destination. If there's no shell access or you simply don't know
+how to operate on such a shell you can upload the single files to your server.
+But be aware there are a couple of pitfalls:
+
+Your FTP client must have been configured to treat *.php, *.inc and *.png
+files as binary files. Uploading them in ascii mode may break the application
+or result in broken images. Ask your FTP client's vendor how to configure it,
+if you feel unsure about it and its documentation doesn't give any hints
+You have to double check whether really all files have been copied to their
+destination. Sometimes it happens that FTP servers unexpectedly shut down the
+connection or runs into a timeout if there's a large amount of files.
+Your FTP client should offer options to resume incomplete files and skip
+already existing files of the same size. It will make your life much easier
+
+It's a good idea to make something like a sketch about the documents structure
+on your server. You need to know the path to your BBClone installation
+directory and how to get there from each point of your site you wish to monitor
+the traffic.
+
+Example:
+
+www.example.com
+     |
+  index.php (1)
+     |
+     |
+     |----bbclone/
+     |
+     |
+     |----subdirectory/
+     |        |
+     |    index.php (2)
+
+
+The path to BBClone in document (1) would be "bbclone/", because "index.php"
+resides in the root directory. But be aware of document (2). It's path is
+different, because it's path starting from the www-root is actually
+"subdirectory/index.php". In other words at the same level as the BBClone
+directory. So in order to get to the BBClone directory we need to move one
+level up and then enter the BBClone directory. That's why the path to BBClone
+for document (2) is "../bbclone/. The ".." tell the server to move to the
+parent directory first.
+
+If you browse BBClone's directory you'll notice a directory called "var/". In
+Unix land, a var directory contains frequently alterred files, typically stuff
+like logs or data bases would be stored there. BBClone will store its data
+there, but in order to do so the server needs to be allowed to write to some
+files. The files are:
+
+counter[0-15].inc -> contains the raw connection data of a visitor
+access.php -> contains the data used for global and time statistics
+last.php -> contains the data used for detailed statistics
+.htalock -> lockfile needed while writing to the files mentioned above
+
+To make these files writable for the server apply the "chmod" command. If your
+server doesn't know "chmod" contact your hosting company for getting the
+appropriate command. If your PHP runs as Apache module then "chmod 666" will be
+the right command. "644" won't work because the server accesses the file as a
+different user, which would restrict access to read-only, as "644" would only
+grant write access for the owner. If your PHP runs as cgi-binary then
+"chmod 644" may already be sufficient, since the server will use your user id
+for accessing the files. If unsure, use "chmod 666".
+
+Now the code needs to be added to the files you wish to monitor. It's a good
+idea to create a test file at first to see whether BBClone is already working.
+To do you can use the following sample and point your browser to it.
+
+<?php
+define("_BBC_PAGE_NAME", "Test");
+define("_BBCLONE_DIR", "bbclone/");
+define("COUNTER", _BBCLONE_DIR."mark_page.php");
+if (is_readable(COUNTER)) include_once(COUNTER);
+?>
+
+Attention! You have to customise this snippet to suit your needs.
+
+_BBC_PAGE_NAME
+contains the title you want to use for the page. This title will be displayed
+in your stats later.
+_BBCLONE_DIR
+The path to the BBClone directory. Remember the sketch from 1.3?
+Now you need the result of your preparation for setting this
+variable. You may need to change this entry depending on the
+file's location. If unsure, please reread section 1.3. Don't
+forget the trailing slash at the end of the directory.
+
+You can also use the following snippet:
+define("_BBCLONE_DIR", "bbclone/");
+define("COUNTER", _BBCLONE_DIR."mark_page.php");
+if (is_readable(COUNTER)) include_once(COUNTER);
+?>
+This time we left out the page title. If BBClone doesn't find one it will
+automatically create one derived from the file's path. This is useful if you
+have a lot of pages and want to automate the naming process.
+
+Now that we tested anything and found it working, we can go on to register
+visits. The "traditional" method requires *.php pages. You also need to have
+permissions to run PHP (of course). If you want to put your code somewhere
+else the file needs to be included into a *.php file eventually, so the server
+recognises it and is able to run the PHP interpreter.
+
+
+Inside of PHP files not everything is necessarily PHP code. Sometimes passages
+of code alter with pure html. each PHP codeblock is started with "<?" and ends
+with "?>". If you want to add the code within such a PHP code block, you will
+have to write:
+
+define("_BBC_PAGE_NAME", "Test");
+define("_BBCLONE_DIR", "bbclone/");
+define("COUNTER", _BBCLONE_DIR."mark_page.php");
+if (is_readable(COUNTER)) include_once(COUNTER);
+
+(or without the page title, see 1.4 for details)
+
+If however you're outside of such a block and find nothing but html tags then
+you need to add the php enclosings so the server knows it has to parse this
+passage as PHP code. Please note that the server can't run php from within a
+*.html file. In this case you would see the counter code "as is" in the html
+source
+
+If you run an apache server and are allowed to use .htaccess you can even
+monitor your *.html pages without ever editing or renaming them. Attention:
+THE FOLLOWING CODE ISN'T GUARANTUEED TO RUN EVERYWHERE. IF IT DOESN'T WORK FOR
+YOU THERE'S NOTHING TO BE DONE ABOUT IT.
+
+1. Add the following to your .htaccess:
+
+AddType application/x-httpd-php .htm .html
+php_value auto_append_file "/the/path/that/leads/to/count.php"
+
+The path needs to be a local absolute path like the example above. Create the
+file "count.php" and add the following:
+
+<?php
+define("_BBCLONE_DIR", "/the/path/that/leads/to/bbclone/");
+define("COUNTER", _BBCLONE_DIR."mark_page.php");
+if (is_readable(COUNTER)) include_once(COUNTER);
+?>
+
+In our example "count.php" is situated in the www-root. If your files are
+located elsewhere you need to modify the paths accordingly (see 1.3). An
+absolute path is required to make this snippet work. If you don't know the
+absolute path to your BBClone directory you can do the following:
+Go to your bbclone directory, open index.php in your favorite editor and add
+the line:
+
+echo  "&lt;?php\n"
+     ."define(&quot;_BBCLONE_DIR&quot;, &quot;"
+     .dirname(__FILE__)."/&quot;);\n"
+     ."define(&quot;COUNTER&quot;, _BBCLONE_DIR.&quot;"
+     ."mark_page.php&quot;);\n"
+     ."if (is_readable(COUNTER)) include_once(COUNTER);\n"
+     ."?&gt;\n";
+
+Point your browser to it, copy and paste the output and save it into a file as
+"count.php" (to stick with our example). Don't forget to remove the line from
+index.php afterwards else it will be displayed each time you call your stats.
+
+Now the following will happen:
+Each time someone calls one of the ".htm" or ".html" pages the code snippet with
+the counter code will be automatically appended. BBClone will automatically
+create a page title derived from the file's path which will be used in the page
+stats then.
+
+
+The BBClone Team (c) 2004
+

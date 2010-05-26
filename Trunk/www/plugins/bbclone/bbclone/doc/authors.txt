@@ -1,0 +1,55 @@
+/* This file is part of BBClone (The PHP web counter on steroids)
+ *
+ * $Header: /cvs/bbclone/doc/authors.txt,v 1.23 2009/09/09 16:23:07 joku Exp $
+ *
+ * Copyright (C) 2001-2009, the BBClone Team (see file doc/authors.txt
+ * distributed with this library)
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * See doc/copying.txt for details
+ */
+The BBClone team are:
+---------------------
+
+Joachim Kuwan:
+jo [ at ] bbclone [ dot ] de
+(developer, server and forum administration)
+
+Matthijs van Wageningen:
+matthys [ at ] bbclone [ dot ] de
+(developer, forum moderation)
+
+Francois Pradignac:
+prad [ at ] bbclone [ dot ] de
+(developer, forum moderation)
+
+Rob Farnell:
+rjfarnell [ at ] msn [ dot ] com
+(public relations, forum moderation)
+
+Christoph Brill
+egore911 [ at ] egore911 [ dot ] de
+(maintainer)
+
+Retired team members:
+---------------------
+
+Amaury Amblard-Ladurantie:
+amaury [ at ] mandrakesoft [ dot ] com
+(original author)
+
+Laurent Jacques:
+ljacques [ at ] fyma [ dot ] ucl [ dot ] ac [ dot ] be
+(former maintainer)
+
+Olliver Wichmann:
+olliver [ dot ] wichmann [ at ] gmx [ dot ] net
+(former maintainer)
+
+Dave Higgins:
+dave [ at ] higginsnet [ dot ] com
+(former developer)

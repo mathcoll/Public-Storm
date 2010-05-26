@@ -1,0 +1,201 @@
+ul.storm
+{
+	margin: 0 20px 0 -20px;
+	list-style: none;
+}
+ul.storm li
+{
+	margin: 15px 0 25px 0;
+	/*list-style: url(../img/light.png);*/
+}
+ul.storm li.no_suggestion
+{
+	list-style: none;
+	color: #ff0000;
+}
+li.size_20 a, li.size_19 a
+{
+	font-size: 26px;
+}
+li.size_18 a, li.size_17 a
+{
+	font-size: 24px;
+}
+li.size_16 a, li.size_15 a
+{
+	font-size: 22px;
+}
+li.size_14 a, li.size_13 a
+{
+	font-size: 20px;
+}
+li.size_12 a, li.size_11 a
+{
+	font-size: 18px;
+}
+li.size_10 a, li.size_9 a
+{
+	font-size: 16px;
+}
+li.size_8 a, li.size_7 a
+{
+	font-size: 14px;
+}
+li.size_6 a, li.size_5 a
+{
+	font-size: 12px;
+}
+li.size_4 a, li.size_3 a
+{
+	font-size: 10px;
+}
+li.size_2 a, li.size_1 a
+{
+	font-size: 8px;
+}
+li span.size
+{
+	padding: 2px;
+	/*background: yellow;*/
+	vertical-align: top;
+	font-size: 14px;
+}
+form.suggestion input[type="text"]
+{
+	border:1px solid #156e1e;
+	width: 300px;
+}
+form.suggestion input[type="text"]:focus
+{
+	background: #a3ab0e;
+}
+li.hidden, .hidden
+{
+	display: none;
+}
+li.cap
+{
+	list-style: none;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 30px 0 0 0;
+	background: url(../../../img/underline.png) no-repeat left bottom;
+}
+div#add_this_storm
+{
+	margin: auto;
+	position: absolute;
+	padding: 1em;
+	background: #a3ab0e;
+	left: 35%;
+	border: 2px solid #000000;
+}
+div.TwoCols
+{
+
+}
+._10 { width: 10%; }
+._20 { width: 20%; }
+._30 { width: 30%; }
+._40 { width: 40%; }
+._50 { width: 50%; }
+._60 { width: 60%; }
+._70 { width: 70%; }
+._80 { width: 80%; }
+._90 { width: 90%; }
+._100 { width: 100%; }
+div.left
+{
+	float: left;
+}
+div.right
+{
+	float: right;
+	padding-top: 15px;
+	/*line-height: 30px;*/
+	font-size: 12px;
+	font-family: monospace;
+}
+div.right label
+{
+}
+h3.storm
+{
+	font-size: 26px;
+	background-position: 10px;
+}
+span.data
+{
+	padding: 0 0 0 25px;
+	margin: 0;
+	display:block;
+	font-weight: bold;
+	line-height: 16px;
+}
+a.stormExport
+{
+	background: transparent url(../img/x-office-spreadsheet_003.png) no-repeat 0 0;
+	padding: 3px 0 5px 25px;
+}
+label.date
+{
+	background: transparent url(../img/x-office-calendar_003.png) no-repeat 0 0;
+	padding: 3px 0 5px 25px;
+}
+label.author
+{
+	background: transparent url(../img/contact-new_003.png) no-repeat 0 0;
+	padding: 3px 0 5px 25px;
+}
+label.connected
+{
+	background: transparent url(../img/start-here_002.png) no-repeat 0 0;
+	padding: 3px 0 5px 25px;
+}
+
+div.fiche
+{
+	padding: 0px 10px 10px 10px;
+	border: 2px dashed #a3ab0e;
+	width: 330px;
+}
+div.outils a
+{
+	display: block;
+}
+
+/* bulles */
+li.bulle {
+    width: auto;
+    font-size: 0.75em;
+    margin-bottom: 24px;
+}
+
+li.bulle blockquote {
+    margin: 0 5px 0 0;
+    padding: 5px;
+    border: 1px solid #c9c2c1;
+    background-color: #fff;
+}
+
+li.bulle blockquote a {
+    margin: 10px;
+    padding: 0px;
+}
+
+li.bulle cite {
+    position: relative;
+    margin: 0px;
+    padding: 7px 0px 0px 15px;
+    top: 6px;
+    background: transparent url(../img/FlecheBulle.gif) no-repeat 20px 0;
+    font-style: normal;
+}
+img.avantages
+{
+	width: 600px;
+	height: 90px;
+	margin: 0 0 10px 0;
+	border: 1px solid #000000;
+	display: block;
+}

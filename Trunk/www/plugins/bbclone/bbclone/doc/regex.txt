@@ -1,0 +1,83 @@
+/* This file is part of BBClone (The PHP web counter on steroids)
+ *
+ * $Header: /cvs/bbclone/doc/regex.txt,v 1.2 2009/08/30 09:35:45 joku Exp $
+ *
+ * Copyright (C) 2001-2009, the BBClone Team (see file doc/authors.txt
+ * distributed with this library)
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * See doc/copying.txt for details
+ */
+BBCLONE REGEXP
+==============
+
+Regular expressions, or short regexp, are used in bbclone to detect browser,
+operation system and robots. Some may ask how exactly regexp work in bbclone.
+This document is a brief introduction for everyone who tries to create his own
+rules without breaking anything.
+
+Let's start with an example:
+
+  "firefox"  => array(
+    "icon"  => "firefox",
+    "title" => "Firefox",
+    "rule"  => array(
+      "Firefox/([0-9.+]{1,10})" => "\\1",
+      "BonEcho/([0-9.+]{1,10})" => "\\1"
+    )
+  ),
+
+This is a copy&paste from lib/browser.php which is the file used for the rules
+to detect the browser. This one, as you might notice, is to detect firefox.
+
+  "firefox"  => array(
+
+This line says, that we want an element named "firefox". In an element all
+information for detection and display is stored. Element names need to be
+unique!
+
+    "icon"  => "firefox",
+
+This defines the name of the icon. In case of browser, bbclone will load files
+name browser_NAME.png, where NAME is the name of the browser, i.e.
+browser_firefox.png for Firefox.
+
+    "title" => "Firefox",
+
+This is the human readable first part of the title. This should be
+selfexplaining.
+
+    "rule"  => array(
+      "Firefox/([0-9.+]{1,10})" => "\\1",
+      "BonEcho/([0-9.+]{1,10})" => "\\1"
+    )
+
+This defines the detection rule(s). We know 2 detection rules for Firefox, one
+for a user agent named "Firefox" which is the official release name, and
+"BonEcho" which is the name for Firefox 2.0 beta releases. With these to rules
+you can detect firefox. I'll not got into deep about how regexp works, you need
+to learn that yourself. I highly recommend
+  http://regexp-evaluator.de/evaluator/
+to learn, understand and generate regexp. It really helps. You might notice
+that there is listed something like
+  => "\\1",
+This is used to add the second part of the human readable name of the browser.
+Lets imagine the following user agent:
+
+  Mozilla/5.0 (X11; U; Linux i686; de; rv:1.8.1) Gecko/20061030 BonEcho/2.0
+
+The regular expression "BonEcho/([0-9.+]{1,10})" will return an array of 2
+results:
+
+Array (
+  [0] => BonEcho/2.0
+  [1] => 2.0
+) 
+
+So the second part of the human readable name is "2.0".
+
+Simple, isn't it?

@@ -1,0 +1,58 @@
+/* DON'T CHANGE THESE OPTIONS UNLESS YOU KNOW WHAT YOU ARE DOING! SAVE A BACKUP! */
+
+body { margin: 0px; padding: 0px; background-color: #edf0f9; }
+
+/* redefined tags */
+p { font-family: Arial,Helvetica,sans-serif; color: #3c4154; }
+/*p {font-size} is defined by $BBC_TEXT_SIZE (config.php)*/
+td { font-family: Arial,Helvetica,sans-serif; color: #3c4154; }
+/*td {font-size} is defined by $BBC_TEXT_SIZE (config.php)*/
+input { border: 1px solid #606680; background-color: rgb(237, 240, 249); vertical-align: middle; }
+select { border: 1px solid #606680; background-color: rgb(237, 240, 249); vertical-align: middle; }
+
+/* links styles */
+a { text-decoration: underline; color: #e7496b; }
+a:hover { text-decoration: none; color: #606680; }
+
+/* navbar */
+a.navbar { padding: 3px; font-family: Arial,Helvetica,sans-serif; text-decoration: none; color: #606680; }
+/*a.navbar {font-size} is defined by $BBC_SUBTITLE_SIZE (config.php)*/
+a.navbar:hover { border: 1px solid #606680; padding: 2px; font-family: Arial,Helvetica,sans-serif; text-decoration: none; background-color: #edf0f9; }
+/*a.navbar hover {font-size} is defined by $BBC_SUBTITLE_SIZE (config.php)*/
+.navbar { margin: 0px; padding: 10px; font-family: Arial,Helvetica,sans-serif; color: #98a3d1; font-weight: bold; vertical-align: middle; }
+/*.navbar {font-size} is defined by $BBC_SUBTITLE_SIZE (config.php)*/
+.navbar img { vertical-align: middle; }
+
+/* modpack charts */
+.graphbar { background-color: #808ebf; }
+.graphbarcolor { background-color: #e5f2f7; }
+
+/* titlebar */
+.titlebar { color: #ffffff; font-weight: bold; }
+/*.titlebar {font-size} is defined by $BBC_TITLE_SIZE (config.php)*/
+
+/* stats */
+.head { padding: 3px; font-family: Arial,Helvetica,sans-serif; text-align: center; font-weight: bold; white-space: nowrap; }
+/*.head {font-size} is defined by $BBC_TEXT_SIZE (config.php)*/
+.graph { padding: 3px; font-family: Arial,Helvetica,sans-serif; color: #606680; }
+/*.graph {font-size} is defined by $BBC_NUM_SIZE (config.php)*/
+.capt { font-weight: bold; color: #ffffff; white-space: nowrap; }
+
+/* boxes */
+.cntbox { border: 1px solid #606680; background-color: #ffffff; }
+.detbox { border-style: solid none; border-color: #606680; border-width: 1px; background-color: #ffffff; }
+.gridbox { border: 1px solid #606680; margin: 0px; }
+
+/* border madness */
+   .brd { border-color: #606680; border-width: 1px; }
+   .collapse { border-collapse: collapse; } /* collapse where 1px borders are needed */
+   .rows { border: 1px solid #ffffff; margin: 0px; }
+   .sky { border-color: #e5f2f7; border-width: 1px; }
+	 table { border-collapse: collapse; }
+	 tab\le {border-collapse: separate;} /* evil hack for Opera 7+ */ 
+	 /* evil hack for IE5 Mac: */
+   /*\*//*/ 
+   td table { width:97%; margin:0px 1px 0px 0px; padding:0px }
+   /**/
+	 
+/* an internal style hack for IE is also applied. See html.php or the source of any BBClone page */

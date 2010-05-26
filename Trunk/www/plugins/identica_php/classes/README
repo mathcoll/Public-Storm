@@ -1,0 +1,42 @@
+====== Getting started! ======
+
+Identica-php is complete and easy to use PHP library to interact with identi.ca platform.
+
+===== Dependencies =====
+
+Identica-php depends on the following packages:
+ * none
+
+===== Installing and Running =====
+
+To install identica-php, either unpack the tarball:
+    
+    $ tar xzvf identica-php_v.1.0.tar.gz
+
+or check out our svn branch for a development version (we try to keep those 
+unbroken and ready for production use):
+    
+    $ svn checkout http://identica-php.googlecode.com/svn/trunk/ identica-php-read-only
+
+==== Usage ====
+
+Include the main library file
+
+  require_once("identica.lib.php") or die("Couldn't load Identi.ca library");
+
+Create object using your credentials (username and password)
+
+  $identica = new Identica($username, $password);
+
+The updateStatus() method updates your status. The message must be encoded in UTF-8:
+
+  $identica->updateStatus('Hello world!');
+
+See the documentation in dowload or the wiki page for the complete functions list. 
+
+===== Want to know more? =====
+
+ * Identica-php Website: http://code.google.com/p/identica-php/
+ * Identica-php Author Website: http://www.jasone.it
+ * Identica-php Author Blog: http://giasone.wordpress.com
+

@@ -1,0 +1,2 @@
+Ce dossier doit contenir les données provenant de Public-Storm
+This folder need to keep datas from Public-Storm

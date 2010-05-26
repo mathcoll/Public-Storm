@@ -1,0 +1,1 @@
+<p>{t}forbidden_details{/t}</p>

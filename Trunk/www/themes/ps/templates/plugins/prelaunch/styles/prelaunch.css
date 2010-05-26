@@ -1,0 +1,214 @@
+/* admin */
+
+#menu
+{
+	float: left;
+	width: 25%;
+	margin: 0 0 1em 0;
+}
+#menu ul
+{
+	margin: 0;
+	padding: 0 0 0 1em;
+}
+#menu li
+{
+	list-style: none;
+}
+#menu li a
+{
+	display: block;
+	margin: 0 0 1px 0; 
+	/*padding: 1em 0 1em .5em;*/
+}
+
+#content
+{
+	float: left;
+	border-left: 5px solid #156e1e;
+	padding: 1em;
+	margin: 0 0 1em 0;
+	min-height: 10em;
+	/*height: 100em;*/
+	width: 72%;
+}
+
+#content h3
+{
+	margin: 0 0 1em 0;
+	padding:0 0 0 1em;
+	border: 0;
+}
+.tab
+{
+	background-color: #ffffff;
+	color: #156e1e;
+}
+.tab-hightlight
+{
+	background-color: #156e1e;
+	color: #000000;
+}
+
+/* tabs icons */
+#list-plugins
+{
+	background-image: url(../img/contact-new_002.png);
+	background-position: 5px center;
+	background-repeat: no-repeat;
+	padding:1em 0 1em 40px;
+}
+#configuration
+{
+	background-image: url(../img/preferences-system_002.png);
+	background-position: 5px center;
+	background-repeat: no-repeat;
+	padding:1em 0 1em 40px;
+}
+#list-users
+{
+	background-image: url(../img/user.png);
+	background-position: 5px center;
+	background-repeat: no-repeat;
+	padding:1em 0 1em 40px;
+}
+#prelaunch_users
+{
+	background-image: url(../img/user.png);
+	background-position: 5px center;
+	background-repeat: no-repeat;
+	padding:1em 0 1em 40px;
+}
+
+ul.list-plugins,
+ul.listCustoms,
+ul.list-users
+{
+	list-style: none;
+	margin:0;
+	padding:0;
+}
+ul.list-plugins li.header,
+ul.listCustoms li.header,
+ul.list-users li.header
+{
+	display: table-header-group;
+	padding: 0;
+	font-weight: bold;
+}
+ul.list-plugins li,
+ul.listCustoms li,
+ul.list-users li
+{
+	padding: 0 0 1em 0;
+	display: table-row;
+}
+
+ul.listCustoms li span.val input
+{
+	width: 300px;
+}
+
+ul.listCustoms li.type span,
+ul.list-users li.role span
+{
+	padding: 1em 0 0 0;
+	color: #156e1e;
+	font-size: 16px;
+	border: 0px;
+}
+
+ul.list-plugins li span,
+ul.listCustoms li span,
+ul.list-users li span
+{
+	display: table-cell;
+	padding: 1em;
+	border-bottom: 1px solid #cdcdcd;
+}
+
+ul.list-plugins li span.icon img,
+ul.list-plugins li span.status img,
+ul.listCustoms li span.icon img
+{
+	vertical-align: middle;
+}
+ul.list-plugins li span.id
+{
+}
+
+ul.listCustomsli span.nom
+{
+	width: 190px;
+}
+ul.listCustoms li span.description
+{
+	width: 250px;
+}
+ul.list-plugins li span.icon
+ul.listCustoms li span.icon
+{
+	width: 54px;
+}
+ul.list-plugins li span.name
+{
+	width: 120px;
+}
+ul.list-plugins li span.description
+{
+	width: 150px;
+}
+ul.list-plugins li span.status
+{
+}
+ul.list-plugins li span.version
+{
+}
+ul.list-plugins li span.last_updated
+{
+}
+ul.list-plugins li span.update_link
+{
+	width: 190px;
+}
+ul.list-users li span.uid
+{
+	width: 130px;
+}
+ul.list-users li span.subscription_date,
+ul.list-users li span.updated_date
+{
+	width: 180px;
+}
+div.status_actions
+{
+	display: none;
+	background: #ffffff;
+	border: 1px solid #cdcdcd;
+	position: absolute;
+	margin: -30px 0 0 20px;
+	padding: .5em;
+}
+div.status_actions ul
+{
+	margin: 0;
+	padding: 0;
+}
+div.status_actions ul li
+{
+}
+span.status:hover > div.status_actions
+{
+	display: block;
+}
+
+ul.list-pages
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+ul.list-pages, ul.list-pages li
+{
+	display: inline;
+}

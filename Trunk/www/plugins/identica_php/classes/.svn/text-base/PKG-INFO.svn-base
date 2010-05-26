@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: identica-php
+Version: 1.0
+Summary:  Identica-php is complete and easy to use PHP library to interact with identi.ca platform. 
+Home-page: http://code.google.com/p/identica-php/
+Author: Gianluca Urgese
+Author-email: g.urgese@jasone.it
+License: GNU/GPL version 2 
+Description: Identica-php is complete and easy to use PHP library to interact with identi.ca platform.
+Platform: ALL

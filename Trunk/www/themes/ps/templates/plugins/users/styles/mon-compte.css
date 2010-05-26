@@ -1,0 +1,79 @@
+/* mon compte */
+
+#menu
+{
+	float: left;
+	width: 250px;
+	margin: 0 0 1em 0;
+}
+#menu ul
+{
+	margin: 0;
+	padding: 0 0 0 1em;
+}
+#menu li
+{
+	list-style: none;
+}
+#menu li a
+{
+	display: block;
+	margin: 0 0 1px 0; 
+	/*padding: 1em 0 1em .5em;*/
+}
+
+#content
+{
+	float: left;
+	border-left: 5px solid #156e1e;
+	padding: 1em;
+	margin: 0 0 1em 0;
+	min-height: 10em;
+}
+
+#content h3
+{
+	margin: 0 0 1em 0;
+	padding: 0 0 0 1em;
+	border: 0;
+}
+.tab
+{
+	background-color: #ffffff;
+	color: #156e1e;
+}
+.tab-hightlight
+{
+	background-color: #156e1e;
+	color: #000000;
+}
+
+/* tabs icons */
+#mes-informations
+{
+	background-image: url(../img/contact-new_002.png);
+	background-position: 5px center;
+	background-repeat: no-repeat;
+	padding:1em 0 1em 40px;
+}
+#mes-alertes
+{
+	background-image: url(../img/network-wireless_003.png);
+	background-position: 5px center;
+	background-repeat: no-repeat;
+	padding:1em 0 1em 40px;
+}
+#mes-parametres
+{
+	background-image: url(../img/preferences-system_002.png);
+	background-position: 5px center;
+	background-repeat: no-repeat;
+	padding:1em 0 1em 40px;
+}
+#mes-storms
+{
+	background-image: url(../../public_storm/img/icon.png);
+	background-position: 5px center;
+	background-repeat: no-repeat;
+	padding:1em 0 1em 40px;
+}

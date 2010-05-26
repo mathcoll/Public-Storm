@@ -1,0 +1,53 @@
+name: Public-Storm
+files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/prepend.php
+files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/plugins/i18n/index.php
+files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/conf/i18n.php
+files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/plugins/i18n/_plugin.php
+files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/themes/ps/templates/header.tpl
+files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/index.php
+files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/themes/ps/templates/plugins/i18n/inc_lang.tpl
+basedir: /home/mathieu/Projets/current/Public-Storm/Trunk/www/
+webdir: 
+template: 
+word_wrap: 1
+searchlist: updateUser
+searchlist: userLogout
+searchlist: label
+searchlist: $mail_bee-rain.internetcollaboratif.infos_path
+searchlist: mail_bee-rain.internetcollaboratif.infos_path
+searchlist: Send
+searchlist: SetError
+searchlist: SetError (
+searchlist: authentification
+searchlist: unable to read resource
+replacelist: <?php
+replacelist: theme_dir
+replacelist: {$base_url}
+replacelist: {$theme_dir}
+replacelist: sPlug->AddData
+replacelist: $sPlug->AddData
+replacelist: $sPlug->
+replacelist: self::escape_string
+replacelist: if ( !self::$db )
+replacelist: self::$db->getMessage()
+recent_files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/_global_settings.php
+recent_files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/themes/ps/templates/plugins/users/styles/users.css
+recent_files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/i18n/sources/main.gettext.php
+recent_files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/themes/ps/templates/styles/styles.css
+recent_files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/themes/ps/templates/footer.tpl
+recent_files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/prepend.php
+recent_files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/plugins/i18n/index.php
+recent_files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/conf/i18n.php
+recent_files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/plugins/i18n/_plugin.php
+recent_files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/themes/ps/templates/header.tpl
+recent_files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/index.php
+recent_files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/themes/ps/templates/plugins/i18n/inc_lang.tpl
+recent_files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/core.php
+recent_files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/plugins/langs/_plugin.php
+recent_files: /home/mathieu/Projets/current/Public-Storm/Trunk/www/plugins/langs/index.php
+opendir: /home/mathieu/Projets/current/Public-Storm/Trunk/www/themes/ps/templates/plugins/users/styles
+savedir: /home/mathieu/Projets/current/Public-Storm/Trunk/www/themes/ps/templates/styles
+view_html_toolbar: 0
+view_custom_menu: 0
+view_main_toolbar: 1
+view_left_panel: 1

@@ -1,0 +1,6 @@
+<?php
+gettext("description");
+
+?><?php
+
+?>

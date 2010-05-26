@@ -1,0 +1,51 @@
+/* users */
+
+ul.nolist
+{
+	list-style: none;
+}
+ul.nolist li a
+{
+	display: block;
+	padding: 1px 0 0 0;
+}
+
+#login
+{
+	/*margin-left: 60%;*/
+	position: absolute;
+	top: 0;
+	right: 21em;
+}
+#login._0
+{
+	top: 1em;
+}
+#login._1
+{
+	background: url(../../../img/weather-storm.png) no-repeat 0 10px;
+	height: 60px;
+	padding: 0 0 0 15px;
+	/*padding-left: 40px;*/
+}
+
+#login label
+{
+	right: 0em;
+}
+
+#login input[type=text], #login input[type=password]
+{
+	width: 100px;
+	border: 1px solid #156e1e;
+}
+
+#login input
+{
+	margin: 0em; 
+}
+
+#login input:focus
+{
+	background: #a3ab0e;
+}
