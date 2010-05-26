@@ -1,0 +1,12 @@
+#AddType x-mapp-php5 .php
+
+DirectoryIndex index.php
+
+RewriteEngine On
+RewriteBase /public-storm.internetcollaboratif.info
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-s
+RewriteCond %{REQUEST_FILENAME} !-l
+
+RewriteRule . index.php [L]
