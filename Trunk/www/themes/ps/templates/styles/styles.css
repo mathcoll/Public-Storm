@@ -50,6 +50,7 @@ small.author a
 	font-size: 10px !important;
 	margin: 0 !important;
 	padding: 0 !important;
+	white-space: nowrap;
 }
 
 p
