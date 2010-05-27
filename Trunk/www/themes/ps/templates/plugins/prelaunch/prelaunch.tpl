@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>{$site_name} > {$site_baseline}</title>
+	<title>{$site_name} > {t}baseline{/t}</title>
 	{literal}
 	<style>
 	* { padding: 0; margin: 0; }
@@ -132,7 +132,7 @@
 		<div id="logo" class="blank">
 			<!--<img src="{$theme_dir}img/logo75.jpg" align="left" />-->
 			<h1><a href="{$base_url}">{$site_name}</a></h1>
-			<h2>{$site_baseline}</h2>
+			<h2>{t}baseline{/t}</h2>
 		</div>
 		<div id="when">
 			{if $message ne ""}<p class="message">{$message}</p>{/if}
@@ -155,7 +155,7 @@
 		</div>
 	</div>
 	<div id="footer">
-		&copy;Internet Collaboratif 2008-2009<br />
+		&copy; Internet Collaboratif 2009-{$smarty.now|date_format:'%Y'}<br />
 		<a href="mailto:contact@internetcollaboratif.info">contact@internetcollaboratif.info</a><br />
 		<a href="{$base_url}/">{$site_name} Version {$version}</a><br />
 	</div><!-- end of footer -->
