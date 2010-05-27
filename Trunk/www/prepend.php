@@ -22,15 +22,6 @@
  */
 
 
-/*
-preg_match("/noexist_([a-zA-Z0-9]+)/", $_SERVER['REQUEST_URI'], $match);
-#print $match[1]."<----";
-if ( isset($match[1]) )
-{
-	errordocument::setError(404);
-}
-*/
-
 header('Status: 200 OK', false, 200);
 header('HTTP/1.1 200 OK', false, 200);
 
@@ -98,8 +89,20 @@ if ( !$f3->Exists() && $qdirs[0] != 'install' )
 $listRegisteredSubdirs = Settings::getSubdirsRegistered();
 //print_r($listRegisteredSubdirs);
 //print $qdirs[1];
-if ( $pluginName = searchInList($qdirs[0], $listRegisteredSubdirs) )
+
+if( !isset($qdirs[0]) && $query != "" )
 {
+	# $qdirs[0] isn't defined but and $query too, that page doesn't match any plugin ;
+	# I could say it's a 404 error page
+	errordocument::setError(404);
+}
+elseif( !isset($qdirs[0]) && $query == "" )
+{
+	/* home page */
+}
+elseif ( $pluginName = searchInList($qdirs[0], $listRegisteredSubdirs) )
+{
+	/* a plugin could manage this subdirectory */
 	Settings::setVar('prefix', '../');
 
 	$f = new File(Settings::getVar('plug_dir') . strtolower($pluginName . '/_plugin.php'));
@@ -128,17 +131,13 @@ if ( $pluginName = searchInList($qdirs[0], $listRegisteredSubdirs) )
 	}
 	else
 	{
-		$content = 'Error: Plugin definition class is not present for '.$pluginName;
+		$content = sprintf(gettext("Error: Plugin definition class is not present for %s"), $pluginName);
 	}
-}
-elseif( !$qdirs[0] )
-{
-	#TODO, $qdirs[0] isn't defined, we are on the top root base
 }
 else
 {
-	//print "->".$statuses["errordocument"]."|";
-	errordocument::setError(404); //$qdirs[0]
+	/* It should be a 404 error page */
+	errordocument::setError(404);
 }
 
 

@@ -88,7 +88,7 @@ Settings::setVar('MAILER', $MAILER, 'admin', 'smtp or mail'); // smtp or mail
 /* */
 /* */
 /* */
-global $qdirs, $page;
+global $qdirs, $page, $query;
 /* others global configs */
 Settings::setVar('BASE_URL', $BASE_URL);
 Settings::setVar('ROOT', $_SERVER['DOCUMENT_ROOT'] . ltrim(Settings::getVar('BASE_URL'), '/').'/');
