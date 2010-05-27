@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Public-Storm\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-26 21:41+0100\n"
-"PO-Revision-Date: 2010-05-26 21:56+0100\n"
+"POT-Creation-Date: 2010-05-27 20:33+0100\n"
+"PO-Revision-Date: 2010-05-27 20:34+0100\n"
 "Last-Translator: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "Language-Team: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,11 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ../../..\n"
 
+#: ../../../prepend.php:134
+#, php-format
+msgid "Error: Plugin definition class is not present for %s"
+msgstr "Error: Plugin definition class is not present for %s"
+
 #: ../../../index.php:62
 msgid "Title index"
 msgstr "Accueil"
@@ -25,6 +30,17 @@ msgstr "Accueil"
 #: ../../../i18n/sources/main.gettext.php:7
 #: ../../../i18n/sources/plugins/all/all.gettext.php:6
 #: ../../../i18n/sources/plugins/all/all.gettext.php:7
+#: ../../../i18n/sources/plugins/errordocument/errordocument.gettext.php:2
+#: ../../../i18n/sources/plugins/errordocument/errordocument.gettext.php:3
+#: ../../../i18n/sources/plugins/errordocument/errordocument.gettext.php:7
+#: ../../../i18n/sources/plugins/errordocument/errordocument.gettext.php:8
+#: ../../../i18n/sources/plugins/errordocument/errordocument.gettext.php:12
+#: ../../../i18n/sources/plugins/errordocument/errordocument.gettext.php:13
+#: ../../../i18n/sources/plugins/prelaunch/prelaunch.gettext.php:6
+#: ../../../i18n/sources/plugins/prelaunch/prelaunch.gettext.php:7
+#: ../../../i18n/sources/plugins/prelaunch/prelaunch.gettext.php:10
+#: ../../../i18n/sources/plugins/prelaunch/prelaunch.gettext.php:11
+#: ../../../plugins/errordocument/_plugin.php:36
 #: ../../../plugins/prelaunch/_plugin.php:39
 msgid "baseline"
 msgstr "Brainstorm together"
@@ -125,6 +141,18 @@ msgstr "Liste des pages"
 #: ../../../i18n/sources/plugins/all/all.gettext.php:22
 msgid "partagez"
 msgstr "Partagez"
+
+#: ../../../i18n/sources/plugins/errordocument/errordocument.gettext.php:4
+msgid "404 Not Found ; your request did'nt return anything, try going to the home page and/or verify your url string."
+msgstr "404 Not Found ; your request did'nt return anything, try going to the home page and/or verify your url string."
+
+#: ../../../i18n/sources/plugins/errordocument/errordocument.gettext.php:9
+msgid "503 Service Unavailable"
+msgstr "503 Service Unavailable"
+
+#: ../../../i18n/sources/plugins/errordocument/errordocument.gettext.php:14
+msgid "500 Internal Server Error"
+msgstr "500 Internal Server Error"
 
 #: ../../../i18n/sources/plugins/trackbacks/trackbacks.gettext.php:2
 msgid "trackback"

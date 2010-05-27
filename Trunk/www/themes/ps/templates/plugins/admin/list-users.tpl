@@ -17,13 +17,13 @@
 <ul class="list-users">
 	<li class="header">
 		<span class="icon">&nbsp;</span>
-		<span class="nom">Nom</span>
-		<span class="prenom">Prénom</span>
-		<span class="login">Login</span>
-		<span class="email">Email</span>
-		<span class="lang">Lang</span>
-		<span class="subscription_date">Inscription</span>
-		<span class="updated_date">Mise à jour</span>
+		<span class="nom">{t}Nom{/t}</span>
+		<span class="prenom">{t}Prénom{/t}</span>
+		<span class="login">{t}Login{/t}</span>
+		<span class="email">{t}Email{/t}</span>
+		<span class="lang">{t}Lang{/t}</span>
+		<span class="subscription_date">{t}Inscription{/t}</span>
+		<span class="updated_date">{t}Mise à jour{/t}</span>
 	</li>
 {foreach from=$users item=user}
 	{assign var=role value=$user.role_id}
