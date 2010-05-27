@@ -23,26 +23,13 @@
 
 
 /*
-preg_match("/([\w]{2})\/statistiques-(.*?)\.html$/", $_SERVER['REQUEST_URI'], $match);
-if ( isset($match[2]) )
-{
-	# redirection des anciennes urls :
-	i18n::setLang($match[2]);
-	header("HTTP/1.1 301 moved Permanently", true, 301);
-	header("Location: ".Settings::getVar('BASE_URL_HTTP')."/mot/".$match[2]."/", true, 301);
-	exit;
-}
-*/
-
 preg_match("/noexist_([a-zA-Z0-9]+)/", $_SERVER['REQUEST_URI'], $match);
 #print $match[1]."<----";
 if ( isset($match[1]) )
 {
-	header('Status: 404 Not Found', true, 404);
-	header('HTTP/1.1 404 Not Found', true, 404);
-	print "404 Not Found ; your request did'nt return anything, try going to the home page and/or verify your url string.";
-	exit;
+	errordocument::setError(404);
 }
+*/
 
 header('Status: 200 OK', false, 200);
 header('HTTP/1.1 200 OK', false, 200);
@@ -146,14 +133,12 @@ if ( $pluginName = searchInList($qdirs[0], $listRegisteredSubdirs) )
 }
 elseif( !$qdirs[0] )
 {
-	#TODO
+	#TODO, $qdirs[0] isn't defined, we are on the top root base
 }
 else
 {
-	header('Status: 404 Not Found', true, 404);
-	header('HTTP/1.1 404 Not Found', true, 404);
-	print "'".$qdirs[0]."', 404 Not Found ; your request did'nt return anything, try going to the home page and/or verify your url string.";
-	exit;
+	//print "->".$statuses["errordocument"]."|";
+	errordocument::setError(404); //$qdirs[0]
 }
 
 
