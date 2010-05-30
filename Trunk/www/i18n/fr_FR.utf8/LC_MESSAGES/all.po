@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Public-Storm\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-27 20:33+0100\n"
-"PO-Revision-Date: 2010-05-27 20:34+0100\n"
+"POT-Creation-Date: 2010-05-30 18:25+0100\n"
+"PO-Revision-Date: 2010-05-30 18:25+0100\n"
 "Last-Translator: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "Language-Team: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "MIME-Version: 1.0\n"
@@ -56,6 +56,7 @@ msgid "meta_keywords"
 msgstr "meta_keywords"
 
 #: ../../../include/i18n.class.php:142
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:18
 msgid "Login"
 msgstr "Identifiant"
 
@@ -126,6 +127,7 @@ msgstr "Fermer"
 
 #: ../../../i18n/sources/main.gettext.php:20
 #: ../../../i18n/sources/plugins/all/all.gettext.php:18
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:9
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:3
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:34
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:41
@@ -335,37 +337,84 @@ msgid "avantage_4"
 msgstr "Participez à la modération des spams."
 
 #: ../../../i18n/sources/plugins/admin/admin.gettext.php:2
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:17
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:33
 msgid "liste_plugins"
 msgstr "Liste des plugins"
 
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:3
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:16
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:28
+msgid "Nom"
+msgstr "Nom"
+
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:4
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:29
+msgid "Description"
+msgstr "Description"
+
 #: ../../../i18n/sources/plugins/admin/admin.gettext.php:5
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:19
+msgid "Statut"
+msgstr "Statut"
+
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:6
+msgid "Version"
+msgstr "Version"
+
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:7
+msgid "Date de mise à jour"
+msgstr "Date de mise à jour"
+
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:8
+msgid "Lien de mise à jour"
+msgstr "Lien de mise à jour"
+
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:10
+msgid "Activer"
+msgstr "Activer"
+
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:11
+msgid "Désactiver"
+msgstr "Désactiver"
+
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:14
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:35
 msgid "list_users"
 msgstr "Liste des utilisateurs"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:6
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:15
 #: ../../../i18n/sources/plugins/prelaunch/prelaunch.gettext.php:3
 msgid "Pages :"
 msgstr "Pages :"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:9
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:17
+msgid "Prénom"
+msgstr "Prénom"
+
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:19
+msgid "Email"
+msgstr "Email"
+
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:20
+msgid "Lang"
+msgstr "Lang"
+
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:21
+msgid "Inscription"
+msgstr "<i>Public-Storm</i> est un outil en ligne de <i><strong>Remue-méninges</strong></i> collaboratif.<br/>Sur un thème donné (un <i>Storm</i>), laissez votre <strong>imagination</strong> et votre <strong>créativité</strong> déborder...<br/>et proposez vos <strong>suggestions</strong>."
+
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:22
+msgid "Mise à jour"
+msgstr "Mise à jour"
+
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:25
 msgid "forbidden_details"
 msgstr "forbidden_details"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:12
-msgid "Nom"
-msgstr "Nom"
-
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:13
-msgid "Description"
-msgstr "Description"
-
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:14
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:30
 msgid "Valeur"
 msgstr "Valeur"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:18
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:34
 msgid "configuration"
 msgstr "Configuration"
 
@@ -587,7 +636,6 @@ msgid "forbidden"
 msgstr "forbidden_details"
 
 #: ../../../plugins/i18n/index.php:43
-#: ../../../plugins/langs/index.php:42
 msgid "Changement de langue effectué"
 msgstr "Changement de langue effectué"
 
@@ -665,12 +713,6 @@ msgstr "Erreur lors de la création du storm %s"
 #~ msgstr "<small>Prochainement...</small>"
 #~ msgid "%1"
 #~ msgstr "%1"
-#~ msgid "inscription"
-#~ msgstr ""
-#~ "<i>Public-Storm</i> est un outil en ligne de <i><strong>Remue-méninges</"
-#~ "strong></i> collaboratif.<br/>Sur un thème donné (un <i>Storm</i>), "
-#~ "laissez votre <strong>imagination</strong> et votre <strong>créativité</"
-#~ "strong> déborder...<br/>et proposez vos <strong>suggestions</strong>."
 #~ msgid "fogotten_password"
 #~ msgstr "fogotten_password"
 
