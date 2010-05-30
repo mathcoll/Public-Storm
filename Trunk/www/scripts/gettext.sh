@@ -7,21 +7,21 @@ Translator="Mathieu Lory <mathcoll@internetcollaboratif.info>"
 
 
 
-rm -f ./cache/*.php 
+rm -f ../cache/*.php 
 
-for file in ./themes/ps/templates/plugins/*; do
+for file in ../themes/ps/templates/plugins/*; do
   	if [ -d $file ]; then
-		plugin=`expr match "$file" './themes/ps/templates/plugins/\(.*\)'`
-		mkdir -p "./i18n/${LANGUAGE}/LC_MESSAGES/"
-		mkdir -p "./i18n/sources/plugins/${plugin}/"
-		rm -f "./i18n/sources/plugins/${plugin}/${plugin}.gettext.php"
-		php tsmarty2c.php $file > "./i18n/sources/plugins/${plugin}/${plugin}.gettext.php"
+		plugin=`expr match "$file" '../themes/ps/templates/plugins/\(.*\)'`
+		mkdir -p "../i18n/${LANGUAGE}/LC_MESSAGES/"
+		mkdir -p "../i18n/sources/plugins/${plugin}/"
+		rm -f "../i18n/sources/plugins/${plugin}/${plugin}.gettext.php"
+		php tsmarty2c.php $file > "../i18n/sources/plugins/${plugin}/${plugin}.gettext.php"
 		echo "Plugin '${plugin}'\t: ok"
 	fi
 done
-mkdir -p "./i18n/sources/plugins/all/"
-php tsmarty2c.php ./themes/ps/templates/*.tpl > "./i18n/sources/main.gettext.php"
-rm -f ./cache/*.php
+mkdir -p "../i18n/sources/plugins/all/"
+php tsmarty2c.php ../themes/ps/templates/*.tpl > "../i18n/sources/main.gettext.php"
+rm -f ../cache/*.php
 
 
 # régénérer le fichier po
