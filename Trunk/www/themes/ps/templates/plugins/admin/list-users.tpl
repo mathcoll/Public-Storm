@@ -22,7 +22,7 @@
 		<span class="login">{t}Login{/t}</span>
 		<span class="email">{t}Email{/t}</span>
 		<span class="lang">{t}Lang{/t}</span>
-		<span class="subscription_date">{t}Inscription{/t}</span>
+		<span class="subscription_date">{t}date d'inscription{/t}</span>
 		<span class="updated_date">{t}Mise à jour{/t}</span>
 	</li>
 {foreach from=$users item=user}
