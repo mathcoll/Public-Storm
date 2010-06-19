@@ -5,11 +5,11 @@
 	<title>{$title} - {$site_name}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	{foreach from=$styles item=style}
-<link href="{$style.stylesheet}" rel="stylesheet" type="text/css" media="{$style.media}" />
+<link rel="stylesheet" type="text/css" media="{$style.media}" href="{$style.stylesheet}" />
 	{/foreach}
 
 	{foreach from=$javascripts item=javascript}
-<script src="{$javascript.javascript}" type="{$javascript.type}"></script>
+<script type="{$javascript.type}" src="{$javascript.javascript}"></script>
 	{/foreach}
 <link href="{$rss}" rel="alternate" type="application/rss+xml" title="Flux RSS {$site_name}" />
 	<link rel="shortcut icon" href="{$theme_dir}favicon.ico" type="image/x-icon" />
@@ -18,8 +18,9 @@
 	<meta name="generator" content="{$site_name} {$version} - {$base_url}" />
 
    <script type="text/javascript">
-		$("#message").hide();
-		{if $message ne ""}{literal}$(document).ready( function() { $("#message").slideDown("slow"); } );{/literal}{/if}
+   	$jQuery = jQuery.noConflict();
+		{literal}if($jQuery("#message")) { $jQuery("#message").hide(); }{/literal}
+		{if $message ne ""}{literal}$jQuery(document).ready( function() { $jQuery("#message").slideDown("slow"); } );{/literal}{/if}
 	</script>
 </head>
 <body>

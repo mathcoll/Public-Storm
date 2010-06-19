@@ -37,25 +37,52 @@ $s->AddData("current_lang", $_COOKIE["locale"]);
 $s->AddData("s", $_SESSION['s']);
 $s->AddData("langs", i18n::langs());
 
+
+
+
+
 /* styles */
 Settings::addCss('screen', Settings::getVar('theme_dir').'styles/styles.css');
+#Settings::addCss('screen', Settings::getVar('theme_dir').'styles/openlayer.css');
 Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/users/styles/users.css');
 Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/public_storm/styles/styles.css');
 Settings::addCss('print', Settings::getVar('theme_dir').'styles/print.css');
+/* TODO : concaténer tous les styles en 1 seul fichier */
 $s->AddData("styles", Settings::getVar('styles'));
+
+
+
+
 
 /* javascripts */
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery-1.3.2.min.js');
-//Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery-core.js');
+Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery-core.js');
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery.scrollTo-min.js');
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery.localscroll.js');
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery.serialScroll-min.js');
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/coda-slider.js');
-//Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery.scrollShow-min.js');
+
+/* scripts for Ape */
 //Settings::addJs('text/javascript', Settings::getVar('theme_dir').'plugins/public_storm/scripts/ape-jsf/Build/uncompressed/apeClientJS.js');
+
+/* scripts for drag and dropping */
+Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery-ui-1.7.3.custom.min.js');
+Settings::addJs('text/javascript', Settings::getVar('theme_dir').'plugins/imagepanner/scripts/imagepanner.js');
+
+/* Public-Storm scripts */
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/main.js.php');
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'plugins/public_storm/scripts/public_storm.js');
+
+
+/* script for OpenLayers */
+#Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/OpenLayers-2.9.1/lib/OpenLayers.js');
+
+/* TODO : concaténer tous les javascripts en 1 seul fichier */
 $s->AddData("javascripts", Settings::getVar('javascripts'));
+
+
+
+
 
 /* breadcrumb */
 $breadcrumb = Settings::getVar('breadcrumb');
@@ -110,19 +137,6 @@ if( $statuses['public_storm'] == 1 )
 	$storms = public_storm::getStormsByMostActive(6);
 	$s->AddData("storms", $storms);
 }
-if ( isset($content) )
-{
-	$s->AddData("contenu", $content);
-}
-
-$title = Settings::getVar('title') != NULL ? Settings::getVar('title') : Settings::getVar('SITE_NAME').", ".i18n::_("baseline");
-$description = Settings::getVar('description') != NULL ? Settings::getVar('description') : i18n::_("description");
-$meta_keywords = Settings::getVar('meta_keywords') != NULL ? Settings::getVar('meta_keywords') : i18n::_("meta_keywords");
-$s->AddData("title", $title);
-$s->AddData("meta_keywords", $meta_keywords);
-$s->AddData("description", $description);
-//$s->UseTemplate("index.tpl");
-
 if( $statuses['analytics'] == 1 )
 {
 	$plugins_vars['analytics']['code'] = analytics::getCode();
@@ -136,6 +150,15 @@ if( $statuses['bbclone'] == 1 )
 	if (is_readable(_BBCLONE_DIR . COUNTER)) include_once(_BBCLONE_DIR . COUNTER);
 	else print "not readable = " . _BBCLONE_DIR . COUNTER;
 }
+if ( isset($content) ) { $s->AddData("contenu", $content); }
+
+$title = Settings::getVar('title') != NULL ? Settings::getVar('title') : Settings::getVar('SITE_NAME').", ".i18n::_("baseline");
+$description = Settings::getVar('description') != NULL ? Settings::getVar('description') : i18n::_("description");
+$meta_keywords = Settings::getVar('meta_keywords') != NULL ? Settings::getVar('meta_keywords') : i18n::_("meta_keywords");
+$s->AddData("title", $title);
+$s->AddData("meta_keywords", $meta_keywords);
+$s->AddData("description", $description);
+//$s->UseTemplate("index.tpl");
 
 //print_r($statuses);
 // Plugins statuses (activated or not)
