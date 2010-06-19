@@ -1,0 +1,59 @@
+
+/*****************************/
+/*********** Demo ************/
+/*****************************/
+
+input { 
+	vertical-align: middle;
+	padding: 0px;
+	margin: -1px 0px 0px 0px;
+}
+
+select, option {
+	font-family: Tahoma, Arial;
+	font-size: 9pt;
+}
+form {
+	margin: 0px;
+	padding: 0px
+}
+
+.zoomTextS{
+	font-size:80%; 
+	background-color:#FFFFFF;
+	color: black;
+	padding: 1px 3px 1px 2px;
+}
+
+.txt {
+  font-family: Tahoma, Arial;
+  font-size: 9pt;
+  border: #7F9DB9 1px solid; 
+  width: 65px;
+  margin: 0px;
+}
+.colHex{
+	width: 13px;
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+.zoomAjaxDemoButton {
+	float: left;
+	height: 40px; 
+	color: #FFFFFF; 
+	font-size: 9pt; 
+	font-family: Tahoma, Arial; 
+	cursor: pointer; 
+	background-color: #000000; 
+	background-repeat: repeat-x;
+	overflow: hidden;
+	text-align:left;
+}
+.bodyText{
+	color: #000000; 
+	font-size: 9pt; 
+	font-family: Tahoma, Arial; 
+}

@@ -1,0 +1,234 @@
+/**
+ * SyntaxHighlighter
+ * http://alexgorbatchev.com/
+ *
+ * SyntaxHighlighter is donationware. If you are using it, please donate.
+ * http://alexgorbatchev.com/wiki/SyntaxHighlighter:Donate
+ *
+ * @version
+ * 2.1.364 (October 15 2009)
+ * 
+ * @copyright
+ * Copyright (C) 2004-2009 Alex Gorbatchev.
+ *
+ * @license
+ * This file is part of SyntaxHighlighter.
+ * 
+ * SyntaxHighlighter is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * SyntaxHighlighter is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with SyntaxHighlighter.  If not, see <http://www.gnu.org/copyleft/lesser.html>.
+ */
+/************************************
+ * Default Syntax Highlighter theme.
+ * 
+ * Interface elements.
+ ************************************/
+
+.syntaxhighlighter
+{
+	background-color: #fff !important;
+}
+
+/* Highlighed line number */
+.syntaxhighlighter .line.highlighted .number
+{
+	color: black !important;
+}
+
+/* Highlighed line */
+.syntaxhighlighter .line.highlighted.alt1,
+.syntaxhighlighter .line.highlighted.alt2
+{
+	background-color: #e0e0e0 !important;
+}
+
+/* Gutter line numbers */
+.syntaxhighlighter .line .number
+{
+	color: #afafaf !important;
+}
+
+/* Add border to the lines */
+.syntaxhighlighter .line .content
+{
+	border-left: 2px solid #6CE26C !important;
+	color: #000 !important;
+}
+
+.syntaxhighlighter.printing .line .content 
+{
+	border: 0 !important;
+}
+
+/* First line */
+.syntaxhighlighter .line.alt1
+{
+	background-color: #fff !important;
+}
+
+/* Second line */
+.syntaxhighlighter .line.alt2
+{
+	background-color: #F8F8F8 !important;
+}
+
+.syntaxhighlighter .toolbar
+{
+	background-color: #F8F8F8 !important;
+	border: #E7E5DC solid 1px !important;
+}
+
+.syntaxhighlighter .toolbar a
+{
+	color: #a0a0a0 !important;
+}
+
+.syntaxhighlighter .toolbar a:hover
+{
+	color: red !important;
+}
+
+/************************************
+ * Actual syntax highlighter colors.
+ ************************************/
+.syntaxhighlighter .plain,
+.syntaxhighlighter .plain a
+{ 
+	color: #000 !important;
+}
+
+.syntaxhighlighter .comments,
+.syntaxhighlighter .comments a
+{ 
+	color: #008200 !important;
+}
+
+.syntaxhighlighter .string,
+.syntaxhighlighter .string a
+{
+	color: blue !important; 
+}
+
+.syntaxhighlighter .keyword
+{ 
+	color: #069 !important; 
+	font-weight: bold !important; 
+}
+
+.syntaxhighlighter .preprocessor 
+{ 
+	color: gray !important; 
+}
+
+.syntaxhighlighter .variable 
+{ 
+	color: #a70 !important; 
+}
+
+.syntaxhighlighter .value
+{ 
+	color: #090 !important; 
+}
+
+.syntaxhighlighter .functions
+{ 
+	color: #ff1493 !important; 
+}
+
+.syntaxhighlighter .constants
+{ 
+	color: #0066CC !important; 
+}
+
+.syntaxhighlighter .script
+{ 
+	background-color: #FFFFAE !important;
+}
+
+.syntaxhighlighter .color1,
+.syntaxhighlighter .color1 a
+{ 
+	color: #808080 !important; 
+}
+
+.syntaxhighlighter .color2,
+.syntaxhighlighter .color2 a
+{ 
+	color: #ff1493 !important; 
+}
+
+.syntaxhighlighter .color3,
+.syntaxhighlighter .color3 a
+{ 
+	color: red !important; 
+}
+
+
+div.syntaxhighlighter code.plain,
+div.syntaxhighlighter code.plain a,
+div.syntaxhighlighter code.string,
+div.syntaxhighlighter code.string a,
+div.syntaxhighlighter code.color1,
+div.syntaxhighlighter code.color2,
+div.syntaxhighlighter code.constants,
+div.syntaxhighlighter code.decorator,
+div.syntaxhighlighter code.functions,
+div.syntaxhighlighter code.keyword,
+div.syntaxhighlighter code.preprocessor,
+div.syntaxhighlighter code.value,
+div.syntaxhighlighter code.variable,
+div.syntaxhighlighter code.variable.bold
+{
+	font-style: normal;
+	color: #000 !important;
+}
+
+
+div.syntaxhighlighter code.script        { color: #d70e0d !important; } /* script tags inside html e.g. <?php */
+
+/* css */
+
+div.syntaxhighlighter code.css-comment   { color: #276e26 !important; font-style: italic !important; }
+div.syntaxhighlighter code.css-keyword   { color: #85164f !important; }
+div.syntaxhighlighter code.css-numval    { color: red !important; }
+div.syntaxhighlighter code.css-value1    { color: #98450b !important; }
+div.syntaxhighlighter code.css-value2    { color: #731116 !important; }
+
+/* html/xml */
+
+div.syntaxhighlighter code.xml-attname   { color: #96460b !important; }
+div.syntaxhighlighter code.xml-attvalue  { color: #211ba5 !important; }
+div.syntaxhighlighter code.xml-comment   { color: #276e26 !important; font-style: italic !important; }
+div.syntaxhighlighter code.xml-equals    { color: #86157f !important; }
+div.syntaxhighlighter code.xml-tag       { color: #86157f !important; }
+
+/* javascript */
+
+div.syntaxhighlighter code.js-comment    { color: #276e26 !important; font-style: italic !important; }
+div.syntaxhighlighter code.js-function   { color: #0e3368 !important; }
+div.syntaxhighlighter code.js-keyword    { color: #851650 !important; }
+div.syntaxhighlighter code.js-numval     { color: red !important; }
+div.syntaxhighlighter code.js-string     { color: #731116 !important; }
+
+/* php */
+
+div.syntaxhighlighter code.php-comment   { color: #FF9900 !important; font-style: italic !important;}
+div.syntaxhighlighter code.php-constant  { color: #9f627a !important; }
+div.syntaxhighlighter code.php-custfunc  { color: #0e3368 !important; }
+div.syntaxhighlighter code.php-function  { color: blue !important; }
+div.syntaxhighlighter code.php-keyword   { color: #006600 !important; }
+div.syntaxhighlighter code.php-numval    { color: red !important; }
+div.syntaxhighlighter code.php-tag       { color: #d70e0d !important; }
+div.syntaxhighlighter code.php-string    { color: #B80000 !important; }
+div.syntaxhighlighter code.php-variable  { color: #80590a !important; }
+div.syntaxhighlighter code.php-varinstr  { color: #c44c1a !important; }
+div.syntaxhighlighter code.php-global  { color: #5371FF !important;}

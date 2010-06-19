@@ -1,0 +1,631 @@
+body {
+	margin: 0px; 
+	padding: 0px; 
+	overflow-x: hidden;
+	/*background-image: url('icons/bg_wallpaper1.jpg');*/
+}
+
+html {
+	margin: 0px; 
+	padding: 0px; 
+	/*overflow: scroll;*/
+	overflow-x: hidden;
+	border: 0; 
+}
+
+.zoomAll {
+	position: static; 
+	text-align: left;
+	clear: both;
+}
+
+.zoomLoaderHolder {
+	position: absolute;
+	z-index: 9;
+	/*float: left;*/
+	background-color: transparent;
+	display: none;
+}
+
+.zoomLoader{
+	position: absolute;
+	width: 220px;
+	height: 19px;
+	margin: 0px;
+	background-image: url('icons/ajax-loader-bar.gif');
+	background-repeat: repeat-y;
+	display: none;
+}
+
+.zoomLoader1{
+	position: absolute;
+	width: 16px;
+	height: 11px;
+	margin: 0px;
+	background-image: url('icons/ajax_loader_corner1.gif');
+	background-repeat: no-repeat;
+	display: none;
+}
+
+.zoomLoader2{
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-color: #000000;
+	margin: 0px;
+	background-image: url('icons/ajax_loader_corner2.gif');
+	background-repeat: no-repeat;
+	background-position: center center;
+	display: none;
+}
+
+.zoomLoader3{
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	margin: 0px;
+	background-image: url('icons/ajax-loader1.png');
+	background-position: 0px 0px; !important
+	display: none;
+}
+
+.zoomBar{
+	background-image: url('icons/progressbar2.gif');
+	background-color: transparent;
+	background-repeat: repeat-x;
+}
+
+.zoomMapHolder{
+	position: absolute;
+	display: none;
+	z-index: 1;
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+	border-color: #2D2D2D;
+	border-style: solid;
+	background-color: #50504D;
+	background-image: url('icons/ajax-loader-map.gif');
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.zoomMapHandle{
+	position: absolute;
+	z-index: 2;
+	background-image: url('icons/zoommaphandle.jpg');
+	background-repeat: repeat-x;
+	overflow: hidden;
+	display: none;
+	color: #FFFFFF;
+	font-family: Tahoma, Arial; 
+	font-size: 6pt;
+	text-align: left;
+}
+
+.zoomMap{
+	position: absolute;
+	z-index: 1;
+	background-color: #000000;
+	display: none;
+	text-align: left;
+}
+
+.zoomMapImg{
+	position: absolute;
+	/* float: left; */
+}
+
+.zoomMapSel{
+	position: absolute;
+	z-index: 3;
+	overflow: hidden;
+	border-width: 1px;
+	border-color: #FF0000; /*#30FF00*/
+	border-style: solid;	
+}
+
+.zoomMapSelArea {
+	background-color: red;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+}
+
+.zoomMapClose{
+	width: 13px; 
+	height: 10px; 
+	margin-top: 1px;
+}
+
+.zoomMapLoading{
+	position: absolute;
+	z-index: 520;
+	background-color: #50504D;
+	background-image: url('icons/ajax-loader-map.gif');
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.zoomBorder{
+	float: left;
+	position: static; 
+	overflow: hidden;
+	margin: 0px;
+	padding: 0px;
+	background-color: #000000;
+	text-align: left;
+}
+
+.zoomContainer {
+	display: inline; /*ie6 bug*/
+	background-image: url('icons/ajaxzoomlogo.png');
+	background-repeat: no-repeat; 
+	background-position: center center;
+	padding: 0px;
+	overflow: hidden; 
+	background-color: #1D1D1A;
+	text-align: left;
+}
+
+.zoomWarning{
+	position: absolute; 
+	z-index: 1; 
+	width: 300px;
+}
+
+.zoomDescrHolder{
+	position: absolute;
+	overflow:hidden;
+	z-index: 1;
+	display: none;
+}
+
+.zoomDescr {
+	position: absolute;
+	background-color: #000000;
+	text-align: left;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+}
+
+.zoomDescrPic {
+	width: 100%;
+	font-family: Tahoma, Arial; 
+	font-size: 10pt;
+	font-variant: small-caps;
+	color: #FFFFFF;
+	margin: 5px 5px 5px 5px;
+}
+
+.zoomDescrButton {
+	font-family: Tahoma, Arial; 
+	font-size: 8pt;
+	color: #FFFFFF;
+	text-align:right;
+	margin: 5px 5px 5px 0px
+}
+
+.zoomedHelpHolder{
+	position: absolute;
+	z-index: 1;
+	display: none;
+	background-image: url('icons/tr_black_70.png');
+	overflow: hidden;
+	text-align: left;
+}
+
+.zoomedHelp{
+	position: absolute; 
+	overflow: auto;
+	overflow-x: hidden;
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+	font-family: Tahoma, Arial; 
+	font-size: 10pt;
+	color: #000000;
+	display: none;
+	text-align: left;
+	background-image: url('icons/1084957_44422511.jpg'); 
+	background-repeat: no-repeat; 
+	background-position: bottom right;
+}
+
+.zoomWarningHTML{
+	border-right: #000000 1px solid; 
+	border-bottom: #000000 1px solid; 
+	background-color: #FDFDFD; 
+	color: #AB0000; 
+	font-size: 10pt; 
+	font-family:Tahoma, Arial; 
+	font-weight: bold;
+	text-align: left;
+}
+
+.zoomedBack{
+	position: absolute; 
+	z-index: 3; 
+	padding: 0px; 
+	margin: 0px; 
+	overflow: hidden;
+}
+
+.zoomedBackImage{
+	padding: 0px;  
+	margin: 0px;  
+	overflow: hidden;
+}
+
+/*Actual pic*/
+.zoomedImageContainer{
+	position: absolute; 
+	z-index: 4; 
+	padding: 0px; 
+	margin: 0px; 
+	overflow: hidden;
+}
+
+.zoomedImage{
+	padding: 0px; 
+	margin: 0px; 
+	overflow: hidden;
+}
+
+/* Select Area*/
+.zoomLayer{
+	position: absolute; 
+	z-index: 10; 
+	padding: 0px; 
+	margin: 0px;
+	overflow: hidden;
+}
+
+.zoomLayerImg{
+	position: absolute;
+	z-index: 1;
+	left: 0px;
+	top: 0px;
+}
+
+.zoomText{
+	color:#FFFFFF; 
+	font-size: 8pt; 
+	font-family: Tahoma, Arial;
+	overflow: hidden;
+	text-align: left;
+}
+
+.zoomLogHolder{
+	font-family: Tahoma, Arial;
+	text-align: left;
+	width: 110px;
+	height: 35px;
+	overflow: hidden;
+}
+
+.zoomLog{
+	display: block;
+	color: #ffffff;
+	font-size: 7pt; 
+	
+}
+
+.zoomLogJustLevel{
+	float:left;
+	width: 60px;
+	color: #D6D6D3;
+	font-size: 14pt; 
+	margin: 7px 0px 0px 3px;
+	display: inline;
+}
+
+.zoomNavigation{
+	float: left;
+	margin: 0px;
+	padding: 0px;
+	background-color:#000000; 
+	background-image:url('icons/stripe_back.png');
+	background-repeat: repeat-x;
+	overflow: hidden;
+	display: inline;
+}
+
+.zoomAdmin{
+	float: left;
+	background-color: #000000;
+	color: #FFFFFF;
+	font-size: 7pt; 
+	font-family: Tahoma, Arial;	
+	text-align: left;
+}
+
+/* Rounded Corners */
+.zoom-border-container{
+	float: left;
+	font-size: 2px;
+	line-height: 5px;
+}
+
+.zoom-top-left {
+	margin-right: 5px; /* clip right corner */
+	background-image: url('icons/black-corner-5.png'); 
+	height: 5px; /* vertical: show first half of the image with the top-corners in it */
+	line-height: 5px;
+	font-size: 2px; /* correct height for IE */
+}
+
+.zoom-top-right {
+	margin-top: -5px; /* to level of top-left corner */
+	margin-left: 5px; /* clip left corner */
+	background-image: url('icons/black-corner-5.png'); 
+	background-position: 100% 0; /* show bg-image starting at the right */
+	height: 5px; 
+	line-height: 5px;
+	font-size: 2px;
+}
+
+.zoom-bottom-left {
+	margin-right: 5px; /* clip right corner */
+	background-image: url('icons/black-corner-5.png'); 
+	background-position: 0 -5px; /* show under half of the image */
+	height: 5px;
+	line-height: 5px;
+	font-size: 2px;
+}
+
+.zoom-bottom-right {
+	margin-top: -5px; /* to level of bottom-left corner */
+	margin-left: 5px; /* clip left corner */
+	background-image: url('icons/black-corner-5.png'); 
+	background-position: 100% -5px; /* under half, right side */
+	height: 5px; 
+	line-height: 5px;
+	font-size: 2px; 
+}
+
+/*************/
+/** Gallery **/
+/*************/
+
+/* Horizontal Containers */
+.zoomGalleryHorizontalContainer{
+	float: left;
+	background-color:#000000;
+	overflow: hidden;
+	text-align: left;
+}
+
+.zoomGalleryHorizontal{
+	float: left;
+	background-color: #1F1F1C;
+	overflow: hidden; 
+}
+
+.zoomGalleryHorizontalArrow{
+	overflow: hidden; 
+	background-color: #000000;
+}
+
+.zoomGalleryHorizontalCorner{
+	position: absolute;
+	overflow: hidden;
+	font-size: 2px;
+	background-repeat: no-repeat;
+}
+
+/* Horizontal Thumbs */
+.zoomHorGalleryBox, .zoomHorGalleryBoxOver, .zoomHorGalleryBoxSelected{
+	float: left;
+	cursor: pointer;
+	margin-top: 0px;
+	margin-left: 0px;
+	border-style: solid;
+	border-color: #535353; /*anim*/
+	background-color: #282824; /*anim*/
+	color: #D7D6D6; /*anim*/
+	overflow: hidden;
+	display: inline;
+}
+
+.zoomHorGalleryBoxOver{
+	border-color: #979696; /*anim*/
+	background-color: #50504D; /*anim*/
+	color: #FFFFFF; /*anim*/
+}
+
+.zoomHorGalleryImg{
+	background-image: url('icons/zoomgalloader.gif'); 
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+.zoomHorGalleryDescr{
+	text-align: center; 
+	font-size: 7pt; 
+	font-family: Tahoma, Arial;
+	overflow: hidden;
+}
+
+
+
+/* Vertical Containers */
+.zoomGalleryVerticalContainer{
+	display: inline;
+	background-color: #000000;
+	overflow: hidden;
+	text-align: left;
+}
+
+.zoomGalleryVertical{
+	/*position: absolute;
+	z-index: 10;*/
+	clear: both; 
+	display: inline;
+	/*float: left;*/
+	overflow: auto; 
+	overflow-x: hidden;
+	visibility: hidden;
+}
+
+.zoomGalleryVerticalNavi{
+	position: relative;
+	/*z-index: 11;*/
+	clear: both; 
+	float: right; /*???*/
+	overflow: hidden; 
+	visibility: hidden;
+	background-color: #000000; 
+	background-image:url('icons/stripe_back.png');
+	background-repeat: repeat-x;
+}
+
+/* Vertical Thumbs */
+.zoomGalleryBox, .zoomGalleryBoxOver, .zoomGalleryBoxSelected{
+	float: left;
+	cursor: pointer;
+	margin-top: 0px;
+	margin-left: 0px;
+	border-style: solid;
+	border-color: #535353; /*anim*/
+	background-color: #1F1F1C; /*anim*/
+	color: #D7D6D6; /*anim*/
+	overflow: hidden;
+	display: inline;
+}
+
+.zoomGalleryBoxOver{
+	border-color: #979696; /*anim*/
+	background-color: #50504D; /*anim*/
+	color: #FFFFFF; /*anim*/
+}
+
+.zoomGalleryImg{
+	background-image: url('icons/zoomgalloader.gif'); 
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+.zoomGalleryDescr{
+	text-align: center; 
+	font-size: 7pt; 
+	font-family: Tahoma, Arial;
+	overflow: hidden;
+}
+
+/* Full page gallery containers */
+.zoomFullGalleryHolder{
+	position: absolute; 
+	z-index: 1;
+	display: none;
+	text-align: left;
+}
+
+.zoomFullGallery{
+	position: absolute; 
+	overflow: auto;
+	overflow-x: hidden;
+	background-color: #1F1F1C;
+}
+
+/* Full page thumbs Thumbs */
+.zoomFullGalleryBox, .zoomFullGalleryBoxOver, .zoomFullGalleryBoxSelected{
+	float: left;
+	cursor: pointer;
+	margin-top: 0px;
+	margin-left: 0px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #000000;  /*anim*/
+	background-color: #282824; /*anim*/
+	color: #D7D6D6; /*anim*/
+	overflow: hidden;
+	display: inline;
+}
+
+.zoomFullGalleryBoxOver{
+	border-color: #FFFFFF; /*anim*/
+	background-color: #50504D; /*anim*/
+	color: #FFFFFF; /*anim*/
+}
+
+.zoomFullGalleryBoxSelected{
+	border-color: #00A314; /*anim*/
+	background-color: #000000; /*anim*/
+	color: #FFFFFF; /*anim*/
+}
+
+.zoomFullGalleryImg{
+	background-image: url('icons/zoomgallfullloader.gif');
+	background-position: center center;
+	background-repeat: no-repeat;		
+}
+.zoomFullGalleryDescr{
+	text-align: center; 
+	font-size: 7pt; 
+	font-family: Tahoma, Arial;
+	overflow: hidden;
+}
+
+/* Tooltip */
+
+.zoomFullGalleryTooltip{
+	position: absolute; 
+	z-index: 100;
+	width: 140px;
+	height: auto;
+	background-color: #FFFFFF;
+
+}
+
+.zoomFullGalleryTooltipText{
+	font-family: Tahoma, Arial;
+	color: #000000; 
+	font-size: 7pt;
+	margin: 3px;
+}
+
+
+.zoomDialog{
+	color: #444444; 
+	font-size: 9pt; 
+	font-family: Tahoma, Arial;
+}
+
+.zoomWtrmrk{
+	position: absolute;
+	z-index: 1;
+	background-image: url(icons/copyright.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+/* Image area */
+.zoomCropContainer{
+	position: absolute;
+	z-index: 9;
+	overflow: hidden;
+}
+
+.zoomCropBorder{
+	position: absolute;
+	z-index: 5;
+	overflow: hidden; 
+}
+
+.zoomCropArea{
+
+}
+
+.zoomCropCross{
+	position: absolute;
+	background-image: url(icons/red-cross.gif);
+	z-index: 1;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 15px;
+	height: 15px;
+}
+
+.zoomCropOuter{
+	position: absolute;
+	z-index: 4;
+}
