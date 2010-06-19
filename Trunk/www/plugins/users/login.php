@@ -25,7 +25,7 @@ if ( $_POST['login'] && $_POST['password'] )
 {
 	if ( User::userLogin($_POST['login'], md5($_POST['password']), $_POST['persistent']) )
 	{
-		$_SESSION["message"] = i18n::_("vous êtes connecté %s", $_SESSION['prenom']." ".$_SESSION['nom']);
+		$_SESSION["message"] = i18n::_("vous êtes connecté %s", array($_SESSION['prenom']." ".$_SESSION['nom']));
 		$persistent = $_POST['persistent'] == "true" ? "1" : "0";
 		
 		if ( $persistent == "1" )

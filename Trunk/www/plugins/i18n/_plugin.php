@@ -55,7 +55,7 @@ final class i18n extends Plugins
 			return gettext($index);
 		}
 		else {
-			return sprintf(gettext($index), $datas);
+			return vsprintf(gettext($index), $datas);
 		}
 	}
 	
