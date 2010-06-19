@@ -39,7 +39,7 @@ Settings::setVar('SITE_BASELINE', '', 'admin', 'Site baseline, also defined in t
 Settings::setVar('SITE_DESCRIPTION', '', 'admin', 'Site description, also defined in the languages files');
 
 // Current version
-Settings::setVar('SITE_VERSION', '10.5.23');
+Settings::setVar('SITE_VERSION', '10.6.19');
 
 // Debug switch. Set it to true for output additional information.
 define('DEBUG', false);
@@ -143,6 +143,8 @@ Settings::setVar('page_templates_path', Settings::getVar('ROOT') . '/themes/' . 
 Settings::setVar('theme_mail_dir', Settings::getVar('ROOT') . '/themes/' . Settings::getVar('SITE_THEME') . '/templates/mails/');
 Settings::setVar('mail_templates_path', Settings::getVar('theme_mail_dir'));
 Settings::setVar('page_templates_path_c', Settings::getVar('prefix') . 'cache/');
+Settings::setVar('cache_dir', Settings::getVar('prefix') . 'cache/');
+Settings::setVar('cache_dir_http', Settings::getVar('BASE_URL_HTTP') . '/cache/');
 Settings::setVar('inc_dir', Settings::getVar('ROOT') . '/include/');
 Settings::setVar('conf_dir', Settings::getVar('prefix'));
 Settings::setVar('plug_dir', Settings::getVar('ROOT') . 'plugins/');
