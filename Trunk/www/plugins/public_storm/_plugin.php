@@ -27,7 +27,6 @@ final class public_storm extends Plugins
  	);
  	public static $name = "public_storm";
 	public static $db;
- 	
 	public function __construct()
 	{
 		require(Settings::getVar('prefix') . 'conf/public_storm.php');
@@ -190,7 +189,7 @@ final class public_storm extends Plugins
 	{
 		/* récupération des suggestions les plus nombreuses */
 		//$suggestions = self::$db->q2("SELECT s.* FROM suggestions s GROUP BY s.storm_id LIMIT 0, :nb", "public_storms.db", array(':nb' => $nb));
-		$suggestions = self::$db->q2("SELECT s.* FROM suggestions s WHERE s.date BETWEEN :from AND :to GROUP BY s.storm_id LIMIT 0, :nb", "public_storms.db", array(':nb' => $nb, ':from' => time()-(7*24*60*60), ':to' => time()));
+		$suggestions = self::$db->q2("SELECT s.* FROM suggestions s WHERE s.date BETWEEN :from AND :to GROUP BY s.storm_id LIMIT 0, :nb", "public_storms.db", array(':nb' => $nb, ':from' => time()-(30*24*60*60), ':to' => time()));
 		//print "->".$suggestions[0][2];
 		//print_r($suggestions);
 		//return self::getStorm($suggestions[0][2]);
