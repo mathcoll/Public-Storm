@@ -24,19 +24,19 @@
 				<div class="scroll">
 					<div class="scrollContainer">
 						<div id="tab1" class="panel">
-							<img src="{$theme_dir}img/weather-storm-320.png" title="{t}intro_title1{/t}" alt="{t}intro_title1{/t}" />
+							<img src="{$theme_dir}img/creer_storms.png" title="{t}intro_title1{/t}" alt="{t}intro_title1{/t}" />
 							<h4>{t}intro_title1{/t}</h4>
 							<p>{t}intro_p1{/t}</p>
 							<p><a href="#tab2">&gt;&gt;</a></p>
 						</div>
 						<div id="tab2" class="panel">
-							<img src="{$theme_dir}img/weather-storm-320.png" title="{t}intro_title2{/t}" alt="{t}intro_title2{/t}" />
+							<img src="{$theme_dir}img/suggest.png" title="{t}intro_title2{/t}" alt="{t}intro_title2{/t}" />
 							<h4>{t}intro_title2{/t}</h4>
 							<p>{t}intro_p2{/t}</p>
 							<p><a href="#tab1">&lt;&lt;</a> <a href="#tab3">&gt;&gt;</a></p>
 						</div>
 						<div id="tab3" class="panel">
-							<img src="{$theme_dir}img/weather-storm-320.png" title="{t}intro_title3{/t}" alt="{t}intro_title3{/t}" />
+							<img src="{$theme_dir}img/export.png" title="{t}intro_title3{/t}" alt="{t}intro_title3{/t}" />
 							<h4>{t}intro_title3{/t}</h4>
 							<p>{t}intro_p3{/t}</p>
 							<p><a href="#tab2">&lt;&lt;</a></p>

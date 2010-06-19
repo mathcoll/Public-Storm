@@ -1,8 +1,9 @@
 // when the DOM is ready...
-$(document).ready(function () {
+$jQuery = jQuery.noConflict();
+$jQuery(document).ready(function () {
 
-    var $panels = $('#screen .scrollContainer > div');
-    var $container = $('#screen .scrollContainer');
+    var $panels = $jQuery('#screen .scrollContainer > div');
+    var $container = $jQuery('#screen .scrollContainer');
 
     // if false, we'll float all the panels left and fix the width 
     // of the container
@@ -21,7 +22,7 @@ $(document).ready(function () {
 
     // collect the scroll object, at the same time apply the hidden overflow
     // to remove the default scrollbars that will appear
-    var $scroll = $('#screen .scroll').css('overflow', 'hidden');
+    var $scroll = $jQuery('#screen .scroll').css('overflow', 'hidden');
 
     // apply our left + right buttons
     //$scroll
@@ -30,7 +31,7 @@ $(document).ready(function () {
 
     // handle nav selection
     function selectNav() {
-        $(this)
+        $jQuery(this)
             .parents('ul:first')
                 .find('a')
                     .removeClass('selected')
@@ -39,18 +40,18 @@ $(document).ready(function () {
             .addClass('selected');
     }
 
-    $('#screen .navigation').find('a').click(selectNav);
+    $jQuery('#screen .navigation').find('a').click(selectNav);
 
     // go find the navigation link that has this target and select the nav
     function trigger(data) {
-        var el = $('#screen .navigation').find('a[href$="' + data.id + '"]').get(0);
+        var el = $jQuery('#screen .navigation').find('a[href$="' + data.id + '"]').get(0);
         selectNav.call(el);
     }
 
     if (window.location.hash) {
         trigger({ id : window.location.hash.substr(1) });
     } else {
-        $('ul.navigation a:first').click();
+        $jQuery('ul.navigation a:first').click();
     }
 
     // offset is used to move to *exactly* the right place, since I'm using
@@ -92,17 +93,17 @@ $(document).ready(function () {
     // apply serialScroll to the slider - we chose this plugin because it 
     // supports// the indexed next and previous scroll along with hooking 
     // in to our navigation.
-    $('#screen').serialScroll(scrollOptions);
+    $jQuery('#screen').serialScroll(scrollOptions);
 
     // now apply localScroll to hook any other arbitrary links to trigger 
     // the effect
-    $.localScroll(scrollOptions);
+    $jQuery.localScroll(scrollOptions);
 
     // finally, if the URL has a hash, move the slider in to position, 
     // setting the duration to 1 because I don't want it to scroll in the
     // very first page load.  We don't always need this, but it ensures
     // the positioning is absolutely spot on when the pages loads.
     scrollOptions.duration = 1;
-    $.localScroll.hash(scrollOptions);
+    $jQuery.localScroll.hash(scrollOptions);
 
 });

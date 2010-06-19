@@ -96,3 +96,8 @@ function display_new_suggestion(id, inhtml, elt)
 		}
 	);
 }
+
+$(document).ready(function()
+{
+	/*$("#neato").draggable();*/
+});

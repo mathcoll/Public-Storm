@@ -156,6 +156,7 @@ label.connected
 div.fiche
 {
 	padding: 0px 10px 10px 10px;
+	margin-top: 44px;
 	border: 2px dashed #a3ab0e;
 	width: 330px;
 }
@@ -198,4 +199,18 @@ img.avantages
 	margin: 0 0 10px 0;
 	border: 1px solid #000000;
 	display: block;
+}
+
+.neato
+{
+	width: 450px;
+	height: 450px;
+	border: 1px solid #000000;
+	margin: 15px 0 0 0;
+	overflow: hidden;
+	/*cursor: move;*/
+}
+.neato img#neato
+{
+	padding: .5em;
 }

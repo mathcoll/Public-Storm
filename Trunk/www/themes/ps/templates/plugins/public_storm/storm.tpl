@@ -37,30 +37,45 @@
 				</ul>
 				<script>
 				{literal}
-				$('.input').keypress(function(e) {
-					if(e.which == 13) {
-						jQuery(this).blur();
-						jQuery('#suggestionForm').focus().click();
-					}
-					$('#suggestion').focus();
-				});
+				/*
+	        	$jQuery(document).ready( function() {
+					$jQuery('.input').keypress(function(e) {
+						if(e.which == 13) {
+							$jQuery(this).blur();
+							$jQuery('#suggestionForm').focus().click();
+						}
+						$jQuery('#suggestion').focus();
+					});
+	        	});
+	        	*/
 				{/literal}
 				</script>
 			</div><!-- //left-->
-			<div class="right">
+			<!--<div class="right neato">
+				<div id="map" class="smallmap"></div>
+				<script defer="defer" type="text/javascript">
+				{literal}
+				var map, layer;
+				function init()
+				{
+					map = new OpenLayers.Map( 'map' );
+					layer = new OpenLayers.Layer.OSM( "Simple OSM Map");
+					map.addLayer(layer);
+					map.zoomToMaxExtent();
+				}
+				{/literal}
+				</script>
+			</div>-->
 			
+			<div class="right">
+				<div class="pancontainer" data-orient="center" data-canzoom="yes" style="width:420px; height:500px;">
+					<img src="{$cache_dir_http}{$storm.storm_id}.dot.jpg" id="neato" style="width:480px;" />
+				</div>
 			</div>
 		</div>
 		
 		<div class="table-cell _30">
 			<div style="clear:both;margin-top:15px;">&nbsp;</div>
-			{if $cloud ne ""}
-			<div class="nuage">
-				<h4>{t}nuage{/t}</h4>
-				{$cloud}
-			</div><!-- //nuage -->
-			<div class="clearboth" style="padding: 0 0 20px 0;"></div>
-			{/if}
 			
 			<div class="fiche">		
 				<h4>{$i18n.fiche|sprintf:$rootCap}</h4>
@@ -72,6 +87,14 @@
 					<span class="data"></span>
 				-->
 			</div><!-- //fiche -->
+
+			{if $cloud ne ""}
+			<div class="nuage">
+				<h4>{t}nuage{/t}</h4>
+				{$cloud}
+			</div><!-- //nuage -->
+			<div class="clearboth" style="padding: 0 0 20px 0;"></div>
+			{/if}
 			
 			<div style="clear:both;">&nbsp;</div>
 			<div class="outils">
