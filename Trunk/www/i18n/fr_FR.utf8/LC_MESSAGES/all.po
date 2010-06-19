@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Public-Storm\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-30 18:25+0100\n"
-"PO-Revision-Date: 2010-05-30 18:25+0100\n"
+"PO-Revision-Date: 2010-06-19 13:27+0100\n"
 "Last-Translator: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "Language-Team: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,6 @@ msgstr ""
 "X-Poedit-SearchPath-0: ../../..\n"
 
 #: ../../../prepend.php:134
-#, php-format
 msgid "Error: Plugin definition class is not present for %s"
 msgstr "Error: Plugin definition class is not present for %s"
 
@@ -578,7 +577,6 @@ msgid "Ajouter ce 'Storm' :"
 msgstr "Ajouter ce 'Storm' :"
 
 #: ../../../plugins/isspam/index.php:43
-#, php-format
 msgid "%s is marked as spam"
 msgstr "%s is marked as spam"
 
@@ -595,7 +593,6 @@ msgid "Erreur lors de la création du compte !"
 msgstr "Erreur lors de la création du compte !"
 
 #: ../../../plugins/users/login.php:28
-#, php-format
 msgid "vous êtes connecté %s"
 msgstr "Vous êtes connecté %s"
 
@@ -605,7 +602,7 @@ msgstr "Erreur d'identification !"
 
 #: ../../../plugins/users/logout.php:27
 msgid "vous êtes déconnecté"
-msgstr "vous êtes déconnecté"
+msgstr "Vous êtes déconnecté"
 
 #: ../../../plugins/users/mot-de-passe-oublie.php:55
 msgid "Erreur lors de l'envoi de votre nouveau password !"
