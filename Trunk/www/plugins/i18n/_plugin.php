@@ -47,11 +47,16 @@ final class i18n extends Plugins
 		return $l;
 	}	
 	
-	public function _($index)
+	public function _($index, $datas=null)
 	{
 		//print dgettext("*", $index)."<br />";
 		//return dgettext("*", $index);
-		return gettext($index);
+		if ( !isset($datas) ) {
+			return gettext($index);
+		}
+		else {
+			return sprintf(gettext($index), $datas);
+		}
 	}
 	
 	public function l($index)
