@@ -31,14 +31,14 @@
 {/foreach}
 </ul>
 
-Pages :
+{t}Pages :{/t}
 <ul class="list-pages">
 	{section name=foo loop=$nb_pages}
 	<li>
 		{if $current_page eq $smarty.section.foo.iteration}
 			<b>{$smarty.section.foo.iteration}</b>
 		{else}
-			<a href="{$base_url}/admin/gettab/list-users/{$smarty.section.foo.iteration}/" onclick="tab('list-users/{$smarty.section.foo.iteration}', 'admin');return false;">{$smarty.section.foo.iteration}</a>
+			<a href="{$base_url}/admin/gettab/prelaunch-list-users/{$smarty.section.foo.iteration}/" onclick="tab('prelaunch-list-users/{$smarty.section.foo.iteration}', 'prelaunch_users', 'admin');return false;">{$smarty.section.foo.iteration}</a>
 		{/if}
 	</li>
 	{/section}
