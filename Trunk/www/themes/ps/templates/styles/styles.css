@@ -43,7 +43,10 @@ a.block
 {
 	display: block;
 }
-
+#message
+{
+	z-index: 9999;
+}
 small.author,
 small.author a
 {
@@ -323,7 +326,7 @@ span.message_fermer
 }
 
 
-#languages
+#rightBox #languages
 {
 	float: right;
 	position: absolute;
