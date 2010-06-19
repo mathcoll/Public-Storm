@@ -1,5 +1,5 @@
 <?php
 
-Settings::setVar('name', 'val', 'public_storm', 'desc');
+Settings::setVar('neato_type', 'jpg', 'public_storm', 'type of the neato image file generated');
 
 ?>

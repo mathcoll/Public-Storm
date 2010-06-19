@@ -105,12 +105,34 @@ if ( isset($id) || isset($_SESSION['id']) )
 	
 	$storm = is_array($storm) ? $storm : array();
 	$sPlug->AddData("storm", $storm);
+	$sPlug->AddData("cache_dir_http", Settings::getVar('cache_dir_http'));
 	$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
-	#$sPlug->->AddData("i18n", i18n::getLng());
+	#$sPlug->AddData("i18n", i18n::getLng());
 	
 	//print_r($storm);
+	//exit;
 	//print $storm['root'];
 	
+	/* génération du neato */
+$dot = "digraph G {
+	node [shape=circle];
+	edge [len=2.5];";
+foreach($storm['suggestions'] as $suggestion)
+{
+	$dot .= "\"".ucFirst($storm['root'])."\" -> \"".ucFirst($suggestion['suggestion'])."\" [label=\"".$suggestion['nb']."\"];"; 
+}
+$dot .= "}";
+	/* fin génération du neato */
+
+	$type = Settings::getVar('neato_type');
+	$file = $storm["storm_id"];
+	if($fp = fopen(Settings::getVar('cache_dir') . $file . '.dot', "w+"))
+	{
+		fputs($fp, $dot);
+		fclose($fp);
+		exec("neato -T$type -Odot " . Settings::getVar('cache_dir') . $file . ".dot");
+	}
+
 	Settings::setVar('title', "Storm ".$root);
 	$breadcrumb = Settings::getVar('breadcrumb');
 	array_push($breadcrumb, array("name" => i18n::_("Storms"), "link" => Settings::getVar('BASE_URL')."/storms/"));
