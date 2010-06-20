@@ -99,6 +99,8 @@ if ( $uri[$ind+1] )
 			if( $user_id = User::userExists($uri[$ind+1]) )
 			{
 				$sPlug->AddData("storms", public_storm::getStormsByAuthor(9999, $user_id));
+				$author = public_storm::getStormAuthor($user_id);
+				$sPlug->AddData("username", $author['prenom']." ".$author['nom']);
 				$content = $sPlug->fetch("user-storms.tpl", "plugins/users");
 			}
 			break;
