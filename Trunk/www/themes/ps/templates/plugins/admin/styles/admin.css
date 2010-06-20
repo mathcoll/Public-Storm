@@ -123,6 +123,7 @@ ul.listCustoms li span,
 ul.list-users li span
 {
 	display: table-cell;
+	vertical-align: top;
 	padding: 1em;
 	border-bottom: 1px solid #cdcdcd;
 }
@@ -156,7 +157,7 @@ ul.list-plugins li span.name
 }
 ul.list-plugins li span.description
 {
-	width: 150px;
+	width: 300px;
 }
 ul.list-plugins li span.status
 {
@@ -166,10 +167,11 @@ ul.list-plugins li span.version
 }
 ul.list-plugins li span.last_updated
 {
+	width: 100px;
 }
 ul.list-plugins li span.update_link
 {
-	width: 190px;
+	width: 100px;
 }
 ul.list-users li span.uid
 {

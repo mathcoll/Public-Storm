@@ -1,15 +1,20 @@
-function add_suggestion(form, base_url)
+function add_suggestion(base_url)
 {
-	var exists = suggestion_exists(permaname(form.suggestion.value));
+	var formulaire = document.getElementById("suggestionForm");
+	//var exists = suggestion_exists(permaname(formulaire.suggestion.value));
+	//var suggestion = formulaire.suggestion.value;
+	var suggestion = $("#suggestion").val();
+	var storm_id = $("#storm_id").val();
+	var exists = suggestion_exists(permaname(suggestion));
 	if( exists == false )
 	{
 		var id = 'elt_'+alea(5);
 		var e = $(
 			'<li class="size_10 hidden bulle" id="'+id+'">' +
-			'<blockquote title=""><a href="'+base_url+'/storm/'+permaname(form.suggestion.value)+'/">'+ucfirst(form.suggestion.value)+'</a>' +
-			'	<span class="size" id="total_'+permaname(form.suggestion.value)+'">(1)</span>' +
-			'	<span id="suggestions_'+permaname(form.suggestion.value)+'" class="hidden" style="vertical-align:top;" />' +
-			'	<input type="hidden" name="suggestion" value="'+permaname(form.suggestion.value)+'">' +
+			'<blockquote title=""><a href="'+base_url+'/storm/'+permaname(suggestion)+'/">'+ucfirst(suggestion)+'</a>' +
+			'	<span class="size" id="total_'+permaname(suggestion)+'">(1)</span>' +
+			'	<span id="suggestions_'+permaname(suggestion)+'" class="hidden" style="vertical-align:top;" />' +
+			'	<input type="hidden" name="suggestion" value="'+permaname(suggestion)+'">' +
 			'</blockquote>' +
 			'	<cite>' +
 			'		Suggérée par xxxx, le xx/xx/xxxx' +
@@ -17,33 +22,41 @@ function add_suggestion(form, base_url)
 			'</li>'
 		);
 	}
-	if( $("#storm_"+form.storm_id.value+" li.no_suggestion") )
+	if( $("#storm_"+storm_id+" li.no_suggestion") )
 	{
-		$("#storm_"+form.storm_id.value+" li.no_suggestion").hide();
+		$("#storm_"+storm_id+" li.no_suggestion").hide();
 	}
 	$.post(
-		form.action,
+		formulaire.action,
 		{
-			suggestion: form.suggestion.value,
-			storm_id: form.storm_id.value
+			suggestion: suggestion,
+			storm_id: storm_id
 		},
 		function(data)
 		{
 			if( e )
 			{
-				$('#storm_'+form.storm_id.value).append(e);
+				$('#storm_'+storm_id).append(e);
 				$('#'+id).fadeIn("slow");
 			}
 		},
 		"text"
 	);
-	display_new_suggestion('storm_'+form.storm_id.value, '+1', form.suggestion.value);
-	form.suggestion.value = "";
+	display_new_suggestion('storm_'+storm_id, '+1', permaname(suggestion));
+	//formulaire.suggestion.value = "";
+	$("#suggestion").val("");
+}
+
+function suggest_too(suggestion, base_url)
+{
+	$("#suggestion").val(suggestion);
+	add_suggestion(base_url);
+	return false;
 }
 
 function suggestion_exists(suggestion)
 {
-	if ( $('#total_' + suggestion).length )
+	if ( $('#total_' + permaname(suggestion)).length )
 	{
 		return true;
 	}

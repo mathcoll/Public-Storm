@@ -200,6 +200,16 @@ img.avantages
 	border: 1px solid #000000;
 	display: block;
 }
+span.suggest-too input
+{
+    background: transparent url(../img/light.png) no-repeat 0 0;
+    border: 0;
+    width: 20px;
+    height: 15px;
+    font-size: 11px;
+    margin: 0 0 0 1em;
+    padding:0 0 0 10px;
+}
 
 .neato
 {

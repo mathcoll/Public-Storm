@@ -6,13 +6,13 @@
 			<div class="left">
 				{assign var=rootCap value=$storm.root|ucfirst}
 				<h4><label for="suggestion">{t 1=$rootCap escape=""}suggest_it{/t}</label></h4>
-				<form action="{$base_url}/storm/add_suggestion/" method="post" class="suggestion" id="suggestionForm" onsubmit="add_suggestion(this, '{$base_url}'); return false;">
-					<input type="hidden" name="storm_id" value="{$storm.storm_id}" />	
+				<form action="{$base_url}/storm/add_suggestion/" method="post" class="suggestion" id="suggestionForm" onsubmit="add_suggestion('{$base_url}'); return false;">
+					<input type="hidden" name="storm_id" id="storm_id" value="{$storm.storm_id}" />	
 					<label for="suggestion"><img src="{$theme_dir}plugins/public_storm/img/light.png" style="vertical-align:middle;" alt="Suggestion" /></label>
 					<input type="text" class="input" name="suggestion" id="suggestion" value="" onfocus="this.select();" maxlength="140" />
 					<input type="submit" value="&gt;" />
 				</form>
-				
+					
 				<ul id="storm_{$storm.storm_id}" class="storm">
 				{if $storm.suggestions != null}
 					{assign var=size value="20"}
@@ -23,6 +23,7 @@
 							<span class="size" id="total_{$suggestion.suggestion|url}">({$suggestion.nb})</span>
 							<span id="suggestions_{$suggestion.suggestion|url}" class="hidden" style="vertical-align:top;"></span>
 							<input type="hidden" name="suggestion" value="{$suggestion.suggestion|url}" />
+							<span class="suggest-too" title="{t}Je suggère moi aussi !{/t}"><input type="button" value="+" onclick="suggest_too('{$suggestion.suggestion|escape}', '{$base_url}');" /></span>
 						</blockquote>
 						<cite>
 							Suggérée par xxxxxx, le {$suggestion.date|date_format:"%A %d %B %Y %Hh%M:%S GMT"}
