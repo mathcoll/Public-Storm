@@ -111,8 +111,11 @@ function no_spacer(str)
 }
 
 /* mon compte */
-function tab(name, id, folder)
+function tab(name, id, folder, subpage)
 {
+	if ( subpage != null ) {
+		name = name  + "/" + subpage;
+	}
 	$.get(BASE_URL + "/"+folder+"/gettab/" + name + "/", function(data)
 		{
 	  		if (data)

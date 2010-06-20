@@ -37,11 +37,29 @@ if ( isset($_SESSION["message"]) )
 	$_SESSION["message"] = NULL;
 }
 
+$uri = split('/', $_SERVER['REQUEST_URI']);
+#$id = array_pop($uri); # TODO : ca retourne rien ???!!!!
+if( Settings::getVar('BASE_URL') != "" )
+{
+	$ind = 2;
+}
+else
+{
+	$ind = 1;
+}
+
 $customizable = Settings::getCustomizable();
 $c = array();
 foreach($customizable as $custom)
 {
-	array_push($c, array($custom, Settings::getVar($custom), Settings::getCustomizableDesc($custom), Settings::getCustomizableType($custom) ));
+	if ( !$uri[$ind+3]  )
+	{
+		array_push($c, array($custom, Settings::getVar($custom), Settings::getCustomizableDesc($custom), Settings::getCustomizableType($custom) ));
+	}
+	elseif( Settings::getCustomizableType($custom) == $uri[$ind+3] )
+	{
+		array_push($c, array($custom, Settings::getVar($custom), Settings::getCustomizableDesc($custom), Settings::getCustomizableType($custom) ));
+	}
 }
 
 $sTab->AddData("customizable", $c);
