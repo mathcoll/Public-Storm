@@ -66,7 +66,6 @@ Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/coda-s
 //Settings::addJs('text/javascript', Settings::getVar('theme_dir').'plugins/public_storm/scripts/ape-jsf/Build/uncompressed/apeClientJS.js');
 
 /* scripts for drag and dropping */
-Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery-ui-1.7.3.custom.min.js');
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'plugins/imagepanner/scripts/imagepanner.js');
 
 /* Public-Storm scripts */
