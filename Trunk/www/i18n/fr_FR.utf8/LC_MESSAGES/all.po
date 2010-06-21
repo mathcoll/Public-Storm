@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Public-Storm\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-30 18:25+0100\n"
-"PO-Revision-Date: 2010-06-19 13:27+0100\n"
+"PO-Revision-Date: 2010-06-20 15:02+0100\n"
 "Last-Translator: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "Language-Team: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "MIME-Version: 1.0\n"
@@ -466,7 +466,7 @@ msgstr "2. Suggérez des idées"
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:16
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:17
 msgid "intro_title3"
-msgstr "3. Organisez et exploiter les données"
+msgstr "3. Organisez et exploitez les données"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:10
 msgid "intro_p1"
