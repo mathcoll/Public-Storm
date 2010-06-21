@@ -234,6 +234,27 @@ class Database_sqlite extends Database
 	}
 
 
+	public static function getNameFromEmail($email)
+	{
+		$q = 'SELECT nom, prenom FROM users WHERE email = "%s" LIMIT 1';
+		$query = sprintf(
+			$q,
+			self::escape_string($email)
+		);
+		if ( $result = self::$dbUser->query($query) )
+		{
+			while ( $row = $result->fetch() )
+			{
+				return $row['prenom']." ".$row['nom'];
+			}
+		}
+		else
+		{
+			Debug::Log("Erreur 5".$query, ERROR);
+		}
+	}
+
+
 	public static function userResetPassword($login)
 	{
 		$q = 'UPDATE users SET password="%s" WHERE login = "%s"';

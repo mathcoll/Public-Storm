@@ -22,8 +22,6 @@
  */
 
 $sPlug = new Settings::$VIEWER_TYPE;
-Settings::setVar('template', 'main.tpl');
-
 
 $uri = split('/', $_SERVER['REQUEST_URI']);
 #$id = array_pop($uri); # TODO : ca retourne rien ???!!!!
@@ -38,34 +36,39 @@ else
 }
 
 
-if( $_SESSION['isadmin'] != 1 )
+
+
+
+require(Settings::getVar('inc_dir') . "phpMailer/class.phpmailer.php");
+
+$mail    = new PHPMailer();
+$email = $uri[$ind+2];
+$sPlug->AddData("email", $email);
+$sPlug->AddData("subject", i18n::_("Vous avez accepté de tester Public-Storm, c'est maintenant!"));
+$body = $sPlug->fetch("invitation.tpl", "plugins/prelaunch");
+
+$mail->From     = Settings::getVar('From');
+$mail->FromName = Settings::getVar('FromName');
+$mail->Mailer = Settings::getVar('Mailer');
+$mail->Host = Settings::getVar('Host');
+$mail->Subject = i18n::_("Vous avez accepté de tester Public-Storm, c'est maintenant!");
+$mail->AltBody = i18n::_("To view the message, please use an HTML compatible email viewer!");
+$mail->CharSet = 'utf-8';
+$mail->MsgHTML($body);
+$mail->AddAddress($email, User::getNameFromEmail($email));
+
+if( !$mail->Send() )
 {
-	require(Settings::getVar('plug_dir')."admin/forbidden.php");
-	//exit;
+	Settings::setVar('message', i18n::_("Failed to send mail", array($datas['email'])));
+	$_SESSION["message"] = i18n::_("Failed to send mail", array($datas['email']));
 }
 else
-{	
-	if ( $uri[$ind+1] )
-	{
-		switch ( $uri[$ind+1] )
-		{
-			case "invitation" :
-				$action = $uri[$ind+2];
-				require(Settings::getVar('plug_dir')."prelaunch/send_invitation.php");
-				break;
-			
-			case "gettab" :
-				$tab = $uri[$ind+2];
-				require("gettab.php");
-				exit;
-				break;
-			
-			default : break;
-		}
-	}
-	else
-	{
-		require(Settings::getVar('plug_dir')."admin/list-plugins.php");
-		require(Settings::getVar('plug_dir')."admin/admin-main.php");
-	}
+{
+	header("HTTP/1.1 302 Moved temporarily", false, 302);
+	header("Location: ".$_SERVER['HTTP_REFERER'], false, 302);
+	exit;
 }
+
+
+
+?>

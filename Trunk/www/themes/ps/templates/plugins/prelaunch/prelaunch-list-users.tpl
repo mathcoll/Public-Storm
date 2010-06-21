@@ -16,9 +16,10 @@
 <ul class="list-users">
 	<li class="header">
 		<span class="icon">&nbsp;</span>
-		<span class="email">Email</span>
-		<span class="subscription_date">Date</span>
-		<span class="referrer">Referrer</span>
+		<span class="email">{t}Email{/t}</span>
+		<span class="subscription_date">{t}Date{/t}</span>
+		<span class="referrer">{t}Referrer{/t}</span>
+		<span class="action">{t}Action{/t}</span>
 	</li>
 {foreach from=$users item=user}
 	<li>
@@ -26,6 +27,7 @@
 		<span class="email"><a href="mailto:{$user.email}">{$user.email}</a></span>
 		<span class="subscription_date">{$user.date|date_format:"%A %e %B %Y, %H:%M:%S"|ucfirst}</span>
 		<span class="referrer">{$user.referrer}</span>
+		<span class="invitation"><a href="{$base_url}/prelaunch/invitation/{$user.email}/">{t}Invitation{/t}</a></span>
 	</li>
 	
 {/foreach}

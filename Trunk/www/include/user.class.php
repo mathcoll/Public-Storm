@@ -294,6 +294,11 @@ final class User
 		return self::$db->getLoginFromEmail($email);
 	}
 
+	public static function getNameFromEmail($email)
+	{
+		return self::$db->getNameFromEmail($email);
+	}
+
 	public static function userResetPassword($login)
 	{
 		return self::$db->userResetPassword($login);
