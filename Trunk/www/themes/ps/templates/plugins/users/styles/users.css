@@ -49,3 +49,12 @@ ul.nolist li a
 {
 	background: #a3ab0e;
 }
+
+ul.liste li
+{
+	line-height: 22px;
+}
+ul.liste li a.storm
+{
+	font-size: 16px;
+}
