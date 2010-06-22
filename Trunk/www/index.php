@@ -118,6 +118,7 @@ if( $statuses['users'] == 1 )
 		'prenom'	=> $_SESSION['prenom'],
 		'nom'		=> $_SESSION['nom'],
 		'email'	=> $_SESSION['email'],
+		'avatar'	=> $_SESSION['avatar'],
 		'isadmin'=> $_SESSION['isadmin']
 	);
 	$s->AddData("user", $user);

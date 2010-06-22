@@ -40,10 +40,10 @@
 	</li>
 	{/if}
 	<li>
-		<span class="icon">&nbsp;</span>
+		<span class="icon"><img src="{$user.avatar}" alt="-" width="32" height="32" /></span>
 		<span class="nom">{$user.nom}</span>
 		<span class="prenom">{$user.prenom}</span>
-		<span class="login" title="{$user.uid}">{$user.login}</span>
+		<span class="login" title="{$user.uid}"><a href="{$base_url}/utilisateurs/{$user.login}/">{$user.login}</a></span>
 		<span class="email"><a href="mailto:{$user.email}">{$user.email}</a></span>
 		<span class="lang">{$user.lang}</span>
 		<span class="subscription_date">{$user.subscription_date|date_format:"%A %e %B %Y, %H:%M:%S"|ucfirst}</span>

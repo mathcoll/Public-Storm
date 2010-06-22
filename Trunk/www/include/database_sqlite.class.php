@@ -334,6 +334,7 @@ class Database_sqlite extends Database
 			$r = array();
 			while ( $row = $result->fetch() )
 			{
+				$row['avatar'] = "http://www.gravatar.com/avatar/".md5( strtolower( $row['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&size=32";
 				array_push($r, $row);
 			}
 			return $r;

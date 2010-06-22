@@ -23,7 +23,7 @@ ul.nolist li a
 }
 #login._1
 {
-	background: url(../../../img/weather-storm.png) no-repeat 0 10px;
+	/*background: url(../../../img/weather-storm.png) no-repeat 0 10px;*/
 	height: 60px;
 	padding: 0 0 0 15px;
 	/*padding-left: 40px;*/
@@ -43,6 +43,12 @@ ul.nolist li a
 #login input
 {
 	margin: 0em; 
+}
+
+#login span.avatar
+{
+	float: left;
+	margin: 1em 0 0 -10px;
 }
 
 #login input:focus

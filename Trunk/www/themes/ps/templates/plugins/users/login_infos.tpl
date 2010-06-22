@@ -1,3 +1,4 @@
+<span class="avatar"><img src="{$user.avatar}" /></span>
 <ul class="nolist">
 	<li>{$user.prenom} {$user.nom}</li>
 	<li><a href="{$base_url}/utilisateurs/mon-compte/">{t}mon_compte{/t}</a></li>

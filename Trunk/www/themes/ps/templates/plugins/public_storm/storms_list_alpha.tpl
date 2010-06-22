@@ -8,18 +8,18 @@
 	<div class="table-row">
 		<div class="table-cell _30">
 	
-			<ul>
+			<ul class="liste">
 				{foreach from=$storms item=storm}
 				{assign var=cap value=$storm.permaname.0}
 				{if $cap ne $prevcap}
 					{if $loopnum gt $item_per_col|floor}
 						</ul></div>
 						{assign var=loopnum value=0}
-						<div class="table-cell _30"><ul>
+						<div class="table-cell _30"><ul class="liste">
 					{/if}
 					<li class="cap">{$cap|ucfirst}</li>
 				{/if}
-				{if $storm.root ne ""}<li><a href="{$base_url}/storm/{$storm.permaname|url}/">{$storm.root|ucfirst}</a> <small class="author">({t}by{/t} <a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a>)</small></li>{/if}
+				{if $storm.root ne ""}<li><a href="{$base_url}/storm/{$storm.permaname|url}/" class="storm">{$storm.root|ucfirst}</a> <small class="author">({t}by{/t} <a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a>)</small></li>{/if}
 				{assign var=prevcap value=$cap}
 				
 				{assign var=loopnum value=$loopnum+1}

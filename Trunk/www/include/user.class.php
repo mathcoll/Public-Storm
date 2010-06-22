@@ -37,6 +37,7 @@ final class User
 	public static $prenom;
 	public static $nom;
 	public static $email;
+	public static $avatar;
 	public static $subscription_date;
 	public static $login;
 	public static $lang;
@@ -189,6 +190,7 @@ final class User
 			$nom = $datas['nom'];
 			$lang = $datas['lang'];
 			$email = $datas['email'];
+			$avatar = "http://www.gravatar.com/avatar/".md5( strtolower( $email ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&size=50";
 			$isadmin = $datas['isadmin'];
 			$subscription_date = $datas['subscription_date'];
 			self::$current->id = $id;
@@ -202,6 +204,7 @@ final class User
 			self::$nom = $nom;
 			self::$subscription_date = $subscription_date;
 			self::$email = $email;
+			self::$avatar = $avatar;
 			self::$isadmin = $isadmin;
 			$_SESSION['id'] = $id;
 			$_SESSION['uid'] = $uid;
@@ -212,6 +215,7 @@ final class User
 			$_SESSION['nom'] = $nom;
 			$_SESSION['subscription_date'] = $subscription_date;
 			$_SESSION['email'] = $email;
+			$_SESSION['avatar'] = $avatar;
 			$_SESSION['isadmin'] = $isadmin;
 			Session::StartUser(User::GetById($id));
 			if ( self::$persistent == "1" )
@@ -244,6 +248,7 @@ final class User
 			$nom = $datas['nom'];
 			$lang = $datas['lang'];
 			$email = $datas['email'];
+			$avatar = "http://www.gravatar.com/avatar/".md5( strtolower( $email ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&size=50";
 			$isadmin = $datas['isadmin'];
 			$subscription_date = $datas['subscription_date'];
 			self::$current->id = $id;
@@ -256,6 +261,7 @@ final class User
 			self::$nom = $nom;
 			self::$subscription_date = $subscription_date;
 			self::$email = $email;
+			self::$avatar = $avatar;
 			self::$isadmin = $isadmin;
 			$_SESSION['id'] = $id;
 			$_SESSION['uid'] = $uid;
@@ -266,6 +272,7 @@ final class User
 			$_SESSION['nom'] = $nom;
 			$_SESSION['subscription_date'] = $subscription_date;
 			$_SESSION['email'] = $email;
+			$_SESSION['avatar'] = $avatar;
 			$_SESSION['isadmin'] = $isadmin;
 			Session::StartUser(User::GetById($id));
 			if ( self::$persistent == "1" )
