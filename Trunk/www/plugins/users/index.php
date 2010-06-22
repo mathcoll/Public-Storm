@@ -100,6 +100,7 @@ if ( $uri[$ind+1] )
 			{
 				$sPlug->AddData("storms", public_storm::getStormsByAuthor(9999, $user_id));
 				$author = public_storm::getStormAuthor($user_id);
+				$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
 				$sPlug->AddData("username", $author['prenom']." ".$author['nom']);
 				$sPlug->AddData("avatar", $avatar = "http://www.gravatar.com/avatar/".md5( strtolower( $author['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&size=100");
 				$content = $sPlug->fetch("user-storms.tpl", "plugins/users");
