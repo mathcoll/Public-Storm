@@ -30,8 +30,8 @@ $sTab->AddData("prefix", Settings::getVar('prefix'));
 $sTab->AddData("base_url", Settings::getVar('BASE_URL'));
 $sTab->AddData("theme_dir", Settings::getVar('theme_dir'));
 
-
-$sTab->AddData("storms", public_storm::getStormsByAuthor(999, $_SESSION['id']));
+# TODO : pagination
+$sTab->AddData("storms", public_storm::getStormsByAuthor(0, 999, $_SESSION['id']));
 $tabContent = $sTab->fetch("mes-storms.tpl", "plugins/users");
 
 ?>

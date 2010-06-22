@@ -98,11 +98,18 @@ if ( $uri[$ind+1] )
 		default :
 			if( $user_id = User::userExists($uri[$ind+1]) )
 			{
-				$sPlug->AddData("storms", public_storm::getStormsByAuthor(9999, $user_id));
 				$author = public_storm::getStormAuthor($user_id);
 				$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
 				$sPlug->AddData("username", $author['prenom']." ".$author['nom']);
+				$sPlug->AddData("login", $author['login']);
 				$sPlug->AddData("avatar", $avatar = "http://www.gravatar.com/avatar/".md5( strtolower( $author['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&size=100");
+
+				$current_page = $uri[$ind+2] != NULL ? $uri[$ind+2] : 1;
+				$sPlug->AddData("current_page", $current_page);
+				$sPlug->AddData("nb_pages", ceil(public_storm::getNbStorms($user_id) / Settings::getVar('user_storms_per_page')));
+				$sPlug->AddData("nbstorms", public_storm::getNbStorms($user_id));
+				
+				$sPlug->AddData("storms", public_storm::getStormsByAuthor($current_page==1 ? 0 : ((Settings::getVar('user_storms_per_page')*($current_page-1))), Settings::getVar('user_storms_per_page'), $user_id));
 				$content = $sPlug->fetch("user-storms.tpl", "plugins/users");
 			}
 			break;

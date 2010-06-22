@@ -52,9 +52,9 @@ else
 $current_page = $uri[$ind+3] != NULL ? $uri[$ind+3] : 1;
 
 $sTab->AddData("current_page", $current_page);
-$sTab->AddData("nb_pages", round(prelaunch::getNbPrelaunchUsers() / Settings::getVar('prelaunch_users_per_page')));
+$sTab->AddData("nb_pages", ceil(prelaunch::getNbPrelaunchUsers() / Settings::getVar('prelaunch_users_per_page')));
 $sTab->AddData("nbusers", prelaunch::getNbPrelaunchUsers());
-$sTab->AddData("users", prelaunch::getAllPrelaunchUsers($current_page==1 ? 0 : ((Settings::getVar('prelaunch_users_per_page')*($current_page-1))+1), Settings::getVar('prelaunch_users_per_page')));
+$sTab->AddData("users", prelaunch::getAllPrelaunchUsers($current_page==1 ? 0 : ((Settings::getVar('prelaunch_users_per_page')*($current_page-1))), Settings::getVar('prelaunch_users_per_page')));
 
 //$breadcrumb = Settings::getVar('breadcrumb');
 //array_push($breadcrumb, array("name" => Settings::getVar('title')));

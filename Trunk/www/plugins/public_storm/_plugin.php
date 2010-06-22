@@ -122,9 +122,20 @@ final class public_storm extends Plugins
 		} else { return null; }
 	}
 	
-	public function getStormsByAuthor($nb, $user_id)
+	public function getStormsByAuthor($from=0, $nb=null, $user_id)
 	{
-		$storms = self::$db->q2("SELECT s.* FROM storms s WHERE s.user_id = :user_id ORDER BY s.date DESC LIMIT 0, :nb", "public_storms.db", array(':nb' => $nb, ':user_id' => $user_id));
+		$q = "SELECT s.* FROM storms s WHERE s.user_id = :user_id ORDER BY s.date DESC";
+		if ( isset($nb) )
+		{
+			$q .= " LIMIT :from, :nb";
+			$datas = array(':from' => $from, ':nb' => $nb, ':user_id' => $user_id);
+		}
+		else
+		{
+			$datas = array(':user_id' => $user_id);
+		}
+		//print $q;
+		$storms = self::$db->q2($q, "public_storms.db", $datas);
 		for($n=0; $n<sizeOf($storms); $n++)
 		{
 			$author = self::getStormAuthor($storms[$n]['user_id']);
@@ -135,13 +146,13 @@ final class public_storm extends Plugins
 		return $storms;
 	}
 	
-	public function getStormsByDate($nb=null)
+	public function getStormsByDate($from=0, $nb=null)
 	{
 		$q = "SELECT s.* FROM storms s ORDER BY s.date DESC";
 		if ( isset($nb) )
 		{
-			$q .= " LIMIT 0, :nb";
-			$datas = array(':nb' => $nb);
+			$q .= " LIMIT :from, :nb";
+			$datas = array(':from' => $from, ':nb' => $nb);
 		}
 		else
 		{
@@ -227,6 +238,22 @@ final class public_storm extends Plugins
 	{
 		$s = self::$db->q("SELECT s.storm_id FROM storms s WHERE s.permaname = '%s'", "public_storms.db", array($storm));
 		return $s[1]['storm_id'];
+	}
+	
+	public function getNbStorms($user_id=null)
+	{
+		$q = "SELECT count(*) as c FROM storms s";
+		if ( isset($user_id) )
+		{
+			$q .= " WHERE s.user_id = :user_id";
+			$datas = array(':user_id' => $user_id);
+		}
+		else
+		{
+			$datas = array();
+		}
+		$storms = self::$db->q2($q, "public_storms.db", $datas);
+		return $storms[0]['c'];
 	}
 }
 

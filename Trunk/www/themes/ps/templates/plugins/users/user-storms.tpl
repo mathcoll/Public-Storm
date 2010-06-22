@@ -5,6 +5,20 @@
 {assign var=item_per_col value=$s_count/2}
 <h3>{t 1=$username}Storms de %1{/t}</h3>
 <img src="{$avatar}" alt="{$username|escape}" />
+
+<p>{t}Pages :{/t}</p>
+<ul class="list-pages">
+	{section name=foo loop=$nb_pages}
+	<li>
+		{if $current_page eq $smarty.section.foo.iteration}
+			<b>{$smarty.section.foo.iteration}</b>
+		{else}
+			<a href="{$base_url}/utilisateurs/{$login|escape}/{$smarty.section.foo.iteration}/">{$smarty.section.foo.iteration}</a>
+		{/if}
+	</li>
+	{/section}
+</ul>
+
 <div class="table _100">
 	<div class="table-row">
 		<div class="table-cell _50">
@@ -30,3 +44,16 @@
 		</div>
 	</div>
 </div>
+
+<p>{t}Pages :{/t}</p>
+<ul class="list-pages">
+	{section name=foo loop=$nb_pages}
+	<li>
+		{if $current_page eq $smarty.section.foo.iteration}
+			<b>{$smarty.section.foo.iteration}</b>
+		{else}
+			<a href="{$base_url}/utilisateurs/{$login|escape}/{$smarty.section.foo.iteration}/">{$smarty.section.foo.iteration}</a>
+		{/if}
+	</li>
+	{/section}
+</ul>
