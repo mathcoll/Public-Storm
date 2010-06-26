@@ -72,7 +72,7 @@
 }
 #mes-storms
 {
-	background-image: url(../../public_storm/img/icon.png);
+	background-image: url(../../../img/weather-storm-32.png);
 	background-position: 5px center;
 	background-repeat: no-repeat;
 	padding:1em 0 1em 40px;

@@ -254,7 +254,7 @@ div.breadcrumb
 {
 	margin: 5px 0 0 20px;
 	padding: 0;
-}
+} 
 div.table-cell ul li
 {
 	//margin: 0 !important;
@@ -771,7 +771,11 @@ ul.nuage li.nuage10
 	/*background: url(img/play_to_come.jpg) no-repeat center center;*/
 }
 
-
+.centered
+{
+	text-align: center;
+	display: block;
+}
 
 
 /* tables */
