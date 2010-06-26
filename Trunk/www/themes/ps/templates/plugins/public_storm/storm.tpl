@@ -100,7 +100,10 @@
 			<div style="clear:both;">&nbsp;</div>
 			<div class="outils">
 				<h4>{t}outils{/t}</h4>
-				<a href="{$base_url}/odsExport/{$storm.permaname|url}/" class="stormExport">{t}export2ods{/t}</a>
+				<ul>
+					<li><a href="{$base_url}/odsExport/{$storm.permaname|url}/" class="stormExport">{t}export2ods{/t}</a></li>
+					<li>{include file="../share/share.tpl" base_url_http=$base_url_http}</li>
+				</ul>
 			</div><!-- //outils -->
 		</div>
 	</div>
