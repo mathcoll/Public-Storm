@@ -2,13 +2,13 @@
 gettext("liste_plugins");
 gettext("Nom");
 gettext("Description");
-gettext("Statut");
-gettext("Version");
 gettext("Date de mise à jour");
 gettext("Lien de mise à jour");
+gettext("Statut");
 gettext("by");
 gettext("Activer");
 gettext("Désactiver");
+gettext("Configurer");
 
 ?><?php
 gettext("list_users");
@@ -18,7 +18,7 @@ gettext("Prénom");
 gettext("Login");
 gettext("Email");
 gettext("Lang");
-gettext("Inscription");
+gettext("date d'inscription");
 gettext("Mise à jour");
 
 ?><?php

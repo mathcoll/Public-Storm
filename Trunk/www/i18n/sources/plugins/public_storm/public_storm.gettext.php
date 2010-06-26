@@ -19,13 +19,17 @@ gettext("intro_p3");
 
 ?><?php
 gettext("Liste des derniers Storms créés :");
+gettext("Pages :");
+gettext("Semaine");
+gettext("Pages :");
 
 ?><?php
 gettext("suggest_it");
-gettext("nuage");
+gettext("Je suggère moi aussi !");
 gettext("Création du storm :");
 gettext("Auteur du storm :");
 gettext("Utilisateurs connectés :");
+gettext("nuage");
 gettext("outils");
 gettext("export2ods");
 
@@ -52,5 +56,6 @@ gettext("telechargez_p2");
 
 ?><?php
 gettext("Ajouter ce 'Storm' :");
+gettext("Ajouter");
 
 ?>

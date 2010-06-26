@@ -16,8 +16,15 @@ gettext("fogotten_password.signature");
 
 ?><?php
 gettext("mes_storms");
+gettext("Pages :");
+gettext("Semaine");
+gettext("Pages :");
 
 ?><?php
+gettext("Storms de %1");
+gettext("Pages :");
+gettext("Semaine");
+gettext("Pages :");
 
 ?><?php
 gettext("login intro");
@@ -65,6 +72,7 @@ gettext("mes_alertes");
 
 ?><?php
 gettext("mes_informations");
+gettext("Changer ma photo");
 gettext("field.prenom");
 gettext("field.nom");
 gettext("field.email");
