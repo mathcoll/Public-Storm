@@ -37,81 +37,83 @@ else
 	$ind = 1;
 }
 
-if ( $uri[$ind+1] )
-{
-	switch ( $uri[$ind+1] )
-	{
-		case "key" :
-			header('Content-type: text/plain');
-			header('Content-Disposition: attachment; filename="key"');
-			print $_SESSION['uid'];
-			exit;
-			break;
-			
-		case "login" :
-			require("login.php");
-			//exit;
-			break;
-			
-		case "logout" :
-			require("logout.php");
-			exit;
-			break;
-			
-		case "mon-compte" :
-			if ( $uri[$ind+2] )
-			{
-				switch ( $uri[$ind+2] )
-				{					
-						
-					case "mes-alertes" :
-						require(Settings::getVar('plug_dir')."users/mes-alertes.php");
-						break;
-							
-					case "mes-parametres" :
-						require(Settings::getVar('plug_dir')."users/mes-parametres.php");
-						break;
-					
-					case "mes-informations" :	
-						require(Settings::getVar('plug_dir')."users/mes-informations.php");
-						break;
-					
-					default : break;
-				}
-				require(Settings::getVar('plug_dir')."users/mon-compte.php");
-				//print $content;
-				//exit;
-			}
-			else
-			{
-				require(Settings::getVar('plug_dir')."users/mes-informations.php");
-				require(Settings::getVar('plug_dir')."users/mon-compte.php");
-			}
-			break;
-			
-		case "gettab" :
-			$tab = $uri[$ind+2];
-			require("gettab.php");
-			exit;
-			break;
-			
-		default :
-			if( $user_id = User::userExists($uri[$ind+1]) )
-			{
-				$author = public_storm::getStormAuthor($user_id);
-				$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
-				$sPlug->AddData("username", $author['prenom']." ".$author['nom']);
-				$sPlug->AddData("login", $author['login']);
-				$sPlug->AddData("avatar", $avatar = "http://www.gravatar.com/avatar/".md5( strtolower( $author['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&size=100");
 
-				$current_page = $uri[$ind+2] != NULL ? $uri[$ind+2] : 1;
-				$sPlug->AddData("current_page", $current_page);
-				$sPlug->AddData("nb_pages", ceil(public_storm::getNbStorms($user_id) / Settings::getVar('user_storms_per_page')));
-				$sPlug->AddData("nbstorms", public_storm::getNbStorms($user_id));
+switch ( $uri[$ind+1] )
+{
+	case "key" :
+		header('Content-type: text/plain');
+		header('Content-Disposition: attachment; filename="key"');
+		print $_SESSION['uid'];
+		exit;
+		break;
+		
+	case "login" :
+		require("login.php");
+		//exit;
+		break;
+		
+	case "logout" :
+		require("logout.php");
+		exit;
+		break;
+		
+	case "mon-compte" :
+		if ( $uri[$ind+2] )
+		{
+			switch ( $uri[$ind+2] )
+			{					
+					
+				case "mes-alertes" :
+					require(Settings::getVar('plug_dir')."users/mes-alertes.php");
+					break;
+						
+				case "mes-parametres" :
+					require(Settings::getVar('plug_dir')."users/mes-parametres.php");
+					break;
 				
-				$sPlug->AddData("storms", public_storm::getStormsByAuthor($current_page==1 ? 0 : ((Settings::getVar('user_storms_per_page')*($current_page-1))), Settings::getVar('user_storms_per_page'), $user_id));
-				$content = $sPlug->fetch("user-storms.tpl", "plugins/users");
+				case "mes-informations" :	
+					require(Settings::getVar('plug_dir')."users/mes-informations.php");
+					break;
+				
+				default : break;
 			}
-			break;
-	}
+			require(Settings::getVar('plug_dir')."users/mon-compte.php");
+			//print $content;
+			//exit;
+		}
+		else
+		{
+			require(Settings::getVar('plug_dir')."users/mes-informations.php");
+			require(Settings::getVar('plug_dir')."users/mon-compte.php");
+		}
+		break;
+		
+	case "gettab" :
+		$tab = $uri[$ind+2];
+		require("gettab.php");
+		exit;
+		break;
+		
+	default :
+		if( $user_id = User::userExists($uri[$ind+1]) )
+		{
+			$author = public_storm::getStormAuthor($user_id);
+			$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
+			$sPlug->AddData("username", $author['prenom']." ".$author['nom']);
+			$sPlug->AddData("login", $author['login']);
+			$sPlug->AddData("avatar", $avatar = "http://www.gravatar.com/avatar/".md5( strtolower( $author['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&size=100");
+
+			$current_page = $uri[$ind+2] != NULL ? $uri[$ind+2] : 1;
+			$sPlug->AddData("current_page", $current_page);
+			$sPlug->AddData("nb_pages", ceil(public_storm::getNbStorms($user_id) / Settings::getVar('user_storms_per_page')));
+			$sPlug->AddData("nbstorms", public_storm::getNbStorms($user_id));
+			
+			$sPlug->AddData("storms", public_storm::getStormsByAuthor($current_page==1 ? 0 : ((Settings::getVar('user_storms_per_page')*($current_page-1))), Settings::getVar('user_storms_per_page'), $user_id));
+			$content = $sPlug->fetch("user-storms.tpl", "plugins/users");
+		}
+		else
+		{
+			errordocument::setError(404);
+		}
+		break;
 }
