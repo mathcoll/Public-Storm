@@ -31,13 +31,6 @@ final class errordocument extends Plugins
 		require(Settings::getVar('prefix') . 'conf/errordocument.php');
 		
 		self::$s = new Settings::$VIEWER_TYPE;
-		self::$s->AddData("site_name", Settings::getVar('SITE_NAME'));
-		self::$s->AddData("site_description", Settings::getVar('SITE_DESCRIPTION'));
-		self::$s->AddData("site_baseline", i18n::_("baseline"));
-		self::$s->AddData("version", Settings::getVar('SITE_VERSION'));
-		self::$s->AddData("prefix", Settings::getVar('prefix'));
-		self::$s->AddData("base_url", Settings::getVar('base_url_http'));
-		self::$s->AddData("theme_dir", Settings::getVar('theme_dir'));
 			
 	}
 	
@@ -45,11 +38,6 @@ final class errordocument extends Plugins
 	{
 		switch( $errorCode )
 		{
-			case "404" : 
-				$status = "404 Not Found";
-				$template = "404.tpl";
-				break;
-				
 			case "500" : 
 				$status = "500 Internal Server Error";
 				$template = "500.tpl";
@@ -64,9 +52,23 @@ final class errordocument extends Plugins
 				$status = "503 Service Unavailable";
 				$template = "503.tpl";
 				break;
+				
+			case "404" : 
+			default :
+				$status = "404 Not Found";
+				$template = "404.tpl";
+				break;
+				
 		}
 		header('Status: '.$status, true, $errorCode);
 		header('HTTP/1.1 '.$status, true, $errorCode);
+		self::$s->AddData("site_name", Settings::getVar('SITE_NAME'));
+		self::$s->AddData("site_description", Settings::getVar('SITE_DESCRIPTION'));
+		self::$s->AddData("site_baseline", i18n::_("baseline"));
+		self::$s->AddData("version", Settings::getVar('SITE_VERSION'));
+		self::$s->AddData("prefix", Settings::getVar('prefix'));
+		self::$s->AddData("base_url", Settings::getVar('base_url_http'));
+		self::$s->AddData("theme_dir", Settings::getVar('theme_dir'));
 		print self::$s->fetch($template, "plugins/errordocument");
 		exit;
 	}
