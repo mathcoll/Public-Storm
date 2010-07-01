@@ -26,7 +26,7 @@
 							<span class="suggest-too" title="{t}Je suggère moi aussi !{/t}"><input type="button" value="+" onclick="suggest_too('{$suggestion.suggestion|escape}', '{$base_url}');" /></span>
 						</blockquote>
 						<cite>
-							Suggérée par xxxxxx, le {$suggestion.date|date_format:"%A %d %B %Y %Hh%M:%S GMT"}
+							{if $suggestion.author_login ne ""}Suggérée par <a href="{$base_url}/utilisateurs/{$suggestion.author_login}/" style="font-size:1em;">{$suggestion.author}</a>, {/if}le {$suggestion.date|date_format:"%A %d %B %Y %Hh%M:%S GMT"}
 						</cite>
 					</li>
 					{assign var=size value=$size-1}
@@ -70,7 +70,7 @@
 			
 			<div class="right">
 				<div class="pancontainer" data-orient="center" data-canzoom="yes" style="width:420px; height:500px;">
-					<img src="{$cache_dir_http}{$storm.storm_id}.dot.jpg" id="neato" style="width:480px;" />
+					<img src="{$cache_dir_http}{$storm.storm_id}.jpg" id="neato" style="width:480px;" />
 				</div>
 			</div>
 		</div>

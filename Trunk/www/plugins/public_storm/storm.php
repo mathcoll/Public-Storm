@@ -124,13 +124,14 @@ foreach($storm['suggestions'] as $suggestion)
 $dot .= "}";
 	/* fin génération du neato */
 
-	$type = Settings::getVar('neato_type');
+	$type = Settings::getVar('graphviz_type');
 	$file = $storm["storm_id"];
 	if($fp = fopen(Settings::getVar('cache_dir') . $file . '.dot', "w+"))
 	{
 		fputs($fp, $dot);
 		fclose($fp);
-		exec("neato -T$type -Odot " . Settings::getVar('cache_dir') . $file . ".dot");
+		graphviz::renderDotFile(Settings::getVar('cache_dir') . $file . '.dot', Settings::getVar('cache_dir') . $file . '.jpg', 'jpg', Settings::getVar('graphviz_type'));
+		/*exec("neato -T$type -Odot " . Settings::getVar('cache_dir') . $file . ".dot");*/
 	}
 
 	Settings::setVar('title', "Storm ".$root);
