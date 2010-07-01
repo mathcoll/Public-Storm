@@ -218,6 +218,13 @@ final class public_storm extends Plugins
 		$u = Settings::getVar('BASE_URL_HTTP')."/storm/";
 		//$suggestions = self::$db->q2("SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = :storm_id GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC LIMIT :nb", "public_storms.db", array(':nb' => $nb, ':storm_id' => $storm_id));
 		$suggestions = self::$db->q("SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = %s GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC LIMIT ".$nb, "public_storms.db", array($storm_id));
+		for($n=0; $n<sizeOf($suggestions); $n++)
+		{
+			$author = self::getStormAuthor($suggestions[$n]['user_id']);
+			$suggestions[$n]['author'] = $author['prenom']." ".$author['nom'];
+			$suggestions[$n]['author_login'] = $author['login'];
+		}
+		//print_r($suggestions);
 		unset($suggestions[0]);
 		return $suggestions;
 	}
