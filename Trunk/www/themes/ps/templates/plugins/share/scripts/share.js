@@ -1106,7 +1106,7 @@ var iBeginShare = function() {
 	 */
 	var initialize = function() {
 		create();
-		document.body.style.position = 'relative';
+		//document.body.style.position = 'relative';
 		var els = document.getElementsByTagName('script');
 		var src;
 		for (var i=0, el=null; (el = els[i]); i++) {

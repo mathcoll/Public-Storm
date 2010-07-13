@@ -95,6 +95,9 @@ ul.list-users li.header
 	display: table-header-group;
 	padding: 0;
 	font-weight: bold;
+	color: #156E1E;
+	letter-spacing: 2px;
+	background: #dedede !important;
 }
 ul.list-plugins li,
 ul.listCustoms li,
@@ -102,6 +105,13 @@ ul.list-users li
 {
 	padding: 0 0 1em 0;
 	display: table-row;
+}
+
+ul.list-plugins li:nth-child(2n+1),
+ul.listCustoms li:nth-child(2n+1),
+ul.list-users li:nth-child(2n+1)
+{
+	background: #efefef;
 }
 
 ul.listCustoms li span.val input

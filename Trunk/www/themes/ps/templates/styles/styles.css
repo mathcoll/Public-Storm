@@ -23,7 +23,7 @@ body
 	font-size: 1em;
 	margin: 0;
 	padding: 0;
-	position: absolute !important;
+	/*position: absolute !important;*/
 }
 
 a
@@ -674,6 +674,14 @@ td.bee_rain_how_to p, td.trackbacks p
 	margin: 1em 0;
 }
 
+.accroche
+{
+	color:#156E1E;
+	font-size:26px;
+	font-style:italic;
+	font-weight:bold;
+	line-height:34px;
+}
 
 
 /* nuage */
@@ -727,7 +735,22 @@ ul.nuage li.nuage10
 {
 	font-size: 1.7em;
 }
-
+div.nuage
+{
+	text-align: center;
+}
+div.nuage a
+{
+	line-height: 30px;
+}
+div.nuage a.word
+{
+	padding:4px 0 4px 4px;
+}
+div.nuage span.suggest-too input
+{
+	margin: 0;
+}
 
 
 /*  */
@@ -886,9 +909,5 @@ div.scroll div.scrollContainer div.panel h4
 	text-align: left;
 	color: #444444;
 	margin: 0;
-}
-div.nuage
-{
-	text-align: center;
 }
 

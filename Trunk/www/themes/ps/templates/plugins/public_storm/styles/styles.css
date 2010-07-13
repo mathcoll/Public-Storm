@@ -162,12 +162,22 @@ label.connected
 	padding: 3px 0 5px 25px;
 }
 
-div.fiche
+div.fiche h4.fiche
 {
-	padding: 0px 10px 10px 10px;
-	margin-top: 44px;
-	border: 2px dashed #a3ab0e;
+	/*padding: 0px 10px 10px 10px;*/
+	/*margin-top: 44px;*/
+	/*border: 2px dashed #a3ab0e;*/
+	margin: 0;
+	padding: 24px 0 20px 8px;
+	text-indent: 35px;
+	font-size: 1.8em;
 	width: 330px;
+	background: transparent url(../img/mail-attachment.png) no-repeat 0 0;
+}
+div.ficheContainer
+{
+	padding: 0 0 0 30px;
+	background: transparent url(../img/gradient.png) repeat-x 0 0;
 }
 div.outils a
 {
@@ -218,6 +228,10 @@ span.suggest-too input
     font-size: 11px;
     margin: 0 0 0 1em;
     padding:0 0 0 10px;
+}
+span.suggest-too input:hover
+{
+    background: transparent url(../img/light.png) no-repeat 1px 1px;
 }
 
 .neato

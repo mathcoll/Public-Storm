@@ -98,10 +98,20 @@ switch ( $uri[$ind+1] )
 		if( $user_id = User::userExists($uri[$ind+1]) )
 		{
 			$author = public_storm::getStormAuthor($user_id);
+			$username = ucWords($author['prenom']." ".$author['nom']);
 			$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
-			$sPlug->AddData("username", $author['prenom']." ".$author['nom']);
+			$sPlug->AddData("nom", $author['nom']);
+			$sPlug->AddData("prenom", $author['prenom']);
+			$sPlug->AddData("username", $username);
 			$sPlug->AddData("login", $author['login']);
+			$sPlug->AddData("member_since", $author['subscription_date']);
 			$sPlug->AddData("avatar", $avatar = "http://www.gravatar.com/avatar/".md5( strtolower( $author['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&size=100");
+			
+			$breadcrumb = Settings::getVar('breadcrumb');
+			array_push($breadcrumb, array("name" => _("utilisateurs")));
+			array_push($breadcrumb, array("name" => $username));
+			Settings::setVar('breadcrumb', $breadcrumb);
+			Settings::setVar('title', $username);
 
 			$current_page = $uri[$ind+2] != NULL ? $uri[$ind+2] : 1;
 			$sPlug->AddData("current_page", $current_page);

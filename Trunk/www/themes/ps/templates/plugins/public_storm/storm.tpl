@@ -1,9 +1,9 @@
-{setlocale type="all" locale="fr_FR.utf8"}
+﻿{setlocale type="all" locale="fr_FR.utf8"}
 <div class="table">
 	<div class="table-row">
 		<div class="table-cell _70">
 			<h3 class="storm"><a href="{$storm.url}">{$storm.root|ucfirst}</a></h3>
-			<div class="left">
+			<div class="left" style="width: 48%;">
 				{assign var=rootCap value=$storm.root|ucfirst}
 				<h4><label for="suggestion">{t 1=$rootCap escape=""}suggest_it{/t}</label></h4>
 				<form action="{$base_url}/storm/add_suggestion/" method="post" class="suggestion" id="suggestionForm" onsubmit="add_suggestion('{$base_url}'); return false;">
@@ -33,9 +33,16 @@
 				
 					{/foreach}
 				{else}
-					<li class="no_suggestion">{$i18n.no_suggestion|sprintf:$storm.root|ucfirst}</li>
+					<li class="no_suggestion">{t 1=$rootCap}Pas encore de suggestion pour %1{/t}</li>
 				{/if}
 				</ul>
+				{if $cloud1 ne ""}
+				<div class="nuage _100">
+					<h4>{t}Autres suggestions{/t}</h4>
+					{$cloud1}
+				</div>
+				{/if}
+				<div style="padding: 0pt 0pt 20px;" class="clearboth"></div>
 				<script>
 				{literal}
 				/*
@@ -52,7 +59,8 @@
 				{/literal}
 				</script>
 			</div><!-- //left-->
-			<!--<div class="right neato">
+			{*
+			<div class="right neato">
 				<div id="map" class="smallmap"></div>
 				<script defer="defer" type="text/javascript">
 				{literal}
@@ -66,10 +74,11 @@
 				}
 				{/literal}
 				</script>
-			</div>-->
+			</div>
+			*}
 			
 			<div class="right">
-				<div class="pancontainer" data-orient="center" data-canzoom="yes" style="width:420px; height:500px;">
+				<div class="pancontainer" data-orient="center" data-canzoom="yes" style="width:410px; height:500px;">
 					<img src="{$cache_dir_http}{$storm.storm_id}.jpg" id="neato" style="width:480px;" />
 				</div>
 			</div>
@@ -79,19 +88,23 @@
 			<div style="clear:both;margin-top:15px;">&nbsp;</div>
 			
 			<div class="fiche">		
-				<h4>{$i18n.fiche|sprintf:$rootCap}</h4>
-				<label class="date">{t}Création du storm :{/t}</label>
-					<span class="data">{$storm.date|date_format:"%a, %d %B %Y %Hh%M:%S GMT"}</span><br />
-				<label class="author">{t}Auteur du storm :{/t}</label>
-					<span class="data">{$storm.author}</span><br />
-				<!--<label class="connected">{t}Utilisateurs connectés :{/t}</label>
-					<span class="data"></span>
-				-->
+				<h4 class="fiche">{t 1=$rootCap}Fiche de %1{/t}</h4>
+				<div class="ficheContainer">
+					<label class="date">{t}Création du storm :{/t}</label>
+						<span class="data">{$storm.date|date_format:"%a, %d %B %Y %Hh%M:%S GMT"}</span><br />
+					<label class="author">{t 1=$rootCap}Auteur du storm %1 :{/t}</label>
+					<img src="{$avatar}" style="float:right;margin: 10px 5px 0 0;" />
+						<span class="data"><a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a></span><br />
+					{*
+					<label class="connected">{t}Utilisateurs connectés :{/t}</label>
+						<span class="data"></span>
+					*}
+				</div><!-- //fiche container -->
 			</div><!-- //fiche -->
 
 			{if $cloud ne ""}
 			<div class="nuage">
-				<h4>{t}nuage{/t}</h4>
+				<h4>{t 1=$rootCap}Nuage de storms liés à %1{/t}</h4>
 				{$cloud}
 			</div><!-- //nuage -->
 			<div class="clearboth" style="padding: 0 0 20px 0;"></div>
