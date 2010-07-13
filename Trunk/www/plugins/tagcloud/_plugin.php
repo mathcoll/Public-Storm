@@ -35,13 +35,19 @@ final class tagcloud extends Plugins
 		//print "version ".self::$version;
 	}
 	
-	public function showCloud()
+	public function showCloud($displaySuggestion=false)
 	{
 		$myCloud = self::$cloud->showCloud("array");
 		$c = "";
 		//print_r(self::$cloud);
+		//print_r($myCloud);
 		foreach ($myCloud as $key => $value) {
-			$c .= ' <a href="'.Settings::getVar('BASE_URL_HTTP').'/storm/'.modifier_url($value['word']).'/" class="word size'.$value['sizeRange'].'">'.$value['word'].'</a> &nbsp;';
+			if ( $displaySuggestion == true )
+			{
+				$js = "suggest_too('".addslashes($value['word']) . "', '".Settings::getVar('BASE_URL')."')";
+				$s = '<span class="suggest-too" title="'._('Je suggère moi aussi !').'"><input type="button" value="+" onclick="'.$js.'"/></span>';
+			}
+			$c .= ' <nobr><a href="'.Settings::getVar('BASE_URL_HTTP').'/storm/'.modifier_url($value['word']).'/" class="word size'.$value['sizeRange'].'" title="'.$value['word'].' : '.$value['sizeRange'].' suggest.">'.$value['word'].'</a>'.$s.'&nbsp;</nobr>';
 		}
 		return $c;
 	}

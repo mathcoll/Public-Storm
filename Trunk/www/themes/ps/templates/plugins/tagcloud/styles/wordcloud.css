@@ -27,15 +27,19 @@
   	padding: 4px 4px 4px 4px;
   	letter-spacing: 3px;
   }
-  .size1 {
+  .size8 {
+  	color: #ccc;
+  	font-size: .6em;
+  }
+  .size7 {
   	color: #000;
   	font-size: 2.4em;
   }
-  .size2 {
+  .size8 {
   	color: #333;
   	font-size:2.2em;
   }
-  .size3 {
+  .size5 {
   	color: #666;
   	font-size: 2.0em;
   }
@@ -43,23 +47,19 @@
   	color: #999;
   	font-size: 1.0em;
   }
-  .size5 {
+  .size3 {
   	color: #aaa;
   	font-size: 1.6em;
   }
-  .size6 {
+  .size2 {
   	color: #bbb;
   	font-size: 1.4em;
   }
-  .size7 {
+  .size1 {
   	color: #ccc;
   	font-size: 1.2em;
   }
-  .size8 {
+  .size0 {
   	color: #ddd;
   	font-size: .8em;
-  }
-  .size0 {
-  	color: #ccc;
-  	font-size: .6em;
   }

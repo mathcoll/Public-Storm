@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*
     Public-Storm
     Copyright (C) 2008-2010 Mathieu Lory <mathieu@internetcollaboratif.info>
@@ -76,9 +76,11 @@ if ( isset($id) || isset($_SESSION['id']) )
 	}
 	
 	
-	//print '<pre>';
-	//print_r($storm);
-	//print '</pre>';
+	/*
+	print '<pre>';
+	print_r($storm);
+	print '</pre>';
+	*/
 	$cloud = new tagcloud();
 	$is_cloud=false;
 	foreach ( $storm["suggestions"] AS $suggestion )
@@ -104,6 +106,22 @@ if ( isset($id) || isset($_SESSION['id']) )
 	if ( $is_cloud==true ) $sPlug->AddData("cloud", $cloud->showCloud());
 	
 	$storm = is_array($storm) ? $storm : array();
+	$suggestions = $storm["suggestions"];	
+	if ( is_array($suggestions) )
+	{
+		$storm["suggestions"] = array_slice($suggestions, 0, 5);
+		if ( sizeOf($suggestions) > 5 )
+		{
+			$cloud1 = new tagcloud();
+			//print_r(array_slice($suggestions, 6, sizeOf($suggestions)-5));
+			foreach( array_slice($suggestions, 5, sizeOf($suggestions)) AS $sugg )
+			{
+				//print_r($sugg);
+				$cloud1->addWord($sugg['suggestion'], $sugg['nb']);
+			}
+			$sPlug->AddData("cloud1", $cloud1->showCloud(true));
+		}
+	}
 	$sPlug->AddData("storm", $storm);
 	$sPlug->AddData("cache_dir_http", Settings::getVar('cache_dir_http'));
 	$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
@@ -139,6 +157,10 @@ $dot .= "}";
 	array_push($breadcrumb, array("name" => i18n::_("Storms"), "link" => Settings::getVar('BASE_URL')."/storms/"));
 	array_push($breadcrumb, array("name" => $root));
 	Settings::setVar('breadcrumb', $breadcrumb);
+
+	$author = public_storm::getStormAuthor($storm['user_id']);
+	$sPlug->AddData("username", $author['prenom']." ".$author['nom']);
+	$sPlug->AddData("avatar", "http://www.gravatar.com/avatar/".md5( strtolower( $author['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&size=30");
 	$content = $sPlug->fetch("storm.tpl", "plugins/public_storm");
 }
 else
