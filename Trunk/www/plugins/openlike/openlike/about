@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>OpenLike is a protocol for sharing the things you like on the web.</title>
+	<link href="/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="home">
+  <div class="container">
+    <div id="header" class="column first last span-20">
+      <h1 id="site-name" class="column first span-5 prepend-1 append-1"><a href="/">OpenLike</a></h1>
+
+<div id="primary" class="column span-13 last">
+<ul class="navigation">
+  <li id="nav-about"><a href="/about">About</a></li>
+  <li id="nav-documentation"><a href="/documentation">Documentation</a></li>
+  <li id="nav-blog"><a href="http://openlike.wordpress.com/">Blog</a></li>
+  <li id="nav-community"><a href="http://groups.google.com/group/openlike">Forum</a></li>
+</ul>
+</div>
+</div>
+      
+<div class="span-18">
+<p>
+OpenLike is an effort to make it easy to share the things people like (or don't like) across websites. As more and more websites include personalization, fan and recommendation features we think that people should have a choice in where their data goes and who has access to it. 
+</p>
+</div>	
+<div id="footer" class="column span-18 prepend-1 append-1 first last">
+OpenLike is an open project being developed by a <a href="http://groups.google.com/group/openlike">group of people</a>.
+</div>
+</body>
+</html>

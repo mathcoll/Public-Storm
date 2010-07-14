@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>OpenLike is a protocol for sharing the things you like on the web.</title>
+	<link href="/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="home">
+  <div class="container">
+    <div id="header" class="column first last span-20">
+      <h1 id="site-name" class="column first span-5 prepend-1 append-1"><a href="/">OpenLike</a></h1>
+
+<div id="primary" class="column span-13 last">
+<ul class="navigation">
+  <li id="nav-about"><a href="/about">About</a></li>
+  <li id="nav-documentation"><a href="/documentation">Documentation</a></li>
+  <li id="nav-blog"><a href="http://openlike.wordpress.com/">Blog</a></li>
+  <li id="nav-community"><a href="http://groups.google.com/group/openlike">Forum</a></li>
+</ul>
+</div>
+</div>
+
+<div class="span-18">
+
+<p> V1 of OpenLike provides a user interface to
+easily give your users a simple way to chose which services they
+provide their like/dislike data.</p>
+
+<p> A widget is created by first loading the OpenLike javascript and
+then calling OPENLIKE.Widget(). Multiple widgets can be embedded in the same page, each with different options.<p>
+
+<p>If you want to customize the widget the following arguments are supported:</p>
+
+<ul class="prose">
+<li>s: array of services to list. Values can be 'digg', 'stumbleupon', 'hunch', 'facebook', or 'reddit' (defaults to all services).</li>
+<li>header: string to display above widget icons (defaults to 'Like this:')</li>
+<li>url: the url of the object the user is liking (defaults to current page url). This is useful if you have several things on a page that people might like, such as blog snippets.</li>
+<li>title: the title of the object the user is liking (default to current page title).</li>
+</ul>
+
+<p>Known issues can be found on the <a href="http://code.google.com/p/openlike/issues/list">open like google code page</a></p>
+
+</div>
+<div id="footer" class="column span-18 prepend-1 append-1 first last">
+OpenLike is an open project being developed by a <a href="http://groups.google.com/group/openlike">group of people</a>.
+</div>
+</body>
+</html>

@@ -93,10 +93,11 @@ li.year
 div#add_this_storm
 {
 	margin: auto;
+	/*position: absolute;*/
 	position: absolute;
 	padding: 1em;
 	background: #a3ab0e;
-	left: 35%;
+	/*left: 35%;*/
 	border: 2px solid #000000;
 }
 div.TwoCols
@@ -177,7 +178,7 @@ div.fiche h4.fiche
 div.ficheContainer
 {
 	padding: 0 0 0 30px;
-	background: transparent url(../img/gradient.png) repeat-x 0 0;
+	background: transparent url(../img/gradient.png) repeat-x left bottom;
 }
 div.outils a
 {

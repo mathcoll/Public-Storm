@@ -99,6 +99,14 @@
 					<label class="connected">{t}Utilisateurs connectés :{/t}</label>
 						<span class="data"></span>
 					*}
+					
+					<label style="display:block;float:left;"></label>
+					<a href="{$base_url}/odsExport/{$storm.permaname|url}/" class="stormExport">{t}export2ods{/t}</a><br />
+					
+					{*{include file="../share/share.tpl" base_url_http=$base_url_http}<br />*}
+					{include file="../openlike/openlike.tpl" base_url_http=$base_url_http}
+					
+					
 				</div><!-- //fiche container -->
 			</div><!-- //fiche -->
 
@@ -110,14 +118,6 @@
 			<div class="clearboth" style="padding: 0 0 20px 0;"></div>
 			{/if}
 			
-			<div style="clear:both;">&nbsp;</div>
-			<div class="outils">
-				<h4>{t}outils{/t}</h4>
-				<ul>
-					<li><a href="{$base_url}/odsExport/{$storm.permaname|url}/" class="stormExport">{t}export2ods{/t}</a></li>
-					<li>{include file="../share/share.tpl" base_url_http=$base_url_http}</li>
-				</ul>
-			</div><!-- //outils -->
 		</div>
 	</div>
 </div>
