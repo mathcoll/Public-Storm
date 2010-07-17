@@ -1,5 +1,5 @@
 <?php
 
-Settings::setVar('varname', 'value', 'errordocument', 'desc');
+Settings::setVar('name', 'val', 'errordocument', 'desc');
 
 ?>

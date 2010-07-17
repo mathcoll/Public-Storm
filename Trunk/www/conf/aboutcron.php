@@ -1,6 +1,6 @@
 <?php
 
 
-Settings::setVar('aboutcron', 'val', 'aboutcron', 'aboutcron config');
+Settings::setVar('name', 'val', 'aboutcron', 'desc');
 
 ?>

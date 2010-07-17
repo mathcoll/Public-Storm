@@ -1,5 +1,5 @@
 <?php
 
-Settings::setVar('', '', 'imagepanner plugin', 'desc');
+Settings::setVar('name', 'val', 'imagepanner', 'desc');
 
 ?>

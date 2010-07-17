@@ -1,5 +1,5 @@
 <?php
 
-Settings::setVar('', '', 'ajaxzoom plugin', 'desc');
+Settings::setVar('name', 'val', 'ajaxzoom', 'desc');
 
 ?>

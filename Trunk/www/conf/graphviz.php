@@ -1,5 +1,5 @@
 <?php
 
-Settings::setVar('varname', 'value', 'graphviz', 'desc');
+Settings::setVar('name', 'val', 'graphviz', 'desc');
 
 ?>
