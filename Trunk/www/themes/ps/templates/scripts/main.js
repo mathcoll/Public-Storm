@@ -1,7 +1,3 @@
-<?php
-@header("Content-Type: text/javascript; charset=utf-8");
-require("../../../../_specific.php");
-?>
 $(document).ready( function() {
 	$("div#menu.intro ol.navigation li a").click(function(){
 	
@@ -25,7 +21,7 @@ $(document).ready( function() {
 	});
 });
 
-var BASE_URL = "<?php print $BASE_URL; ?>";
+
 
 function validerEmail(email)
 {
