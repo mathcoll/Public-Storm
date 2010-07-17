@@ -12,7 +12,7 @@
 	{if $type ne $prevtype}
 	<li class="type">
 		<span>&nbsp;</span>
-		<span>{$type|ucfirst}</span>
+		<span><a href="{$base_url}admin/gettab/configuration/{$type|lower}/#top" onclick="tab(this.name, this.name, 'admin', '{$type|lower}');return false;" name="configuration">{$type|ucfirst}</a></span>
 		<span>&nbsp;</span>
 		<span>&nbsp;</span>
 	</li>

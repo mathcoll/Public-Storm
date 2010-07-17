@@ -18,7 +18,7 @@
     along with Public-Storm. If not, see <http://www.gnu.org/licenses/>.
  */
 		
-final class *******default****** extends Plugins
+final class default extends Plugins
 {
  	public static $subdirs = array();
  	public static $name = "default";
@@ -28,8 +28,10 @@ final class *******default****** extends Plugins
 	public function __construct()
 	{
 		self::loadLang();
-		require(Settings::getVar('prefix') . 'conf/default.php');
-		require_once("./plugins/default/classes/default.php");
+		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
+		require_once('./plugins/'.self::$name.'/classes/'.self::$name.'.php');
+		Settings::addCss('screen', Settings::getVar('BASE_URL_HTTP').'/plugins/'.self::$name.'/styles/'.self::$name.'.css');
+		Settings::addJs('text/javascript', Settings::getVar('BASE_URL_HTTP').'/plugins/'.self::$name.'/scripts/'.self::$name.'.js');
 
 	}
 	

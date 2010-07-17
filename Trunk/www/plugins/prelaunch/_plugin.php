@@ -101,7 +101,7 @@ final class prelaunch extends Plugins
 	
 	public function initAdminMenu()
 	{
-		admin::addAdminMenu(array(i18n::L("prelaunch_beta_users"), "prelaunch-list-users", "prelaunch_users"));
+		admin::addAdminMenu(array(i18n::L("prelaunch_beta_users"), "prelaunch-list-users/", "prelaunch_users"));
 		return true;
 	}
 	

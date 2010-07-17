@@ -1,5 +1,7 @@
 <h3>{t}list_users{/t}</h3>
 {setlocale type="all" locale="fr_FR.utf8"}
+
+{if $nb_pages gt 0}
 {t}Pages :{/t}
 <ul class="list-pages">
 	{section name=foo loop=$nb_pages}
@@ -12,7 +14,7 @@
 	</li>
 	{/section}
 </ul>
-
+{/if}
 
 <ul class="list-users">
 	<li class="header">
@@ -54,7 +56,8 @@
 {/foreach}
 </ul>
 
-Pages :
+{if $nb_pages gt 0}
+{t}Pages :{/t}
 <ul class="list-pages">
 	{section name=foo loop=$nb_pages}
 	<li>
@@ -66,3 +69,4 @@ Pages :
 	</li>
 	{/section}
 </ul>
+{/if}
