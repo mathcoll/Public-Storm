@@ -4,19 +4,22 @@
 <head>
 	<title>{$title} - {$site_name}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="{$rss}" rel="alternate" type="application/rss+xml" title="Flux RSS {$site_name}" />
+	<link rel="shortcut icon" href="{$theme_dir}favicon.ico" type="image/x-icon" />
+	<meta name="description" content="{t}baseline{/t} {$meta_description|strip_tags}" />
+	<meta name="keywords" content="{$meta_keywords}" />
+	<meta name="generator" content="{$site_name} {$version} - {$base_url}" />
+
 	{foreach from=$styles item=style}
 <link rel="stylesheet" type="text/css" media="{$style.media}" href="{$style.stylesheet}" />
 	{/foreach}
 
+   <script type="text/javascript">
+  		var BASE_URL = "{$base_url}";
+	</script>
 	{foreach from=$javascripts item=javascript}
 <script type="{$javascript.type}" src="{$javascript.javascript}"></script>
 	{/foreach}
-<link href="{$rss}" rel="alternate" type="application/rss+xml" title="Flux RSS {$site_name}" />
-	<link rel="shortcut icon" href="{$theme_dir}favicon.ico" type="image/x-icon" />
-	<meta name="description" content="{t}baseline{/t} {$i18n.description|strip_tags}" />
-	<meta name="keywords" content="{$meta_keywords}" />
-	<meta name="generator" content="{$site_name} {$version} - {$base_url}" />
-
    <script type="text/javascript">
    	$jQuery = jQuery.noConflict();
 		{literal}if($jQuery("#message")) { $jQuery("#message").hide(); }{/literal}
@@ -64,6 +67,7 @@
 			{include file="plugins/users/login_form.tpl" base_url=$base_url i18n=$i18n}
 			{/if}
 		</div><!-- login -->
+		<span id="create_storm"></span>
 		{/if}
 		
 		<div id="message" style="display: none;">{$message}<span class="message_fermer"><a href="#" onclick="{literal}$('#message').slideUp('slow');{/literal}">{t}fermer{/t}</a></span></div>

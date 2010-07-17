@@ -1,0 +1,49 @@
+ JavaScriptCompressor class,
+	removes comments or pack JavaScript source[s] code.
+ ______________________________________________________________
+ JavaScriptCompressor (just 2 public methods)
+    |
+    |________ getClean(jsSource:mixed):string
+    |         	returns one or more JavaScript code without comments,
+    |         	by default removes some spaces too
+    |
+    |________ getPacked(jsSource:mixed):string
+              	returns one or more JavaScript code packed,
+	        	using getClean and obfuscating output
+ --------------------------------------------------------------
+ Note about $jsSource input varible:
+ 	this var should be a string (i.e. $jsSource = file_get_contents("myFile.js");)
+      should be an array of strings (i.e. array(file_get_contents("1.js"), file_get_contents("2.js"), ... ))
+      should be an array with 1 or 2 keys:
+      	(i.e. array('code'=>file_get_contents("mySource.js")))
+              (i.e. array('code'=>file_get_contents("mySource.js"), 'name'=>'mySource'))
+      ... and should be an array of arrays created with theese rules
+      array(
+		file_get_contents("secret.js"),
+              array('code'=>$anotherJS),
+              array('code'=>$myJSapplication, 'name'=>'JSApplication V 1.0')
+      )
+
+      The name used on dedicated key, will be write on parsed source header
+ --------------------------------------------------------------
+ Note about returned strings:
+ 	Your browser should wrap very long strings, then don't use
+      cut and paste from your browser, save output into your database or directly
+      in a file or print them only inside <script> and </script> tags
+ --------------------------------------------------------------
+ Note about parser performance:
+ 	With pure PHP embed code this class should be slow and not really safe
+      for your server performance then don't parse JavaScript runtime for each
+      file you need and create some "parsed" caching system
+      (at least while i've not created a compiled version of theese class functions).
+      Here there's a caching system example: http://www.phpclasses.org/browse/package/3158.html
+ --------------------------------------------------------------
+ Note about JavaScript packed compatibility:
+ 	To be sure about compatibility include before every script JSL Library:
+      http://www.devpro.it/JSL/
+JSL library add some features for old or buggy browsers, one of
+those functions is String.replace with function as second argument,
+used by JavaScript generated packed code to rebuild original code.
+
+Remember that KDE 3.5, Safari and IE5 will not work correctly with packed version
+if you'll not include JSL.

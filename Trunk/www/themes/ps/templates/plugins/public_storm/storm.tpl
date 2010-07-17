@@ -105,8 +105,7 @@
 					
 					{*{include file="../share/share.tpl" base_url_http=$base_url_http}<br />*}
 					{include file="../openlike/openlike.tpl" base_url_http=$base_url_http}
-					
-					
+					<br />
 				</div><!-- //fiche container -->
 			</div><!-- //fiche -->
 

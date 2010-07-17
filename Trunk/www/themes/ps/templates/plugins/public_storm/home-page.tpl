@@ -9,7 +9,8 @@
 				{/foreach}
 					<li><a href="{$base_url}/storms/">...</a></li>
 				</ul>
-				<a href="#" onclick="add_storm('{$base_url_http}');" >{t}...ou créez un nouveau storm !{/t}</a>
+				<a href="#" onclick="add_storm('{$base_url}', 'create_storm2');return false;" >{t}...ou créez un nouveau storm !{/t}</a>
+				<span id="create_storm2"></span>
 			</div>
 			
 			<div class="table-cell _100 right" id="screen">

@@ -32,6 +32,11 @@ final class admin extends Plugins
 		self::loadLang();
 	}
 	
+	public function initAdminMenu()
+	{
+		return true;
+	}
+	
 	public static function getAllUsers($from=0, $nombre=5)
 	{
 		return self::$db->getAllUsers($from, $nombre);

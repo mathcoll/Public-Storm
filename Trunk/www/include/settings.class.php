@@ -58,10 +58,40 @@ final class Settings
 		return self::setVar('javascripts', $javascripts);
 	}
 	
+	public static function removeCss($css)
+	{
+		$styles = self::getVar('styles');
+		//print_r($styles);
+		$styles = filter_by_value($styles, 'stylesheet', $css);
+		//print_r($styles);
+		return self::setVar('styles', $styles);
+	}
+	
+	public static function removeJs($js)
+	{
+		$javascripts = self::getVar('javascripts');
+		//print_r($javascripts);
+		$javascripts = filter_by_value($javascripts, 'javascript', $js);
+		//print_r($javascripts);
+		return self::setVar('javascripts', $javascripts);
+	}
+	
 	public function getVar($varName)
 	{
 		//print_r(self::$vars);
 		return self::$vars[strToLower($varName)];
+	}
+	
+	public function getJss($filter='text/javascript', $isCleanable=true)
+	{
+		#TODO : return only for filters and cleanable boolean filter
+		return self::getVar('javascripts');
+	}
+	
+	public function getCsss($filter='screen', $isCleanable=true)
+	{
+		#TODO : return only for filters and cleanable boolean filter
+		return self::getVar('styles');
 	}
 	
 	public function setVar($varName, $value, $type="general", $desc="")

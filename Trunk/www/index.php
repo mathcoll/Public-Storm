@@ -43,40 +43,64 @@ $s->AddData("langs", i18n::langs());
 
 /* styles */
 Settings::addCss('screen', Settings::getVar('theme_dir').'styles/styles.css');
-#Settings::addCss('screen', Settings::getVar('theme_dir').'styles/openlayer.css');
 Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/users/styles/users.css');
 Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/public_storm/styles/styles.css');
 Settings::addCss('print', Settings::getVar('theme_dir').'styles/print.css');
-/* TODO : concaténer tous les styles en 1 seul fichier */
-$s->AddData("styles", Settings::getVar('styles'));
-
-
-
-
 
 /* javascripts */
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery-1.3.2.min.js');
-Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery-core.js');
+#Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery-core.js');
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery.scrollTo-min.js');
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery.localscroll.js');
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery.serialScroll-min.js');
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/coda-slider.js');
 
-/* scripts for Ape */
-//Settings::addJs('text/javascript', Settings::getVar('theme_dir').'plugins/public_storm/scripts/ape-jsf/Build/uncompressed/apeClientJS.js');
-
 /* scripts for drag and dropping */
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'plugins/imagepanner/scripts/imagepanner.js');
 
 /* Public-Storm scripts */
-Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/main.js.php');
+Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/main.js');
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'plugins/public_storm/scripts/public_storm.js');
 
-
-/* script for OpenLayers */
-#Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/OpenLayers-2.9.1/lib/OpenLayers.js');
-
-/* TODO : concaténer tous les javascripts en 1 seul fichier */
+if( $statuses['compressor'] == 1 )
+{
+	/* compression des Css */
+	$csss = array();
+	foreach( Settings::getCsss('screen', true) as $file )
+	{
+		//print_r($file);
+		array_push(
+			$csss,
+			//file_get_contents($file['javascript'])
+			$file['stylesheet']
+		);
+		Settings::removeCss($file['stylesheet']);
+	}
+	$cssFile = 'all.css';
+	if ( Settings::getVar('compressor_use_gzip') == true )
+	{
+		$cssFile .= ".gz"; 
+	}
+	$css = compressor::refreshCss($csss, Settings::getVar('cache_dir').$cssFile);
+	//compressor::writeToCache($js, Settings::getVar('cache_dir').'all.js');
+	Settings::addCss('screen', Settings::getVar('base_url_http')."/cache/".$cssFile);
+/*
+	$jss = array();
+	foreach( Settings::getJss('text/javascript', true) as $file )
+	{
+		array_push(
+			$jss,
+			//file_get_contents($file['javascript'])
+			$file['javascript']
+		);
+		Settings::removeJs($file['javascript']);
+	}
+	$js = compressor::refreshJs($jss, Settings::getVar('cache_dir').'all.js');
+	//compressor::writeToCache($js, Settings::getVar('cache_dir').'all.js');
+	Settings::addJs('text/javascript', Settings::getVar('BASE_URL_HTTP').'/cache/'.'all.js');
+*/
+}
+$s->AddData("styles", Settings::getVar('styles'));
 $s->AddData("javascripts", Settings::getVar('javascripts'));
 
 
@@ -155,8 +179,10 @@ if ( isset($content) ) { $s->AddData("contenu", $content); }
 $title = Settings::getVar('title') != NULL ? Settings::getVar('title') : Settings::getVar('SITE_NAME').", ".i18n::_("baseline");
 $description = Settings::getVar('description') != NULL ? Settings::getVar('description') : i18n::_("description");
 $meta_keywords = Settings::getVar('meta_keywords') != NULL ? Settings::getVar('meta_keywords') : i18n::_("meta_keywords");
+$meta_description = Settings::getVar('meta_description') != NULL ? Settings::getVar('meta_description') : i18n::_("meta_description");
 $s->AddData("title", $title);
 $s->AddData("meta_keywords", $meta_keywords);
+$s->AddData("meta_description", $meta_description);
 $s->AddData("description", $description);
 //$s->UseTemplate("index.tpl");
 
@@ -216,5 +242,22 @@ function sksort(&$array, $subkey="id", $sort_descending=false, $keep_keys_in_sub
     }
    
     return $temp_array;
-  } 
+  }
+
+   /*
+  * filtering an array
+  */
+ function filter_by_value ($array, $index, $value){
+     if(is_array($array) && count($array)>0) 
+     {
+         foreach(array_keys($array) as $key){
+             $temp[$key] = $array[$key][$index];
+             
+             if ($temp[$key] != $value){
+                 $newarray[$key] = $array[$key];
+             }
+         }
+       }
+   return $newarray;
+ } 
 ?>

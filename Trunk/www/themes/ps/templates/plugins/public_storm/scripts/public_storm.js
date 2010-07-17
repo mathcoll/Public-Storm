@@ -66,13 +66,17 @@ function suggestion_exists(suggestion)
 	}
 }
 
-function add_storm(base_url)
+function add_storm(base_url, span)
 {
+	if ( !span )
+	{
+		span = 'message';
+	}
 	$.get(base_url+"/storm/add_storm.php",
 		function(data)
 		{
 			var e = $(data);
-			$('#message').after(e);
+			$('#'+span).html(e);
 		}
 	);
 }

@@ -174,6 +174,11 @@ class file
       }
       return '';
    }
+   
+   public function filemtime()
+   {
+      return filemtime($this->sFile);
+   }
 
    /**
     * Return the file ext
