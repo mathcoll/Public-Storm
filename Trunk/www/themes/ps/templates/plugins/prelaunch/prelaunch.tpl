@@ -1,8 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+{assign var="site_baseline" value="Brainstorm together"}
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>{$site_name} > {t}baseline{/t}</title>
+	<title>{$site_name} > {$site_baseline}</title>
 	{literal}
 	<style>
 	* { padding: 0; margin: 0; }
@@ -132,7 +133,7 @@
 		<div id="logo" class="blank">
 			<!--<img src="{$theme_dir}img/logo75.jpg" align="left" />-->
 			<h1><a href="{$base_url}">{$site_name}</a></h1>
-			<h2>{t}baseline{/t}</h2>
+			<h2>{$site_baseline}</h2>
 		</div>
 		<div id="when">
 			{if $message ne ""}<p class="message">{$message}</p>{/if}
