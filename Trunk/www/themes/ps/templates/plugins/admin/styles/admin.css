@@ -32,6 +32,13 @@
 	/*height: 100em;*/
 	width: 72%;
 }
+#configuration
+{
+	background-image: url(../img/preferences-system_002.png);
+	background-position: 5px center;
+	background-repeat: no-repeat;
+	padding:1em 0 1em 40px;
+}
 
 #content h3
 {

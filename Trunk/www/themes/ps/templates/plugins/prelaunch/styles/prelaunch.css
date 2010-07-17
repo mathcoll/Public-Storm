@@ -58,13 +58,6 @@
 	background-repeat: no-repeat;
 	padding:1em 0 1em 40px;
 }
-#configuration
-{
-	background-image: url(../img/preferences-system_002.png);
-	background-position: 5px center;
-	background-repeat: no-repeat;
-	padding:1em 0 1em 40px;
-}
 #list-users
 {
 	background-image: url(../img/user.png);
@@ -200,15 +193,4 @@ div.status_actions ul li
 span.status:hover > div.status_actions
 {
 	display: block;
-}
-
-ul.list-pages
-{
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-ul.list-pages, ul.list-pages li
-{
-	display: inline;
 }

@@ -911,3 +911,13 @@ div.scroll div.scrollContainer div.panel h4
 	margin: 0;
 }
 
+ul.list-pages
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+ul.list-pages, ul.list-pages li
+{
+	display: inline;
+}
