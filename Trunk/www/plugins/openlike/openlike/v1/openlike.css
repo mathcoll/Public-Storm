@@ -34,7 +34,7 @@
 }
 
 .openlike ul li a {
-	background: transparent url(sprite.png) scroll no-repeat;
+	background: transparent url(../img/sprite.png) scroll no-repeat;
 	display: block;
 	height: 25px;
 	width: 25px;

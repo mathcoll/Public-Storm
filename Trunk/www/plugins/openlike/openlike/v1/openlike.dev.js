@@ -147,10 +147,10 @@ if (!OPENLIKE.Widget) {
 			html: function(cfg) {
 				// <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fdevelopers.facebook.com%2F&amp;layout=button_count&amp;show_faces=false&amp;width=25&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:25px; height:px"></iframe>
 				var elt = document.createElement('IFRAME'),
-					width = 53;
+					width = 310;
 				elt.src = 'http://www.facebook.com/plugins/like.php?href=' + encodeURIComponent(cfg.url) + '&amp;layout=button_count&amp;show_faces=false&amp;width=' + width + '&amp;action=like&amp;colorscheme=light';
 				OPENLIKE.util.update(elt, {scrolling: 'no', frameBorder: '0', allowTransparency: 'true'});
-				OPENLIKE.util.update(elt.style, {border: 'none', overflow: 'hidden', width: width+'px', height: '24px', padding: '1px 0 0 0'});
+				OPENLIKE.util.update(elt.style, {border: 'none', overflow: 'hidden', width: width+'px', height: '80px', padding: '1px 0 0 0'});
 				return elt;
 			},
 			url: 'http://facebook.com',

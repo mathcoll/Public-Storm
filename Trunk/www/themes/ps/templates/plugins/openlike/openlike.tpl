@@ -1,7 +1,7 @@
 <script type="text/javascript">
 {literal}
 var cfg = {
-		s: ['facebook', 'twitter', 'digg', 'google', 'reddit', 'stumbleupon'],
+		s: ['twitter', 'digg', 'google', 'reddit', 'stumbleupon', 'facebook'],
 		url: window.location.href,
 		title: document.title,
 		header: '',
