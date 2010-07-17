@@ -11,8 +11,6 @@ gettext("Invitation");
 gettext("Pages :");
 
 ?><?php
-gettext("baseline");
-gettext("baseline");
 
 ?><?php
 gettext("baseline");

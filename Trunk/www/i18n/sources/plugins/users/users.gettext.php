@@ -22,6 +22,9 @@ gettext("Pages :");
 
 ?><?php
 gettext("Storms de %1");
+gettext("Prénom");
+gettext("Nom");
+gettext("Membre depuis le %1");
 gettext("Pages :");
 gettext("Semaine");
 gettext("Pages :");

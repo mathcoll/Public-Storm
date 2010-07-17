@@ -20,6 +20,7 @@ gettext("Email");
 gettext("Lang");
 gettext("date d'inscription");
 gettext("Mise à jour");
+gettext("Pages :");
 
 ?><?php
 gettext("forbidden_details");

@@ -1,6 +1,7 @@
 <?php
 gettext("intro_accroche");
 gettext("by");
+gettext("...ou créez un nouveau storm !");
 gettext("intro_title1");
 gettext("intro_title2");
 gettext("intro_title3");
@@ -26,12 +27,14 @@ gettext("Pages :");
 ?><?php
 gettext("suggest_it");
 gettext("Je suggère moi aussi !");
+gettext("Pas encore de suggestion pour %1");
+gettext("Autres suggestions");
+gettext("Fiche de %1");
 gettext("Création du storm :");
-gettext("Auteur du storm :");
+gettext("Auteur du storm %1 :");
 gettext("Utilisateurs connectés :");
-gettext("nuage");
-gettext("outils");
 gettext("export2ods");
+gettext("Nuage de storms liés à %1");
 
 ?><?php
 gettext("Liste des Storms triés par ordre alphabêtique :");
