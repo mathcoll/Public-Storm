@@ -1,3 +1,4 @@
+/*
 $(document).ready( function() {
 	$("div#menu.intro ol.navigation li a").click(function(){
 	
@@ -20,22 +21,22 @@ $(document).ready( function() {
 		
 	});
 });
-
+*/
 
 
 function validerEmail(email)
 {
-	$.get(BASE_URL + "/utilisateurs/valideremail.php?email=" + email, function(data)
+	$jQuery.get(BASE_URL + "/utilisateurs/valideremail.php?email=" + email, function(data)
 		{
 	  		if (data)
 	  		{
-				$("#emailError").show();
-				$("#emailValid").hide();
+				$jQuery("#emailError").show();
+				$jQuery("#emailValid").hide();
 			}
 			else
 			{
-				$("#emailError").hide();
-				$("#emailValid").show();
+				$jQuery("#emailError").hide();
+				$jQuery("#emailValid").show();
 			}
 		}
 	);
@@ -43,17 +44,17 @@ function validerEmail(email)
 
 function validerIdentifiant(login)
 {
-	$.get(BASE_URL + "/utilisateurs/valideridentifiant.php?login=" + login, function(data)
+	$jQuery.get(BASE_URL + "/utilisateurs/valideridentifiant.php?login=" + login, function(data)
 		{
 	  		if (data)
 	  		{
-				$("#identifiantError").show();
-				$("#identifiantValid").hide();
+				$jQuery("#identifiantError").show();
+				$jQuery("#identifiantValid").hide();
 			}
 			else
 			{
-				$("#identifiantError").hide();
-				$("#identifiantValid").show();
+				$jQuery("#identifiantError").hide();
+				$jQuery("#identifiantValid").show();
 			}
 		}
 	);
@@ -112,21 +113,21 @@ function tab(name, id, folder, subpage)
 	if ( subpage != null ) {
 		name = name  + "/" + subpage;
 	}
-	$.get(BASE_URL + "/"+folder+"/gettab/" + name + "/", function(data)
+	$jQuery.get(BASE_URL + "/"+folder+"/gettab/" + name + "/", function(data)
 		{
 	  		if (data)
 	  		{
-				$("#content").html(data);
+				$jQuery("#content").html(data);
 			}
 			else
 			{
-				$("#content").html("ERREUR !!");
+				$jQuery("#content").html("ERREUR !!");
 			}
 			
-			$("#menu ul li a").each(function(i){$(this).removeClass('tab-hightlight');});
+			$jQuery("#menu ul li a").each(function(i){$jQuery(this).removeClass('tab-hightlight');});
 			
-			$("#menu ul li a#"+id).addClass('tab-hightlight');
-			$("#menu ul li a#"+id).removeClass('tab');
+			$jQuery("#menu ul li a#"+id).addClass('tab-hightlight');
+			$jQuery("#menu ul li a#"+id).removeClass('tab');
 		}
 	);
 }

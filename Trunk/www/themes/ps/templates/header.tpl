@@ -70,7 +70,7 @@
 		<span id="create_storm"></span>
 		{/if}
 		
-		<div id="message" style="display: none;">{$message}<span class="message_fermer"><a href="#" onclick="{literal}$('#message').slideUp('slow');{/literal}">{t}fermer{/t}</a></span></div>
+		<div id="message" style="display: none;">{$message}<span class="message_fermer"><a href="#" onclick="{literal}$jQuery('#message').slideUp('slow');{/literal}">{t}fermer{/t}</a></span></div>
 	</div><!-- rightBox -->
 	<!--<div class="spacer">&nbsp;</div>-->
 	<div class="breadcrumb">{foreach from=$breadcrumb item=it name=breadcrumb}
