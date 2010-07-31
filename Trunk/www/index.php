@@ -114,6 +114,16 @@ array_unshift($breadcrumb, $crumb);
 Settings::setVar('breadcrumb', $breadcrumb);
 $s->AddData("breadcrumb", Settings::getVar('breadcrumb'));
 
+
+$title = Settings::getVar('title') != NULL ? Settings::getVar('title') : Settings::getVar('SITE_NAME').", ".i18n::_("baseline");
+$description = Settings::getVar('description') != NULL ? Settings::getVar('description') : i18n::_("description");
+$meta_keywords = Settings::getVar('meta_keywords') != NULL ? Settings::getVar('meta_keywords') : i18n::_("meta_keywords");
+$meta_description = Settings::getVar('meta_description') != NULL ? Settings::getVar('meta_description') : i18n::_("meta_description");
+$s->AddData("title", $title);
+$s->AddData("meta_keywords", $meta_keywords);
+$s->AddData("meta_description", $meta_description);
+$s->AddData("description", $description);
+
 //print_r($_SESSION);
 #$s->AddData("i18n", i18n::getLng());
 if ( isset($_SESSION["message"]) || Settings::getVar('message') )
@@ -176,14 +186,6 @@ if( $statuses['bbclone'] == 1 )
 }
 if ( isset($content) ) { $s->AddData("contenu", $content); }
 
-$title = Settings::getVar('title') != NULL ? Settings::getVar('title') : Settings::getVar('SITE_NAME').", ".i18n::_("baseline");
-$description = Settings::getVar('description') != NULL ? Settings::getVar('description') : i18n::_("description");
-$meta_keywords = Settings::getVar('meta_keywords') != NULL ? Settings::getVar('meta_keywords') : i18n::_("meta_keywords");
-$meta_description = Settings::getVar('meta_description') != NULL ? Settings::getVar('meta_description') : i18n::_("meta_description");
-$s->AddData("title", $title);
-$s->AddData("meta_keywords", $meta_keywords);
-$s->AddData("meta_description", $meta_description);
-$s->AddData("description", $description);
 //$s->UseTemplate("index.tpl");
 
 //print_r($statuses);
