@@ -59,8 +59,7 @@ if ( isset($id) || isset($_SESSION['id']) )
 		{
 			$_SESSION["message"] = i18n::_("Vous venez de créer le storm %s !", array(urldecode($storm_root)));
 			if(
-				Settings::getVar('BASE_URL') != "/public-storm.internetcollaboratif.info" &&
-				$_SERVER['SERVER_ADDR'] != "192.168.0.7"
+				Settings::getVar('BASE_URL') != "/public-storm.internetcollaboratif.info"
 			)
 			{
 				identica_php::updateStatus(i18n::_("Nouveau storm créé : %s %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname))));
@@ -134,16 +133,17 @@ if ( isset($id) || isset($_SESSION['id']) )
 	//exit;
 	//print $storm['root'];
 	
-	/* génération du neato */
+	/* génération du .dot */
 $dot = "digraph G {
-	node [shape=circle];
-	edge [len=2.5];";
+	node [shape=circle, overlap=true];
+	edge [len=1];";
 foreach($storm['suggestions'] as $suggestion)
 {
 	$dot .= "\"".ucFirst($storm['root'])."\" -> \"".ucFirst($suggestion['suggestion'])."\" [label=\"".$suggestion['nb']."\"];"; 
 }
+$dot .= "\"".ucFirst($storm['root'])."\" [shape=doublecircle]";
 $dot .= "}";
-	/* fin génération du neato */
+	/* fin génération du .dot */
 
 	$type = Settings::getVar('graphviz_type');
 	$file = $storm["storm_id"];
