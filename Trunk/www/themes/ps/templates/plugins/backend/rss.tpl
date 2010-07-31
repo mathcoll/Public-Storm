@@ -2,7 +2,7 @@
 {setlocale type="all" locale="fr_FR.utf8"}
 <rss version="2.0">
 	<channel>
-		<title>{$title}, {t}baseline{t}</title>
+		<title>{$title}, {t}baseline{/t}</title>
 		<link>{$base_url_http}</link>
 		<description>{$site_baseline} {t}description{/t}</description>
 		<language>fr-fr</language>
@@ -27,7 +27,7 @@
 		<title>{$storm.root|ucfirst}</title>
 		<author>{$storm.author}</author>
 		<link>{$base_url_http}/storm/{$storm.permaname|url}/</link>
-		<description><![CDATA[{assign var=rootCap value=$storm.root|ucfirst}{$i18n.suggest_it|sprintf:$rootCap} <a href="{$base_url_http}/storm/{$storm.permaname|url}/">{$storm.root|ucfirst}]]></description>
+		<description><![CDATA[{assign var=rootCap value=$storm.root|ucfirst}{$i18n.suggest_it|sprintf:$rootCap} <a href="{$base_url_http}/storm/{$storm.permaname|url}/">{$storm.root|ucfirst}</a>]]></description>
 		<guid>{$name.name}-{$smarty.now}</guid>
 		<pubDate>{$storm.date|date_format:"%a, %d %B %Y %R:%M:%S GMT"}</pubDate>
 		<source>{$base_url_http}/backend/rss.php</source>
