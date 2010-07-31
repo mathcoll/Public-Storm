@@ -39,7 +39,7 @@ $_SESSION["periode"] = @isset($uri[$ind+1]) ? $uri[$ind+1] : 30;
 if ( !preg_match('/feedburner/i', $_SERVER['HTTP_USER_AGENT']) ) 
 {
 	header("HTTP/1.1 301 moved Permanently", true, 301);
-	header("Location: ".Settings::getVar('feedburner_url_'.$_SESSION["periode"]), true, 301);
+	header("Location: ".Settings::getVar('feedburner_url'), true, 301);
 	exit;
 }
 
@@ -50,7 +50,7 @@ $sPlug = new Settings::$VIEWER_TYPE;
 $sPlug->AddData("title", Settings::getVar('SITE_NAME'));
 $sPlug->AddData("base_url_http", Settings::getVar('base_url_http'));
 $sPlug->AddData("site_baseline", Settings::getVar('SITE_BASELINE'));
-$sPlug->AddData("site_description", Settings::getVar('SITE_DESCRIPTION'));
+$sPlug->AddData("site_description", strip_tags(Settings::getVar('SITE_DESCRIPTION')));
 $sPlug->AddData("site_theme", Settings::getVar('theme_dir'));
 $sPlug->AddData("rss_generator", Settings::getVar('RSS_GENERATOR'));
 $sPlug->AddData("rss_webmaster", Settings::getVar('RSS_WEBMASTER'));
