@@ -15,7 +15,7 @@
 	<p>{t}contribuez_p1{/t}</p>
 	<p>{t}contribuez_p2{/t}</p>
 	<p>{t escape=""}contribuez_p3{/t}</p>
-	<p>{t escape=""}contribuez_p4{/t}</p>
+	<p>{t escape="" 1=$base_url}contribuez_p4{/t}</p>
 	
 	<h3>{t}discutez{/t}</h3>
 	<p>{t}discutez_p1{/t}</p>
