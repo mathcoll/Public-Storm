@@ -80,10 +80,12 @@ class jsCssCompressor {
 		return $data;
 	}
 	private function strip_multipled_spaces($data) {
-		return eregi_replace("[ 	]+",' ',$data);
+		$data=preg_replace("|[ 	]+|iU",' ',$data);
+		return $data;
 	}
 	private function make_one_line($data) {
-		return eregi_replace("[\n\r]+",' ',$data);
+		$data=eregi_replace("[\n\r]+",' ',$data);
+		return $data;
 	}
 	private function strip_spaces_js($data) {
 	  $strip_r=array('function','else','typeof','case','new','var','return','in','\|\|','\&\&');
