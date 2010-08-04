@@ -30,9 +30,9 @@ $s->AddData("site_description", Settings::getVar('SITE_DESCRIPTION'));
 $s->AddData("site_baseline", Settings::getVar('SITE_BASELINE'));
 $s->AddData("version", Settings::getVar('SITE_VERSION'));
 $s->AddData("prefix", Settings::getVar('prefix'));
-$s->AddData("base_url", Settings::getVar('base_url_http'));
+$s->AddData("base_url", Settings::getVar('base_url'));
 $s->AddData("theme_dir", Settings::getVar('theme_dir'));
-$s->AddData("rss", Settings::getVar('base_url_http').'/backend/rss.php');
+$s->AddData("rss", Settings::getVar('base_url').'/backend/rss.php');
 $s->AddData("current_lang", $_COOKIE["locale"]);
 $s->AddData("s", $_SESSION['s']);
 $s->AddData("langs", i18n::langs());
@@ -49,7 +49,6 @@ Settings::addCss('print', Settings::getVar('theme_dir').'styles/print.css');
 
 /* javascripts */
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery-1.3.2.min.js');
-#Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery-core.js');
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery.scrollTo-min.js');
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery.localscroll.js');
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery.serialScroll-min.js');
@@ -86,7 +85,7 @@ if( $statuses['compressor'] == 1 )
 	}
 	$css = compressor::refreshCss($csss, Settings::getVar('cache_dir').$cssFile);
 	//compressor::writeToCache($js, Settings::getVar('cache_dir').'all.js');
-	Settings::addCss('screen', Settings::getVar('base_url_http')."/cache/".$cssFile);
+	Settings::addCss('screen', Settings::getVar('base_url')."/cache/".$cssFile);
 /*
 	$jss = array();
 	foreach( Settings::getJss('text/javascript', true) as $file )
@@ -112,7 +111,7 @@ $s->AddData("javascripts", Settings::getVar('javascripts'));
 
 /* breadcrumb */
 $breadcrumb = Settings::getVar('breadcrumb');
-$crumb = array("name" => i18n::_("Title index"), "link" => Settings::getVar('BASE_URL_HTTP'));
+$crumb = array("name" => i18n::_("Title index"), "link" => Settings::getVar('BASE_URL'));
 array_unshift($breadcrumb, $crumb);
 Settings::setVar('breadcrumb', $breadcrumb);
 $s->AddData("breadcrumb", Settings::getVar('breadcrumb'));

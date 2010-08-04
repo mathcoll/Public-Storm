@@ -39,7 +39,7 @@ Settings::setVar('SITE_BASELINE', '', 'admin', 'Site baseline, also defined in t
 Settings::setVar('SITE_DESCRIPTION', '', 'admin', 'Site description, also defined in the languages files');
 
 // Current version
-Settings::setVar('SITE_VERSION', '10.7.17');
+Settings::setVar('SITE_VERSION', '10.8.4');
 
 // Debug switch. Set it to true for output additional information.
 define('DEBUG', false);
@@ -138,7 +138,8 @@ if ( !$f->Exists() )
 
 Settings::setVar('breadcrumb', array());
 Settings::setVar('prefix', $prefix);
-Settings::setVar('theme_dir', Settings::getVar('BASE_URL_HTTP') . '/themes/' . Settings::getVar('SITE_THEME') . '/templates/');
+Settings::setVar('theme_dir', Settings::getVar('BASE_URL') . '/themes/' . Settings::getVar('SITE_THEME') . '/templates/');
+Settings::setVar('theme_dir_http', Settings::getVar('BASE_URL_HTTP') . '/themes/' . Settings::getVar('SITE_THEME') . '/templates/');
 Settings::setVar('page_templates_path', Settings::getVar('ROOT') . '/themes/' . Settings::getVar('SITE_THEME') . '/templates/');
 Settings::setVar('theme_mail_dir', Settings::getVar('ROOT') . '/themes/' . Settings::getVar('SITE_THEME') . '/templates/mails/');
 Settings::setVar('mail_templates_path', Settings::getVar('theme_mail_dir'));
