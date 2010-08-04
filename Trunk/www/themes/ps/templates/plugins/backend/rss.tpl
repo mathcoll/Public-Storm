@@ -4,7 +4,7 @@
 	<channel>
 		<title>{$title}, {t}baseline{/t}</title>
 		<link>{$base_url_http}</link>
-		<description>{$site_baseline} {t}description{/t}</description>
+		<description>{$site_baseline} {$site_description}</description>
 		<language>fr-fr</language>
 		<pubDate>{$date}</pubDate>
 		<lastBuildDate>{$date}</lastBuildDate>
@@ -13,7 +13,7 @@
 		<webMaster>{$rss_webmaster}</webMaster>
 		<ttl>60</ttl>
 		<image>
-			<title>{$title}</title>
+			<title>Logo {$title}</title>
 			<url>{$site_theme}img/logo.jpg</url>
 			<link>{$base_url_http}</link>
 			<width>73</width>
