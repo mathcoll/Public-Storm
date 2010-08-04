@@ -28,7 +28,7 @@ final class bbclone extends Plugins
 	{
 		require(Settings::getVar('prefix') . 'conf/bbclone.php');
 		self::loadLang();
-		Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/bbclone/styles/admin.css');
+		Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/bbclone/styles/admin.css', 'admin.css');
 	}
 	
 	public function initAdminMenu()

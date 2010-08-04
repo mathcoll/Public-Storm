@@ -29,6 +29,10 @@ final class admin extends Plugins
 	public function __construct()
 	{
 		require(Settings::getVar('prefix') . 'conf/admin.php');
+		if( $_SESSION['isadmin'] == 1 )
+		{
+			Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/admin/styles/admin.css', 'admin.css');
+		}
 		self::loadLang();
 	}
 	

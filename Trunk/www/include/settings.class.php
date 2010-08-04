@@ -44,10 +44,10 @@ final class Settings
 		return self::$subdirsRegistered;
 	}
 	
-	public static function addCss($media="screen", $stylesheet)
+	public static function addCss($media="screen", $stylesheet, $file='all.css')
 	{
 		$styles = self::getVar('styles');
-		$styles[] = array('media' => $media, 'stylesheet' => $stylesheet);
+		$styles[] = array('media' => $media, 'stylesheet' => $stylesheet, 'file' => $file);
 		return self::setVar('styles', $styles);
 	}
 	

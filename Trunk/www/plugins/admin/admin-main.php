@@ -46,7 +46,6 @@ if ( isset($_SESSION["message"]) )
 $breadcrumb = Settings::getVar('breadcrumb');
 array_push($breadcrumb, array("name" => Settings::getVar('title')));
 Settings::setVar('breadcrumb', $breadcrumb);
-Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/admin/styles/admin.css');
 $content = $sPlug->fetch("admin-main.tpl", "plugins/admin");
 
 ?>

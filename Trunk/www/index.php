@@ -42,9 +42,9 @@ $s->AddData("langs", i18n::langs());
 
 
 /* styles */
-Settings::addCss('screen', Settings::getVar('theme_dir').'styles/styles.css');
-Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/users/styles/users.css');
-Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/public_storm/styles/styles.css');
+Settings::addCss('screen', Settings::getVar('theme_dir').'styles/styles.css', 'all.css');
+Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/users/styles/users.css', 'all.css');
+Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/public_storm/styles/styles.css', 'all.css');
 Settings::addCss('print', Settings::getVar('theme_dir').'styles/print.css');
 
 /* javascripts */
@@ -69,12 +69,15 @@ if( $statuses['compressor'] == 1 )
 	foreach( Settings::getCsss('screen', true) as $file )
 	{
 		//print_r($file);
-		array_push(
-			$csss,
-			//file_get_contents($file['javascript'])
-			$file['stylesheet']
-		);
-		Settings::removeCss($file['stylesheet']);
+		if ( $file['file'] == "all.css" )
+		{
+			array_push(
+				$csss,
+				//file_get_contents($file['javascript'])
+				$file['stylesheet']
+			);
+			Settings::removeCss($file['stylesheet']);
+		}
 	}
 	$cssFile = 'all.css';
 	if ( Settings::getVar('compressor_use_gzip') == true )
