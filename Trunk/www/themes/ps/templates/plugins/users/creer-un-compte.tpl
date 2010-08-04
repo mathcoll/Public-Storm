@@ -79,10 +79,10 @@
 			</div>
 		</div><!-- //table-cell -->
 		<div class="table-cell _50">
-			<img src="{$theme_dir}plugins/public_storm/img/" alt="{t}avantage_1{/t}" title="{t}avantage_1{/t}" class="avantages" />
-			<img src="{$theme_dir}plugins/public_storm/img/" alt="{t}avantage_2{/t}" title="{t}avantage_2{/t}" class="avantages" />
-			<img src="{$theme_dir}plugins/public_storm/img/" alt="{t}avantage_3{/t}" title="{t}avantage_3{/t}" class="avantages" />
-			<img src="{$theme_dir}plugins/public_storm/img/" alt="{t}avantage_4{/t}" title="{t}avantage_4{/t}" class="avantages" />
+			<img src="{$theme_dir}plugins/public_storm/img/avantage_1.png" alt="{t}avantage_1{/t}" title="{t}avantage_1{/t}" class="avantages" />
+			<img src="{$theme_dir}plugins/public_storm/img/avantage_2.png" alt="{t}avantage_2{/t}" title="{t}avantage_2{/t}" class="avantages" />
+			<img src="{$theme_dir}plugins/public_storm/img/avantage_3.png" alt="{t}avantage_3{/t}" title="{t}avantage_3{/t}" class="avantages" />
+			<img src="{$theme_dir}plugins/public_storm/img/avantage_4.png" alt="{t}avantage_4{/t}" title="{t}avantage_4{/t}" class="avantages" />
 		</div><!-- //table-cell -->
 	</div><!-- //table-row -->
 </div><!-- //table -->

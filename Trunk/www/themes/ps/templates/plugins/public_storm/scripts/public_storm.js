@@ -26,6 +26,7 @@ function add_suggestion(base_url)
 	{
 		$jQuery("#storm_"+storm_id+" li.no_suggestion").hide();
 	}
+	_gaq.push(['_trackPageview', '/add_suggestion/storm_'+storm_id+'/'+permaname(suggestion)]);
 	$jQuery.post(
 		formulaire.action,
 		{
