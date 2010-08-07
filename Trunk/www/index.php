@@ -42,10 +42,10 @@ $s->AddData("langs", i18n::langs());
 
 
 /* styles */
-Settings::addCss('screen', Settings::getVar('theme_dir').'styles/styles.css', 'all.css');
-Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/users/styles/users.css', 'all.css');
-Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/public_storm/styles/styles.css', 'all.css');
-Settings::addCss('print', Settings::getVar('theme_dir').'styles/print.css');
+Settings::addCss('screen', Settings::getVar('theme_dir_http').'styles/styles.css', 'all.css');
+Settings::addCss('screen', Settings::getVar('theme_dir_http').'plugins/users/styles/users.css', 'all.css');
+Settings::addCss('screen', Settings::getVar('theme_dir_http').'plugins/public_storm/styles/styles.css', 'all.css');
+Settings::addCss('print', Settings::getVar('theme_dir_http').'styles/print.css');
 
 /* javascripts */
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery-1.3.2.min.js');

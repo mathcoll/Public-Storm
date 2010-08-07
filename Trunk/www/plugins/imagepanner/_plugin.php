@@ -29,7 +29,7 @@ final class imagepanner extends Plugins
 	{
 		self::loadLang();
 		require(Settings::getVar('prefix') . 'conf/imagepanner.php');
-		Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/imagepanner/styles/screen.css');
+		Settings::addCss('screen', Settings::getVar('theme_dir_http').'plugins/imagepanner/styles/screen.css');
 
 	}
 	
