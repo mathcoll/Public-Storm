@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Public-Storm\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-14 15:08+0100\n"
-"PO-Revision-Date: 2010-07-17 15:51+0100\n"
+"POT-Creation-Date: 2010-08-07 21:04+0100\n"
+"PO-Revision-Date: 2010-08-07 21:08+0100\n"
 "Last-Translator: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "Language-Team: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "MIME-Version: 1.0\n"
@@ -17,14 +17,15 @@ msgstr ""
 "X-Poedit-SearchPath-0: ../../..\n"
 
 #: ../../../prepend.php:134
+#, php-format
 msgid "Error: Plugin definition class is not present for %s"
 msgstr "Erreur: La définition de la classe du plugin est introuvable : %s"
 
-#: ../../../index.php:88
+#: ../../../index.php:114
 msgid "Title index"
 msgstr "Accueil"
 
-#: ../../../index.php:155
+#: ../../../index.php:120
 #: ../../../i18n/sources/main.gettext.php:6
 #: ../../../i18n/sources/main.gettext.php:7
 #: ../../../i18n/sources/plugins/all/all.gettext.php:6
@@ -37,22 +38,22 @@ msgstr "Accueil"
 #: ../../../i18n/sources/plugins/errordocument/errordocument.gettext.php:13
 #: ../../../i18n/sources/plugins/prelaunch/prelaunch.gettext.php:16
 #: ../../../i18n/sources/plugins/prelaunch/prelaunch.gettext.php:17
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:2
 #: ../../../plugins/errordocument/_plugin.php:67
 #: ../../../plugins/prelaunch/_plugin.php:39
 msgid "baseline"
 msgstr "Brainstorm together"
 
-#: ../../../index.php:156
+#: ../../../index.php:121
 #: ../../../i18n/sources/main.gettext.php:10
-#: ../../../i18n/sources/plugins/backend/backend.gettext.php:2
 msgid "description"
 msgstr "<i>Public-Storm</i> est un outil en ligne de <i><strong>Remue-méninges</strong></i> collaboratif.<br/>Sur un thème donné (un <i>Storm</i>), laissez votre <strong>imagination</strong> et votre <strong>créativité</strong> déborder...<br/>et proposez vos <strong>suggestions</strong>."
 
-#: ../../../index.php:157
+#: ../../../index.php:122
 msgid "meta_keywords"
 msgstr "outil, Brainstorm, remue-méninges, association d'idées, idées, suggestions, storm"
 
-#: ../../../index.php:158
+#: ../../../index.php:123
 msgid "meta_description"
 msgstr "<i>Public-Storm</i> est un outil en ligne de <i><strong>Remue-méninges</strong></i> collaboratif.<br/>Sur un thème donné (un <i>Storm</i>), laissez votre <strong>imagination</strong> et votre <strong>créativité</strong> déborder...<br/>et proposez vos <strong>suggestions</strong>."
 
@@ -441,7 +442,7 @@ msgstr "Mise à jour"
 
 #: ../../../i18n/sources/plugins/admin/admin.gettext.php:26
 msgid "forbidden_details"
-msgstr "forbidden_details"
+msgstr "Vous n'êtes pas autorisé à afficher cette page !"
 
 #: ../../../i18n/sources/plugins/admin/admin.gettext.php:31
 msgid "Valeur"
@@ -656,6 +657,7 @@ msgid "Ajouter"
 msgstr "Ajouter"
 
 #: ../../../plugins/isspam/index.php:43
+#, php-format
 msgid "%s is marked as spam"
 msgstr "%s is marked as spam"
 
@@ -676,6 +678,7 @@ msgid "Erreur lors de la création du compte !"
 msgstr "Erreur lors de la création du compte !"
 
 #: ../../../plugins/users/login.php:28
+#, php-format
 msgid "vous êtes connecté %s"
 msgstr "Vous êtes connecté %s"
 
@@ -713,7 +716,7 @@ msgstr "password_error"
 
 #: ../../../plugins/admin/forbidden.php:27
 msgid "forbidden"
-msgstr "forbidden_details"
+msgstr "Accès interdit à cette page !"
 
 #: ../../../plugins/i18n/index.php:43
 msgid "Changement de langue effectué"
@@ -771,8 +774,8 @@ msgstr "Rester connecté"
 
 #: ../../../plugins/public_storm/storms_list_alpha.php:37
 #: ../../../plugins/public_storm/storms_list_alpha.php:39
-#: ../../../plugins/public_storm/storm.php:157
-#: ../../../plugins/public_storm/storm.php:170
+#: ../../../plugins/public_storm/storm.php:160
+#: ../../../plugins/public_storm/storm.php:173
 #: ../../../plugins/public_storm/storms_list.php:44
 #: ../../../plugins/public_storm/storms_list.php:46
 #: ../../../plugins/public_storm/add_storm.php:42
@@ -780,14 +783,17 @@ msgid "Storms"
 msgstr "Storms"
 
 #: ../../../plugins/public_storm/storm.php:60
+#, php-format
 msgid "Vous venez de créer le storm %s !"
 msgstr "Vous venez de créer le storm %s !"
 
-#: ../../../plugins/public_storm/storm.php:63
+#: ../../../plugins/public_storm/storm.php:65
+#, php-format
 msgid "Nouveau storm créé : %s %s"
 msgstr "Nouveau storm créé : %s %s"
 
-#: ../../../plugins/public_storm/storm.php:72
+#: ../../../plugins/public_storm/storm.php:74
+#, php-format
 msgid "Erreur lors de la création du storm %s"
 msgstr "Erreur lors de la création du storm %s"
 
