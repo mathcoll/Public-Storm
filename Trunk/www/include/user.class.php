@@ -349,10 +349,13 @@ final class User
 		$_SESSION['email'] = NULL;
 		$_SESSION['subscription_date'] = NULL;
 		$_SESSION['isadmin'] = NULL;
+		$_SESSION['PHPSESSID'] = NULL;
 		Session::StartUser(User::GetById(0));
 		$end = time()-3600;
 		setcookie("persistentConnection", "0", $end, Settings::getVar("BASE_URL")."/");
+		setcookie("PHPSESSID", "0", $end, Settings::getVar("BASE_URL")."/");
 		setcookie("uid", self::$uid, $end, Settings::getVar("BASE_URL")."/");
+		session_regenerate_id(true);
 		return true;
 	}
 
