@@ -1,5 +1,5 @@
+$jQuery(document).ready( function() {
 /*
-$(document).ready( function() {
 	$("div#menu.intro ol.navigation li a").click(function(){
 	
 		//Find the width of a tab
@@ -20,8 +20,9 @@ $(document).ready( function() {
 		},1000);
 		
 	});
-});
 */
+	loadMeteor();
+});
 
 
 function validerEmail(email)
