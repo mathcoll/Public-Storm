@@ -14,7 +14,7 @@
 		<ttl>60</ttl>
 		<image>
 			<title>Logo {$title}</title>
-			<url>{$site_theme}img/logo.jpg</url>
+			<url>{$theme_dir_http}img/logo.jpg</url>
 			<link>{$base_url_http}</link>
 			<width>73</width>
 			<height>70</height>
@@ -31,7 +31,7 @@
 		<guid>{$name.name}-{$smarty.now}</guid>
 		<pubDate>{$storm.date|date_format:"%a, %d %B %Y %R:%M:%S GMT"}</pubDate>
 		<source>{$base_url_http}/backend/rss.php</source>
-		<enclosure url="{$site_theme}img/lightning.png" length="692" type="image/x-png" />
+		<enclosure url="{$theme_dir_http}img/lightning.png" length="692" type="image/x-png" />
 	</item>
 	{/if}
 	{/foreach}

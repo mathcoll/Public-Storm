@@ -30,8 +30,8 @@ final class default extends Plugins
 		self::loadLang();
 		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		require_once('./plugins/'.self::$name.'/classes/'.self::$name.'.php');
-		Settings::addCss('screen', Settings::getVar('BASE_URL_HTTP').'/plugins/'.self::$name.'/styles/'.self::$name.'.css');
-		Settings::addJs('text/javascript', Settings::getVar('BASE_URL_HTTP').'/plugins/'.self::$name.'/scripts/'.self::$name.'.js');
+		Settings::addCss('screen', Settings::getVar('BASE_URL').'/plugins/'.self::$name.'/styles/'.self::$name.'.css');
+		Settings::addJs('text/javascript', Settings::getVar('BASE_URL').'/plugins/'.self::$name.'/scripts/'.self::$name.'.js');
 
 	}
 	

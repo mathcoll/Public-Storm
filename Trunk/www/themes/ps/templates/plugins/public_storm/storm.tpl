@@ -7,7 +7,8 @@
 				{assign var=rootCap value=$storm.root|ucfirst}
 				<h4><label for="suggestion">{t 1=$rootCap escape=""}suggest_it{/t}</label></h4>
 				<form action="{$base_url}/storm/add_suggestion/" method="post" class="suggestion" id="suggestionForm" onsubmit="add_suggestion('{$base_url}'); return false;">
-					<input type="hidden" name="storm_id" id="storm_id" value="{$storm.storm_id}" />	
+					<input type="hidden" name="storm_id" id="storm_id" value="{$storm.storm_id}" />
+					<input type="hidden" name="storm_permaname" id="storm_permaname" value="{$storm.root|ucfirst}" />	
 					<label for="suggestion"><img src="{$theme_dir}plugins/public_storm/img/light.png" style="vertical-align:middle;" alt="Suggestion" /></label>
 					<input type="text" class="input" name="suggestion" id="suggestion" value="" onfocus="this.select();" maxlength="140" />
 					<input type="submit" value="&gt;" />
@@ -78,6 +79,10 @@
 			*}
 			
 			<div class="right">
+				{if $user.isadmin eq 1}
+					<span id="meteorStatus">{t}Chargement en cours...{/t}</span>
+					<span id="meteorStatusPause" style="float:right;"><a href="#" onclick="javascript:meteorStartStop();">{t}Start / Stop{/t}</a></span>
+				{/if}
 				<div class="pancontainer" data-orient="center" data-canzoom="yes" style="width:410px; height:500px;">
 					<img src="{$cache_dir_http}{$storm.storm_id}.jpg" id="neato" style="width:480px;" />
 				</div>
@@ -95,10 +100,11 @@
 					<label class="author">{t 1=$rootCap}Auteur du storm %1 :{/t}</label>
 					<img src="{$avatar}" style="float:right;margin: 10px 5px 0 0;" />
 						<span class="data"><a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a></span><br />
-					{*
+					{if $user.isadmin eq 1}
 					<label class="connected">{t}Utilisateurs connectés :{/t}</label>
-						<span class="data"></span>
-					*}
+						<span class="data">???</span>
+						<br />
+					{/if}
 					
 					<label style="display:block;float:left;"></label>
 					<a href="{$base_url}/odsExport/{$storm.permaname|url}/" class="stormExport">{t}export2ods{/t}</a><br />

@@ -164,6 +164,9 @@ $dot .= "}";
 	$author = public_storm::getStormAuthor($storm['user_id']);
 	$sPlug->AddData("username", $author['prenom']." ".$author['nom']);
 	$sPlug->AddData("avatar", "http://www.gravatar.com/avatar/".md5( strtolower( $author['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&size=30");
+	
+	$user['isadmin'] = $_SESSION['isadmin'];
+	$sPlug->AddData("user", $user);
 	$content = $sPlug->fetch("storm.tpl", "plugins/public_storm");
 }
 else
