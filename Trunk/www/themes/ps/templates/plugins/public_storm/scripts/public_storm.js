@@ -26,7 +26,7 @@ function add_suggestion(base_url)
 	{
 		$jQuery("#storm_"+storm_id+" li.no_suggestion").hide();
 	}
-	_gaq.push(['_trackPageview', '/add_suggestion/storm_'+storm_id+'/'+permaname(suggestion)]);
+	_gaq.push(['_trackPageview', '/add_suggestion/'+$jQuery('#storm_permaname').val()+'/'+permaname(suggestion)]);
 	$jQuery.post(
 		formulaire.action,
 		{
@@ -43,6 +43,22 @@ function add_suggestion(base_url)
 		},
 		"text"
 	);
+
+	// send to meteor
+	if ( Meteor )
+	{
+		$jQuery.post(
+			BASE_URL+'/admin/gettab/meteor/addSuggestion/'+getChannelName()+'/',
+			{
+				command: "addSuggestion", 
+				user: '', 
+				message: suggestion
+			},
+			function(data) { setSubscribers(data); },
+			"json"
+		);
+	}
+	
 	display_new_suggestion('storm_'+storm_id, '+1', permaname(suggestion));
 	//formulaire.suggestion.value = "";
 	$jQuery("#suggestion").val("");

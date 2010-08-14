@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Public-Storm\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-07 21:04+0100\n"
-"PO-Revision-Date: 2010-08-07 21:08+0100\n"
+"POT-Creation-Date: 2010-08-11 14:57+0100\n"
+"PO-Revision-Date: 2010-08-11 14:58+0100\n"
 "Last-Translator: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "Language-Team: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "MIME-Version: 1.0\n"
@@ -134,8 +134,8 @@ msgstr "Fermer"
 #: ../../../i18n/sources/plugins/all/all.gettext.php:18
 #: ../../../i18n/sources/plugins/admin/admin.gettext.php:8
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:3
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:41
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:48
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:43
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:50
 msgid "by"
 msgstr "par"
 
@@ -565,96 +565,116 @@ msgid "Autres suggestions"
 msgstr "Autres suggestions"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:32
+msgid "Chargement en cours..."
+msgstr "Error: Plugin definition class is not present for %s"
+
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:33
+msgid "Start / Stop"
+msgstr "Start / Stop"
+
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:34
 msgid "Fiche de %1"
 msgstr "Fiche de %1"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:33
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:35
 msgid "Création du storm :"
 msgstr "Création du storm :"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:34
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:36
 msgid "Auteur du storm %1 :"
 msgstr "Auteur du storm %1 :"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:35
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:37
 msgid "Utilisateurs connectés :"
 msgstr "Utilisateurs connectés :"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:36
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:38
 msgid "export2ods"
 msgstr "Exporter en Ods/Excel"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:37
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:39
 msgid "Nuage de storms liés à %1"
 msgstr "Nuage de storms liés à %1"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:40
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:42
 msgid "Liste des Storms triés par ordre alphabêtique :"
 msgstr "Liste des Storms triés par ordre alphabêtique :"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:44
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:46
 msgid "storms"
 msgstr "Storms"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:45
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:47
 msgid "list_alpha"
 msgstr "Liste des Storms par ordre alphabêtique"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:46
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:48
 msgid "list_date"
 msgstr "Liste par date de création"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:47
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:49
 msgid "plus_actifs"
 msgstr "Les plus actifs"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:49
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:51
 msgid "contribuez"
 msgstr "Contribuez"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:50
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:52
 msgid "contribuez_p1"
 msgstr "Participez au développement ou à la traduction de Public-Storm ;"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:51
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:53
 msgid "contribuez_p2"
 msgstr "Développez en utilisant les API de Public-Storm ;"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:52
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:54
 msgid "contribuez_p3"
 msgstr "<a href=\"http://github.com/mathcoll/Public-Storm\">Public-Storm sur GitHub</a>"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:53
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:55
 msgid "contribuez_p4"
 msgstr "...ou suivez-nous sur <a href=\"http://twitter.com/publicstorm\"><img height=\"28\" title=\"Twitter\" alt=\"Twitter\" src=\"%1/themes/ps/templates/img/twitter.png\"/></a> <a href=\"http://identi.ca/publicstorm\"><img height=\"28\" title=\"Identi.ca\" alt=\"Identi.ca\" src=\"%1/themes/ps/templates/img/identica.png\"/></a> <a href=\"%1/backend/rss.php\"><img height=\"28\" title=\"Rss\" alt=\"Rss\" src=\"%1/themes/ps/templates/img/rss.png\"/></a>"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:54
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:56
 msgid "discutez"
 msgstr "Discutez"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:55
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:57
 msgid "discutez_p1"
 msgstr "Donnez votre avis, proposez des idées de développement..."
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:56
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:58
 msgid "telechargez"
 msgstr "Téléchargez"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:57
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:59
 msgid "telechargez_p1"
 msgstr "Public-Storm est sous licence GNU/GPL v3"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:58
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:60
 msgid "telechargez_p2"
 msgstr "<a href=\"http://github.com/mathcoll/Public-Storm\">Télécharger Public-Storm depuis GitHub</a>"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:61
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:63
 msgid "Ajouter ce 'Storm' :"
 msgstr "Ajouter ce 'Storm' :"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:62
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:64
 msgid "Ajouter"
 msgstr "Ajouter"
+
+#: ../../../plugins/meteor/_plugin.php:41
+msgid "Meteor LISTCHANNELS"
+msgstr "Meteor LISTCHANNELS"
+
+#: ../../../plugins/meteor/_plugin.php:42
+msgid "Meteor SHOWSTATS"
+msgstr "Meteor SHOWSTATS"
+
+#: ../../../plugins/meteor/_plugin.php:43
+msgid "Meteor COUNTSUBSCRIBERS"
+msgstr "Meteor COUNTSUBSCRIBERS"
 
 #: ../../../plugins/isspam/index.php:43
 #, php-format
@@ -751,7 +771,7 @@ msgstr "Statistiques Détaillées"
 msgid "Statistiques Temporelles"
 msgstr "Statistiques Temporelles"
 
-#: ../../../plugins/backend/rss.php:58
+#: ../../../plugins/backend/rss.php:60
 msgid "period_"
 msgstr "period_"
 
@@ -775,7 +795,7 @@ msgstr "Rester connecté"
 #: ../../../plugins/public_storm/storms_list_alpha.php:37
 #: ../../../plugins/public_storm/storms_list_alpha.php:39
 #: ../../../plugins/public_storm/storm.php:160
-#: ../../../plugins/public_storm/storm.php:173
+#: ../../../plugins/public_storm/storm.php:176
 #: ../../../plugins/public_storm/storms_list.php:44
 #: ../../../plugins/public_storm/storms_list.php:46
 #: ../../../plugins/public_storm/add_storm.php:42

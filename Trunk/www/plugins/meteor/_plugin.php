@@ -38,9 +38,9 @@ final class meteor extends Plugins
 	
 	public function initAdminMenu()
 	{
-		admin::addAdminMenu(array(i18n::L("Meteor LISTCHANNELS"), self::$name."/meteor.php/LISTCHANNELS", "meteor1"));
-		admin::addAdminMenu(array(i18n::L("Meteor SHOWSTATS"), self::$name."/meteor.php/SHOWSTATS", "meteor2"));
-		admin::addAdminMenu(array(i18n::L("Meteor COUNTSUBSCRIBERS"), self::$name."/meteor.php/COUNTSUBSCRIBERS", "meteor3", "demo"));
+		admin::addAdminMenu(array(i18n::L("Meteor LISTCHANNELS"), self::$name."/LISTCHANNELS", "meteor1"));
+		admin::addAdminMenu(array(i18n::L("Meteor SHOWSTATS"), self::$name."/SHOWSTATS", "meteor2"));
+		admin::addAdminMenu(array(i18n::L("Meteor COUNTSUBSCRIBERS"), self::$name."/COUNTSUBSCRIBERS", "meteor3", "demo"));
 		return true;
 	}
 	

@@ -1,39 +1,65 @@
+
 function loadMeteor() 
 {
 	// Set this to something unique to this client
-	Meteor.hostid = 13245;
+	Meteor.hostid = alea(15);
 	// Our Meteor server is on the meteor. subdomain
 	//Meteor.host = "meteor." + location.hostname;
 	Meteor.host = "meteor.internetcollaboratif.info";
-	// Call the test() function when data arrives
+	// Call the processing() function when data arrives
 	Meteor.registerEventCallback("process", processing);
 	Meteor.registerEventCallback("statuschanged", statusHasChanged);
+	var channel = getChannelName();
+	//alert('ok'+channel);
 	
 	// Join the channel and get last five events, then stream
-	if( $jQuery('#storm_permaname').val() )
+	if( channel )
 	{
-		var chan = permaname( $jQuery('#storm_permaname').val().toLowerCase() );
-		Meteor.joinChannel(chan, 5);
+		Meteor.joinChannel(channel, 0);
 		Meteor.mode = 'longpoll';
 		Meteor.connect();
+		getSubscribers();
 	}
 	else
 	{
-		//alert('Meteor error CHANNEL=' + chan);
+		//alert('Meteor error CHANNEL=' + channel);
 	}
 }
-
+function getChannelName()
+{
+	//alert($jQuery('#storm_permaname').val().toLowerCase());
+	return permaname( $jQuery('#storm_permaname').val().toLowerCase() );
+}
 function processing(data)
 {
 	window.status = data;
+	
 }
-
-function sendCmd(cmd, channel)
+function sendCmd(cmd)
 {
-	$jQuery.post('meteor.php', {
-		command: cmd, 
-		channel: channel
-	});
+	$jQuery.post(
+		'meteor.php',
+		{
+			command: cmd, 
+			channel: getChannelName()
+		}
+	);
+}
+function getSubscribers()
+{
+	$jQuery.post(
+		BASE_URL+'/admin/gettab/meteor/getSubscribers/'+getChannelName()+'/',
+		{
+			command: "getSubscribers", 
+			channel: getChannelName()
+		},
+		function(data) { setSubscribers(data); },
+		"json"
+	);
+}
+function setSubscribers(data)
+{
+	$jQuery("#countSubscribers").html(data['nombre']);
 }
 
 var status=0;

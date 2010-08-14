@@ -36,7 +36,8 @@ else
 {
 	$ind = 1;
 }
-
+print $uri."<----";
+exit;
 
 if( $_SESSION['isadmin'] != 1 )
 {

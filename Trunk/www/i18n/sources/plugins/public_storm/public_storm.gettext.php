@@ -29,6 +29,8 @@ gettext("suggest_it");
 gettext("Je suggère moi aussi !");
 gettext("Pas encore de suggestion pour %1");
 gettext("Autres suggestions");
+gettext("Chargement en cours...");
+gettext("Start / Stop");
 gettext("Fiche de %1");
 gettext("Création du storm :");
 gettext("Auteur du storm %1 :");

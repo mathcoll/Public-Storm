@@ -102,7 +102,7 @@
 						<span class="data"><a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a></span><br />
 					{if $user.isadmin eq 1}
 					<label class="connected">{t}Utilisateurs connectés :{/t}</label>
-						<span class="data">???</span>
+						<span class="data" id="countSubscribers"></span>
 						<br />
 					{/if}
 					
