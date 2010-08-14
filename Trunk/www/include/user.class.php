@@ -354,7 +354,7 @@ final class User
 		$end = time()-3600;
 		setcookie("persistentConnection", "0", $end, Settings::getVar("BASE_URL")."/");
 		setcookie("PHPSESSID", "0", $end, Settings::getVar("BASE_URL")."/");
-		setcookie("uid", self::$uid, $end, Settings::getVar("BASE_URL")."/");
+		setcookie("uid", "0", $end, Settings::getVar("BASE_URL")."/");
 		session_regenerate_id(true);
 		return true;
 	}

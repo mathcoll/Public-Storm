@@ -39,6 +39,11 @@ switch ( $tab )
 	case "prelaunch-list-users" :
 		require(Settings::getVar('plug_dir')."admin/prelaunch-list-users.php");
 		break;
+				
+	case "meteor" :
+		require(Settings::getVar('plug_dir')."meteor/meteor.php");
+		exit;
+		break;
 	
 	default :
 		$iframe = Settings::getVar('BASE_URL')."/plugins/".$tab."/".$uri[$ind+3]."/".$uri[$ind+4];

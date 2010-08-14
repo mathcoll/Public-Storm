@@ -152,7 +152,7 @@ $BBC_NO_HITS = "";
 // $BBC_IGNORE_IP = "127., 192.168.";    => Ignore specified ranges
 // $BBC_IGNORE_IP = "";                  => Don't ignore anything (default)
 $BBC_IGNORE_IP = "78.227.104.13,192.168.";
-//$BBC_IGNORE_IP = "";
+$BBC_IGNORE_IP = "";
 
 // In case you don't want to have particular referrers from your visitors listed
 // in your ranking or detailed stats, you can define a comma separated list of
@@ -177,7 +177,7 @@ $BBC_IGNORE_REFER = "";
 // $BBC_IGNORE_BOTS = 2;      => Completely ignore robots
 // $BBC_IGNORE_BOTS = 1;      => Don't list hostnames of robots (default)
 // $BBC_IGNORE_BOTS = "";     => Treat robots as normal visitors
-$BBC_IGNORE_BOTS = 1;
+$BBC_IGNORE_BOTS = 2;
 
 // This option defines how BBClone tells one visitor from another. Default is to
 // use the IP address only, which provides realistic figures in most cases. If,
