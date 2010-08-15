@@ -1,4 +1,4 @@
-﻿{setlocale type="all" locale="fr_FR.utf8"}
+{setlocale type="all" locale="fr_FR.utf8"}
 <div class="table">
 	<div class="table-row">
 		<div class="table-cell _70">

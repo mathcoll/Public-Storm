@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
     Public-Storm
     Copyright (C) 2008-2010 Mathieu Lory <mathieu@internetcollaboratif.info>
