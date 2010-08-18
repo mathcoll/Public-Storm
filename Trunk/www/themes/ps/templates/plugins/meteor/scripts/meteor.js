@@ -16,7 +16,7 @@ function loadMeteor()
 	if( channel )
 	{
 		Meteor.joinChannel(channel, 0);
-		Meteor.mode = 'longpoll';
+		Meteor.mode = 'xhrinteractive';
 		Meteor.connect();
 		getSubscribers();
 	}
@@ -28,7 +28,14 @@ function loadMeteor()
 function getChannelName()
 {
 	//alert($jQuery('#storm_permaname').val().toLowerCase());
-	return permaname( $jQuery('#storm_permaname').val().toLowerCase() );
+	if ( $jQuery('#storm_permaname').length != 0 )
+	{
+		return permaname( $jQuery('#storm_permaname').val().toLowerCase() );
+	}
+	else
+	{
+		return false;
+	}
 }
 function processing(data)
 {
