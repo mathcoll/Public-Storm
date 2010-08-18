@@ -25,7 +25,6 @@ final class svg extends Plugins
  	
 	public function __construct()
 	{
-		self::loadLang();
 		//print "version ".self::$version;
 	}
 	

@@ -29,7 +29,6 @@ final class identica_php extends Plugins
 	public function __construct()
 	{
 		require(Settings::getVar('prefix') . 'conf/identica_php.php');
-		self::loadLang();
 		require_once("./plugins/identica_php/classes/identica.lib.php");
 		if ( !isset(self::$identica) ) {
 			self::$identica = new Identica(Settings::getVar('username'), Settings::getVar('password'), Settings::getVar('application_source'));

@@ -30,7 +30,6 @@ final class public_storm extends Plugins
 	public function __construct()
 	{
 		require(Settings::getVar('prefix') . 'conf/public_storm.php');
-		self::loadLang();
 		if ( !class_exists(Settings::$DB_TYPE) )
 		{
 			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR);

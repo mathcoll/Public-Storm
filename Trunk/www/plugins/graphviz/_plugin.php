@@ -27,7 +27,6 @@ final class graphviz extends Plugins
  	
 	public function __construct()
 	{
-		self::loadLang();
 		require(Settings::getVar('prefix') . 'conf/graphviz.php');
 		require_once("./plugins/graphviz/classes/GraphViz.php");
 		self::$graph = new Image_GraphViz(false, null, 'G', false);

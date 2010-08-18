@@ -27,7 +27,6 @@ final class compressor extends Plugins
  	
 	public function __construct()
 	{
-		self::loadLang();
 		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		/*
 		require_once('./plugins/'.self::$name.'/classes/JavaScriptCompressor/BaseConvert.class.php');

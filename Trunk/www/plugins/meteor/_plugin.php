@@ -27,7 +27,6 @@ final class meteor extends Plugins
  	
 	public function __construct()
 	{
-		self::loadLang();
 		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		//require_once('./plugins/'.self::$name.'/classes/'.self::$name.'.php');
 		Settings::addCss('screen', Settings::getVar('BASE_URL').'/plugins/'.self::$name.'/styles/'.self::$name.'.css');

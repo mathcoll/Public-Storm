@@ -27,7 +27,6 @@ final class ajaxzoom extends Plugins
  	
 	public function __construct()
 	{
-		self::loadLang();
 		require(Settings::getVar('prefix') . 'conf/ajaxzoom.php');
 		unset ($_SESSION["imageZoom"]);
 		$_SESSION["imageZoom"]=array();

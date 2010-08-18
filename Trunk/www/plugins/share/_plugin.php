@@ -27,7 +27,6 @@ final class share extends Plugins
  	
 	public function __construct()
 	{
-		self::loadLang();
 		require(Settings::getVar('prefix') . 'conf/share.php');
 		Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/share/styles/share.css');
 		Settings::addJs('text/javascript', Settings::getVar('theme_dir').'plugins/share/scripts/share.js');

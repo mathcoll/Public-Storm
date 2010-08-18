@@ -33,7 +33,6 @@ final class admin extends Plugins
 		{
 			Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/admin/styles/admin.css', 'admin.css');
 		}
-		self::loadLang();
 	}
 	
 	public function initAdminMenu()

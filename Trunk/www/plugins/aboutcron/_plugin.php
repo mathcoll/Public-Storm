@@ -27,7 +27,6 @@ final class aboutcron extends Plugins
 	public function __construct()
 	{
 		require(Settings::getVar('prefix') . 'conf/aboutcron.php');
-		self::loadLang();
 	}
 	
 	public function loadLang()

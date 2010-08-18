@@ -29,7 +29,6 @@ final class prelaunch extends Plugins
 	public function __construct()
 	{
 		$s = new Settings::$VIEWER_TYPE;
-		self::loadLang();
 		require(Settings::getVar('prefix') . 'conf/prelaunch.php');
 		Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/prelaunch/styles/prelaunch.css');
 		$s->AddData("storm", $storm);

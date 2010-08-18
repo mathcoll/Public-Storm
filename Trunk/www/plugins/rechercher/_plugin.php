@@ -26,7 +26,6 @@ final class rechercher extends Plugins
 	public function __construct()
 	{
 		require(Settings::getVar('prefix') . 'conf/rechercher.php');
-		self::loadLang();
 	}
 	
 	public function getArticlesTitles()

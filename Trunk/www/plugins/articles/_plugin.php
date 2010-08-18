@@ -26,7 +26,6 @@ final class articles extends Plugins
  
 public function __construct()
 {
-self::loadLang();
 if ( !class_exists(Settings::$DB_TYPE) )
 {
 Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR);

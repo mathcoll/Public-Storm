@@ -27,11 +27,8 @@ final class errordocument extends Plugins
  	
 	public function __construct()
 	{
-		self::loadLang();
 		require(Settings::getVar('prefix') . 'conf/errordocument.php');
-		
-		self::$s = new Settings::$VIEWER_TYPE;
-			
+		self::$s = new Settings::$VIEWER_TYPE;	
 	}
 	
 	public static function setError($errorCode)

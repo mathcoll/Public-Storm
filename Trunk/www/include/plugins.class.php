@@ -199,27 +199,6 @@ class Plugins
 		}
 	}
 	
-	public function loadLang($name)
-	{
-		$l = new File(Settings::getVar('plug_dir') . strtolower($name) . '/langs/' . $_SESSION["LANG"] . '.php');
-		if ( $l->Exists() )
-		{
-			require_once(Settings::getVar('plug_dir') . strtolower($name) . '/langs/' . $_SESSION["LANG"] . '.php');
-		}
-		else
-		{
-			$l2 = new File(Settings::getVar('plug_dir') . strtolower($name) . '/langs/' . LANG . '.php');
-			if ( $l2->Exists() )
-			{
-				require_once(Settings::getVar('plug_dir') . strtolower($name) . '/langs/' . LANG . '.php');
-			}
-		}
-		if ( isset($langPlug) )
-		{
-			#i18n::setLng(array_merge(i18n::getLng(), $langPlug));
-		}
-	}
-	
 	public function getIcon($name)
 	{
 		//$file = Settings::getVar('theme_dir') . 'plugins/' . strtolower($name) . '/img/icon.png';

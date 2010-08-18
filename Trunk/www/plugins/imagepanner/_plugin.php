@@ -27,7 +27,6 @@ final class imagepanner extends Plugins
  	
 	public function __construct()
 	{
-		self::loadLang();
 		require(Settings::getVar('prefix') . 'conf/imagepanner.php');
 		Settings::addCss('screen', Settings::getVar('theme_dir_http').'plugins/imagepanner/styles/screen.css');
 

@@ -25,7 +25,6 @@ final class analytics extends Plugins
  	
 	public function __construct()
 	{
-		self::loadLang();
 		require(Settings::getVar('prefix') . 'conf/analytics.php');
 	}
 	

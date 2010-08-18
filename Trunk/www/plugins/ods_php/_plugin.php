@@ -29,7 +29,6 @@ final class ods_php extends Plugins
 	public function __construct()
 	{
 		require(Settings::getVar('prefix') . 'conf/ods_php.php');
-		self::loadLang();
 		require_once("./plugins/ods_php/classes/ods.php");
 	}
 	
@@ -45,7 +44,7 @@ final class ods_php extends Plugins
 		self::$ods->addCell(0, 1, 2, $storm['url'], 'string');
 		self::$ods->addCell(0, 2, 0, '', 'string');
 		self::$ods->addCell(0, 2, 1, 'Création du storm :', 'string');
-		self::$ods->addCell(0, 2, 2, date('d/m/Y h:i', $storm['date']), 'string');
+		self::$ods->addCell(0, 2, 2, date('d/m/Y H:i', $storm['date']), 'string');
 		self::$ods->addCell(0, 3, 0, '', 'string');
 		self::$ods->addCell(0, 3, 1, 'Auteur du storm :', 'string');
 		self::$ods->addCell(0, 3, 2, $storm['author'], 'string');
@@ -56,14 +55,23 @@ final class ods_php extends Plugins
 		self::$ods->addCell(0, 6, 3, '%', 'string');
 		self::$ods->addCell(0, 6, 4, 'Url', 'string');
 		$n=7;
+		$count=0;
 		foreach( $storm['suggestions'] as $suggestions )
 		{
 			self::$ods->addCell(0, $n, 0, '', 'string');
 			self::$ods->addCell(0, $n, 1, $suggestions['suggestion'], 'string');
 			self::$ods->addCell(0, $n, 2, $suggestions['nb'], 'float');
-			self::$ods->addCell(0, $n, 3, ( $suggestions['nb'] / count($storm['suggestions']) ) * 100, 'percentage');
+			self::$ods->addCell(0, $n, 3, '', 'string');
 			self::$ods->addCell(0, $n, 4, modifier_url($suggestions['url']), 'string');
 			$n++;
+			$count+=$suggestions['nb'];
+		}
+		$o=7;
+		foreach( $storm['suggestions'] as $suggestions )
+		{
+			$percentage = ($suggestions['nb'] / $count);
+			self::$ods->addCell(0, $o, 3, $percentage, 'percentage');
+			$o++;
 		}
 		saveOds(self::$ods, Settings::getVar('ROOT').'cache/'.$storm['permaname'].'.ods');
 		return Settings::getVar('ROOT').'cache/'.$storm['permaname'].'.ods';
