@@ -122,17 +122,13 @@ div.right
 {
 	float: right;
 	padding-top: 15px;
-	/*line-height: 30px;*/
 	font-size: 12px;
 	font-family: monospace;
-}
-div.right label
-{
 }
 h3.storm
 {
 	font-size: 26px;
-	background-position: 10px;
+	background-position: 0 5px;
 }
 span.data
 {
@@ -144,22 +140,22 @@ span.data
 }
 a.stormExport
 {
-	background: transparent url(../img/x-office-spreadsheet_003.png) no-repeat 0 0;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -327px;
 	padding: 3px 0 5px 25px;
 }
 label.date
 {
-	background: transparent url(../img/x-office-calendar_003.png) no-repeat 0 0;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -280px;
 	padding: 3px 0 5px 25px;
 }
 label.author
 {
-	background: transparent url(../img/contact-new_003.png) no-repeat 0 0;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -350px;
 	padding: 3px 0 5px 25px;
 }
 label.connected
 {
-	background: transparent url(../img/start-here_002.png) no-repeat 0 0;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -304px;
 	padding: 3px 0 5px 25px;
 }
 
