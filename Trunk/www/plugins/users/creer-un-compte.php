@@ -34,6 +34,7 @@ $user_infos['password'] = $_POST['password'];
 $sPlug->AddData("user_infos", $user_infos);
 $sPlug->AddData("base_url", Settings::getVar('base_url_http'));
 $sPlug->AddData("theme_dir_http", Settings::getVar('theme_dir_http'));
+$sPlug->AddData("theme_dir", Settings::getVar('theme_dir'));
 $sPlug->AddData("current_lang", $_SESSION['LANG']);
 Settings::setVar('title', i18n::_("creer_un_compte"));
 $sPlug->AddData("title", Settings::getVar('title'));
