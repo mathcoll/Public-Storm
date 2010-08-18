@@ -102,6 +102,8 @@ function statusHasChanged(status)
 			break;
 		case 5: msg = "Meteor : Receiving data";
 			break;
+		case 6: msg = "Meteor : End of stream, will not reconnect";
+			break;
 	}
 	$jQuery('#meteorStatus').html(msg+' '+status);
 }
