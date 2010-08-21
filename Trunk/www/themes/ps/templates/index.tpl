@@ -1,4 +1,4 @@
-{include file="header.tpl" base_url=$base_url message=$message user=$user description=$description meta_keywords=$meta_keywords statuses=$statuses}
+{include file="header.tpl" base_url_http=$base_url_http message=$message user=$user description=$description meta_keywords=$meta_keywords statuses=$statuses}
 	
 	{if $title != ""}<h2>{$title}</h2>{/if}
 

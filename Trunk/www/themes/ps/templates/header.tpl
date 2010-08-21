@@ -8,7 +8,7 @@
 	<link rel="shortcut icon" href="{$theme_dir}favicon.ico" type="image/x-icon" />
 	<meta name="description" content="{t}baseline{/t} {$meta_description|strip_tags}" />
 	<meta name="keywords" content="{$meta_keywords}" />
-	<meta name="generator" content="{$site_name} {$version} - {$base_url}" />
+	<meta name="generator" content="{$site_name} {$version} - {$base_url_http}" />
 
 	{foreach from=$styles item=style}
 <link rel="stylesheet" type="text/css" media="{$style.media}" href="{$style.stylesheet}" />
