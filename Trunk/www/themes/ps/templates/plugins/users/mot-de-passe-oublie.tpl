@@ -1,4 +1,4 @@
-<p>{$i18n.mot_de_passe_oublie_intro}</p>
+<p>{t}Vous avez oublié votre mot de passe ? Saisissez votre identifiant OU votre email et nous vous enverrons un nouveau mot de passe immédiatement.{/t}</p>
 <p>
 	<form action="mot-de-passe-oublie.php" method="post" class="formulaire">
 		<div class="deuxCols">

@@ -1,6 +1,6 @@
 <html>
 <body>
-<a href="{$base_url}"><img src="{$theme_dir}img/logo.jpg" align="left" border="0"></a>
+<a href="{$base_url_http}"><img src="{$theme_dir_http}img/logo.jpg" align="left" border="0"></a>
 <h1 style="font-size:18px;">{$user_infos.prenom|escape|ucfirst} {$user_infos.nom|escape|ucfirst}, {t}fogotten_password.subject{/t}</h1>
 <p style="font-size:12px;">
 	{t}fogotten_password.intro{/t}

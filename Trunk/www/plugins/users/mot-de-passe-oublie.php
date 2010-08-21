@@ -32,6 +32,7 @@ $sPlug->AddData("version", Settings::getVar('SITE_VERSION'));
 $sPlug->AddData("prefix", Settings::getVar('prefix'));
 $sPlug->AddData("base_url", Settings::getVar('base_url_http'));
 $sPlug->AddData("theme_dir", Settings::getVar('theme_dir'));
+$sPlug->AddData("theme_dir_http", Settings::getVar('theme_dir_http'));
 $sPlug->AddData("user_infos", $user_infos);
 $sPlug->AddData("current_lang", $_SESSION['LANG']);
 $sPlug->AddData("rssfeed_url", Settings::getVar('rssfeed_url'));
