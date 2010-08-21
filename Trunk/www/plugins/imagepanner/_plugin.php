@@ -30,6 +30,9 @@ final class imagepanner extends Plugins
 		require(Settings::getVar('prefix') . 'conf/imagepanner.php');
 		Settings::addCss('screen', "/".Settings::getVar('theme_dir').'plugins/imagepanner/styles/screen.css');
 
+		/* scripts for drag and dropping */
+		Settings::addJs('text/javascript', "/".Settings::getVar('theme_dir').'plugins/imagepanner/scripts/imagepanner.js', 'all.js');
+
 	}
 	
 	public function loadLang()

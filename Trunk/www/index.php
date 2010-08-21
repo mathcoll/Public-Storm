@@ -37,36 +37,10 @@ $s->AddData("current_lang", $_COOKIE["locale"]);
 $s->AddData("s", $_SESSION['s']);
 $s->AddData("langs", i18n::langs());
 
-
-
-
-
-
-/* javascripts jQuery */
-Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery-1.3.2.min.js');
-Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery.scrollTo-min.js');
-Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery.localscroll.js');
-Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery.serialScroll-min.js');
-Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/coda-slider.js');
-
-/* scripts for drag and dropping */
-Settings::addJs('text/javascript', Settings::getVar('theme_dir').'plugins/imagepanner/scripts/imagepanner.js');
-
-/* Public-Storm scripts */
-Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/main.js');
-Settings::addJs('text/javascript', Settings::getVar('theme_dir').'plugins/public_storm/scripts/public_storm.js');
-
-
-//print $uri[$ind+2];
-
-Settings::setVar('listeCss', 'all.css,admin.css', 'compressor', 'Liste des feuilles de styles disponibles');
-//print Settings::getVar('listeCss');
-$listeCss = explode(",", Settings::getVar('listeCss'));
-//print_r($listeCss);
-//exit;
-foreach($listeCss as $css)
+if( $statuses['compressor'] == 1 )
 {
-	if( $statuses['compressor'] == 1 )
+	$listeCss = explode(",", Settings::getVar('listeCss'));
+	foreach( $listeCss as $css )
 	{
 		/* compression des Css */
 		$csss = array();
@@ -83,9 +57,34 @@ foreach($listeCss as $css)
 				Settings::removeCss($file['stylesheet']);
 			}
 		}
-		Settings::addCss('screen', Settings::getVar('base_url')."/css/groups/".$css."/");
+		Settings::addCss('screen', Settings::getVar('base_url')."/css/groups/".$css."/", $css);
+	}
+	
+	$listeJs = explode(",", Settings::getVar('listeJs'));
+	foreach( $listeJs as $js )
+	{
+		/* compression des Js */
+		$jss = array();
+		foreach( Settings::getJss('text/javascript', true) as $file )
+		{
+			//print_r(Settings::getJss('text/javascript', true))."\n";
+			if ( $file['file'] == $js )
+			{
+				//print $js." = ".$file['javascript']."<br />";
+				array_push(
+					$jss,
+					//file_get_contents($file['javascript'])
+					$file['javascript']
+				);
+				Settings::removeJs($file['javascript']);
+			}
+		}
+		//print "addJs :".Settings::getVar('base_url')."/js/groups/".$js."/"."<br />";
+		Settings::addJs('text/javascript', Settings::getVar('base_url')."/js/groups/".$js."/", $js);
 	}
 }
+//print_r(Settings::getVar('styles'));
+//exit;
 $s->AddData("styles", Settings::getVar('styles'));
 $s->AddData("javascripts", Settings::getVar('javascripts'));
 

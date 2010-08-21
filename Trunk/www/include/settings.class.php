@@ -51,10 +51,11 @@ final class Settings
 		return self::setVar('styles', $styles);
 	}
 	
-	public static function addJs($type="text/javascript", $javascript)
+	public static function addJs($type="text/javascript", $javascript, $file='all.js')
 	{
 		$javascripts = self::getVar('javascripts');
-		$javascripts[] = array('type' => $type, 'javascript' => $javascript);
+		$javascripts[] = array('type' => $type, 'javascript' => $javascript, 'file' => $file);
+		//print "ADDING (".$type." = ".$file.") ".$javascript."\n";
 		return self::setVar('javascripts', $javascripts);
 	}
 	

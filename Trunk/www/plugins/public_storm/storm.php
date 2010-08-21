@@ -21,7 +21,6 @@
 $sPlug = new Settings::$VIEWER_TYPE;
 $sPlug->AddData("theme_dir", Settings::getVar('theme_dir'));
 
-
 $uri = split('/', $_SERVER['REQUEST_URI']);
 #$id = array_pop($uri); # TODO : ca retourne rien ???!!!!
 
@@ -58,9 +57,7 @@ if ( isset($id) || isset($_SESSION['id']) )
 		if ( $id = public_storm::addStorm($storm_permaname, time(), urldecode($storm_root), $_SESSION['id']) )
 		{
 			$_SESSION["message"] = i18n::_("Vous venez de créer le storm %s !", array(urldecode($storm_root)));
-			if(
-				Settings::getVar('BASE_URL') != "/public-storm.internetcollaboratif.info"
-			)
+			if( DEV != true )
 			{
 				identica_php::updateStatus(i18n::_("Nouveau storm créé : %s %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname))));
 			}

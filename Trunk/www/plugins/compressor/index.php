@@ -76,8 +76,24 @@ if( $statuses['compressor'] == 1 )
 			Settings::removeCss($file['stylesheet']);
 		}
 	}
+	//print_r($csss);
+	/* compression des Js */
+	$jss = array();
+	foreach( Settings::getJss('text/javascript', true) as $file )
+	{
+		//print_r(Settings::getJss('text/javascript', true))."\n";
+		//print $file['file']."-".$uri[$ind+2]."\n";
+		if ( $file['file'] == $uri[$ind+2] )
+		{
+			array_push(
+				$jss,
+				//file_get_contents($file['javascript'])
+				$file['javascript']
+			);
+			Settings::removeJs($file['javascript']);
+		}
+	}
 }
-
 
 // check for URI versioning
 if (preg_match('/&\\d/', $_SERVER['QUERY_STRING'])) {
@@ -90,13 +106,17 @@ if ( true ) {
 	$min_serveOptions['encodeOutput'] = false;
 }
 
-//print_r($csss);
-if ( $uri[$ind+1] == "groups" ) {
-    // well need groups config
-    $min_serveOptions['minApp']['groups'] = array(
-	    'css' => $csss,
+$content = $uri[$ind]=="js" ? $jss : $csss;
+$content_type = $uri[$ind]=="js" ? "text/javascript" : "text/css";
+//print $uri[$ind]." = ".$uri[$ind+1];
+//print_r($content);
+if ( $uri[$ind+1] == "groups" )
+{
+   // well need groups config
+   $min_serveOptions['minApp']['groups'] = array(
+		$uri[$ind] => $content,
 	);
-	$_GET['g'] = "css";
+	$_GET['g'] = $uri[$ind];
 	//print_r($min_serveOptions);
 	Minify::serve('MinApp', $min_serveOptions);
 	exit();

@@ -4,7 +4,6 @@ Settings::setVar('css_cache_duration', 86400, 'compressor', 'Css cache duration 
 Settings::setVar('js_cache_duration', 86400, 'compressor', 'Js cache duration time ; in seconds');
 Settings::setVar('compressor_use_gzip', false, 'compressor', 'Gzipping your CSS (true or false)');
 
-
 /**
  * Configuration for default Minify application
  * @package Minify
@@ -130,9 +129,7 @@ $min_serveOptions['minApp']['maxFiles'] = 15;
  * array('//static' => 'D:\\staticStorage')  // Windows
  * </code>
  */
-$min_symlinks = array(
-	'//var/www/public-storm.internetcollaboratif.info/themes/ps/templates/plugins/users/styles' => '/home/mathieu/Projets/2010/Public-Storm/Trunk/www/themes/ps/templates/plugins/users/styles'
-);
+$min_symlinks = array();
 
 
 /**

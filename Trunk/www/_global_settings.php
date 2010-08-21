@@ -24,10 +24,8 @@
 if (basename($_SERVER['SCRIPT_NAME'])==basename(__FILE__))die();
 
 
-@require('./_specific.php');
+@require_once('./_specific.php');
 Settings::setVar('BASE_URL', $BASE_URL);
-
-
 
 // Site name
 Settings::setVar('SITE_NAME', 'Public-Storm', 'admin', 'Site name, also defined in the languages files');
@@ -39,7 +37,7 @@ Settings::setVar('SITE_BASELINE', '', 'admin', 'Site baseline, also defined in t
 Settings::setVar('SITE_DESCRIPTION', '', 'admin', 'Site description, also defined in the languages files');
 
 // Current version
-Settings::setVar('SITE_VERSION', '10.8.18');
+Settings::setVar('SITE_VERSION', '10.8.21');
 
 // Debug switch. Set it to true for output additional information.
 define('DEBUG', false);
@@ -77,6 +75,11 @@ Settings::setVar('FROMNAME', 'Public-Storm', 'admin', 'Email from name');
 Settings::setVar('FROM', 'contact@internetcollaboratif.info', 'admin', 'Email from email');
 Settings::setVar('HOST', 'smtp.free.fr', 'admin', 'Email smtp host');
 Settings::setVar('MAILER', $MAILER, 'admin', 'smtp or mail'); // smtp or mail
+
+/* can't be defined in the ./conf/compressor.php, why ?? */
+/* be carefull to sort the array (comma separated)! */
+Settings::setVar('listeCss', 'all.css,admin.css', 'compressor', 'Liste des feuilles de styles disponibles');
+Settings::setVar('listeJs', 'jquery.js,all.js', 'compressor', 'Liste des fichiers de scripts disponibles');
 
 /* */
 /* */
