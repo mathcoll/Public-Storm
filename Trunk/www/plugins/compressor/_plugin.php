@@ -20,24 +20,35 @@
 		
 final class compressor extends Plugins
 {
- 	public static $subdirs = array();
+ 	public static $subdirs = array("minify", "js", "css");
  	public static $name = "compressor";
 	public static $db;
 	public static $compressor;
  	
 	public function __construct()
 	{
-		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		/*
+		// version 1 :
+		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		require_once('./plugins/'.self::$name.'/classes/JavaScriptCompressor/BaseConvert.class.php');
 		require_once('./plugins/'.self::$name.'/classes/JavaScriptCompressor/SourceMap.class.php');
 		require_once('./plugins/'.self::$name.'/classes/JavaScriptCompressor/JavaScriptCompressor.class.php');
 		self::$compressor = new JavaScriptCompressor();
 		*/
+		
+		/*
+		// version 2 :
+		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		require_once('./plugins/'.self::$name.'/classes/js_css_compressor/js_merge.php');
 		self::$compressor = new jsCssCompressor();
+		*/
+		
+		/*
+		// version 3 :
+		// just call : /minify/?f=themes/ps/templates/plugins/xxxxx/styles/admin.css,themes/ps/templates/plugins/xxxxx/styles/front.css
+		*/
 	}
-	
+	/*
 	public function writeToCache($content, $file)
 	{
 		$f = new file($file);
@@ -66,6 +77,7 @@ final class compressor extends Plugins
 	{
 		return self::$compressor->getClean($jsSource);
 	}
+	*/
 	
 	public function loadLang()
 	{

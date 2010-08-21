@@ -60,23 +60,6 @@
 				{/literal}
 				</script>
 			</div><!-- //left-->
-			{*
-			<div class="right neato">
-				<div id="map" class="smallmap"></div>
-				<script defer="defer" type="text/javascript">
-				{literal}
-				var map, layer;
-				function init()
-				{
-					map = new OpenLayers.Map( 'map' );
-					layer = new OpenLayers.Layer.OSM( "Simple OSM Map");
-					map.addLayer(layer);
-					map.zoomToMaxExtent();
-				}
-				{/literal}
-				</script>
-			</div>
-			*}
 			
 			<div class="right">
 				{if $user.isadmin eq 1}

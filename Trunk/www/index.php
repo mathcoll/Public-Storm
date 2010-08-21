@@ -41,13 +41,8 @@ $s->AddData("langs", i18n::langs());
 
 
 
-/* styles */
-Settings::addCss('screen', Settings::getVar('theme_dir_http').'styles/styles.css', 'all.css');
-Settings::addCss('screen', Settings::getVar('theme_dir_http').'plugins/users/styles/users.css', 'all.css');
-Settings::addCss('screen', Settings::getVar('theme_dir_http').'plugins/public_storm/styles/styles.css', 'all.css');
-Settings::addCss('print', Settings::getVar('theme_dir_http').'styles/print.css');
 
-/* javascripts */
+/* javascripts jQuery */
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery-1.3.2.min.js');
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery.scrollTo-min.js');
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/jquery.localscroll.js');
@@ -61,46 +56,35 @@ Settings::addJs('text/javascript', Settings::getVar('theme_dir').'plugins/imagep
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'scripts/main.js');
 Settings::addJs('text/javascript', Settings::getVar('theme_dir').'plugins/public_storm/scripts/public_storm.js');
 
-if( $statuses['compressor'] == 1 )
+
+//print $uri[$ind+2];
+
+Settings::setVar('listeCss', 'all.css,admin.css', 'compressor', 'Liste des feuilles de styles disponibles');
+//print Settings::getVar('listeCss');
+$listeCss = explode(",", Settings::getVar('listeCss'));
+//print_r($listeCss);
+//exit;
+foreach($listeCss as $css)
 {
-	/* compression des Css */
-	$csss = array();
-	foreach( Settings::getCsss('screen', true) as $file )
+	if( $statuses['compressor'] == 1 )
 	{
-		//print_r($file);
-		if ( $file['file'] == "all.css" )
+		/* compression des Css */
+		$csss = array();
+		foreach( Settings::getCsss('screen', true) as $file )
 		{
-			array_push(
-				$csss,
-				//file_get_contents($file['javascript'])
-				$file['stylesheet']
-			);
-			Settings::removeCss($file['stylesheet']);
+			//print_r(Settings::getCsss('screen', true))."\n";
+			if ( $file['file'] == $css )
+			{
+				array_push(
+					$csss,
+					//file_get_contents($file['javascript'])
+					$file['stylesheet']
+				);
+				Settings::removeCss($file['stylesheet']);
+			}
 		}
+		Settings::addCss('screen', Settings::getVar('base_url')."/css/groups/".$css."/");
 	}
-	$cssFile = 'all.css';
-	if ( Settings::getVar('compressor_use_gzip') == true )
-	{
-		$cssFile .= ".gz"; 
-	}
-	$css = compressor::refreshCss($csss, Settings::getVar('cache_dir').$cssFile);
-	//compressor::writeToCache($js, Settings::getVar('cache_dir').'all.js');
-	Settings::addCss('screen', Settings::getVar('base_url')."/cache/".$cssFile);
-/*
-	$jss = array();
-	foreach( Settings::getJss('text/javascript', true) as $file )
-	{
-		array_push(
-			$jss,
-			//file_get_contents($file['javascript'])
-			$file['javascript']
-		);
-		Settings::removeJs($file['javascript']);
-	}
-	$js = compressor::refreshJs($jss, Settings::getVar('cache_dir').'all.js');
-	//compressor::writeToCache($js, Settings::getVar('cache_dir').'all.js');
-	Settings::addJs('text/javascript', Settings::getVar('BASE_URL_HTTP').'/cache/'.'all.js');
-*/
 }
 $s->AddData("styles", Settings::getVar('styles'));
 $s->AddData("javascripts", Settings::getVar('javascripts'));
@@ -251,17 +235,19 @@ function sksort(&$array, $subkey="id", $sort_descending=false, $keep_keys_in_sub
    /*
   * filtering an array
   */
- function filter_by_value ($array, $index, $value){
-     if(is_array($array) && count($array)>0) 
-     {
-         foreach(array_keys($array) as $key){
-             $temp[$key] = $array[$key][$index];
-             
-             if ($temp[$key] != $value){
-                 $newarray[$key] = $array[$key];
-             }
-         }
-       }
-   return $newarray;
- } 
+function filter_by_value($array, $index, $value)
+{
+	if( is_array($array) && count($array)>0 ) 
+	{
+		foreach(array_keys($array) as $key)
+		{
+			$temp[$key] = $array[$key][$index];
+			if ( $temp[$key] != $value )
+			{
+				$newarray[$key] = $array[$key];
+			}
+		}
+	}
+	return $newarray;
+} 
 ?>

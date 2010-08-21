@@ -29,7 +29,7 @@ final class openlike extends Plugins
 	{
 		require(Settings::getVar('prefix') . 'conf/openlike.php');
 		/*require_once("./plugins/default/classes/openlike.php");*/
-		Settings::addCss('screen', Settings::getVar('BASE_URL_HTTP').'/plugins/openlike/openlike/v1/openlike.css');
+		Settings::addCss('screen', "/".Settings::getVar('BASE_URL').'/plugins/openlike/openlike/v1/openlike.css');
 		Settings::addJs('text/javascript', Settings::getVar('BASE_URL').'/plugins/openlike/openlike/v1/openlike.dev.js');
 
 	}

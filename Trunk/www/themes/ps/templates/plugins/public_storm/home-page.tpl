@@ -25,19 +25,19 @@
 				<div class="scroll">
 					<div class="scrollContainer">
 						<div id="tab1" class="panel">
-							<img src="{$theme_dir}img/creer_storms.png" width="345" height="347" title="{t}intro_title1{/t}" alt="{t}intro_title1{/t}" />
+							<img src="{$theme_dir}img/creer_storms.jpg" title="{t}intro_title1{/t}" alt="{t}intro_title1{/t}" />
 							<h4>{t}intro_title1{/t}</h4>
 							<p>{t}intro_p1{/t}</p>
 							<p><a href="#tab2" onclick="_gaq.push(['_trackEvent', 'tab2', 'clicked']);">&gt;&gt;</a></p>
 						</div>
 						<div id="tab2" class="panel">
-							<img src="{$theme_dir}img/suggest.png" width="345" height="348" title="{t}intro_title2{/t}" alt="{t}intro_title2{/t}" />
+							<img src="{$theme_dir}img/suggest.jpg" title="{t}intro_title2{/t}" alt="{t}intro_title2{/t}" />
 							<h4>{t}intro_title2{/t}</h4>
 							<p>{t}intro_p2{/t}</p>
 							<p><a href="#tab1" onclick="_gaq.push(['_trackEvent', 'tab1', 'clicked']);">&lt;&lt;</a> <a href="#tab3" onclick="_gaq.push(['_trackEvent', 'tab3', 'clicked']);">&gt;&gt;</a></p>
 						</div>
 						<div id="tab3" class="panel">
-							<img src="{$theme_dir}img/export.png" width="345" height="348" title="{t}intro_title3{/t}" alt="{t}intro_title3{/t}" />
+							<img src="{$theme_dir}img/export.jpg" title="{t}intro_title3{/t}" alt="{t}intro_title3{/t}" />
 							<h4>{t}intro_title3{/t}</h4>
 							<p>{t}intro_p3{/t}</p>
 							<p><a href="#tab2" onclick="_gaq.push(['_trackEvent', 'tab2', 'clicked']);">&lt;&lt;</a></p>

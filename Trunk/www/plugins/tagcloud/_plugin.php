@@ -29,7 +29,8 @@ final class tagcloud extends Plugins
 	{
 		//require(Settings::getVar('prefix') . 'conf/tagcloud.php');
 		require_once("./plugins/tagcloud/classes/wordcloud.class.php");
-		Settings::addCss('screen', Settings::getVar('theme_dir_http') . '/plugins/tagcloud/styles/wordcloud.css');
+		//Settings::addCss('screen', Settings::getVar('theme_dir_http') . '/plugins/tagcloud/styles/wordcloud.css');
+		Settings::addCss('screen', "/".Settings::getVar('theme_dir') . 'plugins/tagcloud/styles/wordcloud.css');
 		self::$cloud = new wordCloud(self::$words);
 		//print "version ".self::$version;
 	}

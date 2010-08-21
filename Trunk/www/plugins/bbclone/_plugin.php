@@ -29,7 +29,7 @@ final class bbclone extends Plugins
 		require(Settings::getVar('prefix') . 'conf/bbclone.php');
 		if( $_SESSION['isadmin'] == 1 )
 		{
-			Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/bbclone/styles/admin.css', 'admin.css');
+			Settings::addCss('screen', "/".Settings::getVar('theme_dir').'plugins/bbclone/styles/admin.css', 'admin.css');
 		}
 	}
 	

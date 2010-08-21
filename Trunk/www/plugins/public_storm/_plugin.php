@@ -30,6 +30,10 @@ final class public_storm extends Plugins
 	public function __construct()
 	{
 		require(Settings::getVar('prefix') . 'conf/public_storm.php');
+		Settings::addCss('screen', "/".Settings::getVar('theme_dir').'plugins/public_storm/styles/styles.css', 'all.css');
+		/* general styles */
+		Settings::addCss('screen', "/".Settings::getVar('theme_dir').'styles/styles.css', 'all.css');
+		//Settings::addCss('print', Settings::getVar('theme_dir_http').'styles/print.css');
 		if ( !class_exists(Settings::$DB_TYPE) )
 		{
 			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR);

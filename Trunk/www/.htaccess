@@ -42,7 +42,7 @@ SetEnvIfNoCase Request_URI \
 
 
 RewriteEngine On
-RewriteBase /public-storm.internetcollaboratif.info
+RewriteBase /
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

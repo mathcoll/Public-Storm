@@ -105,5 +105,7 @@ function statusHasChanged(status)
 		case 6: msg = "Meteor : End of stream, will not reconnect";
 			break;
 	}
-	$jQuery('#meteorStatus').html(msg+' '+status);
+	$jQuery('#meteorStatus').html("");
+	var e = '<span class="status status_'+status+'" title="'+msg+' '+status+'">&nbsp;</span>';
+	$jQuery('#meteorStatus').append(e);
 }

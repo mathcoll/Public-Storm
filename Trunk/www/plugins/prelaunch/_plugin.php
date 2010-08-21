@@ -30,7 +30,7 @@ final class prelaunch extends Plugins
 	{
 		$s = new Settings::$VIEWER_TYPE;
 		require(Settings::getVar('prefix') . 'conf/prelaunch.php');
-		Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/prelaunch/styles/prelaunch.css');
+		Settings::addCss('screen', "/".Settings::getVar('theme_dir').'plugins/prelaunch/styles/prelaunch.css');
 		$s->AddData("storm", $storm);
 		#$s->AddData("i18n", i18n::getLng());
 		$s->AddData("site_name", Settings::getVar('SITE_NAME'));
