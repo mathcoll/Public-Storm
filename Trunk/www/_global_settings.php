@@ -76,11 +76,6 @@ Settings::setVar('FROM', 'contact@internetcollaboratif.info', 'admin', 'Email fr
 Settings::setVar('HOST', 'smtp.free.fr', 'admin', 'Email smtp host');
 Settings::setVar('MAILER', $MAILER, 'admin', 'smtp or mail'); // smtp or mail
 
-/* can't be defined in the ./conf/compressor.php, why ?? */
-/* be carefull to sort the array (comma separated)! */
-Settings::setVar('listeCss', 'all.css,admin.css', 'compressor', 'Liste des feuilles de styles disponibles');
-Settings::setVar('listeJs', 'jquery.js,all.js', 'compressor', 'Liste des fichiers de scripts disponibles');
-
 /* */
 /* */
 /* */

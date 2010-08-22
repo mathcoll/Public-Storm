@@ -27,6 +27,7 @@ final class compressor extends Plugins
  	
 	public function __construct()
 	{
+		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		/*
 		// version 1 :
 		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');

@@ -28,12 +28,10 @@
  */
 
 if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die();
-
 final class viewer_smarty extends Viewer
 {
-
-  private static $template;
-  public static $smarty;
+	private static $template;
+	public static $smarty;
   
 	public function __construct()
 	{
@@ -41,8 +39,11 @@ final class viewer_smarty extends Viewer
 		require_once( Settings::getVar('SMARTY_DIR') . 'Smarty-gettext.php' );
 		self::$smarty = new Smarty;
 		self::$smarty->register_block('t', 'smarty_translate');
-		self::$smarty->load_filter('output','trimwhitespace');
-		self::$smarty->load_filter('output','compressor');
+		if ( Settings::getVar('compress html output') )
+		{
+			self::$smarty->load_filter('output','trimwhitespace');
+			self::$smarty->load_filter('output','compressor');
+		}
 		self::$smarty->compile_check = true;
 		self::$smarty->debugging = false;
 	}
