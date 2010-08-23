@@ -4,9 +4,10 @@ DirectoryIndex index.php
 
 <IfModule mod_expires.c>
 	ExpiresActive On
-	ExpiresByType image/gif A172800
-	ExpiresByType image/jpg A172800
-	ExpiresByType image/png A172800
+	ExpiresByType image/gif A691200
+	ExpiresByType image/jpg A691200
+	ExpiresByType image/jpeg A691200
+	ExpiresByType image/png A691200
 
 	ExpiresByType image/x-icon A2678400
 	ExpiresByType text/css A2678400
@@ -15,6 +16,7 @@ DirectoryIndex index.php
 	ExpiresByType application/x-javascript A2678400
 </IfModule>
 
+FileETag none
 
 # Insert filter
 SetOutputFilter DEFLATE
