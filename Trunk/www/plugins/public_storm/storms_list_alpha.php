@@ -33,6 +33,10 @@ else
 	$ind = 1;
 }
 
+$current_page = $uri[$ind+2] != NULL ? $uri[$ind+2] : 1;
+$sPlug->AddData("current_page", $current_page);
+$sPlug->AddData("nb_pages", ceil(public_storm::getNbStorms() / Settings::getVar('storms_per_page')));
+$sPlug->AddData("nbstorms", public_storm::getNbStorms());
 
 Settings::setVar('title', i18n::L("Storms"));
 $breadcrumb = Settings::getVar('breadcrumb');
@@ -43,7 +47,7 @@ Settings::setVar('breadcrumb', $breadcrumb);
 
 $sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
 #$sPlug->->AddData("i18n", i18n::getLng());
-$sPlug->AddData("storms", public_storm::getStormsByAlpha());
+$sPlug->AddData("storms", public_storm::getStormsByAlpha($current_page==1 ? 0 : ((Settings::getVar('storms_per_page')*($current_page-1))), Settings::getVar('storms_per_page')));
 $content = $sPlug->fetch("storms_list_alpha.tpl", "plugins/public_storm");
 
 

@@ -187,13 +187,13 @@ final class public_storm extends Plugins
 		return $storms;
 	}
 	
-	public function getStormsByAlpha($nb=null)
+	public function getStormsByAlpha($from=0, $nb=null)
 	{
 		$q = "SELECT s.* FROM storms s ORDER BY LOWER(s.root) ASC";
 		if ( isset($nb) )
 		{
-			$q .= " LIMIT 0, :nb";
-			$datas = array(':nb' => $nb);
+			$q .= " LIMIT :from, :nb";
+			$datas = array(':from' => $from, ':nb' => $nb);
 		}
 		else
 		{

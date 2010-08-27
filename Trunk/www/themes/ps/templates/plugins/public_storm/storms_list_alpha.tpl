@@ -4,6 +4,20 @@
 {assign var=item_per_col value=$s_count/3}
 
 {t}Liste des Storms triés par ordre alphabêtique :{/t}
+
+<p>{t}Pages :{/t}</p>
+<ul class="list-pages">
+	{section name=foo loop=$nb_pages}
+	<li>
+		{if $current_page eq $smarty.section.foo.iteration}
+			<b>{$smarty.section.foo.iteration}</b>
+		{else}
+			<a href="{$base_url}/storms/alpha/{$smarty.section.foo.iteration}/">{$smarty.section.foo.iteration}</a>
+		{/if}
+	</li>
+	{/section}
+</ul>
+
 <div class="table _100">
 	<div class="table-row">
 		<div class="table-cell _30">
@@ -29,3 +43,16 @@
 		</div>
 	</div>
 </div>
+
+<p>{t}Pages :{/t}</p>
+<ul class="list-pages">
+	{section name=foo loop=$nb_pages}
+	<li>
+		{if $current_page eq $smarty.section.foo.iteration}
+			<b>{$smarty.section.foo.iteration}</b>
+		{else}
+			<a href="{$base_url}/storms/alpha/{$smarty.section.foo.iteration}/">{$smarty.section.foo.iteration}</a>
+		{/if}
+	</li>
+	{/section}
+</ul>
