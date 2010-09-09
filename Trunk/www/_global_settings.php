@@ -37,7 +37,7 @@ Settings::setVar('SITE_BASELINE', '', 'admin', 'Site baseline, also defined in t
 Settings::setVar('SITE_DESCRIPTION', '', 'admin', 'Site description, also defined in the languages files');
 
 // Current version
-Settings::setVar('SITE_VERSION', '10.8.21');
+Settings::setVar('SITE_VERSION', '10.9.9');
 
 // Debug switch. Set it to true for output additional information.
 define('DEBUG', false);
