@@ -4,7 +4,7 @@
 	<channel>
 		<title>{$title}, {t}baseline{/t}</title>
 		<link>{$base_url_http}</link>
-		<description>{$site_baseline} {$site_description}</description>
+		<description>{t}baseline{/t}, {$site_description}</description>
 		<language>fr-fr</language>
 		<pubDate>{$date}</pubDate>
 		<lastBuildDate>{$date}</lastBuildDate>
@@ -28,7 +28,7 @@
 		<author>{$storm.author}</author>
 		<link>{$base_url_http}/storm/{$storm.permaname|url}/</link>
 		<description><![CDATA[{assign var=rootCap value=$storm.root|ucfirst}{$i18n.suggest_it|sprintf:$rootCap} <a href="{$base_url_http}/storm/{$storm.permaname|url}/">{$storm.root|ucfirst}</a>]]></description>
-		<guid>{$name.name}-{$smarty.now}</guid>
+		<guid>{$storm.permaname}-{$smarty.now}</guid>
 		<pubDate>{$storm.date|date_format:"%a, %d %B %Y %R:%M:%S GMT"}</pubDate>
 		<source>{$base_url_http}/backend/rss.php</source>
 		<enclosure url="{$theme_dir_http}img/lightning.png" length="692" type="image/x-png" />
