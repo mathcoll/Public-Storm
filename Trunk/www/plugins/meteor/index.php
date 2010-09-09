@@ -36,13 +36,11 @@ else
 {
 	$ind = 1;
 }
-print $uri."<----";
-exit;
 
 if( $_SESSION['isadmin'] != 1 )
 {
 	require(Settings::getVar('plug_dir')."admin/forbidden.php");
-	//exit;
+	exit;
 }
 else
 {	
