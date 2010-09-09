@@ -22,7 +22,6 @@ final class meteor extends Plugins
 {
  	public static $subdirs = array('meteor');
  	public static $name = "meteor";
-	public static $db;
 	public static $s;
  	
 	public function __construct()
