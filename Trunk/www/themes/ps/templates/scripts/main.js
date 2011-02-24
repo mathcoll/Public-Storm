@@ -60,18 +60,6 @@ function validerIdentifiant(login)
 		}
 	);
 }
-
-
-
-function alea(m)
-{
-	var alea = "";
-	for(n=0; n<m; n++)
-	{
-		alea += Math.floor(Math.random()*5);
-	}
-	return alea;
-}
 function permaname(s)
 {
 	s = no_accent(no_spacer(s));
@@ -111,7 +99,7 @@ function no_spacer(str)
 /* mon compte */
 function tab(name, id, folder, subpage)
 {
-	if ( subpage != null ) {
+	if ( subpage !== null ) {
 		name = name  + "/" + subpage;
 	}
 	$jQuery.get(BASE_URL + "/"+folder+"/gettab/" + name + "/", function(data)

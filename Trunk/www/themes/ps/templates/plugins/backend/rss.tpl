@@ -13,7 +13,7 @@
 		<webMaster>{$rss_webmaster}</webMaster>
 		<ttl>60</ttl>
 		<image>
-			<title>Logo {$title}</title>
+			<title>{$title}, {t}baseline{/t}</title>
 			<url>{$theme_dir_http}img/logo.jpg</url>
 			<link>{$base_url_http}</link>
 			<width>73</width>

@@ -36,17 +36,15 @@ else
 $_SESSION["periode"] = @isset($uri[$ind+1]) ? $uri[$ind+1] : 30;
 
 
-if ( !preg_match('/feedburner/i', $_SERVER['HTTP_USER_AGENT']) ) 
+if ( !preg_match('/feedburner/i', $_SERVER['HTTP_USER_AGENT']) && Settings::getVar('feedburner_url') != "" ) 
 {
 	header("HTTP/1.1 301 moved Permanently", true, 301);
 	header("Location: ".Settings::getVar('feedburner_url'), true, 301);
 	exit;
 }
 
-
-
+header("Content-type: application/rss+xml", true, 200);
 $sPlug = new Settings::$VIEWER_TYPE;
-
 
 $sPlug->AddData("title", Settings::getVar('SITE_NAME'));
 $sPlug->AddData("base_url_http", Settings::getVar('base_url_http'));

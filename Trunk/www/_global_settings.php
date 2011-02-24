@@ -26,7 +26,6 @@ if (basename($_SERVER['SCRIPT_NAME'])==basename(__FILE__))die();
 
 @require_once('./_specific.php');
 Settings::setVar('BASE_URL', $BASE_URL);
-
 // Site name
 Settings::setVar('SITE_NAME', 'Public-Storm', 'admin', 'Site name, also defined in the languages files');
 
@@ -37,7 +36,7 @@ Settings::setVar('SITE_BASELINE', '', 'admin', 'Site baseline, also defined in t
 Settings::setVar('SITE_DESCRIPTION', '', 'admin', 'Site description, also defined in the languages files');
 
 // Current version
-Settings::setVar('SITE_VERSION', '10.9.9');
+Settings::setVar('SITE_VERSION', '11.2.23');
 
 // Debug switch. Set it to true for output additional information.
 define('DEBUG', false);

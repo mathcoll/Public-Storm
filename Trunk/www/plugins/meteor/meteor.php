@@ -37,13 +37,44 @@ $op = false;
 //echo "Connecting to Meteor :\n";
 if ( $op = fsockopen(Settings::getVar('meteorServerIP'), Settings::getVar('meteorServerPort'), $errno, $errstr, 5) )
 {	
-	$command = isset($_POST['command']) ? $_POST['command'] : $uri[$ind+3];
-	$message = isset($_POST['message']) ? $_POST['message'] : "Message de test";
-	$ch = isset($_POST['ch']) ? $_POST['ch'] : $uri[$ind+4];
-	$user = isset($_POST['user']) ? $_POST['user'] : Settings::getVar('MeteorDefaultUserName');
+	if( isset($_GET['command']) )
+	{
+		$command = $_GET['command'];
+	}
+	else
+	{
+		if( isset($_POST['command']) )
+		{
+			$command = $_POST['command'];
+		}
+		else
+		{
+			$command = $uri[$ind+3];
+		}
+	}
+	
+	if( $_GET['user'] != "" )
+	{
+		$user = $_GET['user'];
+	}
+	else if( $_POST['user'] != "" )
+	{
+		$user = $_POST['user'];
+	}
+	else if( isset($_SESSION['nom']) )
+	{
+		$user = $_SESSION['prenom']." ".$_SESSION['nom'];
+	}
+	else
+	{
+		$user = Settings::getVar('MeteorDefaultUserName');
+	}
+	$message = isset($_POST['message']) ? $_POST['message'] : "";
+	$ch = isset($_POST['channel']) ? $_POST['channel'] : $uri[$ind+4];
 	$time = time();
 	
 	socket_set_blocking($op, false);
+	//exit;
 
 	$haswritten = false;
 	$buf = "";
@@ -75,10 +106,11 @@ if ( $op = fsockopen(Settings::getVar('meteorServerIP'), Settings::getVar('meteo
 		case "addSuggestion" :
 			$array = array(
 				"call" => "newSuggestion",
-				"suggestion" => $message,
-				"user" => $user
+				"suggestion" => stripslashes($message),
+				"user" => stripslashes($user)
 			);
-			$out = "ADDMESSAGE ".$ch." ".json_encode($array)."\n";
+			//$out = "ADDMESSAGE ".$ch." ".json_encode($array)."\n";
+			$out = "ADDMESSAGE ".$ch." {call:'newSuggestion',suggestion:'".stripslashes($message)."',user:'".stripslashes($user)."'}\n";
 			$ans = askMeteor($out, $op);
 			print $ans;
 			break;
@@ -93,6 +125,7 @@ if ( $op = fsockopen(Settings::getVar('meteorServerIP'), Settings::getVar('meteo
 			$out = "ADDMESSAGE ".$ch." ".json_encode($array)."\n";
 			break;
 	}
+	exit;
 }
 
 function askMeteor($out, $op)

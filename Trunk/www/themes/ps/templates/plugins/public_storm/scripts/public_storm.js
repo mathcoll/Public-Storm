@@ -48,17 +48,19 @@ function add_suggestion(base_url)
 	if ( Meteor )
 	{
 		$jQuery.post(
-			BASE_URL+'/admin/gettab/meteor/addSuggestion/'+getChannelName()+'/',
+			//BASE_URL+'/admin/gettab/meteor/addSuggestion/'+getChannelName()+'/',
+			BASE_URL+'/meteor/meteor.php',
 			{
 				command: "addSuggestion", 
 				user: '', 
+				channel: getChannelName(), 
 				message: suggestion
 			},
 			function(data) { setSubscribers(data); },
 			"json"
 		);
 	}
-	
+
 	display_new_suggestion('storm_'+storm_id, '+1', permaname(suggestion));
 	//formulaire.suggestion.value = "";
 	$jQuery("#suggestion").val("");
@@ -109,6 +111,7 @@ function display_new_suggestion(id, inhtml, elt)
 		function(index, element)
 		{
 			var v = $jQuery(element).val();
+			//alert(v+' '+elt);
 			if (v == elt) {
 				$jQuery("#suggestions_"+v).text(inhtml);
 				$jQuery("#suggestions_"+v).fadeIn('fast');
@@ -125,8 +128,9 @@ function display_new_suggestion(id, inhtml, elt)
 				var totalInt = totalText.substring(1, totalText.length-1);
 				var total = eval(totalInt+"+"+1);
 				$jQuery("#total_"+v).text("("+total+")");
-
+				return true;
 			}
+			// l'élément n'éxiste pas, on doit le créer ?
 		}
 	);
 }

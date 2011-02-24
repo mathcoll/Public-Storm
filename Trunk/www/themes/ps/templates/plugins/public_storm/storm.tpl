@@ -80,9 +80,11 @@
 				<div class="ficheContainer">
 					<label class="date">{t}Création du storm :{/t}</label>
 						<span class="data">{$storm.date|date_format:"%a, %d %B %Y %Hh%M:%S GMT"}</span><br />
-					<label class="author">{t 1=$rootCap}Auteur du storm %1 :{/t}</label>
-					<img src="{$avatar}" style="float:right;margin: 10px 5px 0 0;" />
-						<span class="data"><a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a></span><br />
+					{if $storm.author_login ne ""}
+						<label class="author">{t 1=$rootCap}Auteur du storm %1 :{/t}</label>
+						<img src="{$avatar}" style="float:right;margin: 10px 5px 0 0;" />
+							<span class="data"><a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a></span><br />
+					{/if}
 					{if $user.isadmin eq 1}
 					<label class="connected">{t}Utilisateurs connectés :{/t}</label>
 						<span class="data" id="countSubscribers"></span>

@@ -18,10 +18,10 @@
     along with Public-Storm. If not, see <http://www.gnu.org/licenses/>.
  */
 		
-final class default extends Plugins
+final class __default_plugin extends Plugins
 {
  	public static $subdirs = array();
- 	public static $name = "default";
+ 	public static $name = "__default_plugin";
 	public static $db;
 	public static $s;
  	
@@ -29,9 +29,8 @@ final class default extends Plugins
 	{
 		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		require_once('./plugins/'.self::$name.'/classes/'.self::$name.'.php');
-		Settings::addCss('screen', Settings::getVar('BASE_URL').'/plugins/'.self::$name.'/styles/'.self::$name.'.css');
-		Settings::addJs('text/javascript', Settings::getVar('BASE_URL').'/plugins/'.self::$name.'/scripts/'.self::$name.'.js');
-
+		Settings::addCss('screen', Settings::getVar('ROOT').Settings::getVar('theme_dir').'/plugins/'.self::$name.'/styles/'.self::$name.'.css', 'all.css');
+		Settings::addJs('text/javascript', Settings::getVar('ROOT').Settings::getVar('theme_dir').'/plugins/'.self::$name.'/scripts/'.self::$name.'.js');
 	}
 	
 	public function loadLang()

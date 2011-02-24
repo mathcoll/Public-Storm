@@ -20,7 +20,7 @@
 
 final class analytics extends Plugins
 {
- 	public static $subdirs = array('');
+ 	public static $subdirs = array();
  	public static $name = "analytics";
  	
 	public function __construct()
