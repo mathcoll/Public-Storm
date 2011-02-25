@@ -40,7 +40,9 @@ gettext("Nuage de storms liés à %1");
 
 ?><?php
 gettext("Liste des Storms triés par ordre alphabêtique :");
+gettext("Pages :");
 gettext("by");
+gettext("Pages :");
 
 ?><?php
 gettext("storms");

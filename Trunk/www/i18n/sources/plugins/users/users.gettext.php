@@ -43,6 +43,7 @@ gettext("mes_parametres");
 gettext("Aucun paramètre n'est configurable actuellement.");
 
 ?><?php
+gettext("Vous avez oublié votre mot de passe ? Saisissez votre identifiant OU votre email et nous vous enverrons un nouveau mot de passe immédiatement.");
 gettext("field.email");
 gettext("field.login");
 gettext("valider");
@@ -54,6 +55,7 @@ gettext("admin");
 gettext("logout");
 
 ?><?php
+gettext("To create a storm you need to have an account");
 gettext("connectez_vous");
 gettext("field.login");
 gettext("field.password");

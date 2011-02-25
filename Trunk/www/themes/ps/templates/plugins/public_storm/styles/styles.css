@@ -90,11 +90,11 @@ li.year
 }
 div#add_this_storm
 {
-	margin: auto;
-	position: absolute;
-	padding: 1em;
-	background: #a3ab0e;
-	border: 2px solid #000000;
+	width:280px;
+}
+div#add_this_storm input
+{
+	width:100%;
 }
 div.TwoCols
 {

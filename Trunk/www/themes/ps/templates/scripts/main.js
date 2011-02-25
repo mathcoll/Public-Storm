@@ -1,26 +1,16 @@
 $jQuery(document).ready( function() {
-/*
-	$("div#menu.intro ol.navigation li a").click(function(){
-	
-		//Find the width of a tab
-		var TabWidth = $("div.panel:first").width();
-		
-		if(parseInt($("div.panel:first").css("margin-left")) > 0)
-			TabWidth += parseInt($("div.panel:first").css("margin-left"));
-			
-		if(parseInt($("div.panel:first").css("margin-right")) >0)
-			TabWidth += parseInt($("div.panel:first").css("margin-right"));
-		
-		//But wait, how far we slide to? Let find out
-		var newLeft = -1* $("span").index(this) * TabWidth;
-		
-		//Ok, now slide
-		$(".scrollContainer").animate({
-			left: + newLeft + "px"
-		},1000);
-		
-	});
-*/
+	if ( $jQuery("#message").html() != "" )
+	{
+		$jQuery("#message").dialog({
+			title: "Info",
+			resizable: true,
+			modal: true,
+			width:320,
+			height:120
+		});
+		$jQuery("#message").dialog( "option", "width", "320" );
+		$jQuery("#message").dialog( "option", "height", "120" );
+	}
 	loadMeteor();
 });
 

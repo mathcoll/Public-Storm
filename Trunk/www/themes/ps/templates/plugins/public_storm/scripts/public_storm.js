@@ -87,17 +87,36 @@ function suggestion_exists(suggestion)
 
 function add_storm(base_url, span)
 {
-	if ( !span )
+	if ( !$jQuery('#add_this_storm_form').html() ) 
 	{
-		span = 'message';
+		$jQuery.get(
+			base_url+"/storm/add_storm.php",
+			function(data)
+			{
+				$jQuery('body').append("<div id='add_this_storm_form' style='display:none;'>"+data+"</div>");
+				display_my_add_form();
+			}
+		);
 	}
-	$jQuery.get(base_url+"/storm/add_storm.php",
-		function(data)
-		{
-			var e = $jQuery(data);
-			$jQuery('#'+span).html(e);
+	else
+	{
+		display_my_add_form();
+	}
+}
+
+function display_my_add_form() {
+	$jQuery('#add_this_storm_form').dialog({
+		title: $jQuery('#add_this_storm h2').html(),
+		width: 350,
+		height: 90,
+		resizable: false,
+		modal: true,
+		buttons: {
+			"Ajouter": function() { $jQuery('#add_this_storm form').submit() }
 		}
-	);
+	});
+	$jQuery('#add_this_storm_form').width(350);
+	$jQuery('#add_this_storm_form').height(90);
 }
 
 function add_this_storm(form, base_url)

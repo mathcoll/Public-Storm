@@ -22,7 +22,6 @@
 	{/foreach}
    <script type="text/javascript" defer="defer">
 		{literal}if($jQuery("#message")) { $jQuery("#message").hide(); }{/literal}
-		{if $message ne ""}{literal}$jQuery(document).ready( function() { $jQuery("#message").slideDown("slow"); } );{/literal}{/if}
 	</script>
 </head>
 <body>
@@ -69,5 +68,5 @@
 		<span id="create_storm"></span>
 		{/if}
 		
-		<div id="message" style="display: none;">{$message}<span class="message_fermer"><a href="#" onclick="{literal}$jQuery('#message').slideUp('slow');{/literal}">{t}fermer{/t}</a></span></div>
+		<div id="message">{$message}</div>
 	</div><!-- rightBox -->

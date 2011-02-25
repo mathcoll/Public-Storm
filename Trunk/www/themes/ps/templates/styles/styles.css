@@ -47,6 +47,7 @@ a.block
 #message
 {
 	z-index: 9999;
+	display:none;
 }
 small.author,
 small.author a
@@ -267,22 +268,9 @@ div.breadcrumb
 
 #message
 {
-	position: absolute;
-	left: 35%;
-	top: 8em;
-	height: 75px;
-	width: 30%;
-	margin: auto;
-	font-size: 2em;
-	border: 2px solid #000000;
-	padding: .5em .5em .5em 90px;
-	background: #a3ab0e url(../img/sprite.png) no-repeat 0 -180px;
-}
-span.message_fermer
-{
-	position: relative;
-	float: right;
-	font-size: .6em;
+	padding: .5em .5em .5em 95px;
+	background: url(../img/sprite.png) no-repeat 0 -180px;
+	font-size:1.5em;
 }
 
 #rightBox #languages

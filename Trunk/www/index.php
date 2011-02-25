@@ -96,7 +96,8 @@ $s->AddData("javascripts", Settings::getVar('javascripts'));
 
 /* breadcrumb */
 $breadcrumb = Settings::getVar('breadcrumb');
-$crumb = array("name" => i18n::_("Title index"), "link" => Settings::getVar('BASE_URL'));
+$BASE_URL = Settings::getVar('BASE_URL');
+$crumb = array("name" => i18n::_("Title index"), "link" => empty($BASE_URL) ? "/" : $BASE_URL);
 array_unshift($breadcrumb, $crumb);
 Settings::setVar('breadcrumb', $breadcrumb);
 $s->AddData("breadcrumb", Settings::getVar('breadcrumb'));
