@@ -11,6 +11,8 @@ $jQuery(document).ready( function() {
 		$jQuery("#message").dialog( "option", "width", "320" );
 		$jQuery("#message").dialog( "option", "height", "120" );
 	}
+	$jQuery("input[type=submit]").button({ icons: {primary:'ui-icon-gear',secondary:'ui-icon-triangle-1-s'} });
+
 	loadMeteor();
 });
 

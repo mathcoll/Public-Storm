@@ -333,7 +333,7 @@ span.centered
 {
 	clear: both;
 }
-
+/*
 input.btn_submit
 {
 	font-family: Arial, Helvetica, sans-serif;
@@ -349,6 +349,7 @@ input.btn_submit:focus
 {
 	background: #156e1e url(../img/sprite.gif) no-repeat right;
 }
+*/
 
 /* utilisateurs */
 div.deuxCols
@@ -722,7 +723,7 @@ div.scroll ul li
 {
 	display: inline;
 	float: left;
-	margin: 0;
+	margin: 0 5px;
 	padding: 0;
 }
 
@@ -730,8 +731,11 @@ div#menu ol.navigation
 {
 	text-align: left;
 	font-size: 1.2em;
-	padding: 0 0 20px 0;
-	text-decoration: underline;
+	padding:5px 0 0 0;
+}
+div#menu ol.navigation li a:hover
+{
+	background:none;
 }
 
 div#menu ul li
@@ -754,6 +758,7 @@ div.panel
 	position: relative;
 	height: 380px;
 	width: 100%;
+	padding: 15px 0 0 0;
 }
 
 div.scroll

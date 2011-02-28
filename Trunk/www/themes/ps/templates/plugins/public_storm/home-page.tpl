@@ -15,10 +15,11 @@
 			
 			<div class="table-cell _100 right" id="screen">
 				<div id="menu" class="intro">
-					<ol class="navigation">
-						<li><a href="#tab1" onclick="_gaq.push(['_trackEvent', 'tab1', 'clicked']);">{t}intro_title1{/t}</a></li>
-						<li><a href="#tab2" onclick="_gaq.push(['_trackEvent', 'tab2', 'clicked']);">{t}intro_title2{/t}</a></li>
-						<li><a href="#tab3" onclick="_gaq.push(['_trackEvent', 'tab3', 'clicked']);">{t}intro_title3{/t}</a></li>
+					<ol class="navigation ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+						<li class="ui-state-default ui-corner-top" onmouseover="$jQuery(this).addClass('ui-state-hover');" onmouseout="$jQuery(this).removeClass('ui-state-hover');"><a href="#tab1" onclick="_gaq.push(['_trackEvent', 'tab1', 'clicked']);">{t}intro_title1{/t}</a></li>
+						<li class="ui-state-default ui-corner-top" onmouseover="$jQuery(this).addClass('ui-state-hover');" onmouseout="$jQuery(this).removeClass('ui-state-hover');"><a href="#tab2" onclick="_gaq.push(['_trackEvent', 'tab2', 'clicked']);">{t}intro_title2{/t}</a></li>
+						<li class="ui-state-default ui-corner-top" onmouseover="$jQuery(this).addClass('ui-state-hover');" onmouseout="$jQuery(this).removeClass('ui-state-hover');"><a href="#tab3" onclick="_gaq.push(['_trackEvent', 'tab3', 'clicked']);">{t}intro_title3{/t}</a></li>
+						<li class="ui-state-default ui-corner-top" onmouseover="$jQuery(this).addClass('ui-state-hover');" onmouseout="$jQuery(this).removeClass('ui-state-hover');"><a href="#tab4" onclick="_gaq.push(['_trackEvent', 'tab4', 'clicked']);">4. Créez un compte</a></li>
 					</ol>
 				</div>
 				<div class="clearboth"></div>
@@ -27,20 +28,48 @@
 						<div id="tab1" class="panel">
 							<img src="{$theme_dir}img/creer_storms.jpg" title="{t}intro_title1{/t}" alt="{t}intro_title1{/t}" />
 							<h4>{t}intro_title1{/t}</h4>
-							<p>{t}intro_p1{/t}</p>
-							<p><a href="#tab2" onclick="_gaq.push(['_trackEvent', 'tab2', 'clicked']);">&gt;&gt;</a></p>
+							<ul class="panel-desc">
+								<li>{t}intro_p1{/t}</li>
+								<li class="icon">
+									<a href="#tab2"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab2', 'clicked']);">&gt;</button></a>
+								</li>
+							</ul>
 						</div>
 						<div id="tab2" class="panel">
 							<img src="{$theme_dir}img/suggest.jpg" title="{t}intro_title2{/t}" alt="{t}intro_title2{/t}" />
 							<h4>{t}intro_title2{/t}</h4>
-							<p>{t}intro_p2{/t}</p>
-							<p><a href="#tab1" onclick="_gaq.push(['_trackEvent', 'tab1', 'clicked']);">&lt;&lt;</a> <a href="#tab3" onclick="_gaq.push(['_trackEvent', 'tab3', 'clicked']);">&gt;&gt;</a></p>
+							<ul class="panel-desc">
+								<li class="icon">
+									<a href="#tab1"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab1', 'clicked']);">&lt;</button></a>
+								</li>
+								<li>{t}intro_p2{/t}</li>
+								<li class="icon">
+									<a href="#tab3"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab3', 'clicked']);">&gt;</button></a>
+								</li>
+							</ul>
 						</div>
 						<div id="tab3" class="panel">
 							<img src="{$theme_dir}img/export.jpg" title="{t}intro_title3{/t}" alt="{t}intro_title3{/t}" />
 							<h4>{t}intro_title3{/t}</h4>
-							<p>{t}intro_p3{/t}</p>
-							<p><a href="#tab2" onclick="_gaq.push(['_trackEvent', 'tab2', 'clicked']);">&lt;&lt;</a></p>
+							<ul class="panel-desc">
+								<li class="icon">
+									<a href="#tab2"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab2', 'clicked']);">&lt;</button></a>
+								</li>
+								<li>{t}intro_p3{/t}</li>
+								<li class="icon">
+									<a href="#tab4"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab4', 'clicked']);">&gt;</button></a>
+								</li>
+							</ul>
+						</div>
+						<div id="tab4" class="panel">
+							<img src="{$theme_dir}img/creer_storms.jpg" title="{t}intro_title4{/t}" alt="{t}intro_title4{/t}" />
+							<h4>{t}intro_title4{/t}</h4>
+							<ul class="panel-desc">
+								<li class="icon">
+									<a href="#tab3"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab3', 'clicked']);">&lt;</button></a>
+								</li>
+								<li>{t escape=""}intro_p4{/t}</li>
+							</ul>
 						</div>
 					</div><!-- //scrollContainer -->
 				</div><!-- //scroll -->
