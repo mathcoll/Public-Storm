@@ -32,7 +32,7 @@ final class jquery_ui extends Plugins
 		Settings::addJs('text/javascript', Settings::getVar('ROOT').'/plugins/'.self::$name.'/js/jquery-1.4.4.min.js', 'jquery.js');
 		Settings::addJs('text/javascript', Settings::getVar('ROOT').'/plugins/'.self::$name.'/js/jquery-ui-1.8.9.custom.min.js', 'jquery.js');
 		Settings::addJs('text/javascript', Settings::getVar('ROOT').'/plugins/'.self::$name.'/js/jquery.js', 'jquery.js');
-
+		Settings::addJs('text/javascript', Settings::getVar('ROOT').'/plugins/'.self::$name.'/js/jquery_ui.js', 'jquery.js');
 	}
 	
 	public function loadLang()

@@ -44,16 +44,18 @@ $n = 0;
 $plug = new Plugins;
 foreach( $plug->listPlugins() as $pluginName )
 {
+	//print $pluginName." : ";
 	if ( $plug->isActive($pluginName) )
 	{
 		$plugins[$n] = $plug->LoadPlugin($pluginName);
 		$pluginsNames[$pluginName] = $n;
 		$statuses[$pluginName] = 1;
-		//print $pluginName."<br />";
+		//print "enabled<br />";
 		$n++;
 	}
 	else
 	{
+		//print "disabled<br />";
 		$statuses[$pluginName] = 0;
 	}
 }

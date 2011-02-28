@@ -73,7 +73,10 @@ final class ods_php extends Plugins
 			self::$ods->addCell(0, $o, 3, $percentage, 'percentage');
 			$o++;
 		}
-		saveOds(self::$ods, Settings::getVar('ROOT').'cache/'.$storm['permaname'].'.ods');
+		#TODO debug double slash !
+		//$file = rtrim(Settings::getVar('ROOT'), '/').'/cache/'.$storm['permaname'].'.ods';
+		//print $file;
+		saveOds(self::$ods, $file);
 		return Settings::getVar('ROOT').'cache/'.$storm['permaname'].'.ods';
 	}
 	

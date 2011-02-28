@@ -89,6 +89,7 @@ global $qdirs, $page, $query;
 /* others global configs */
 Settings::setVar('BASE_URL', $BASE_URL);
 Settings::setVar('ROOT', $_SERVER['DOCUMENT_ROOT'] . ltrim(Settings::getVar('BASE_URL'), '/').'/');
+//Settings::setVar('ROOT', $_SERVER['DOCUMENT_ROOT'] . ltrim(Settings::getVar('BASE_URL'), '/'));
 Settings::setVar('BASE_URL_HTTP', 'http://'.$_SERVER["HTTP_HOST"].Settings::getVar('BASE_URL'));
 Settings::setVar('BASE_URL_HTTPS', 'https://'.$_SERVER["HTTP_HOST"].Settings::getVar('BASE_URL'));
 Settings::setVar('REQ_URL', $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
@@ -157,6 +158,5 @@ Settings::setVar('javascripts', array());
 /* Smarty config */
 Settings::setVar('SMARTY_DIR', Settings::getVar('inc_dir') . '/Smarty/libs/');
 if ( !defined('DIRECTORY_SEPARATOR') ) define('DIRECTORY_SEPARATOR', '/');
-
 
 ?>

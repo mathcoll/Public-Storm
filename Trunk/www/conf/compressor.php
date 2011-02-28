@@ -33,7 +33,7 @@ $min_allowDebugFlag = true;
  *
  * @todo cache system does not have error logging yet.
  */
-$min_errorLogger = true;
+$min_errorLogger = false;
 
 
 /**
