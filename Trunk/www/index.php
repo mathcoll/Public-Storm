@@ -52,13 +52,13 @@ if( $statuses['compressor'] == 1 )
 			{
 				array_push(
 					$csss,
-					//file_get_contents($file['javascript'])
 					$file['stylesheet']
 				);
 				Settings::removeCss($file['stylesheet']);
 			}
 		}
-		Settings::addCss('screen', Settings::getVar('base_url')."/css/groups/".$css."/", $css);
+		$debug = DEBUG == true ? "debug/" : "";
+		Settings::addCss('screen', Settings::getVar('base_url')."/css/groups/".$css."/".$debug, $css);
 	}
 	
 	$listeJs = explode(",", Settings::getVar('listeJs'));
@@ -81,7 +81,8 @@ if( $statuses['compressor'] == 1 )
 			}
 		}
 		//print "addJs :".Settings::getVar('base_url')."/js/groups/".$js."/"."<br />";
-		Settings::addJs('text/javascript', Settings::getVar('base_url')."/js/groups/".$js."/", $js);
+		$debug = DEBUG == true ? "debug/" : "";
+		Settings::addJs('text/javascript', Settings::getVar('base_url')."/js/groups/".$js."/".$debug, $js);
 	}
 }
 //print_r(Settings::getVar('styles'));
@@ -95,7 +96,8 @@ $s->AddData("javascripts", Settings::getVar('javascripts'));
 
 /* breadcrumb */
 $breadcrumb = Settings::getVar('breadcrumb');
-$crumb = array("name" => i18n::_("Title index"), "link" => Settings::getVar('BASE_URL'));
+$BASE_URL = Settings::getVar('BASE_URL');
+$crumb = array("name" => i18n::_("Title index"), "link" => empty($BASE_URL) ? "/" : $BASE_URL);
 array_unshift($breadcrumb, $crumb);
 Settings::setVar('breadcrumb', $breadcrumb);
 $s->AddData("breadcrumb", Settings::getVar('breadcrumb'));
