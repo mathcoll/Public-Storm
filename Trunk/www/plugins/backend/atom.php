@@ -27,7 +27,7 @@ $sPlug = new Settings::$VIEWER_TYPE;
 $sPlug->AddData("title", Settings::getVar('SITE_NAME'));
 $sPlug->AddData("base_url_http", Settings::getVar('base_url_http'));
 $sPlug->AddData("site_baseline", Settings::getVar('SITE_BASELINE'));
-$sPlug->AddData("site_description", Settings::getVar(''SITE_DESCRIPTION));
+$sPlug->AddData("site_description", Settings::getVar('SITE_DESCRIPTION'));
 $sPlug->AddData("site_theme", Settings::getVar('theme_dir'));
 $sPlug->AddData("rss_generator", Settings::getVar('RSS_GENERATOR'));
 $sPlug->AddData("rss_webmaster", Settings::getVar('RSS_WEBMASTER'));
