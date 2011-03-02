@@ -1,3 +1,25 @@
+a.icon
+{
+	height:16px !important;
+	display:block;
+}
+a.icon:hover
+{
+	background:none !important;
+}
+div.panel ul.panel-desc li {
+	list-style: none;
+	display:inline;
+	width:380px;
+	line-height:20px;
+}
+div.panel ul.panel-desc li.icon {
+	width:30px;
+	margin:0 5px;
+}
+div.panel ul.panel-desc li.icon a:hover {
+	background:none;
+}
 ul.storm
 {
 	margin: 0 20px 0 -20px;
@@ -90,11 +112,11 @@ li.year
 }
 div#add_this_storm
 {
-	margin: auto;
-	position: absolute;
-	padding: 1em;
-	background: #a3ab0e;
-	border: 2px solid #000000;
+	width:280px;
+}
+div#add_this_storm input
+{
+	width:100%;
 }
 div.TwoCols
 {
@@ -138,6 +160,10 @@ a.stormExport
 {
 	background: transparent url(../../../img/sprite.png) no-repeat 0 -327px;
 	padding: 3px 0 5px 25px;
+}
+a.stormExport:hover
+{
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -327px;
 }
 label.date
 {
