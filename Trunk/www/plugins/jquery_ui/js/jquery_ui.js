@@ -1,0 +1,11 @@
+$jQuery(function(){
+	$jQuery(".fg-button:not(.ui-state-disabled)")
+	.hover(
+		function(){ 
+			$jQuery(this).addClass("ui-state-hover"); 
+		},
+		function(){ 
+			$jQuery(this).removeClass("ui-state-hover"); 
+		}
+	);
+});
