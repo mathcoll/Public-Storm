@@ -14,16 +14,14 @@
 <link rel="stylesheet" type="text/css" media="{$style.media}" href="{$style.stylesheet}" />
 	{/foreach}
 
-   <script type="text/javascript">
+   <script type="text/javascript" defer="defer">
   		var BASE_URL = "{$base_url}";
 	</script>
 	{foreach from=$javascripts item=javascript}
 <script type="{$javascript.type}" src="{$javascript.javascript}"></script>
 	{/foreach}
-   <script type="text/javascript">
-   	$jQuery = jQuery.noConflict();
+   <script type="text/javascript" defer="defer">
 		{literal}if($jQuery("#message")) { $jQuery("#message").hide(); }{/literal}
-		{if $message ne ""}{literal}$jQuery(document).ready( function() { $jQuery("#message").slideDown("slow"); } );{/literal}{/if}
 	</script>
 </head>
 <body>
@@ -70,13 +68,5 @@
 		<span id="create_storm"></span>
 		{/if}
 		
-		<div id="message" style="display: none;">{$message}<span class="message_fermer"><a href="#" onclick="{literal}$jQuery('#message').slideUp('slow');{/literal}">{t}fermer{/t}</a></span></div>
+		<div id="message">{$message}</div>
 	</div><!-- rightBox -->
-	<!--<div class="spacer">&nbsp;</div>-->
-	<div class="breadcrumb">{foreach from=$breadcrumb item=it name=breadcrumb}
-	{if $smarty.foreach.breadcrumb.last}
-		{$it.name|ucfirst}
-	{else}
-		{if $it.link ne ""}<a href="{$it.link}">{$it.name|ucfirst}</a>{else}{$it.name|ucfirst}{/if}&nbsp;>&nbsp;
-	{/if}
-	{/foreach}</div>
