@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Public-Storm\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-08-11 14:57+0100\n"
-"PO-Revision-Date: 2010-08-11 14:58+0100\n"
+"PO-Revision-Date: 2011-02-28 21:50+0100\n"
 "Last-Translator: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "Language-Team: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "MIME-Version: 1.0\n"
@@ -17,9 +17,8 @@ msgstr ""
 "X-Poedit-SearchPath-0: ../../..\n"
 
 #: ../../../prepend.php:134
-#, php-format
-msgid "Error: Plugin definition class is not present for %s"
-msgstr "Erreur: La définition de la classe du plugin est introuvable : %s"
+msgid "Error: Plugin definition class is not present for %1"
+msgstr "Erreur: La définition de la classe du plugin est introuvable : %1"
 
 #: ../../../index.php:114
 msgid "Title index"
@@ -531,6 +530,9 @@ msgstr "2. Suggérez des idées"
 msgid "intro_title3"
 msgstr "3. Organisez et exploitez les données"
 
+msgid "intro_title4"
+msgstr "4. Créez un compte"
+
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:11
 msgid "intro_p1"
 msgstr "Chaque Storm est un thème que vous proposez aux autres utilisateurs. Ces Storms peuvent être des mots ou des expressions courtes."
@@ -542,6 +544,10 @@ msgstr "Invitez d'autres utilisateurs à venir sur votre Storm pour qu'ils parta
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:19
 msgid "intro_p3"
 msgstr "Export au format Odt (lisible par Open-Office/MS Excel)."
+
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:19
+msgid "intro_p4"
+msgstr "Les avantages et le principe de Public-Storm vous fascine ?<br />Alors, n'hésitez pas à créer un compte gratuitement, c'est facile... Vous aurez alors accès à des fonctionnalités supplémentaires ; et vous serez surtout reconnus par la communauté...<br /><button type=\"button\" class=\"fg-button ui-state-default ui-corner-all\" onclick=\"location.href='/utilisateurs/creer-un-compte.php';\">Créer un compte</button>"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:22
 msgid "Liste des derniers Storms créés :"
@@ -566,7 +572,7 @@ msgstr "Autres suggestions"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:32
 msgid "Chargement en cours..."
-msgstr "Error: Plugin definition class is not present for %s"
+msgstr "Chargement en cours..."
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:33
 msgid "Start / Stop"
@@ -677,9 +683,8 @@ msgid "Meteor COUNTSUBSCRIBERS"
 msgstr "Meteor COUNTSUBSCRIBERS"
 
 #: ../../../plugins/isspam/index.php:43
-#, php-format
-msgid "%s is marked as spam"
-msgstr "%s is marked as spam"
+msgid "%1 is marked as spam"
+msgstr "%1 est marqué comme 'Spam'"
 
 #: ../../../plugins/users/index.php:111
 msgid "utilisateurs"
@@ -687,7 +692,7 @@ msgstr "Liste des utilisateurs"
 
 #: ../../../plugins/users/creer-un-compte.php:47
 msgid "The code you entered was incorrect. Go back and try again."
-msgstr "The code you entered was incorrect. Go back and try again."
+msgstr "La vérification du code captcha à échouée"
 
 #: ../../../plugins/users/creer-un-compte.php:55
 msgid "Vérifier voter boite de réception email !"
@@ -698,9 +703,8 @@ msgid "Erreur lors de la création du compte !"
 msgstr "Erreur lors de la création du compte !"
 
 #: ../../../plugins/users/login.php:28
-#, php-format
-msgid "vous êtes connecté %s"
-msgstr "Vous êtes connecté %s"
+msgid "vous êtes connecté %1"
+msgstr "Vous êtes connecté %1"
 
 #: ../../../plugins/users/login.php:47
 msgid "Erreur d'identification !"
@@ -728,11 +732,11 @@ msgstr "modifications effectuées"
 
 #: ../../../plugins/users/mes-informations.php:57
 msgid "unknown_error"
-msgstr "unknown_error"
+msgstr "Erreur inconnue"
 
 #: ../../../plugins/users/mes-informations.php:62
 msgid "password_error"
-msgstr "password_error"
+msgstr "Erreur de mot de passe"
 
 #: ../../../plugins/admin/forbidden.php:27
 msgid "forbidden"
@@ -803,17 +807,14 @@ msgid "Storms"
 msgstr "Storms"
 
 #: ../../../plugins/public_storm/storm.php:60
-#, php-format
-msgid "Vous venez de créer le storm %s !"
-msgstr "Vous venez de créer le storm %s !"
+msgid "Vous venez de créer le storm %1 !"
+msgstr "Vous venez de créer le storm %1 !"
 
 #: ../../../plugins/public_storm/storm.php:65
-#, php-format
-msgid "Nouveau storm créé : %s %s"
-msgstr "Nouveau storm créé : %s %s"
+msgid "Nouveau storm créé : %1 %2"
+msgstr "Nouveau storm créé : %1 %2"
 
 #: ../../../plugins/public_storm/storm.php:74
-#, php-format
-msgid "Erreur lors de la création du storm %s"
-msgstr "Erreur lors de la création du storm %s"
+msgid "Erreur lors de la création du storm %1"
+msgstr "Erreur lors de la création du storm %1"
 

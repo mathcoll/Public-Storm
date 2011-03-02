@@ -1,4 +1,6 @@
 <?php
+
+?><?php
 gettext("a_propos");
 gettext("version");
 
@@ -10,7 +12,6 @@ gettext("Go to home page");
 gettext("description");
 gettext("available_languages");
 gettext("Aider à la traduction");
-gettext("fermer");
 
 ?><?php
 
