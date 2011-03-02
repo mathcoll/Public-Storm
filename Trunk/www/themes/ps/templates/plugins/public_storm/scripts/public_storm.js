@@ -48,17 +48,19 @@ function add_suggestion(base_url)
 	if ( Meteor )
 	{
 		$jQuery.post(
-			BASE_URL+'/admin/gettab/meteor/addSuggestion/'+getChannelName()+'/',
+			//BASE_URL+'/admin/gettab/meteor/addSuggestion/'+getChannelName()+'/',
+			BASE_URL+'/meteor/meteor.php',
 			{
 				command: "addSuggestion", 
 				user: '', 
+				channel: getChannelName(), 
 				message: suggestion
 			},
 			function(data) { setSubscribers(data); },
 			"json"
 		);
 	}
-	
+
 	display_new_suggestion('storm_'+storm_id, '+1', permaname(suggestion));
 	//formulaire.suggestion.value = "";
 	$jQuery("#suggestion").val("");
@@ -85,17 +87,36 @@ function suggestion_exists(suggestion)
 
 function add_storm(base_url, span)
 {
-	if ( !span )
+	if ( !$jQuery('#add_this_storm_form').html() ) 
 	{
-		span = 'message';
+		$jQuery.get(
+			base_url+"/storm/add_storm.php",
+			function(data)
+			{
+				$jQuery('body').append("<div id='add_this_storm_form' style='display:none;'>"+data+"</div>");
+				display_my_add_form();
+			}
+		);
 	}
-	$jQuery.get(base_url+"/storm/add_storm.php",
-		function(data)
-		{
-			var e = $jQuery(data);
-			$jQuery('#'+span).html(e);
+	else
+	{
+		display_my_add_form();
+	}
+}
+
+function display_my_add_form() {
+	$jQuery('#add_this_storm_form').dialog({
+		title: $jQuery('#add_this_storm h2').html(),
+		width: 350,
+		height: 90,
+		resizable: false,
+		modal: true,
+		buttons: {
+			"Ajouter": function() { $jQuery('#add_this_storm form').submit() }
 		}
-	);
+	});
+	$jQuery('#add_this_storm_form').width(350);
+	$jQuery('#add_this_storm_form').height(90);
 }
 
 function add_this_storm(form, base_url)
@@ -109,6 +130,7 @@ function display_new_suggestion(id, inhtml, elt)
 		function(index, element)
 		{
 			var v = $jQuery(element).val();
+			//alert(v+' '+elt);
 			if (v == elt) {
 				$jQuery("#suggestions_"+v).text(inhtml);
 				$jQuery("#suggestions_"+v).fadeIn('fast');
@@ -125,8 +147,9 @@ function display_new_suggestion(id, inhtml, elt)
 				var totalInt = totalText.substring(1, totalText.length-1);
 				var total = eval(totalInt+"+"+1);
 				$jQuery("#total_"+v).text("("+total+")");
-
+				return true;
 			}
+			// l'élément n'éxiste pas, on doit le créer ?
 		}
 	);
 }
