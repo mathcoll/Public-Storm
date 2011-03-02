@@ -7,7 +7,7 @@
 	
 	<h3>{t}plus_actifs{/t}</h3>
 	<ul>
-	{foreach from=$storms item=storm name=liste}<li><a href="{$storm.url}">{$storm.root|ucfirst}</a> <small class="author">({t}by{/t} <a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a>)</small></li>{/foreach}
+	{foreach from=$storms item=storm name=liste}<li><a href="{$storm.url}">{$storm.root|ucfirst}</a>{if $storm.author_login ne ""} <small class="author">({t}by{/t} <a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a>)</small>{/if}</li>{/foreach}
 	</ul>	
 </div>
 <div class="table-cell _30">

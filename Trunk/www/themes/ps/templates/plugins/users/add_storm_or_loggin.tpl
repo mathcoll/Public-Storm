@@ -3,12 +3,13 @@
 	<div class="spacer">&nbsp;</div>
 </p>
 
-
+<p>
+	{t escape=""}To create a storm you need to have an account{/t}
+</p>
 
 <div class="table">
 	<div class="table-row">
 		<div class="table-cell _40">
-
 
 			<h3>{t}connectez_vous{/t}</h3>
 			<form action="{$base_url}/utilisateurs/login/" method="post">
@@ -75,7 +76,7 @@
 						
 				<div class="table-row">
 					<div class="table-cell">
-						<label for="captcha_code">{t}field.captcha{/t}</label>
+						<label for="captcha_code">{t escape=""}field.captcha{/t}</label>
 					</div><!-- //table-cell -->
 					<div class="table-cell">
 						<img id="captcha" src="{$base_url}/include/securimage/securimage_show.php" alt="CAPTCHA Image" /><br />
