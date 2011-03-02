@@ -23,7 +23,8 @@ else
 // load config
 //require MINIFY_MIN_DIR . '/config.php';
 require('./conf/compressor.php');
-$min_libPath = dirname(__FILE__) . '/classes/minify_2.1.3/min/lib/';
+//$min_libPath = dirname(__FILE__) . '/classes/minify_2.1.3/min/lib/';
+$min_libPath = dirname(__FILE__) . '/classes/minify_2.1.4_beta/min/lib/';
 
 // setup include path
 set_include_path($min_libPath . PATH_SEPARATOR . get_include_path());
@@ -70,9 +71,9 @@ if( $statuses['compressor'] == 1 )
 		{
 			array_push(
 				$csss,
-				//file_get_contents($file['javascript'])
 				$file['stylesheet']
 			);
+			//print "/*".$file['stylesheet']."*/\n".file_get_contents($file['stylesheet'])."\n";
 			Settings::removeCss($file['stylesheet']);
 		}
 	}
@@ -87,12 +88,12 @@ if( $statuses['compressor'] == 1 )
 		{
 			array_push(
 				$jss,
-				//file_get_contents($file['javascript'])
 				$file['javascript']
 			);
 			Settings::removeJs($file['javascript']);
 		}
 	}
+	//print_r($jss);
 }
 
 // check for URI versioning
@@ -110,12 +111,14 @@ $content = $uri[$ind]=="js" ? $jss : $csss;
 $content_type = $uri[$ind]=="js" ? "text/javascript" : "text/css";
 //print $uri[$ind]." = ".$uri[$ind+1];
 //print_r($content);
+//print $uri[$ind+1];
 if ( $uri[$ind+1] == "groups" )
 {
-   // well need groups config
-   $min_serveOptions['minApp']['groups'] = array(
+	//well need groups config
+	$min_serveOptions['minApp']['groups'] = array(
 		$uri[$ind] => $content,
 	);
+	//print_r($min_serveOptions['minApp']['groups']);
 	$_GET['g'] = $uri[$ind];
 	//print_r($min_serveOptions);
 	Minify::serve('MinApp', $min_serveOptions);
