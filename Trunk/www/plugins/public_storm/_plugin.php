@@ -40,7 +40,7 @@ final class public_storm extends Plugins
 		Settings::addJs('text/javascript', "/".Settings::getVar('theme_dir').'plugins/public_storm/scripts/public_storm.js', 'all.js');
 		
 		/* javascripts jQuery */
-		Settings::addJs('text/javascript', "/".Settings::getVar('theme_dir').'scripts/jquery-1.3.2.min.js', 'jquery.js');
+		//Settings::addJs('text/javascript', "/".Settings::getVar('theme_dir').'scripts/jquery-1.3.2.min.js', 'jquery.js');
 		Settings::addJs('text/javascript', "/".Settings::getVar('theme_dir').'scripts/jquery.scrollTo-min.js', 'jquery.js');
 		Settings::addJs('text/javascript', "/".Settings::getVar('theme_dir').'scripts/jquery.localscroll.js', 'jquery.js');
 		Settings::addJs('text/javascript', "/".Settings::getVar('theme_dir').'scripts/jquery.serialScroll-min.js', 'jquery.js');
