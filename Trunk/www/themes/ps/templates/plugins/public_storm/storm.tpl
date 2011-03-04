@@ -92,7 +92,8 @@
 					{/if}
 					
 					<label style="display:block;float:left;"></label>
-					<a href="{$base_url}/odsExport/{$storm.permaname|url}/" class="stormExport">{t}export2ods{/t}</a><br />
+					<a href="{$base_url}/odsExport/{$storm.permaname|url}/" class="stormExport">{t}export2ods{/t}</a><br /><br />
+					<a href="{$base_url}/csvExport/{$storm.permaname|url}/" class="stormExport">{t}export2csv{/t}</a><br /><br />
 					
 					{*{include file="../share/share.tpl" base_url_http=$base_url_http}<br />*}
 					{include file="../openlike/openlike.tpl" base_url_http=$base_url_http}

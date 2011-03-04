@@ -1,0 +1,19 @@
+/*
+ * SpreadsheetExport 0.1.0
+ * Copyright (C) 2009 Fusonic Interactive OG
+ */
+ 
+ 
+Description
+***********
+SpreadsheetExport is PHP class which allows you to export data in table style
+as "OpenDocument Spreadsheet" (.ods) or "Comma Separated Values" (.csv). The 
+configuration and data settings are the same for both opportunities, so you only
+have to code the data providing algorithm once and then can simply choose the
+file format.
+
+
+Examples
+********
+This package includes 1 simple example which shows how to set the data and start
+download either as ODS or as CSV file.

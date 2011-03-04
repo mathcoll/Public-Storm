@@ -21,63 +21,75 @@
 final class ods_php extends Plugins
 {
  	public static $subdirs = array(
- 		'odsExport',
+ 		'odsExport', 'csvExport'
  	);
  	public static $name = "ods_php";
  	public static $ods = "ods_php";
+ 	public static $export = "";
  	
 	public function __construct()
 	{
 		require(Settings::getVar('prefix') . 'conf/ods_php.php');
-		require_once("./plugins/ods_php/classes/ods.php");
+		require_once("./plugins/ods_php/spreadsheetexport-0.1.0/lib/SpreadsheetExport.php");
+		self::$export = new SpreadsheetExport();
 	}
 	
-	public function odsExport($storm)
+	public function generateFile($storm)
 	{
 		//print_r($storm);
-		self::$ods = newOds();
-		self::$ods->addCell(0, 0, 0, 'Storm', 'string'); //sheet, row, cell, value, type
-		self::$ods->addCell(0, 0, 1, $storm['root'], 'string');
+
+		// Set the target filename. The extension will automatically be added.
+		self::$export->filename = $storm['permaname'];
 		
-		self::$ods->addCell(0, 1, 0, '', 'string');
-		self::$ods->addCell(0, 1, 1, 'Url :', 'string');
-		self::$ods->addCell(0, 1, 2, $storm['url'], 'string');
-		self::$ods->addCell(0, 2, 0, '', 'string');
-		self::$ods->addCell(0, 2, 1, 'Création du storm :', 'string');
-		self::$ods->addCell(0, 2, 2, date('d/m/Y H:i', $storm['date']), 'string');
-		self::$ods->addCell(0, 3, 0, '', 'string');
-		self::$ods->addCell(0, 3, 1, 'Auteur du storm :', 'string');
-		self::$ods->addCell(0, 3, 2, $storm['author'], 'string');
+		// We add a few columns now using dates, strings and floats. The second
+		// parameter specifies the column with in cm when using ODS export.
+		self::$export->AddColumn("string", 2);
+		self::$export->AddColumn("string", 4);
+		self::$export->AddColumn("string", 2);
+		self::$export->AddColumn("string", 2);
+		self::$export->AddColumn("string", 2);
 		
-		self::$ods->addCell(0, 6, 0, '', 'string');
-		self::$ods->addCell(0, 6, 1, 'Suggestions', 'string');
-		self::$ods->addCell(0, 6, 2, 'Qté', 'string');
-		self::$ods->addCell(0, 6, 3, '%', 'string');
-		self::$ods->addCell(0, 6, 4, 'Url', 'string');
-		$n=7;
+		// Now we add rows
+		self::$export->AddRow(array("Storm", $storm['root'], "", "", ""));
+		self::$export->AddRow(array("", "Url :", $storm['url'], "", ""));
+		self::$export->AddRow(array("", "Création du storm :", date('d/m/Y H:i', $storm['date']), "", ""));
+		self::$export->AddRow(array("", "Auteur du storm :", $storm['author'], "", ""));
+		self::$export->AddRow(array("", "Suggestions", "Qté", "%", "Url"));
+		
 		$count=0;
 		foreach( $storm['suggestions'] as $suggestions )
 		{
-			self::$ods->addCell(0, $n, 0, '', 'string');
-			self::$ods->addCell(0, $n, 1, $suggestions['suggestion'], 'string');
-			self::$ods->addCell(0, $n, 2, $suggestions['nb'], 'float');
-			self::$ods->addCell(0, $n, 3, '', 'string');
-			self::$ods->addCell(0, $n, 4, modifier_url($suggestions['url']), 'string');
-			$n++;
-			$count+=$suggestions['nb'];
+			$count += $suggestions['nb'];
 		}
-		$o=7;
+		
 		foreach( $storm['suggestions'] as $suggestions )
 		{
-			$percentage = ($suggestions['nb'] / $count);
-			self::$ods->addCell(0, $o, 3, $percentage, 'percentage');
-			$o++;
+			$percentage = ($suggestions['nb'] / $count * 100);
+			self::$export->AddRow(array("", $suggestions['suggestion'], $suggestions['nb'], $percentage, modifier_url($suggestions['url'])));
 		}
-		#TODO debug double slash !
-		//$file = rtrim(Settings::getVar('ROOT'), '/').'/cache/'.$storm['permaname'].'.ods';
-		//print $file;
-		saveOds(self::$ods, $file);
-		return Settings::getVar('ROOT').'cache/'.$storm['permaname'].'.ods';
+		return true;
+	}
+	
+	public function odsExport()
+	{
+		try {
+			self::$export->DownloadODF();
+		} catch(Exeption $e) {
+			print $e;
+			exit;
+		}
+		return true;
+	}
+	
+	public function csvExport()
+	{
+		try {
+			self::$export->DownloadCSV();
+		} catch(Exeption $e) {
+			print $e;
+			exit;
+		}
+		return true;
 	}
 	
 	public function loadLang()

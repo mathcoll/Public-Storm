@@ -36,25 +36,10 @@ else
 $storm_permaname = $uri[$ind+1];
 $storm_id = public_storm::getStormIdFromUrl($storm_permaname);
 $storm = public_storm::getStorm($storm_id);
-$ods = ods_php::odsExport($storm);
-
-$f = new file( $ods );
-if ( $f->exists() )
-{
-	header('Content-Type: application/vnd.oasis.opendocument.spreadsheet; charset=UTF-8');
-	header('Content-Disposition: attachment; filename="storm_'.$storm_permaname.'.ods"');
-	header("Expires: 0");
-	header("Cache-Control: no-cache, must-revalidate");
-	header("Pragma: no-cache");
-	ob_clean();
-	flush();
-	readfile($ods);
-	exit;
+$ods = ods_php::generateFile($storm);
+switch( $uri[$ind] ) {
+	case "csvExport" : ods_php::csvExport(); break;
+	case "odsExport" :
+	default : ods_php::odsExport(); break;
 }
-
-
-
-
-
-
-
+exit;
