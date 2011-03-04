@@ -88,8 +88,11 @@ Settings::setVar('MAILER', $MAILER, 'admin', 'smtp or mail'); // smtp or mail
 global $qdirs, $page, $query;
 /* others global configs */
 Settings::setVar('BASE_URL', $BASE_URL);
-Settings::setVar('ROOT', $_SERVER['DOCUMENT_ROOT'] . ltrim(Settings::getVar('BASE_URL'), '/').'/');
-Settings::setVar('ROOT', $_SERVER['DOCUMENT_ROOT'] . ltrim(Settings::getVar('BASE_URL'), '/'));
+if( DEV ) {
+	Settings::setVar('ROOT', $_SERVER['DOCUMENT_ROOT'] . ltrim(Settings::getVar('BASE_URL'), '/').'/');
+} else {
+	Settings::setVar('ROOT', $_SERVER['DOCUMENT_ROOT'] . ltrim(Settings::getVar('BASE_URL'), '/'));
+}
 Settings::setVar('BASE_URL_HTTP', 'http://'.$_SERVER["HTTP_HOST"].Settings::getVar('BASE_URL'));
 Settings::setVar('BASE_URL_HTTPS', 'https://'.$_SERVER["HTTP_HOST"].Settings::getVar('BASE_URL'));
 Settings::setVar('REQ_URL', $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
