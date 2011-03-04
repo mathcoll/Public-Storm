@@ -312,7 +312,7 @@ class Database_sqlite extends Database
 		if ( $result = self::$dbUser->query($query) )
 		{
 			$row = $result->fetch();
-			return $row[0]['nb'];
+			return $row['nb'];
 		}
 		else
 		{
