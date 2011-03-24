@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Public-Storm\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-08-11 14:57+0100\n"
-"PO-Revision-Date: 2011-02-28 21:50+0100\n"
+"PO-Revision-Date: 2011-03-18 21:37+0100\n"
 "Last-Translator: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "Language-Team: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "MIME-Version: 1.0\n"
@@ -150,15 +150,15 @@ msgstr "Partagez"
 
 #: ../../../i18n/sources/plugins/errordocument/errordocument.gettext.php:4
 msgid "404 Not Found ; your request did'nt return anything, try going to the home page and/or verify your url string."
-msgstr "404 Not Found ; your request did'nt return anything, try going to the home page and/or verify your url string."
+msgstr "404 Page non trouvée ; votre requête ne retourne aucun résultat, essayez de revenir à la page d'accueil et/ou vérifiez votre Url."
 
 #: ../../../i18n/sources/plugins/errordocument/errordocument.gettext.php:9
 msgid "503 Service Unavailable"
-msgstr "503 Service Unavailable"
+msgstr "503 Service Indisponible"
 
 #: ../../../i18n/sources/plugins/errordocument/errordocument.gettext.php:14
 msgid "500 Internal Server Error"
-msgstr "500 Internal Server Error"
+msgstr "500 Erreur Interne du serveur"
 
 #: ../../../i18n/sources/plugins/trackbacks/trackbacks.gettext.php:2
 msgid "trackback"
@@ -175,7 +175,7 @@ msgstr "Lien de TrackBack"
 
 #: ../../../i18n/sources/plugins/users/users.gettext.php:3
 msgid "inscription.welcome"
-msgstr "Toute l'équipe de Public-Storm vous souhaite la bienvenue dans la communauté.Vous pouvez dès maintenant vous connecter sur le site Public-Storm en utilisant les identifiants ci-dessous."
+msgstr "Toute l'équipe de Public-Storm vous souhaite la bienvenue dans la communauté. Vous pouvez dès maintenant vous connecter sur le site Public-Storm en utilisant les identifiants ci-dessous."
 
 #: ../../../i18n/sources/plugins/users/users.gettext.php:4
 #: ../../../i18n/sources/plugins/users/users.gettext.php:65
@@ -219,7 +219,7 @@ msgstr "L'équipe Public-Storm,"
 
 #: ../../../i18n/sources/plugins/users/users.gettext.php:12
 msgid "fogotten_password.intro"
-msgstr "Voici vos nouveaux identifiants de connection pour le site Public-Storm."
+msgstr "Voici vos nouveaux identifiants de connexion pour le site Public-Storm."
 
 #: ../../../i18n/sources/plugins/users/users.gettext.php:15
 msgid "fogotten_password.signature"
@@ -343,7 +343,7 @@ msgstr "Connectez-vous"
 #: ../../../i18n/sources/plugins/users/users.gettext.php:69
 #: ../../../i18n/sources/plugins/users/users.gettext.php:98
 msgid "field.captcha"
-msgstr "<br/>Captcha, recopiez les 3 caractères  <br/>dans le champ ci-contre :"
+msgstr "<br/>Captcha, recopiez les 3 caractères <br/>dans le champ ci-contre :"
 
 #: ../../../i18n/sources/plugins/users/users.gettext.php:70
 #: ../../../i18n/sources/plugins/users/users.gettext.php:99
@@ -381,7 +381,7 @@ msgstr "Recevez des alertes sur les Storms et restez informé en temps réel ;"
 #: ../../../i18n/sources/plugins/users/users.gettext.php:107
 #: ../../../i18n/sources/plugins/users/users.gettext.php:108
 msgid "avantage_4"
-msgstr "Participez à la modération des spams."
+msgstr "Participez à la modération des spams et à l'organisation de l'éco-système."
 
 #: ../../../i18n/sources/plugins/admin/admin.gettext.php:2
 #: ../../../i18n/sources/plugins/admin/admin.gettext.php:34
@@ -441,7 +441,7 @@ msgstr "Mise à jour"
 
 #: ../../../i18n/sources/plugins/admin/admin.gettext.php:26
 msgid "forbidden_details"
-msgstr "Vous n'êtes pas autorisé à afficher cette page !"
+msgstr "Vous n'êtes pas autorisé à afficher cette page ! Merci de revenir à la page précédente en utilisant la fonctionnalité de votre navigateur."
 
 #: ../../../i18n/sources/plugins/admin/admin.gettext.php:31
 msgid "Valeur"
@@ -535,15 +535,15 @@ msgstr "4. Créez un compte"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:11
 msgid "intro_p1"
-msgstr "Chaque Storm est un thème que vous proposez aux autres utilisateurs. Ces Storms peuvent être des mots ou des expressions courtes."
+msgstr "Chaque Storm est un thème que vous proposez aux autres utilisateurs. Ces Storms peuvent être des mots ou des expressions courtes. Les Storms sont totalement publiques ; n'importe quel visiteur voit ces groupement d'idées."
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:15
 msgid "intro_p2"
-msgstr "Invitez d'autres utilisateurs à venir sur votre Storm pour qu'ils partagent leurs idées sur le thème."
+msgstr "Invitez d'autres utilisateurs à venir sur votre Storm pour qu'ils partagent leurs idées sur le thème. Les idées des autres utilisateurs favoriseront d'autres suggestions  en chaîne. Tout le monde peux proposer des idées et le l'éco-système est auto-géré."
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:19
 msgid "intro_p3"
-msgstr "Export au format Odt (lisible par Open-Office/MS Excel)."
+msgstr "Exportez les regrouppements d'idées au format 'Open Document Sheet' ou Csv ! Vous obtiendrez alors une liste complète des suggestions dans un format exploitable pour des statistiques, ou simplement pour garder une trace..."
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:19
 msgid "intro_p4"
