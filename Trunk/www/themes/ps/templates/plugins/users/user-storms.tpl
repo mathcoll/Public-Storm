@@ -13,20 +13,7 @@
 </ul>
 <div style="clear:both;">&nbsp;</div>
 
-{if $nb_pages gt 0}
-<p>{t}Pages :{/t}</p>
-<ul class="list-pages">
-	{section name=foo loop=$nb_pages}
-	<li>
-		{if $current_page eq $smarty.section.foo.iteration}
-			<b>{$smarty.section.foo.iteration}</b>
-		{else}
-			<a href="{$base_url}/utilisateurs/{$login|escape}/{$smarty.section.foo.iteration}/">{$smarty.section.foo.iteration}</a>
-		{/if}
-	</li>
-	{/section}
-</ul>
-{/if}
+{include file="./pagination.tpl" login=$login nb_pages=$nb_pages current_page=$current_page base_url_http=$base_url_http}
 
 <div class="table _100">
 	<div class="table-row">
@@ -64,17 +51,4 @@
 	</div>
 </div>
 
-{if $nb_pages gt 0}
-<p>{t}Pages :{/t}</p>
-<ul class="list-pages">
-	{section name=foo loop=$nb_pages}
-	<li>
-		{if $current_page eq $smarty.section.foo.iteration}
-			<b>{$smarty.section.foo.iteration}</b>
-		{else}
-			<a href="{$base_url}/utilisateurs/{$login|escape}/{$smarty.section.foo.iteration}/">{$smarty.section.foo.iteration}</a>
-		{/if}
-	</li>
-	{/section}
-</ul>
-{/if}
+{include file="./pagination.tpl" login=$login nb_pages=$nb_pages current_page=$current_page base_url_http=$base_url_http}

@@ -1,3 +1,4 @@
+{setlocale type="all" locale="fr_FR.utf8"}
 {assign var=prevcap value=""}
 {assign var=loopnum value=0}
 {assign var=s_count value=$storms|@count}
@@ -5,18 +6,7 @@
 
 {t}Liste des Storms triés par ordre alphabêtique :{/t}
 
-<p>{t}Pages :{/t}</p>
-<ul class="list-pages">
-	{section name=foo loop=$nb_pages}
-	<li>
-		{if $current_page eq $smarty.section.foo.iteration}
-			<b>{$smarty.section.foo.iteration}</b>
-		{else}
-			<a href="{$base_url}/storms/alpha/{$smarty.section.foo.iteration}/">{$smarty.section.foo.iteration}</a>
-		{/if}
-	</li>
-	{/section}
-</ul>
+{include file="./pagination.tpl" nb_pages=$nb_pages current_page=$current_page base_url_http=$base_url_http}
 
 <div class="table _100">
 	<div class="table-row">
@@ -44,15 +34,4 @@
 	</div>
 </div>
 
-<p>{t}Pages :{/t}</p>
-<ul class="list-pages">
-	{section name=foo loop=$nb_pages}
-	<li>
-		{if $current_page eq $smarty.section.foo.iteration}
-			<b>{$smarty.section.foo.iteration}</b>
-		{else}
-			<a href="{$base_url}/storms/alpha/{$smarty.section.foo.iteration}/">{$smarty.section.foo.iteration}</a>
-		{/if}
-	</li>
-	{/section}
-</ul>
+{include file="./pagination.tpl" nb_pages=$nb_pages current_page=$current_page base_url_http=$base_url_http}

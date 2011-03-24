@@ -6,18 +6,7 @@
 {assign var=item_per_col value=$s_count/2}
 <p>{t}Liste des derniers Storms créés :{/t}</p>
 
-<p>{t}Pages :{/t}</p>
-<ul class="list-pages">
-	{section name=foo loop=$nb_pages}
-	<li>
-		{if $current_page eq $smarty.section.foo.iteration}
-			<b>{$smarty.section.foo.iteration}</b>
-		{else}
-			<a href="{$base_url}/storms/{$smarty.section.foo.iteration}/">{$smarty.section.foo.iteration}</a>
-		{/if}
-	</li>
-	{/section}
-</ul>
+{include file="./pagination.tpl" nb_pages=$nb_pages current_page=$current_page base_url_http=$base_url_http}
 
 <div class="table _100">
 	<div class="table-row">
@@ -55,15 +44,4 @@
 	</div>
 </div>
 
-<p>{t}Pages :{/t}</p>
-<ul class="list-pages">
-	{section name=foo loop=$nb_pages}
-	<li>
-		{if $current_page eq $smarty.section.foo.iteration}
-			<b>{$smarty.section.foo.iteration}</b>
-		{else}
-			<a href="{$base_url}/storms/{$smarty.section.foo.iteration}/">{$smarty.section.foo.iteration}</a>
-		{/if}
-	</li>
-	{/section}
-</ul>
+{include file="./pagination.tpl" nb_pages=$nb_pages current_page=$current_page base_url_http=$base_url_http}
