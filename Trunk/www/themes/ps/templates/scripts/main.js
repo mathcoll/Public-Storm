@@ -73,8 +73,9 @@ function no_accent(str)
 	str = str.replace(/[ÈÉÊËèéêë]/g,"e");
 	str = str.replace(/[ÎÏîï]/g,"i");
 	str = str.replace(/[ÔÓÖôóö]/g,"o");
-	str = str.replace(/[ÙÛùû]/g,"u");
+	str = str.replace(/[ÙÛùûü]/g,"u");
 	str = str.replace(/[Çç]/g,"c");
+	str = str.replace(/[°€]/g,"c");
 	return str;
 }
 function ucfirst( str )
