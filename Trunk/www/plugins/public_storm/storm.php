@@ -39,7 +39,7 @@ $id = public_storm::getStormIdFromUrl(strToLower($storm_permaname));
 if ( isset($id) || isset($_SESSION['id']) )
 {
 	//print "--".$id."--";
-	$storm = public_storm::getStorm($id);
+	$storm = public_storm::getStorm($id, 100);
 	//print "--".$id."--";
 	//print '<pre>';
 	//print_r($storm);
@@ -162,8 +162,20 @@ $dot .= "}";
 	$sPlug->AddData("username", $author['prenom']." ".$author['nom']);
 	$sPlug->AddData("avatar", "http://www.gravatar.com/avatar/".md5( strtolower( $author['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&size=30");
 	
-	$user['isadmin'] = $_SESSION['isadmin'];
-	$sPlug->AddData("user", $user);
+	if( $statuses['users'] == 1 )
+	{
+		$isLogged = User::isLogged() != NULL ? 1 : 0;
+		$user = Array(
+			'logged'	=> $isLogged,
+			'id'		=> $_SESSION['user_id'],
+			'prenom'	=> $_SESSION['prenom'],
+			'nom'		=> $_SESSION['nom'],
+			'email'	=> $_SESSION['email'],
+			'avatar'	=> $_SESSION['avatar'],
+			'isadmin'=> $_SESSION['isadmin']
+		);
+		$sPlug->AddData("user", $user);
+	}
 	$content = $sPlug->fetch("storm.tpl", "plugins/public_storm");
 }
 else

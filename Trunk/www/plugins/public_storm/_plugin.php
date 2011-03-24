@@ -27,6 +27,8 @@ final class public_storm extends Plugins
  	);
  	public static $name = "public_storm";
 	public static $db;
+ 	private $suggestions;
+ 	
 	public function __construct()
 	{
 		require(Settings::getVar('prefix') . 'conf/public_storm.php');
@@ -215,7 +217,7 @@ final class public_storm extends Plugins
 	{
 		/* récupération des suggestions les plus nombreuses */
 		//$suggestions = self::$db->q2("SELECT s.* FROM suggestions s GROUP BY s.storm_id LIMIT 0, :nb", "public_storms.db", array(':nb' => $nb));
-		$suggestions = self::$db->q2("SELECT s.* FROM suggestions s WHERE s.date BETWEEN :from AND :to GROUP BY s.storm_id LIMIT 0, :nb", "public_storms.db", array(':nb' => $nb, ':from' => time()-(15*24*60*60), ':to' => time()));
+		$suggestions = self::$db->q2("SELECT s.* FROM suggestions s WHERE s.date BETWEEN :from AND :to GROUP BY s.storm_id LIMIT 0, :nb", "public_storms.db", array(':nb' => $nb, ':from' => time()-(10*24*60*60), ':to' => time()));
 		//print "->".$suggestions[0][2];
 		//print_r($suggestions);
 		//return self::getStorm($suggestions[0][2]);
@@ -230,18 +232,27 @@ final class public_storm extends Plugins
 	
 	public function getSuggestions($storm_id, $nb)
 	{
-		$u = Settings::getVar('BASE_URL_HTTP')."/storm/";
-		//$suggestions = self::$db->q2("SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = :storm_id GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC LIMIT :nb", "public_storms.db", array(':nb' => $nb, ':storm_id' => $storm_id));
-		$suggestions = self::$db->q("SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = %s GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC LIMIT ".$nb, "public_storms.db", array($storm_id));
-		for($n=0; $n<sizeOf($suggestions); $n++)
-		{
-			$author = self::getStormAuthor($suggestions[$n]['user_id']);
-			$suggestions[$n]['author'] = $author['prenom']." ".$author['nom'];
-			$suggestions[$n]['author_login'] = $author['login'];
+		if( !isset($self->$suggestions[$storm_id]) ) {
+			$u = Settings::getVar('BASE_URL_HTTP')."/storm/";
+		
+			//$suggestions = self::$db->q2("SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = :storm_id GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC LIMIT :nb", "public_storms.db", array(':nb' => $nb, ':storm_id' => $storm_id));
+			$q = "SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = %s GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC";
+			if( isset($nb) && $nb > 0 ) {
+				$q .= " LIMIT ".$nb;
+			}
+			$suggestions[$storm_id] = self::$db->q($q, "public_storms.db", array($storm_id));
+			for($n=0; $n<sizeOf($suggestions[$storm_id]); $n++)
+			{
+				$author = self::getStormAuthor($suggestions[$storm_id][$n]['user_id']);
+				$suggestions[$storm_id][$n]['author'] = $author['prenom']." ".$author['nom'];
+				$suggestions[$storm_id][$n]['author_login'] = $author['login'];
+			}
+			//print "SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = ".$storm_id." GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC LIMIT ".$nb."<br />\n";
+			//print_r($suggestions);
+			unset($suggestions[$storm_id][0]);
+			$self->$suggestions[$storm_id] = $suggestions[$storm_id];
 		}
-		//print_r($suggestions);
-		unset($suggestions[0]);
-		return $suggestions;
+		return $self->$suggestions[$storm_id];
 	}
 	
 	public function getStormAuthor($user_id)
