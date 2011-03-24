@@ -107,6 +107,14 @@ h4
 	margin: 1em 0 0 0;
 }
 
+hr
+{
+	background: url(../img/underline.png) repeat-x left bottom;
+	height:4px;
+	border:0;
+}
+
+
 span.title
 {
 	font-size: 1em;

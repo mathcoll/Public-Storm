@@ -10,11 +10,12 @@ a.icon:hover
 div.panel ul.panel-desc li {
 	list-style: none;
 	display:inline;
-	width:380px;
+	width:360px;
 	line-height:20px;
+	font-size: 14px;
 }
 div.panel ul.panel-desc li.icon {
-	width:30px;
+	width:40px;
 	margin:0 5px;
 }
 div.panel ul.panel-desc li.icon a:hover {
@@ -83,7 +84,7 @@ li span.size
 form.suggestion input[type="text"]
 {
 	border:1px solid #156e1e;
-	width: 300px;
+	width: 240px;
 }
 form.suggestion input[type="text"]:focus
 {
@@ -132,6 +133,9 @@ div.TwoCols
 ._80 { width: 80%; }
 ._90 { width: 90%; }
 ._100 { width: 100%; }
+._w100 { width: 100px; }
+._w200 { width: 200px; }
+
 div.left
 {
 	float: left;
@@ -195,7 +199,7 @@ div.fiche h4.fiche
 }
 div.ficheContainer
 {
-	padding: 0 0 0 30px;
+	padding: 0 10px 0 10px;
 	background: transparent url(../img/gradient.png) repeat-x left bottom;
 }
 div.outils a
