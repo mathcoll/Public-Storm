@@ -1,7 +1,7 @@
 .openlike {
 	position: relative;
 	font-weight: bold;
-	margin: 20px 0 0 0;
+	margin: 20px 0;
 }
 
 .openlike p {
@@ -21,7 +21,6 @@
 }
 
 .openlike ul li {
-	float: left;
 	position: relative;
 	display: block;
 	list-style-type: none;
@@ -40,8 +39,7 @@
 	width: 25px;
 	margin: 0 !important;
 	padding: 0 !important;
-	overflow: hidden;
-	text-indent: -9999em;
+	text-indent: 30px;
 }
 
 .openlike ul li a.openlike-hunch       { background-position: 0 0; }

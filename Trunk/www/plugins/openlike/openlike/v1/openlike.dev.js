@@ -49,7 +49,8 @@ if (!OPENLIKE.Widget) {
 				url: window.location.href,
 				title: document.title,
 				header: 'Like this:',
-				css: OPENLIKE.assetHost + '/v1/openlike.css',
+				//css: OPENLIKE.assetHost + '/v1/openlike.css',
+				css:'',
 				category: ''
 			},
 			i, len, wrapper, title, list, li, a, source,
