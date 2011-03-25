@@ -16,18 +16,14 @@ gettext("fogotten_password.signature");
 
 ?><?php
 gettext("mes_storms");
-gettext("Pages :");
 gettext("Semaine");
-gettext("Pages :");
 
 ?><?php
 gettext("Storms de %1");
 gettext("Prénom");
 gettext("Nom");
 gettext("Membre depuis le %1");
-gettext("Pages :");
 gettext("Semaine");
-gettext("Pages :");
 
 ?><?php
 gettext("login intro");
@@ -47,6 +43,11 @@ gettext("Vous avez oublié votre mot de passe ? Saisissez votre identifiant OU v
 gettext("field.email");
 gettext("field.login");
 gettext("valider");
+
+?><?php
+gettext("Pages :");
+gettext("Page précédente");
+gettext("Page suivante");
 
 ?><?php
 gettext("mon_compte");

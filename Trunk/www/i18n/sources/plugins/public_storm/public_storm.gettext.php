@@ -17,32 +17,42 @@ gettext("intro_title3");
 gettext("intro_title3");
 gettext("intro_title3");
 gettext("intro_p3");
+gettext("intro_title4");
+gettext("intro_title4");
+gettext("intro_title4");
+gettext("intro_p4");
 
 ?><?php
 gettext("Liste des derniers Storms créés :");
-gettext("Pages :");
 gettext("Semaine");
-gettext("Pages :");
 
 ?><?php
+gettext("Création du storm :");
+gettext("Auteur du storm %1 :");
+gettext("Utilisateurs connectés :");
+gettext("export2ods");
+gettext("export2csv");
+gettext("accroche incitation suggestion");
 gettext("suggest_it");
+gettext("ajouter_un_storm");
+gettext("creer_un_compte");
+gettext("mot_de_passe_oublie");
+gettext("Suggestions principales");
 gettext("Je suggère moi aussi !");
 gettext("Pas encore de suggestion pour %1");
 gettext("Autres suggestions");
 gettext("Chargement en cours...");
 gettext("Start / Stop");
-gettext("Fiche de %1");
-gettext("Création du storm :");
-gettext("Auteur du storm %1 :");
-gettext("Utilisateurs connectés :");
-gettext("export2ods");
 gettext("Nuage de storms liés à %1");
 
 ?><?php
 gettext("Liste des Storms triés par ordre alphabêtique :");
-gettext("Pages :");
 gettext("by");
+
+?><?php
 gettext("Pages :");
+gettext("Page précédente");
+gettext("Page suivante");
 
 ?><?php
 gettext("storms");
