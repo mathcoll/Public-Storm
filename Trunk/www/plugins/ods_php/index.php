@@ -36,10 +36,11 @@ else
 $storm_permaname = $uri[$ind+1];
 $storm_id = public_storm::getStormIdFromUrl($storm_permaname);
 $storm = public_storm::getStorm($storm_id);
-$ods = ods_php::generateFile($storm);
+$ods = new ods_php();
+$ods->generateFile($storm);
 switch( $uri[$ind] ) {
-	case "csvExport" : ods_php::csvExport(); break;
+	case "csvExport" : $ods->csvExport(); break;
 	case "odsExport" :
-	default : ods_php::odsExport(); break;
+	default : $ods->odsExport(); break;
 }
 exit;

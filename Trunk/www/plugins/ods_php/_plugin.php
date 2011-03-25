@@ -29,9 +29,10 @@ final class ods_php extends Plugins
  	
 	public function __construct()
 	{
-		require(Settings::getVar('prefix') . 'conf/ods_php.php');
+		//require(Settings::getVar('prefix') . 'conf/ods_php.php');
 		require_once("./plugins/ods_php/spreadsheetexport-0.1.0/lib/SpreadsheetExport.php");
 		self::$export = new SpreadsheetExport();
+		return $this;
 	}
 	
 	public function generateFile($storm)
@@ -50,11 +51,11 @@ final class ods_php extends Plugins
 		self::$export->AddColumn("string", 2);
 		
 		// Now we add rows
-		self::$export->AddRow(array("Storm", $storm['root'], "", "", ""));
-		self::$export->AddRow(array("", "Url :", $storm['url'], "", ""));
-		self::$export->AddRow(array("", "Création du storm :", date('d/m/Y H:i', $storm['date']), "", ""));
-		self::$export->AddRow(array("", "Auteur du storm :", $storm['author'], "", ""));
-		self::$export->AddRow(array("", "Suggestions", "Qté", "%", "Url"));
+		self::$export->AddRow(array(i18n::_("Storm"), $storm['root'], "", "", ""));
+		self::$export->AddRow(array("", i18n::_("Url :"), $storm['url'], "", ""));
+		self::$export->AddRow(array("", i18n::_("Création du storm :"), date('d/m/Y H:i', $storm['date']), "", ""));
+		self::$export->AddRow(array("", i18n::_("Auteur du storm :"), $storm['author'], "", ""));
+		self::$export->AddRow(array("", i18n::_("Suggestions"), i18n::_("Qté"), "%", "Url"));
 		
 		$count=0;
 		foreach( $storm['suggestions'] as $suggestions )
@@ -67,7 +68,8 @@ final class ods_php extends Plugins
 			$percentage = ($suggestions['nb'] / $count * 100);
 			self::$export->AddRow(array("", $suggestions['suggestion'], $suggestions['nb'], $percentage, modifier_url($suggestions['url'])));
 		}
-		return true;
+		//print_r(self::$export); exit();
+		return $this;
 	}
 	
 	public function odsExport()
