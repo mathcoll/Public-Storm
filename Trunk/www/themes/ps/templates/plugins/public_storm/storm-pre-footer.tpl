@@ -19,7 +19,7 @@
 	
 	<h3>{t}discutez{/t}</h3>
 	<p>{t}discutez_p1{/t}</p>
-	<p><small><a href="mailto:contact@internetcollaboratif.info?subject=Mon avis sur Public-Storm">contact@internetcollaboratif.info</a></small></p>
+	<p><small><a href="mailto:contact@internetcollaboratif.info?subject={t}Mon avis sur Public-Storm{/t}">contact@internetcollaboratif.info</a></small></p>
 	
 	<h3>{t}telechargez{/t}</h3>
 	<p>{t}telechargez_p1{/t}</p>

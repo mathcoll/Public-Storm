@@ -230,7 +230,7 @@ final class public_storm extends Plugins
 		return $mostActives;
 	}
 	
-	public function getSuggestions($storm_id, $nb)
+	public function getSuggestions($storm_id, $nb=null)
 	{
 		if( !isset($self->$suggestions[$storm_id]) ) {
 			$u = Settings::getVar('BASE_URL_HTTP')."/storm/";
@@ -288,6 +288,37 @@ final class public_storm extends Plugins
 		$storms = self::$db->q2($q, "public_storms.db", $datas);
 		return $storms[0]['c'];
 	}
+	
+	public function getContributors($storm_id=null, $filter_user_id)
+	{
+		//print "-->".$storm_id;
+		$suggestions = isset($self->$suggestions[$storm_id]) ? $self->$suggestions[$storm_id] : self::getSuggestions($storm_id);
+		//print_r($suggestions);
+		$contributors = Array();
+		foreach($suggestions as $s) {
+			$s["author"] = $s["author"] == " " || $s["author"] == "" ? i18n::_("Anonyme") : $s["author"];
+			$s["author_login"] = $s["author_login"] == " " || $s["author_login"] == "" ? "-anonymous-" : $s["author_login"];
+			//print_r($s);
+			if ( !in_multi_array($s["author_login"], $contributors) && $filter_user_id != $s["user_id"] ) {
+				array_push($contributors, array("author_login" => $s["author_login"], "author" => $s["author"]));
+			}
+		}
+		//print_r($contributors);
+		return $contributors;
+	}
+	
+	public function getNbSuggestionsFromUserId($storm_id=null, $user_id=null)
+	{
+		if ( !isset($user_id) || !isset($storm_id) )
+		{
+			return 0;
+		}
+		$datas = array(':user_id' => $user_id, ':storm_id' => $storm_id);
+		$q = "SELECT count(*) as c FROM suggestions s WHERE s.user_id = :user_id AND s.storm_id = :storm_id";
+		//print $q.$storm_id.$user_id;
+		$suggestions = self::$db->q2($q, "public_storms.db", $datas);
+		return $suggestions[0]['c'];
+	}
 }
 
 
@@ -306,4 +337,33 @@ function modifier_url($string)
 	return $string;
 }
 
+// Function for looking for a value in a multi-dimensional array
+function in_multi_array($value, $array)
+{   
+    foreach ($array as $key => $item)
+    {       
+        // Item is not an array
+        if (!is_array($item))
+        {
+            // Is this item our value?
+            if ($item == $value) return true;
+        }
+      
+        // Item is an array
+        else
+        {
+            // See if the array name matches our value
+            //if ($key == $value) return true;
+          
+            // See if this array matches our value
+            if (in_array($value, $item)) return true;
+          
+            // Search this array
+            else if (in_multi_array($value, $item)) return true;
+        }
+    }
+  
+    // Couldn't find the value in array
+    return false;
+}
 ?>

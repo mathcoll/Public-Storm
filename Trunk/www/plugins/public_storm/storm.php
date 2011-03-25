@@ -74,12 +74,20 @@ if ( isset($id) || isset($_SESSION['id']) )
 		$storm["storm_id"] = $id;
 	}
 	
-	
 	/*
 	print '<pre>';
 	print_r($storm);
 	print '</pre>';
 	*/
+	
+	/* 
+	 * Calculs des Google Rich snippets
+	 * http://www.google.com/support/webmasters/bin/answer.py?hl=fr&answer=146645#Aggregate_reviews
+	*/
+	$sPlug->AddData("votes", count($storm['suggestions']));
+	$sPlug->AddData("rating", public_storm::getNbSuggestionsFromUserId($id, $storm["user_id"])*5 / count($storm['suggestions']));
+	/* fin Google Rich snippets */
+	
 	$cloud = new tagcloud();
 	$is_cloud=false;
 	foreach ( $storm["suggestions"] AS $suggestion )
@@ -126,32 +134,31 @@ if ( isset($id) || isset($_SESSION['id']) )
 	$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
 	#$sPlug->AddData("i18n", i18n::getLng());
 	
-	//print_r($storm);
 	//exit;
-	//print $storm['root'];
 	
-	/* génération du .dot */
-$dot = "digraph G {
-	node [shape=circle, overlap=true];
-	edge [len=1];";
-foreach($storm['suggestions'] as $suggestion)
-{
-	$dot .= "\"".ucFirst($storm['root'])."\" -> \"".ucFirst($suggestion['suggestion'])."\" [label=\"".$suggestion['nb']."\"];"; 
-}
-$dot .= "\"".ucFirst($storm['root'])."\" [shape=doublecircle]";
-$dot .= "}";
-	/* fin génération du .dot */
-
-	$type = Settings::getVar('graphviz_type');
-	$file = $storm["storm_id"];
-	if($fp = fopen(Settings::getVar('cache_dir') . $file . '.dot', "w+"))
-	{
-		fputs($fp, $dot);
-		fclose($fp);
-		graphviz::renderDotFile(Settings::getVar('cache_dir') . $file . '.dot', Settings::getVar('cache_dir') . $file . '.jpg', 'jpg', Settings::getVar('graphviz_type'));
-		/*exec("neato -T$type -Odot " . Settings::getVar('cache_dir') . $file . ".dot");*/
+	if( $statuses['graphviz'] == 1 ) {
+		/* génération du .dot */
+		$dot = "digraph G {
+			node [shape=circle, overlap=true];
+			edge [len=1];";
+		foreach($storm['suggestions'] as $suggestion)
+		{
+			$dot .= "\"".ucFirst($storm['root'])."\" -> \"".ucFirst($suggestion['suggestion'])."\" [label=\"".$suggestion['nb']."\"];"; 
+		}
+		$dot .= "\"".ucFirst($storm['root'])."\" [shape=doublecircle]";
+		$dot .= "}";
+		/* fin génération du .dot */
+	
+		$type = Settings::getVar('graphviz_type');
+		$file = $storm["storm_id"];
+		if($fp = fopen(Settings::getVar('cache_dir') . $file . '.dot', "w+"))
+		{
+			fputs($fp, $dot);
+			fclose($fp);
+			graphviz::renderDotFile(Settings::getVar('cache_dir') . $file . '.dot', Settings::getVar('cache_dir') . $file . '.jpg', 'jpg', Settings::getVar('graphviz_type'));
+			/*exec("neato -T$type -Odot " . Settings::getVar('cache_dir') . $file . ".dot");*/
+		}
 	}
-
 	Settings::setVar('title', "Storm ".$root);
 	$breadcrumb = Settings::getVar('breadcrumb');
 	array_push($breadcrumb, array("name" => i18n::_("Storms"), "link" => Settings::getVar('BASE_URL')."/storms/"));
@@ -162,17 +169,17 @@ $dot .= "}";
 	$sPlug->AddData("username", $author['prenom']." ".$author['nom']);
 	$sPlug->AddData("avatar", "http://www.gravatar.com/avatar/".md5( strtolower( $author['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&size=30");
 	
+	$sPlug->AddData("contributors", public_storm::getContributors($id, $storm['user_id']));
 	if( $statuses['users'] == 1 )
 	{
-		$isLogged = User::isLogged() != NULL ? 1 : 0;
 		$user = Array(
-			'logged'	=> $isLogged,
+			'logged'	=> User::isLogged() != NULL ? 1 : 0,
 			'id'		=> $_SESSION['user_id'],
 			'prenom'	=> $_SESSION['prenom'],
 			'nom'		=> $_SESSION['nom'],
-			'email'	=> $_SESSION['email'],
+			'email'		=> $_SESSION['email'],
 			'avatar'	=> $_SESSION['avatar'],
-			'isadmin'=> $_SESSION['isadmin']
+			'isadmin'	=> $_SESSION['isadmin']
 		);
 		$sPlug->AddData("user", $user);
 	}

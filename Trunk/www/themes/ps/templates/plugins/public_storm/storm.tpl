@@ -1,10 +1,19 @@
 {setlocale type="all" locale="fr_FR.utf8"}
 {assign var=rootCap value=$storm.root|ucfirst}
 
-<h3 class="storm"><a href="{$storm.url}">{$storm.root|ucfirst}</a></h3>
+<div itemscope itemtype="http://data-vocabulary.org/Review">
+	<span itemprop="summary" class="Review">{$title}</span>
+	<span itemprop="rating" class="Review">{$rating}</span>
+	<span itemprop="count" class="Review">{$votes}</span>
+	{*
+		<img itemprop="photo" src="" />
+		<span itemprop="description"></span>
+	*}
+
+<h3 class="storm"><a href="{$storm.url}" itemprop="itemreviewed">{$storm.root|ucfirst}</a></h3>
 
 <div style="margin:0 0 20px 0">&nbsp;</div>
-			
+
 <div class="table">
 	<div class="table-row">
 		<div class="table-cell _w200">
@@ -12,12 +21,27 @@
 			<div class="fiche">
 				<div class="ficheContainer _w200">
 					<label class="date">{t}Création du storm :{/t}</label>
-						<span class="data">{$storm.date|date_format:"%a, %d %B %Y %Hh%M:%S GMT"}</span><br />
-					{if $storm.author_login ne ""}
+						<time itemprop="dtreviewed" datetime="{$storm.date|date_format:"%Y-%m-%d"}"><span class="data">{$storm.date|date_format:"%a, %d %B %Y %Hh%M:%S GMT"}</span></time><br />
+					{if $storm.author_login ne ""}{* should'nt be null ! :-) *}
 						<label class="author">{t 1=$rootCap}Auteur du storm %1 :{/t}</label>
 						<img src="{$avatar}" style="float:right;" />
-							<span class="data"><a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a></span><br />
-						<br /><br />
+							<span class="data" itemprop="reviewer"><a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a></span><br />
+						<br />
+					{/if}
+					{if $contributors ne ""}{* should'nt be null ! :-) *}
+					<label class="author">{t}Contributeurs :{/t}</label>
+						<ul>
+							{foreach from=$contributors item=contributor}
+								<li>
+									{if $contributor.author_login ne "-anonymous-"}
+										<a href="{$base_url}/utilisateurs/{$contributor.author_login}/">{$contributor.author}</a>
+									{else}
+										<i>{$contributor.author}</i>
+									{/if}
+								</li>
+							{/foreach}
+						</ul>
+						<br />
 					{/if}
 
 					{if $user.isadmin eq 1}
@@ -57,7 +81,7 @@
 				<p><a href="{$base_url}/utilisateurs/creer-un-compte.php">{t}creer_un_compte{/t}</a> - <a href="{$base_url}/utilisateurs/mot-de-passe-oublie.php">{t}mot_de_passe_oublie{/t}</a></p>
 			{/if}
 			
-			{include file="../openlike/openlike.tpl" base_url_http=$base_url_http}
+			{include file="../openlike/openlike.tpl" rootCap=$rootCap base_url_http=$base_url_http}
 		</div>
 		
 		<div class="table-cell _60">
@@ -123,3 +147,4 @@
 	<img src="{$cache_dir_http}{$storm.storm_id}.jpg" id="neato" style="width:480px;" />
 </div>
 *}
+</div>{* end of div qith attribute 'itemtype' *}

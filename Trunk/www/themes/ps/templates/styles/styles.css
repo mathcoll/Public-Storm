@@ -7,7 +7,9 @@ html
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
 }
-
+ul{
+	margin:0;
+}
 img
 {
 	border: 0;
@@ -31,7 +33,7 @@ a
 	color: #156e1e;
 	text-decoration: none;
 	outline: 0;
-	padding: .2em;
+	//padding: .2em;
 }
 
 a:hover
@@ -249,6 +251,10 @@ div.breadcrumb
 {
 	background: #64b47c;
 	text-align: left;
+}
+#pre-footer p.share a
+{
+	padding:0!important;
 }
 #pre-footer h3
 {
@@ -805,4 +811,7 @@ ul.list-pages
 ul.list-pages, ul.list-pages li
 {
 	display: inline;
+}
+.Review{
+	display:none;
 }
