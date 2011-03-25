@@ -1,7 +1,7 @@
 .openlike {
 	position: relative;
 	font-weight: bold;
-	margin: 20px 0;
+	margin: 0 0 20px 0;
 }
 
 .openlike p {
@@ -49,3 +49,4 @@
 .openlike ul li a.openlike-google      { background-position: -100px 0; }
 .openlike ul li a.openlike-twitter     { background-position: -125px 0; }
 .openlike ul li a.openlike-facebook    { background-position: -150px 0; }
+.openlike ul li a.openlike-identica    { background-position: -175px 0; }

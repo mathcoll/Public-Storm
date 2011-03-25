@@ -1,7 +1,9 @@
+<h4>{t 1=$rootCap}Partager %1 :{/t}</h4>
+
 <script type="text/javascript">
 {literal}
 var cfg = {
-		s: ['facebook', 'twitter', 'digg', 'google', 'reddit', 'stumbleupon'],
+		s: ['facebook', 'twitter', 'identica', 'digg', 'google', 'reddit', 'stumbleupon'],
 		url: window.location.href,
 		title: document.title,
 		header: '',

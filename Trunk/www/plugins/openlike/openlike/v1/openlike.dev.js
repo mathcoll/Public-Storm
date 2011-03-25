@@ -142,7 +142,7 @@ if (!OPENLIKE.Widget) {
 					title = encodeURIComponent(cfg.title);
 				return 'http://digg.com/submit?phase=2&url=' + url + '&title=' + title;
 			},
-			title: 'Like this on Digg'
+			title: 'Digg'
 		},
 		facebook: {
 			html: function(cfg) {
@@ -159,7 +159,8 @@ if (!OPENLIKE.Widget) {
 				var url = encodeURIComponent(cfg.url),
 					title = encodeURIComponent(cfg.title);
 				return 'http://www.facebook.com/sharer.php?u=' + url + '&t=' + title;
-			}
+			},
+			title: 'Facebook'
 		},
 		google: {
 			url: 'http://google.com',
@@ -169,7 +170,7 @@ if (!OPENLIKE.Widget) {
 					// add srcURL too?
 				return 'http://www.google.com/buzz/post?message=' + msg + '&url=' + url;
 			},
-			title: 'Like this on Google Buzz'
+			title: 'Google Buzz'
 		},
 		hunch: {
 			url: 'http://hunch.com',
@@ -183,7 +184,15 @@ if (!OPENLIKE.Widget) {
 				target: '_blank',
 				attrs: 'width=610,height=600'
 			},
-			title: 'Add this to your Hunch taste profile'
+			title: 'Hunch'
+		},
+		identica: {
+			url: 'http://identi.ca',
+			basicLink: function(a, cfg) {
+				var msg = encodeURIComponent('I like this: ' + cfg.url + ' #publicstorm');
+				return 'http://identi.ca/index.php?action=newnotice&status_textarea=' + msg;
+			},
+			title: 'Identi.ca'
 		},
 		reddit: {
 			url: 'http://reddit.com/',
@@ -192,7 +201,7 @@ if (!OPENLIKE.Widget) {
 					title = encodeURIComponent(cfg.title);
 				return 'http://www.reddit.com/submit?url=' + url + '&title=' + title;
 			},
-			title: 'Like this on Reddit'
+			title: 'Reddit'
 		},
 		stumbleupon: {
 			url: 'http://www.stumbleupon.com/',
@@ -200,15 +209,15 @@ if (!OPENLIKE.Widget) {
 				var url = encodeURIComponent(cfg.url);
 				return 'http://www.stumbleupon.com/submit?url=' + url;
 			},
-			title: 'Like this on StumbleUpon'
+			title: 'StumbleUpon'
 		},
 		twitter: {
 			url: 'http://twitter.com',
 			basicLink: function(a, cfg) {
-				var msg = encodeURIComponent('I like this: ' + cfg.url + ' #openlike');
+				var msg = encodeURIComponent('I like this: ' + cfg.url + ' #publicstorm');
 				return 'http://twitter.com/home?status=' + msg;
 			},
-			title: 'Tweet this like'
+			title: 'Twitter'
 		}
 	};
 }
