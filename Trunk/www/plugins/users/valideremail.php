@@ -24,17 +24,12 @@
 include_once("./core.php");
 $email = $_GET["email"];
 $regex = "@^([a-zA-Z0-9]+(([\\.\\-\\_]?[a-zA-Z0-9]+)+)?)\\@(([a-zA-Z0-9]+[\\.\\-\\_])+[a-zA-Z]{2,4})$@";
-if ( !preg_match($regex, $email) )
-{
-	# TODO : localiser
-	print "L'adresse e-mail $email n'est pas valide";
-}
-else
-{
-	if ( $email = User::getLoginFromEmail($email) )
-	{
+if ( !preg_match($regex, $email) ) {
+	print i18n::_("L'adresse e-mail '%s' n'est pas valide", array($email));
+} else {
+	if ( $email = User::getLoginFromEmail($email) ) {
 		# TODO : localiser
-		print "Error user exists";
+		print i18n::_("Error : user exists");
 	}
 }
 exit;
