@@ -36,7 +36,11 @@ gettext("mot_de_passe_oublie");
 
 ?><?php
 gettext("mes_parametres");
-gettext("Aucun paramètre n'est configurable actuellement.");
+gettext("Vous pouvez vous inscrire à la newsletter du site Internet Collaboratif pour recevoir des informations sur les projets en cours. (3 à 4 emails par an)");
+gettext("Nom :");
+gettext("Prénom :");
+gettext("S'abonner");
+gettext("Gérer mes abonnements");
 
 ?><?php
 gettext("Vous avez oublié votre mot de passe ? Saisissez votre identifiant OU votre email et nous vous enverrons un nouveau mot de passe immédiatement.");
@@ -46,7 +50,7 @@ gettext("valider");
 
 ?><?php
 gettext("Mes favoris");
-gettext("Semaine");
+gettext("by");
 
 ?><?php
 gettext("Pages :");
