@@ -4203,6 +4203,34 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 526.18109 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3047"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3049"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3066"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3071"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -4211,9 +4239,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.0000001"
-     inkscape:cx="83.988406"
-     inkscape:cy="852.76267"
+     inkscape:zoom="2.8284274"
+     inkscape:cx="29.937891"
+     inkscape:cy="703.49455"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -4243,6 +4271,10 @@
        orientation="0,1"
        position="98.571429,814.28572"
        id="guide8343" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="6.5407371,799.91447"
+       id="guide3072" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -4263,7 +4295,7 @@
        inkscape:export-ydpi="97"
        inkscape:export-xdpi="97"
        inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sprite.png"
-       transform="matrix(1.240411,0,0,1.240411,227.34242,407.27555)"
+       transform="matrix(1.240411,0,0,1.240411,227.84242,407.27555)"
        id="g11183"
        style="display:inline">
       <path
@@ -4842,7 +4874,7 @@
       </g>
     </g>
     <image
-       y="280.57651"
+       y="274.36218"
        x="-1.1608122e-07"
        id="image7830"
        height="22"
@@ -4853,7 +4885,7 @@
        inkscape:export-xdpi="97"
        inkscape:export-ydpi="97" />
     <image
-       y="302.45154"
+       y="296.36218"
        x="-1.1608122e-07"
        id="image7962"
        height="22"
@@ -4864,8 +4896,8 @@
        inkscape:export-xdpi="97"
        inkscape:export-ydpi="97" />
     <image
-       y="258.54468"
-       x="-0.019638177"
+       y="252.36218"
+       x="0"
        id="image8029"
        height="22"
        width="22"
@@ -4875,19 +4907,19 @@
        inkscape:export-xdpi="97"
        inkscape:export-ydpi="97" />
     <image
-       y="346.5665"
-       x="-1.1608122e-07"
+       y="406.36218"
+       x="0"
        id="image8198"
-       height="30"
-       width="30"
+       height="22"
+       width="22"
        sodipodi:absref="accessories-text-editor.png"
        xlink:href="accessories-text-editor.png"
        inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sprite.png"
        inkscape:export-xdpi="97"
        inkscape:export-ydpi="97" />
     <image
-       y="324.5907"
-       x="-0.077041745"
+       y="318.36218"
+       x="0"
        id="image8282"
        height="22"
        width="22"
@@ -5038,5 +5070,46 @@
          d="M 25.373279,70.270014 L 22.032571,70.475309 L 22.032571,71.18451 L 22.312519,71.18451 C 23.161015,71.184504 23.189688,71.234288 23.189688,72.472269 L 23.189688,76.29822 C 23.951062,76.278935 24.716586,76.268824 25.485258,76.260893 C 25.682909,75.279437 26.140649,74.767839 26.84767,74.767839 C 27.521378,74.767845 27.925572,75.274337 28.07944,76.260893 C 28.879042,76.266137 29.676458,76.262034 30.468326,76.279557 C 30.168413,74.752282 29.045571,73.722702 27.538208,73.722702 C 26.606243,73.722708 25.943584,74.044526 25.373279,74.767839 L 25.373279,70.270014 z M 34.630214,70.270014 L 31.289506,70.475309 L 31.289506,71.18451 L 31.55079,71.18451 C 32.399299,71.184504 32.446623,71.234288 32.446623,72.472269 L 32.446623,76.354209 C 33.17706,76.379914 33.907361,76.392879 34.630214,76.428862 L 34.630214,70.270014 z M 38.474828,70.270014 C 37.793249,70.27002 37.243059,70.815445 37.243059,71.483121 C 37.243053,72.150796 37.802398,72.733553 38.456165,72.733553 C 39.151659,72.733553 39.706598,72.178615 39.706598,71.483121 C 39.706598,70.815445 39.142504,70.270014 38.474828,70.270014 z M 2.2682687,70.475309 L 2.2682687,71.240499 L 2.4735636,71.240499 C 3.1968766,71.240505 3.4868277,71.288032 3.6120173,71.427131 C 3.7093883,71.552327 3.7239963,71.600702 3.7239963,72.490932 L 3.7239963,78.108548 C 4.5468243,77.971211 5.38435,77.839696 6.2248618,77.716621 L 6.2248618,76.204904 L 7.7739053,76.204904 C 10.681073,76.204904 12.159751,75.22217 12.159751,73.274785 C 12.159751,72.231541 11.650244,71.377848 10.760013,70.960552 C 10.008876,70.612813 9.1835573,70.475309 7.7925685,70.475309 L 2.2682687,70.475309 z M 6.9900519,71.240499 L 7.5499472,71.240499 C 8.8713776,71.240505 9.4722542,71.865133 9.4722542,73.256122 C 9.4722423,74.85575 8.8217545,75.439714 7.0273783,75.439714 L 6.2248618,75.439714 L 6.2248618,72.080342 C 6.2248558,71.398769 6.36411,71.240499 6.9900519,71.240499 z M 45.492182,73.722702 C 43.334522,73.722708 41.735963,75.046981 41.535589,76.932768 C 42.339401,77.011428 43.133449,77.102713 43.924475,77.194052 C 43.923806,77.15577 43.924475,77.121131 43.924475,77.082073 C 43.924475,75.42679 44.542259,74.450565 45.585498,74.450565 C 45.988879,74.450559 46.313362,74.619931 46.313362,74.842492 C 46.313368,74.884226 46.289246,74.950768 46.164056,75.103777 C 45.927592,75.395884 45.865445,75.530026 45.865445,75.794314 C 45.865445,76.392437 46.336223,76.802125 47.003899,76.802125 C 47.768946,76.802119 48.254332,76.335749 48.254332,75.626345 C 48.254338,74.485724 47.175278,73.722702 45.492182,73.722702 z M 15.985702,73.94666 L 12.68232,74.039976 L 12.68232,74.749176 L 12.906278,74.749176 C 13.76869,74.749176 13.788202,74.771488 13.802111,76.092925 L 13.802111,76.839452 C 14.52546,76.774773 15.252953,76.70706 15.985702,76.65282 L 15.985702,73.94666 z M 20.632833,73.94666 L 17.329451,74.039976 L 17.329451,74.749176 L 17.553409,74.749176 C 18.401912,74.749176 18.449241,74.799307 18.449241,76.092925 L 18.449241,76.484851 C 19.176,76.443392 19.898095,76.422591 20.632833,76.391536 L 20.632833,73.94666 z M 39.613282,73.94666 L 36.347226,74.039976 L 36.347226,74.749176 L 36.533858,74.749176 C 37.382367,74.749176 37.42969,74.817618 37.42969,76.055598 L 37.42969,76.596831 C 38.160528,76.647146 38.891546,76.704115 39.613282,76.764799 L 39.613282,73.94666 z"
          id="path4602" />
     </g>
+    <image
+       y="340.36218"
+       x="0"
+       id="image3049"
+       height="22"
+       width="22"
+       sodipodi:absref="emblem-favorite.png"
+       xlink:href="emblem-favorite.png"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sprite.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <image
+       y="362.36218"
+       x="0"
+       id="image3051"
+       height="22"
+       width="22"
+       sodipodi:absref="emblem-favorite-grey.png"
+       xlink:href="emblem-favorite-grey.png"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sprite.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <image
+       y="384.36218"
+       x="0"
+       id="image3068"
+       height="22"
+       width="22"
+       sodipodi:absref="system-users.png"
+       xlink:href="system-users.png"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sprite.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <image
+       y="428.36218"
+       x="0"
+       id="image3073"
+       height="22"
+       width="22"
+       sodipodi:absref="/home/mathieu/Projets/2011/internetcollaboratif.info/public-storm/Trunk/www/docs/preferences-desktop_002.png"
+       xlink:href="/home/mathieu/Projets/2011/internetcollaboratif.info/public-storm/Trunk/www/docs/preferences-desktop_002.png" />
   </g>
 </svg>

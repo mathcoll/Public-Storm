@@ -55,6 +55,31 @@ final class users extends Plugins
 		return $user[0];
 	}
 	
+	public function addToFavorites($storm_id)
+	{
+		$favorite = self::$db->q2("INSERT INTO favorites (user_id, storm_id) VALUES (:user_id, :storm_id)", "users.db", array(":user_id" => $_SESSION['id'], ":storm_id" => $storm_id));
+		return $favorite[0];
+	}
+	
+	public function removeFromFavorites($storm_id)
+	{
+		$favorite = self::$db->q2("DELETE FROM favorites WHERE user_id=:user_id AND storm_id=:storm_id", "users.db", array(":user_id" => $_SESSION['id'], ":storm_id" => $storm_id));
+		return $favorite[0];
+	}
+	
+	public function isFavorites($storm_id)
+	{
+		$favorite = self::$db->q2("SELECT count(storm_id) as c FROM favorites WHERE user_id=:user_id AND storm_id=:storm_id", "users.db", array(":user_id" => $_SESSION['id'], ":storm_id" => $storm_id));
+		//print_r($favorite);
+		return $favorite[0]["c"];
+	}
+	
+	public function getMyFavorites()
+	{
+		$favorites = self::$db->q2("SELECT storm_id FROM favorites WHERE user_id=:user_id", "users.db", array(":user_id" => $_SESSION['id']));
+		return $favorites;
+	}
+	
 	public function getUsersList()
 	{
 		$users = self::$db->q2("SELECT u.nom, u.prenom, u.email, u.login FROM users u", "users.db", array());

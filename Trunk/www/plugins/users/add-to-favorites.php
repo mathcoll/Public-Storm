@@ -16,35 +16,29 @@
 
     You should have received a copy of the GNU General Public License
     along with Public-Storm. If not, see <http://www.gnu.org/licenses/>.
-    
-    Project started on 2008-11-22 with help from Serg Podtynnyi
-    <shtirlic@users.sourceforge.net>
  */
 
+$uri = split('/', $_SERVER['REQUEST_URI']);
+#$id = array_pop($uri); # TODO : ca retourne rien ???!!!!
 
-switch ( $tab )
+if( Settings::getVar('BASE_URL') != "" )
 {
-	case "mes-parametres" :
-		require(Settings::getVar('plug_dir')."users/mes-parametres.php");
-		break;
-		
-	case "mes-storms" :
-		require(Settings::getVar('plug_dir')."users/mes-storms.php");
-		break;
-		
-	case "mes-informations" :
-		require(Settings::getVar('plug_dir')."users/mes-informations.php");
-		break;
-		
-	case "mes-alertes" :
-		require(Settings::getVar('plug_dir')."users/mes-alertes.php");
-		break;
-		
-	case "mes-favoris" :
-		require(Settings::getVar('plug_dir')."users/mes-favoris.php");
-		break;
-		
-	default : break;
+	$ind = 2;
 }
-print $tabContent;
+else
+{
+	$ind = 1;
+}
+
+
+$storm = $uri[$ind+2];
+try{
+	users::addToFavorites(public_storm::getStormIdFromUrl($storm));
+	$_SESSION["message"] = i18n::_("Le Storm '%s' à été ajouté à vos favoris !", array($storm));
+} catch(Exception $e) {
+	$_SESSION["message"] = i18n::_("Une erreur est survenue !");
+}
+header("HTTP/1.1 302 Moved temporarily", false, 302);
+header("Location: ".$_SERVER['HTTP_REFERER'], false, 302);
+exit;
 ?>

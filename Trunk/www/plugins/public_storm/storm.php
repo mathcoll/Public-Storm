@@ -170,6 +170,7 @@ if ( isset($id) || isset($_SESSION['id']) )
 	$sPlug->AddData("avatar", "http://www.gravatar.com/avatar/".md5( strtolower( $author['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&size=30");
 	
 	$sPlug->AddData("contributors", public_storm::getContributors($id, $storm['user_id']));
+	$sPlug->AddData("is_favorites", users::isFavorites($id));
 	if( $statuses['users'] == 1 )
 	{
 		$user = Array(

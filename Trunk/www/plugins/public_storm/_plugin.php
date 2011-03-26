@@ -163,6 +163,28 @@ final class public_storm extends Plugins
 		return $storms;
 	}
 	
+	public function getStormsByFavorites()
+	{
+		$liste = array();
+		$storms = array();
+		foreach( users::getMyFavorites() as $favorite ) {
+			array_push($liste, $favorite["storm_id"]);
+		}
+		//print_r($favorites);
+		$q = "SELECT s.* FROM storms s WHERE s.storm_id IN(".implode(",", $liste).") ORDER BY s.date DESC";
+		//print $q;
+		$storms = self::$db->q2($q, "public_storms.db", array());
+		//print_r($storms);
+		for($n=0; $n<sizeOf($storms); $n++)
+		{
+			$author = self::getStormAuthor($storms[$n]['user_id']);
+			$storms[$n]['author'] = $author['prenom']." ".$author['nom'];
+			$storms[$n]['author_login'] = $author['login'];
+			$storms[$n]['url'] = self::getUrl($storms[$n]['permaname']);
+		}
+		return $storms;
+	}
+	
 	public function getStormsByDate($from=0, $nb=null)
 	{
 		$q = "SELECT s.* FROM storms s ORDER BY s.date DESC";

@@ -47,6 +47,16 @@ switch ( $uri[$ind+1] )
 		exit;
 		break;
 		
+	case "add-to-favorites" :
+		require("add-to-favorites.php");
+		exit;
+		break;
+		
+	case "remove-from-favorites" :
+		require("remove-from-favorites.php");
+		exit;
+		break;
+		
 	case "login" :
 		require("login.php");
 		//exit;

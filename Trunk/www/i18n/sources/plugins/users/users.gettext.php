@@ -45,6 +45,10 @@ gettext("field.login");
 gettext("valider");
 
 ?><?php
+gettext("Mes favoris");
+gettext("Semaine");
+
+?><?php
 gettext("Pages :");
 gettext("Page précédente");
 gettext("Page suivante");
@@ -91,6 +95,7 @@ gettext("valider");
 gettext("mes_informations");
 gettext("mes_parametres");
 gettext("mes_storms");
+gettext("Mes favoris");
 
 ?><?php
 gettext("field.prenom");
