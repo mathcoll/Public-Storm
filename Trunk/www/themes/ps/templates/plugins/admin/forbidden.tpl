@@ -1,1 +1,1 @@
-<p>{t}forbidden_details{/t}</p>
+<p>{t escape=""}forbidden_details{/t}</p>
