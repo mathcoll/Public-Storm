@@ -69,8 +69,8 @@ p
 h1
 {
 	font-size: 1.5em;
-	padding-left: 90px;
-	display: inline;
+	padding-left:95px;
+	display:inline;
 }
 
 h1 span.baseline
@@ -85,7 +85,7 @@ h2
 	text-align: left;
 	font-size: 1.5em;
 	color: #156e1e;
-	margin-bottom: 1em;
+	margin:10px 0 0 0;
 	background: url(../img/underline.png) repeat-x left bottom;
 	border-left: #156e1e 1em solid;
 	padding: 0 0 0 .3em;
@@ -199,7 +199,16 @@ div.description
 
 div.breadcrumb
 {
-	margin: 10px 0 0 0;
+	margin: 10px 0;
+}
+div.breadcrumb ul
+{
+	margin:0;
+	padding:0 0 0 20px;
+}
+div.breadcrumb ul li
+{
+	display:inline;
 }
 
 #footer, #pre-footer
@@ -754,7 +763,7 @@ div#menu ol.navigation li a:hover
 
 div#menu ul li
 {
-	padding: 0 2em 0 0;
+	padding: 0 1em 0 0;
 }
 
 div.scroll

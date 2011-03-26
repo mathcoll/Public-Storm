@@ -6,7 +6,7 @@
 
 {t}Liste des Storms triés par ordre alphabêtique :{/t}
 
-{include file="./pagination.tpl" nb_pages=$nb_pages current_page=$current_page base_url_http=$base_url_http}
+{include file="pagination.tpl" nb_pages=$nb_pages current_page=$current_page base_url_http=$base_url_http}
 
 <div class="table _100">
 	<div class="table-row">
@@ -34,4 +34,4 @@
 	</div>
 </div>
 
-{include file="./pagination.tpl" nb_pages=$nb_pages current_page=$current_page base_url_http=$base_url_http}
+{include file="pagination.tpl" nb_pages=$nb_pages current_page=$current_page base_url_http=$base_url_http}

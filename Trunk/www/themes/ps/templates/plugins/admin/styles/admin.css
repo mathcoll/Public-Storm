@@ -1,37 +1,5 @@
 /* admin */
 
-#menu
-{
-	float: left;
-	width: 25%;
-	margin: 0 0 1em 0;
-}
-#menu ul
-{
-	margin: 0;
-	padding: 0 0 0 1em;
-}
-#menu li
-{
-	list-style: none;
-}
-#menu li a
-{
-	display: block;
-	margin: 0 0 1px 0; 
-	/*padding: 1em 0 1em .5em;*/
-}
-
-#content
-{
-	float: left;
-	border-left: 5px solid #156e1e;
-	padding: 1em;
-	margin: 0 0 1em 0;
-	min-height: 10em;
-	/*height: 100em;*/
-	width: 72%;
-}
 #configuration
 {
 	background-image: url(../img/preferences-system_002.png);

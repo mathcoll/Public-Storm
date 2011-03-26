@@ -1,8 +1,95 @@
 /* users */
 
+#menu
+{
+	float: left;
+	width: 220px;
+	margin: 0 0 1em 0;
+}
+#menu ul
+{
+	margin: 0;
+	padding: 0 0 0 1em;
+}
+#menu li
+{
+	list-style: none;
+}
+#menu li a
+{
+	display: block;
+	margin: 0 0 1px 0; 
+}
+
+#content
+{
+	float: left;
+	border-left: 5px solid #156e1e;
+	padding: 1em;
+	margin: 0 0 1em 0;
+	min-height: 10em;
+	width: 72%;
+}
+.tab
+{
+	background-color: #ffffff;
+	color: #156e1e;
+}
+.tab-hightlight
+{
+	background-color: #156e1e;
+	color: #000000;
+}
+
+
+#mes-informations
+{
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -343px;
+	padding:5px 0 5px 30px;
+}
+#mes-informations:hover
+{
+	background-color: #A3AB0E;
+	color: #000000;
+}
+
+#mes-parametres
+{
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -462px;
+	padding:5px 0 5px 30px;
+}
+#mes-parametres:hover
+{
+	background-color: #A3AB0E;
+	color: #000000;
+}
+
+#mes-storms
+{
+	background: transparent url(../../../img/sprite.png) no-repeat 0 0px;
+	padding:5px 0 5px 30px;
+}
+#mes-storms:hover
+{
+	background-color: #A3AB0E;
+	color: #000000;
+}
+
+#mes-favoris
+{
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -367px;
+	padding:5px 0 5px 30px;
+}
+#mes-favoris:hover
+{
+	background-color: #A3AB0E;
+	color: #000000;
+}
+
 ul.nolist
 {
 	list-style: none;
+	margin:10px;
 }
 ul.nolist li a
 {
@@ -12,7 +99,6 @@ ul.nolist li a
 
 #login
 {
-	/*margin-left: 60%;*/
 	position: absolute;
 	top: 0;
 	right: 21em;

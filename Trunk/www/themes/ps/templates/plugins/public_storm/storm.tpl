@@ -16,8 +16,8 @@
 
 <div class="table">
 	<div class="table-row">
+{* colomn 1 *}
 		<div class="table-cell _w200">
-			
 			<div class="fiche">
 				<div class="ficheContainer _w200">
 					<label class="date">{t}Création du storm :{/t}</label>
@@ -29,7 +29,7 @@
 						<br />
 					{/if}
 					{if $contributors ne ""}{* should'nt be null ! :-) *}
-					<label class="author">{t}Contributeurs :{/t}</label>
+					<label class="contributors">{t}Contributeurs :{/t}</label>
 						<ul>
 							{foreach from=$contributors item=contributor}
 								<li>
@@ -50,22 +50,27 @@
 						<br />
 					{/if}
 					
-					<label style="display:block;float:left;"></label>
-					<a href="{$base_url}/odsExport/{$storm.permaname|url}/" class="stormExport">{t}export2ods{/t}</a><br /><br />
-					<a href="{$base_url}/csvExport/{$storm.permaname|url}/" class="stormExport">{t}export2csv{/t}</a><br /><br />
-					
-					<br />
+					<ul class="tools">
+						<li><a href="{$base_url}/odsExport/{$storm.permaname|url}/" class="stormExport">{t}export2ods{/t}</a></li>
+						<li><a href="{$base_url}/csvExport/{$storm.permaname|url}/" class="stormExport">{t}export2csv{/t}</a></li>
+						{if $user.logged}
+							{if $is_favorites eq 0}
+								<li><a href="{$base_url}/utilisateurs/add-to-favorites/{$storm.permaname|url}/" class="add-to-favorites">{t}Ajouter aux favoris{/t}</a></li>
+							{else}
+								<li><a href="{$base_url}/utilisateurs/remove-from-favorites/{$storm.permaname|url}/" class="remove-from-favorites">{t}Enlever des favoris{/t}</a></li>
+							{/if}
+						{/if}
+					</ul>
 				</div><!-- //fiche container -->
 			</div><!-- //fiche -->
 		</div>
-		
+
+{* colomn 2 *}
 		<div class="table-cell _20">
-			{*
 			<p>
-				{t}accroche incitation suggestion{/t}
+				{t 1=$rootCap escape=""}accroche incitation suggestion{/t}
 			</p>
-			*}
-			<h4><label for="suggestion">{t 1=$rootCap escape=""}suggest_it{/t}</label></h4>
+			{*<h4><label for="suggestion">{t 1=$rootCap escape=""}suggest_it{/t}</label></h4>*}
 			<form action="{$base_url}/storm/add_suggestion/" method="post" class="suggestion" id="suggestionForm" onsubmit="add_suggestion('{$base_url}'); return false;">
 				<input type="hidden" name="storm_id" id="storm_id" value="{$storm.storm_id}" />
 				<input type="hidden" name="storm_permaname" id="storm_permaname" value="{$storm.root|ucfirst}" />	
@@ -81,9 +86,12 @@
 				<p><a href="{$base_url}/utilisateurs/creer-un-compte.php">{t}creer_un_compte{/t}</a> - <a href="{$base_url}/utilisateurs/mot-de-passe-oublie.php">{t}mot_de_passe_oublie{/t}</a></p>
 			{/if}
 			
+			<hr />
+			
 			{include file="../openlike/openlike.tpl" rootCap=$rootCap base_url_http=$base_url_http}
 		</div>
-		
+
+{* colomn 3 *}
 		<div class="table-cell _60">
 			<div class="table">
 				<div class="table-row">

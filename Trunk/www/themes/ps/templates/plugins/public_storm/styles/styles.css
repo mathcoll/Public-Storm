@@ -160,29 +160,63 @@ span.data
 	font-weight: bold;
 	line-height: 16px;
 }
+ul.tools{
+	margin:0;
+	padding:0 0 20px 0;
+}
+ul.tools li{
+	margin:10px 0;
+	list-style:none;
+}
+ul.tools li a{
+	display:block;
+}
 a.stormExport
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -327px;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -320px;
 	padding: 3px 0 5px 25px;
 }
 a.stormExport:hover
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -327px;
+	background: transparent url(../../../img/sprite.png) no-repeat 1px -319px !important;
+}
+a.add-to-favorites
+{
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -368px;
+	padding: 3px 0 5px 25px;
+}
+a.add-to-favorites:hover
+{
+	background: transparent url(../../../img/sprite.png) no-repeat 1px -367px !important;
+}
+a.remove-from-favorites
+{
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -392px;
+	padding: 3px 0 5px 25px;
+}
+a.remove-from-favorites:hover
+{
+	background: transparent url(../../../img/sprite.png) no-repeat 1px -391px !important;
 }
 label.date
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -280px;
-	padding: 3px 0 5px 25px;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -272px;
+	padding: 3px 0 5px 30px;
 }
 label.author
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -350px;
-	padding: 3px 0 5px 25px;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -345px;
+	padding: 3px 0 5px 30px;
+}
+label.contributors
+{
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -414px;
+	padding: 3px 0 5px 30px;
 }
 label.connected
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -304px;
-	padding: 3px 0 5px 25px;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -296px;
+	padding: 3px 0 5px 30px;
 }
 
 div.fiche h4.fiche
