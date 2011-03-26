@@ -1,9 +1,19 @@
 <!--<div class="spacer">&nbsp;</div>-->
-<div class="breadcrumb">{foreach from=$breadcrumb item=it name=breadcrumb}
-{if $smarty.foreach.breadcrumb.last}
-	{$it.name|ucfirst}
-{else}
-	{if $it.link ne ""}<a href="{$it.link}">{$it.name|ucfirst}</a>{else}{$it.name|ucfirst}{/if}&nbsp;>&nbsp;
-{/if}
-{/foreach}
+<div class="breadcrumb">
+	<ul>
+	{foreach from=$breadcrumb item=it name=breadcrumb}
+		<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+		{if $smarty.foreach.breadcrumb.last}
+			{$it.name|ucfirst}
+		{else}
+			{if $it.link ne ""}
+				<a href="{$it.link}" itemprop="url"><span itemprop="title">{$it.name|ucfirst}</span></a>
+			{else}
+				<span itemprop="title">{$it.name|ucfirst}</span>
+			{/if}
+			&nbsp;>&nbsp;
+		{/if}
+		</li>
+	{/foreach}
+	</ul>
 </div>
