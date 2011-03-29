@@ -63,10 +63,12 @@
 					</ul>
 				</div><!-- //fiche container -->
 			</div><!-- //fiche -->
+			
+			{include file="../openlike/openlike.tpl" rootCap=$rootCap base_url_http=$base_url_http}
 		</div>
 
 {* colomn 2 *}
-		<div class="table-cell _20">
+		<div class="table-cell _20 accroche-suggestion">
 			<p>
 				{t 1=$rootCap escape=""}accroche incitation suggestion{/t}
 			</p>
@@ -85,10 +87,6 @@
 			{else}
 				<p><a href="{$base_url}/utilisateurs/creer-un-compte.php">{t}creer_un_compte{/t}</a> - <a href="{$base_url}/utilisateurs/mot-de-passe-oublie.php">{t}mot_de_passe_oublie{/t}</a></p>
 			{/if}
-			
-			<hr />
-			
-			{include file="../openlike/openlike.tpl" rootCap=$rootCap base_url_http=$base_url_http}
 		</div>
 
 {* colomn 3 *}

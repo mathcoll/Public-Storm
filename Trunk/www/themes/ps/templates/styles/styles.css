@@ -142,9 +142,7 @@ div.description
 {
 	height: 80px;
 	margin-top : 1em;
-	/*background: url(../img/logo64.png) no-repeat 0em -10px;*/
-	background: url(../img/sprite.png) no-repeat;
-	background-position: 0px -190px;
+	background: url(../img/sprite.png) no-repeat 0px -155px;
 }
 
 
@@ -291,8 +289,8 @@ div.breadcrumb ul li
 
 #message
 {
-	padding: .5em .5em .5em 95px;
-	background: url(../img/sprite.png) no-repeat 0 -180px;
+	padding: .5em .5em 0 95px;
+	background: url(../img/sprite.png) no-repeat 0 -150px;
 	font-size:1.5em;
 }
 

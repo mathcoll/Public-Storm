@@ -84,11 +84,15 @@ li span.size
 form.suggestion input[type="text"]
 {
 	border:1px solid #156e1e;
-	width: 240px;
+	width: 170px;
 }
 form.suggestion input[type="text"]:focus
 {
 	background: #a3ab0e;
+}
+.accroche-suggestion {
+	padding:190px 0 0 0!important;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -615px !important;
 }
 li.hidden, .hidden
 {
@@ -173,57 +177,54 @@ ul.tools li a{
 }
 a.stormExport
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -320px;
-	padding: 3px 0 5px 25px;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -397px;
+	padding:13px 0 5px 30px;
 }
 a.stormExport:hover
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 1px -319px !important;
+	background: transparent url(../../../img/sprite.png) no-repeat 1px -396px !important;
 }
 a.add-to-favorites
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -368px;
-	padding: 3px 0 5px 25px;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -458px;
+	padding:13px 0 5px 30px;
 }
 a.add-to-favorites:hover
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 1px -367px !important;
+	background: transparent url(../../../img/sprite.png) no-repeat 1px -457px !important;
 }
 a.remove-from-favorites
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -392px;
-	padding: 3px 0 5px 25px;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -487px;
+	padding:10px 0 5px 30px;
 }
 a.remove-from-favorites:hover
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 1px -391px !important;
+	background: transparent url(../../../img/sprite.png) no-repeat 1px -486px !important;
 }
 label.date
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -272px;
-	padding: 3px 0 5px 30px;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -335px;
+	padding:13px 0 5px 30px;
 }
 label.author
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -345px;
-	padding: 3px 0 5px 30px;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -430px;
+	padding:10px 0 5px 30px;
 }
 label.contributors
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -414px;
-	padding: 3px 0 5px 30px;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -516px;
+	padding:13px 0 5px 30px;
 }
 label.connected
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -296px;
-	padding: 3px 0 5px 30px;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -369px;
+	padding:10px 0 5px 30px;
 }
 
 div.fiche h4.fiche
 {
-	/*padding: 0px 10px 10px 10px;*/
-	/*margin-top: 44px;*/
-	/*border: 2px dashed #a3ab0e;*/
 	margin: 0;
 	padding: 24px 0 20px 8px;
 	text-indent: 35px;
