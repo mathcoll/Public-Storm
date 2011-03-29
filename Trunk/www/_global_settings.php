@@ -50,9 +50,6 @@ define('LANG', 'fr_FR.utf8');
 // Timezone
 Settings::setVar('timezone', 'Europe/Paris', 'admin', 'Website timezone');
 
-// define list of available periods
-$periodes = array(1, 7, 15, 30, 60, 182, 365); 
-
 /* viewer_smarty or viewer_default */
 Settings::$VIEWER_TYPE = 'viewer_smarty';
 
