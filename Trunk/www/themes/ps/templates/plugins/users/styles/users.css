@@ -55,7 +55,7 @@
 
 #mes-parametres
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -462px;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -372px;
 	padding:5px 0 5px 30px;
 }
 #mes-parametres:hover
@@ -77,7 +77,7 @@
 
 #mes-favoris
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -367px;
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -460px;
 	padding:5px 0 5px 30px;
 }
 #mes-favoris:hover

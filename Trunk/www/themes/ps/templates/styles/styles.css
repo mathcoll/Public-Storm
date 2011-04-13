@@ -50,6 +50,8 @@ a.block
 {
 	z-index: 9999;
 	display:none;
+	position:absolute;
+	clip:rect(0px, 420px, 80px, 0px);
 }
 small.author,
 small.author a
@@ -97,8 +99,7 @@ h3
 	color: #156e1e;
 	font-size: 1.3em;
 	margin: 1em 0 0 0;
-	padding: 0 0 0 1em;
-	/*background: transparent url(../img/lightning.png) no-repeat 0 0;*/
+	padding: 0.3em 0 0.5em 1.5em;
 	background: transparent url(../img/sprite.png) no-repeat 0 0;
 }
 
@@ -761,7 +762,7 @@ div#menu ol.navigation li a:hover
 
 div#menu ul li
 {
-	padding: 0 1em 0 0;
+	padding: 1em 1em 0 0;
 }
 
 div.scroll
