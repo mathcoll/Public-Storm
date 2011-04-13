@@ -41,30 +41,32 @@ $sPlug->AddData("title", Settings::getVar('title'));
 Settings::setVar('description', '&nbsp;');
 #$sPlug->->AddData("i18n", i18n::getLng());
 
-if ( $_POST )
-{
-	if ( $securimage->check($_POST['captcha_code']) == false )
-	{
+if ( $_POST ) {
+	if ( $securimage->check($_POST['captcha_code']) == false ) {
 		$_SESSION["message"] = i18n::_("The code you entered was incorrect. Go back and try again.");
 		Settings::setVar('pageview', '/creer-un-compte-captcha-error');
-	}
-	else
-	{
-		$_POST['lang'] = $_POST['lang'] != "" ? $_POST['lang'] : $_SESSION['LANG'];
-		if ( User::userAdd($_POST) )
-		{
-			$_SESSION["message"] = i18n::_("Vérifier voter boite de réception email !");
-			Settings::setVar('pageview', '/creer-un-compte-ok');
-			User::sendWelcomeMail($_POST, $sPlug);
-		}
-		else
-		{
-			$_SESSION["message"] = i18n::_("Erreur lors de la création du compte !");
+	} else {
+		if ( $_POST['email'] == null ) {
+			$_SESSION["message"] = i18n::_("Veuillez spécifier un email !");
 			Settings::setVar('pageview', '/creer-un-compte-error');
+		} else {
+			if ( $_POST['login'] == null ) {
+				$_SESSION["message"] = i18n::_("Veuillez spécifier un identifiant !");
+				Settings::setVar('pageview', '/creer-un-compte-error');
+			} else {
+				$_POST['lang'] = $_POST['lang'] != "" ? $_POST['lang'] : $_SESSION['LANG'];
+				if ( User::userAdd($_POST) ) {
+					$_SESSION["message"] = i18n::_("Vérifier voter boite de réception email !");
+					Settings::setVar('pageview', '/creer-un-compte-ok');
+					User::sendWelcomeMail($_POST, $sPlug);
+				} else {
+					$_SESSION["message"] = i18n::_("Erreur lors de la création du compte !");
+					Settings::setVar('pageview', '/creer-un-compte-error');
+				}
+			}
 		}
 	}
 }
-
 
 
 $breadcrumb = Settings::getVar('breadcrumb');

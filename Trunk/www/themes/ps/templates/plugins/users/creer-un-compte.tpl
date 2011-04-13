@@ -3,6 +3,7 @@
 	<div class="table-row">
 		<div class="table-cell _50" style="padding:10px">
 			<p>{$i18n.inscription_intro}</p>
+			<p>{t}Les champs marqués d'un * sont obligatoires.{/t}</p>
 			<div class="spacer">&nbsp;</div>
 			<div>
 				<form action="{$base_url}/utilisateurs/creer-un-compte.php" method="post" class="formulaire">
@@ -29,7 +30,7 @@
 						
 						<div class="table-row">
 							<div class="table-cell">
-								<label for="emailField"><img style="display: none;" src="{$theme_dir}img/dialog-warning_002.png" alt="warning" id="emailError" class="pictoError" height="15" width="15" /><img style="display: none;" src="{$theme_dir}img/apply.png" alt="valid" id="emailValid" class="pictoValid" height="15" width="15" />{t}field.email{/t} :</label>
+								<label for="emailField"><img style="display: none;" src="{$theme_dir}img/dialog-warning_002.png" alt="warning" id="emailError" class="pictoError" height="15" width="15" /><img style="display: none;" src="{$theme_dir}img/apply.png" alt="valid" id="emailValid" class="pictoValid" height="15" width="15" />{t}field.email{/t}* :</label>
 							</div><!-- //table-cell -->
 							<div class="table-cell">
 								<input type="text" name="email" value="{$user_infos.email}" id="emailField" class="field" onchange="validerEmail(this.value);" />
@@ -38,7 +39,7 @@
 						
 						<div class="table-row">
 							<div class="table-cell">
-								<label for="loginField"><img style="display: none;" src="{$theme_dir}img/dialog-warning_002.png" alt="warning" id="identifiantError" class="pictoError" height="15" width="15" /><img style="display: none;" src="{$theme_dir}img/apply.png" alt="valid" id="identifiantValid" class="pictoValid" height="15" width="15" />{t}field.login{/t} :</label>
+								<label for="loginField"><img style="display: none;" src="{$theme_dir}img/dialog-warning_002.png" alt="warning" id="identifiantError" class="pictoError" height="15" width="15" /><img style="display: none;" src="{$theme_dir}img/apply.png" alt="valid" id="identifiantValid" class="pictoValid" height="15" width="15" />{t}field.login{/t}* :</label>
 							</div><!-- //table-cell -->
 							<div class="table-cell">
 								<input type="text" name="login" id="loginField" value="{$user_infos.login}" class="field" onchange="validerIdentifiant(this.value);" />
@@ -47,7 +48,7 @@
 						
 						<div class="table-row">
 							<div class="table-cell">
-								<label for="password">{t}field.password{/t} :</label>
+								<label for="password">{t}field.password{/t}* :</label>
 							</div><!-- //table-cell -->
 							<div class="table-cell">
 								<input type="password" name="password" value="{$user_infos.password}" id="password" class="field" />
@@ -56,7 +57,7 @@
 						
 						<div class="table-row">
 							<div class="table-cell">
-								<label for="captcha_code">{t escape=""}field.captcha{/t}</label>
+								<label for="captcha_code">{t escape=""}field.captcha{/t}*</label>
 							</div><!-- //table-cell -->
 							<div class="table-cell">
 								<img id="captcha" src="{$base_url}/include/securimage/securimage_show.php" alt="CAPTCHA Image" /><br />
