@@ -4,12 +4,11 @@ $jQuery(document).ready( function() {
 		$jQuery("#message").dialog({
 			title: "Info",
 			resizable: true,
-			modal: true,
-			width:320,
-			height:120
+			modal: true
 		});
-		$jQuery("#message").dialog( "option", "width", "320" );
-		$jQuery("#message").dialog( "option", "height", "120" );
+		$jQuery("#message").dialog( "option", "width", 420 );
+		$jQuery("#message").dialog( "option", "height", 140 );
+		$jQuery("#message").dialog( "option", "buttons", { "Fermer": function() { $jQuery(this).dialog("close"); } } );
 	}
 	if( $jQuery("input[type=submit]").html() ) {
 		$jQuery("input[type=submit]").button({ icons: {primary:'ui-icon-gear', secondary:'ui-icon-triangle-1-s'} });
