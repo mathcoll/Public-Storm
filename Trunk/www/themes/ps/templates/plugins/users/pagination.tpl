@@ -11,7 +11,7 @@
 		{if $current_page eq $smarty.section.foo.iteration}
 			<b>{$smarty.section.foo.iteration}</b>
 		{else}
-			<a href="{$base_url}/utilisateurs/{$login|escape}/{$smarty.section.foo.iteration}/" name="mes-storms" onclick="tab(this.name, this.name, 'utilisateurs', {$smarty.section.foo.iteration});return false;">{$smarty.section.foo.iteration}</a>
+			<a href="{$base_url}/utilisateurs/{$login|escape}/{$smarty.section.foo.iteration}/" {if $tabbed}name="mes-storms" onclick="tab(this.name, this.name, 'utilisateurs', {$smarty.section.foo.iteration});return false;"{/if}>{$smarty.section.foo.iteration}</a>
 		{/if}
 	</li>
 	{/section}

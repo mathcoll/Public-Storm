@@ -16,7 +16,7 @@ img
 	margin: 0;
 	padding: 0;
 }
-
+ul.list-pages li a {padding:2px 5px;}
 body
 {
 	background: #ffffff;

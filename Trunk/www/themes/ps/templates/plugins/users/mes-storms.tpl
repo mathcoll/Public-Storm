@@ -6,7 +6,7 @@
 {assign var=item_per_col value=$s_count/2}
 <h3>{t}mes_storms{/t}</h3>
 
-{include file="./pagination.tpl" login=$login nb_pages=$nb_pages current_page=$current_page base_url_http=$base_url_http}
+{include file="./pagination.tpl" tabbed=true login=$login nb_pages=$nb_pages current_page=$current_page base_url_http=$base_url_http}
 
 <div class="table _100">
 	<div class="table-row">
@@ -44,4 +44,4 @@
 	</div>
 </div>
 
-{include file="./pagination.tpl" login=$login nb_pages=$nb_pages current_page=$current_page base_url_http=$base_url_http}
+{include file="./pagination.tpl" tabbed=true login=$login nb_pages=$nb_pages current_page=$current_page base_url_http=$base_url_http}
