@@ -1,0 +1,22 @@
+/* TEAM */
+	Chef: Mathieu Lory
+	Contact: mathieu [at] internetcollaboratif.info
+	Twitter: @mathcoll
+	From:Clichy, Ile de France, France
+
+	UI developer: Mathieu Lory
+	Twitter: @mathcoll
+	From:Clichy, Ile de France, France
+
+	Web designer: Mathieu Lory
+	Twitter: @mathcoll
+	From:Clichy, Ile de France, France
+
+/* THANKS */
+		
+
+/* SITE */
+	Last update:
+	Language:French
+	Doctype:XHTML 1.0 Stric
+	IDE:Eclipse
