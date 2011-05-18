@@ -49,8 +49,9 @@
 						<span class="data" id="countSubscribers"></span>
 						<br />
 					{/if}
-					
+
 					<ul class="tools">
+						{if $statuses.sendtoafriend eq 1}<li><a href="{$base_url}/sendtoafriend/form/{$storm.permaname|url}/" class="sendToAFriend" title="{t}Partager avec mes amis{/t}">{t}Partager avec mes amis{/t}</a></li>{/if}
 						<li><a href="{$base_url}/odsExport/{$storm.permaname|url}/" class="stormExport">{t}export2ods{/t}</a></li>
 						<li><a href="{$base_url}/csvExport/{$storm.permaname|url}/" class="stormExport">{t}export2csv{/t}</a></li>
 						{if $user.logged}
@@ -153,4 +154,4 @@
 	<img src="{$cache_dir_http}{$storm.storm_id}.jpg" id="neato" style="width:480px;" />
 </div>
 *}
-</div>{* end of div qith attribute 'itemtype' *}
+</div>{* end of div with attribute 'itemtype' *}

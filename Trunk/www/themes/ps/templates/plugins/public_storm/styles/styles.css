@@ -202,6 +202,15 @@ a.remove-from-favorites:hover
 {
 	background: transparent url(../../../img/sprite.png) no-repeat 1px -486px !important;
 }
+a.sendToAFriend
+{
+	background: transparent url(../../../img/sprite.png) no-repeat -30px -457px;
+	padding:13px 0 5px 30px;
+}
+a.sendToAFriend:hover
+{
+	background: transparent url(../../../img/sprite.png) no-repeat -29px -456px !important;
+}
 label.date
 {
 	background: transparent url(../../../img/sprite.png) no-repeat 0 -335px;

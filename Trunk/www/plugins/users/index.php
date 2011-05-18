@@ -104,7 +104,7 @@ switch ( $uri[$ind+1] )
 		exit;
 		break;
 		
-	default :
+	default :/* list storms for a user */
 		if( $user_id = User::userExists($uri[$ind+1]) )
 		{
 			$author = public_storm::getStormAuthor($user_id);

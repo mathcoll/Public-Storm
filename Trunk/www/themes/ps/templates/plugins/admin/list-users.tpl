@@ -64,7 +64,7 @@
 		{if $current_page eq $smarty.section.foo.iteration}
 			<b>{$smarty.section.foo.iteration}</b>
 		{else}
-			<a href="{$base_url}/admin/gettab/list-users/{$smarty.section.foo.iteration}/" onclick="tab('list-users/{$smarty.section.foo.iteration}', 'admin');return false;">{$smarty.section.foo.iteration}</a>
+			<a href="{$base_url}/admin/gettab/list-users/{$smarty.section.foo.iteration}/" onclick="tab('list-users/{$smarty.section.foo.iteration}', 'list-users', 'admin');return false;">{$smarty.section.foo.iteration}</a>
 		{/if}
 	</li>
 	{/section}

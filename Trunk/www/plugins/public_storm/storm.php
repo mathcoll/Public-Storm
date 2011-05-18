@@ -184,6 +184,7 @@ if ( isset($id) || isset($_SESSION['id']) )
 		);
 		$sPlug->AddData("user", $user);
 	}
+	$sPlug->AddData("statuses", $statuses);
 	$content = $sPlug->fetch("storm.tpl", "plugins/public_storm");
 }
 else

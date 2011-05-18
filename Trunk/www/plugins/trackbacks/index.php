@@ -49,8 +49,7 @@ exit;
 
 
 
-
-if( akismet_spam::isSpam($d['post_id'], $d['url'], $d['title'], $d['excerpt'], $d['blog_name']) )
+if( false /*akismet_spam::isSpam($d['post_id'], $d['url'], $d['title'], $d['excerpt'], $d['blog_name'])*/ )
 {
 	print $trackback->recieve(false, "Erreur, SPAM détecté");
 }

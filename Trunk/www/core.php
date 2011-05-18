@@ -24,7 +24,25 @@
 
 
 require_once('./_global_settings.php');
-
+/*
+function __autoload($class_name) 
+{
+	try {
+		@include_once './include/' . strtolower($class_name) . '.class.php';
+		# TODO :
+		if ( defined(DEBUG) && DEBUG == true )
+		{
+			Debug::Log('Class "'.$class_name. '" loaded !', NOTICE);
+		}
+	} catch(Exception $e) {
+		print "ERROR : ".$e;
+		if ( defined(DEBUG) && DEBUG == true )
+		{
+			Debug::Log('Class "'.$class_name. '" not found !', ERROR);
+		}
+	}
+}
+*/
 function __autoload($class_name) 
 {
 	require_once './include/' . strtolower($class_name) . '.class.php';
@@ -33,7 +51,6 @@ function __autoload($class_name)
 		Debug::Log('Class "'.$class_name. '" loaded !', NOTICE);
 	}
 }
-
 date_default_timezone_set(Settings::getVar('timezone'));
 
 Server::Normalize();
