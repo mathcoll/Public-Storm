@@ -48,7 +48,7 @@ else
 	$ind = 1;
 }
 
-$current_page = $uri[$ind+3] != NULL ? $uri[$ind+3] : 1;
+$current_page = ($uri[$ind+3] != NULL) && ($uri[$ind+3] != 'undefined') ? $uri[$ind+3] : 1;
 
 $sTab->AddData("current_page", $current_page);
 $sTab->AddData("nb_pages", round(User::getNbUsers() / Settings::getVar('users_per_page')));
