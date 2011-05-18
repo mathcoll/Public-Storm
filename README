@@ -1,0 +1,5 @@
+install:
+
+pear install Net_URL2-0.3.1
+pear install HTTP_Request2-2.0.0RC1
+pear install HTTP_OAuth-0.2.2
