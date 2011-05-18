@@ -144,7 +144,7 @@ Settings::setVar('mail_templates_path', Settings::getVar('theme_mail_dir'));
 Settings::setVar('page_templates_path_c', Settings::getVar('prefix') . 'cache/');
 Settings::setVar('cache_dir', Settings::getVar('prefix') . 'cache/');
 Settings::setVar('cache_dir_http', Settings::getVar('BASE_URL_HTTP') . '/cache/');
-Settings::setVar('inc_dir', Settings::getVar('ROOT') . 'include/');
+Settings::setVar('inc_dir', Settings::getVar('ROOT') . '/include/');
 Settings::setVar('conf_dir', Settings::getVar('prefix'));
 Settings::setVar('plug_dir', Settings::getVar('ROOT') . 'plugins/');
 Settings::setVar('plug_path', Settings::getVar('ROOT') . 'themes/' . Settings::getVar('SITE_THEME') . '/templates/plugins/');
