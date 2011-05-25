@@ -18,5 +18,5 @@
 /* SITE */
 	Last update:
 	Language:French
-	Doctype:XHTML 1.0 Stric
+	Doctype:XHTML 1.0 Strict
 	IDE:Eclipse
