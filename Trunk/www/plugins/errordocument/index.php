@@ -1,7 +1,7 @@
 <?php
 /*
 Public-Storm
-Copyright (C) 2008-2010 Mathieu Lory <mathieu@internetcollaboratif.info>
+Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
 This file is part of Public-Storm.
 
 Public-Storm is free software: you can redistribute it and/or modify
