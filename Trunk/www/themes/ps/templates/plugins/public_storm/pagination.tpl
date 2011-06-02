@@ -11,7 +11,7 @@
 		{if $current_page eq $smarty.section.foo.iteration}
 			<b>{$smarty.section.foo.iteration}</b>
 		{else}
-			<a href="{$base}{$smarty.section.foo.iteration}/">{$smarty.section.foo.iteration}</a>
+			<a href="{$base}{$smarty.section.foo.iteration}/" title="{t}Storms{/t} {t}page{/t} {$smarty.section.foo.iteration}">{$smarty.section.foo.iteration}</a>
 		{/if}
 	</li>
 	{/section}

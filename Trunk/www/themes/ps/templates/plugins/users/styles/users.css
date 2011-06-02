@@ -144,7 +144,8 @@ ul.nolist li a
 
 ul.liste li
 {
-	line-height: 22px;
+	line-height: 16px;
+	margin: 10px 0 0;
 }
 ul.liste li a.storm
 {

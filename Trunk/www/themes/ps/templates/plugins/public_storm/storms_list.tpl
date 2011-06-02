@@ -36,7 +36,13 @@
 						<div class="table-cell _50"><ul class="liste">
 					{/if}
 					
-					<li><a href="{$base_url}/storm/{$storm.permaname|url}/" class="storm">{$storm.root|ucfirst}</a>{if $storm.author_login ne ""}, créé par <a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a>{/if} le {$storm.date|date_format:"%A %d %B %Y %Hh%M GMT"}</li>
+					<li>
+						<a href="{$base_url}/storm/{$storm.permaname|url}/" class="storm">{$storm.root|ucfirst}</a><br />
+						{if $storm.author_login ne ""}
+							créé par <a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a>
+						{/if}
+						le {$storm.date|date_format:"%A %d %B %Y %Hh%M GMT"}
+					</li>
 					{assign var=week value=$storm.date|date_format:"%W"}
 					{assign var=year value=$storm.date|date_format:"%Y"}
 				{/if}

@@ -201,7 +201,7 @@ div.breadcrumb
 div.breadcrumb ul
 {
 	margin:0;
-	padding:0 0 0 20px;
+	padding:0;
 }
 div.breadcrumb ul li
 {
@@ -265,7 +265,7 @@ div.breadcrumb ul li
 #pre-footer h3
 {
 	color: #FCEE95;
-	padding: 0 0 0 15px;
+	padding: 0 0 0 21px;
 	line-height: 1.5em;
 }
 #pre-footer div.table
