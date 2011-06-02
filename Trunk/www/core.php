@@ -56,6 +56,9 @@ date_default_timezone_set(Settings::getVar('timezone'));
 Server::Normalize();
 header('Content-Type: text/html; charset=utf-8');
 User::$current = Session::Start();
+if( DEBUG == false ) {
+	error_reporting(0);
+}
 #i18n::load();
 
 
