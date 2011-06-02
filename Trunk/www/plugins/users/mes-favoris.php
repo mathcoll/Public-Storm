@@ -30,7 +30,7 @@ $sTab->AddData("prefix", Settings::getVar('prefix'));
 $sTab->AddData("base_url", Settings::getVar('BASE_URL'));
 $sTab->AddData("theme_dir", Settings::getVar('theme_dir'));
 
-$uri = split('/', $_SERVER['REQUEST_URI']);
+$uri = explode('/', $_SERVER['REQUEST_URI']);
 #$id = array_pop($uri); # TODO : ca retourne rien ???!!!!
 
 if( Settings::getVar('BASE_URL') != "" )

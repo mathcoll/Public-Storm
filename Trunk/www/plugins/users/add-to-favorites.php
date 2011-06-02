@@ -18,7 +18,7 @@
     along with Public-Storm. If not, see <http://www.gnu.org/licenses/>.
  */
 
-$uri = split('/', $_SERVER['REQUEST_URI']);
+$uri = explode('/', $_SERVER['REQUEST_URI']);
 #$id = array_pop($uri); # TODO : ca retourne rien ???!!!!
 
 if( Settings::getVar('BASE_URL') != "" )

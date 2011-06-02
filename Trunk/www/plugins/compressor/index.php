@@ -10,7 +10,7 @@
 define('MINIFY_MIN_DIR', dirname(__FILE__));
 
 
-$uri = split('/', $_SERVER['REQUEST_URI']);
+$uri = explode('/', $_SERVER['REQUEST_URI']);
 if( Settings::getVar('BASE_URL') != "" )
 {
 	$ind = 2;
