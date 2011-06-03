@@ -39,13 +39,13 @@ Settings::setVar('SITE_DESCRIPTION', '', 'admin', 'Site description, also define
 Settings::setVar('SITE_VERSION', '11.5.18');
 
 // Debug switch. Set it to true for output additional information.
-define('DEBUG', false);
+@define('DEBUG', false);
 
 // Theme name
 Settings::setVar('SITE_THEME', 'ps', 'admin', 'Website theme name (css theme folder)');
 
 // Default language if nothing specified
-define('LANG', 'fr_FR.utf8');
+@define('LANG', 'fr_FR.utf8');
 
 // Timezone
 Settings::setVar('timezone', 'Europe/Paris', 'admin', 'Website timezone');
@@ -57,7 +57,7 @@ Settings::$VIEWER_TYPE = 'viewer_smarty';
 Settings::setVar('nbCol', '6', 'Number of columns in list pages');
 
 /* DB conf vars */
-define('DB_CONF_FILE', '_global_db.php');
+@define('DB_CONF_FILE', '_global_db.php');
 @require_once(DB_CONF_FILE);
 Settings::$DB_TYPE = DB_TYPE;
 Settings::setVar('DB_HOST', DB_HOST, 'admin', 'Database Host (for Mysql Db)');

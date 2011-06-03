@@ -415,10 +415,14 @@ class Database_sqlite extends Database
 			Debug::Log($e, ERROR);
 			return false;
 		}
-		$query = sprintf(
-			$q,
-			self::escape_string($datas[0])
-		);
+		if( is_array($datas) && sizeOf($datas) > 0 ) {
+			$query = sprintf(
+				$q,
+				self::escape_string($datas[0])
+			);
+		} else {
+			$query = $q;
+		}
 		//print $query."<br />";
 		$result = self::$db_custom->query($query);
 		if ( !$result && DEBUG )

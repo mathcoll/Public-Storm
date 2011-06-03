@@ -31,13 +31,18 @@ if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die();
 
 final class Settings
 {
-	public static $VIEWER_TYPE = VIEWER_TYPE;
-	public static $DB_TYPE = DB_TYPE;
+	public static $VIEWER_TYPE = "";
+	public static $DB_TYPE = "";
 	public static $subdirsRegistered = array();
 	public static $vars = array();
 	public static $customizable = array();
 	public static $customizableType = array();
 	public static $customizableDesc = array();
+
+	public function __construct() {
+		self::$VIEWER_TYPE = VIEWER_TYPE;
+		self::$DB_TYPE = DB_TYPE;
+	}
 	
 	public function getSubdirsRegistered()
 	{
@@ -97,14 +102,16 @@ final class Settings
 	
 	public function setVar($varName, $value, $type="general", $desc="")
 	{
-		self::$vars[strToLower($varName)] = $value;
-		if( isset($desc) && $desc != "" )
-		{
-			self::$customizable[]=$varName;
-			self::$customizableType[$varName]=$type;
-			self::$customizableDesc[$varName]=$desc;
+		if ( @isset($varName) && @isset($value) ) {
+			self::$vars[strToLower($varName)] = $value;
+			if( @isset($desc) && $desc != "" )
+			{
+				self::$customizable[]=$varName;
+				self::$customizableType[$varName]=$type;
+				self::$customizableDesc[$varName]=$desc;
+			}
+			return self::$vars[$varName];
 		}
-		return self::$vars[$varName];
 	}
 	
 	public function getCustomizable()

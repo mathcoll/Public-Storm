@@ -24,31 +24,18 @@
 
 
 require_once('./_global_settings.php');
-/*
+
 function __autoload($class_name) 
 {
 	try {
-		@include_once './include/' . strtolower($class_name) . '.class.php';
-		# TODO :
-		if ( defined(DEBUG) && DEBUG == true )
-		{
+		require_once './include/' . strtolower($class_name) . '.class.php';
+		if ( @defined(DEBUG) && DEBUG == true ) {
 			Debug::Log('Class "'.$class_name. '" loaded !', NOTICE);
 		}
 	} catch(Exception $e) {
-		print "ERROR : ".$e;
-		if ( defined(DEBUG) && DEBUG == true )
-		{
-			Debug::Log('Class "'.$class_name. '" not found !', ERROR);
+		if ( @defined(DEBUG) && DEBUG == true ) {
+			Debug::Log('Class "'.$class_name. '" Error !', ERROR);
 		}
-	}
-}
-*/
-function __autoload($class_name) 
-{
-	require_once './include/' . strtolower($class_name) . '.class.php';
-	if ( defined(DEBUG) && DEBUG == true )
-	{
-		Debug::Log('Class "'.$class_name. '" loaded !', NOTICE);
 	}
 }
 date_default_timezone_set(Settings::getVar('timezone'));
@@ -56,8 +43,14 @@ date_default_timezone_set(Settings::getVar('timezone'));
 Server::Normalize();
 header('Content-Type: text/html; charset=utf-8');
 User::$current = Session::Start();
-if( DEBUG == false ) {
+if( DEBUG == true ) {
+	error_reporting(E_ALL);
+	ini_set('error_reporting', E_ALL);
+	ini_set('display_errors', 1);
+} else {
 	error_reporting(0);
+	ini_set('error_reporting', '');
+	ini_set('display_errors', 0);
 }
 #i18n::load();
 

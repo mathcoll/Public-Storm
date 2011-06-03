@@ -72,7 +72,7 @@ class Plugins
 	
 	public static function listPlugins()
 	{
-		$res = self::$db->q('SELECT name FROM plugins ORDER BY sort ASC', 'plugins.db', array($pluginName));
+		$res = self::$db->q('SELECT name FROM plugins ORDER BY sort ASC', 'plugins.db', array());
 		$p = array();
 		foreach($res as $plugin)
 		{
@@ -85,7 +85,7 @@ class Plugins
 	
 	public static function listAllDatasPlugins()
 	{
-		$res = self::$db->q('SELECT * FROM plugins ORDER BY name ASC', 'plugins.db', array($pluginName));
+		$res = self::$db->q('SELECT * FROM plugins ORDER BY name ASC', 'plugins.db', array());
 		$p = array();
 		foreach($res as $plugin)
 		{

@@ -2,7 +2,7 @@
 
 Settings::setVar('css_cache_duration', 86400, 'compressor', 'Css cache duration time ; in seconds');
 Settings::setVar('js_cache_duration', 86400, 'compressor', 'Js cache duration time ; in seconds');
-Settings::setVar('compressor_use_gzip', false, 'compressor', 'Gzipping your CSS (true or false)');
+Settings::setVar('compressor_use_gzip', true, 'compressor', 'Gzipping your CSS (true or false)');
 Settings::setVar('listeJs', 'jquery.js,all.js', 'compressor', 'Liste des fichiers de scripts disponibles');
 Settings::setVar('compress html output', true, 'compressor', 'Compress the html output (true or false)');
 

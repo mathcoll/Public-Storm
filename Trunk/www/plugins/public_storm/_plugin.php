@@ -27,7 +27,7 @@ final class public_storm extends Plugins
  	);
  	public static $name = "public_storm";
 	public static $db;
- 	private $suggestions;
+ 	private $suggestions = array();
  	
 	public function __construct()
 	{
@@ -279,9 +279,13 @@ final class public_storm extends Plugins
 	
 	public function getStormAuthor($user_id)
 	{
-		$author = self::$db->q("SELECT u.* FROM users u WHERE u.user_id=%d", "users.db", array($user_id));
-		unset($author[0]);
-		return $author[1];
+		if( isset($user_id) ) {
+			$author = self::$db->q("SELECT u.* FROM users u WHERE u.user_id=%d", "users.db", array($user_id));
+			unset($author[0]);
+			return $author[1];
+		} else {
+			return false;
+		}
 	}
 	
 	public function addSuggestion($storm_id, $suggestion, $user_id)

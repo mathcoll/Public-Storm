@@ -29,13 +29,12 @@ header('HTTP/1.1 200 OK', false, 200);
 #print "->persistentConnection = ".$_COOKIE["persistentConnection"]."<br />";
 
 /* Gestion de la connexion persistente par cookies */
-if (
-	$_COOKIE["persistentConnection"] == "1" &&
-	$_COOKIE["uid"] &&
-	!$_SESSION["uid"]
-)
-{
-	User::authentificationByUid($_COOKIE["uid"]);
+if ( @!empty($_COOKIE) ) {
+	if ( @isset($_COOKIE["persistentConnection"]) && @isset($_COOKIE["uid"]) && !$_SESSION["uid"] ) {
+		if ( $_COOKIE["persistentConnection"] == 1 ) {
+			User::authentificationByUid($_COOKIE["uid"]);
+		}
+	}
 }
 
 

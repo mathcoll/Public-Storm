@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-find . -name "*.tpl" -type f -exec sed -i "s/ domain=\".*\"//g" {} \;
+find ../ -name "*.php" -type f -exec sed -i "s/2008-2010 Mathieu Lory/2008-2011 Mathieu Lory/g" {} \;
