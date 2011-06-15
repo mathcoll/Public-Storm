@@ -21,22 +21,22 @@
 			<ul class="liste">
 				{foreach from=$storms item=storm}
 				{if $storm.root ne ""}
-					{if $loopnum ge $item_per_col|floor}
-						</ul></div>
-						{assign var=loopnum value=0}
-						<div class="table-cell _50"><ul class="liste">
-					{/if}
 					{if $year ne $storm.date|date_format:"%Y"}
 						<li class="year">{$storm.date|date_format:"%Y"}</li>
 					{/if}
 					
-					{if $loopnum ge $item_per_col|floor}
+					{if $loopnum ge $item_per_col|ceil}
 						</ul></div>
 						{assign var=loopnum value=0}
 						<div class="table-cell _50"><ul class="liste">
 					{/if}
 					{if $week ne $storm.date|date_format:"%W"}
 						<li class="cap">{t}Semaine{/t} {$storm.date|date_format:"%W"}</li>
+					{/if}
+					{if $loopnum ge $item_per_col|ceil}
+						</ul></div>
+						{assign var=loopnum value=0}
+						<div class="table-cell _50"><ul class="liste">
 					{/if}
 					<li><a href="{$base_url}/storm/{$storm.permaname|url}/" class="storm">{$storm.root|ucfirst}</a>, créé le {$storm.date|date_format:"%A %d %B %Y %Hh%M GMT"}</li>
 					{assign var=week value=$storm.date|date_format:"%W"}
