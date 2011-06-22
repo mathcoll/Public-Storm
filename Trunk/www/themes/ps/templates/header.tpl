@@ -3,10 +3,12 @@
 {setlocale type="all" locale="fr_FR.utf8"}
 <head>
 	<title>{$title} - {$site_name}</title>
+	<meta property="fb:app_id" content="{$fb_app_id}" />
 	<meta property="og:title" content="{$title}" />
 	<meta property="og:site_name" content="{$site_name}" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="{$base_url_http}{$smarty.server.REQUEST_URI}" />
+	<meta property="og:image" content="{$base_url_http}{$theme_dir}img/logo.jpg" />
 	<meta property="og:description" content="{$meta_description|strip_tags}" />
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

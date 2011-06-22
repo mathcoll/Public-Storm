@@ -38,6 +38,9 @@ Settings::setVar('SITE_DESCRIPTION', '', 'admin', 'Site description, also define
 // Current version
 Settings::setVar('SITE_VERSION', '11.6.22');
 
+// Site name
+Settings::setVar('fb_app_id', '21015190410', 'admin', 'Facebook, préciser les administrateurs dans une balise méta fb:app_id');
+
 // Debug switch. Set it to true for output additional information.
 @define('DEBUG', false);
 

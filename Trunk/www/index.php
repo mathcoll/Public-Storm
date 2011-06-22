@@ -37,6 +37,7 @@ $s->AddData("rss", Settings::getVar('base_url').'/backend/rss.php');
 $s->AddData("current_lang", $_COOKIE["locale"]);
 $s->AddData("s", $_SESSION['s']);
 $s->AddData("langs", i18n::langs());
+$s->AddData("fb_app_id", Settings::getVar('fb_app_id'));
 
 if( $statuses['compressor'] == 1 )
 {
