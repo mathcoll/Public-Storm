@@ -1,8 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xml:lang="fr" lang="fr">
 {setlocale type="all" locale="fr_FR.utf8"}
 <head>
 	<title>{$title} - {$site_name}</title>
+	<meta property="og:title" content="{$title}" />
+	<meta property="og:site_name" content="{$site_name}" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="{$base_url_http}{$smarty.server.REQUEST_URI}" />
+	<meta property="og:description" content="{$meta_description|strip_tags}" />
+
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link href="{$rss}" rel="alternate" type="application/rss+xml" title="Flux RSS {$site_name}" />
 	<link rel="shortcut icon" href="{$theme_dir}favicon.ico" type="image/x-icon" />
