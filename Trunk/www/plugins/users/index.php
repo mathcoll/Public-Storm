@@ -118,7 +118,7 @@ switch ( $uri[$ind+1] )
 			$sPlug->AddData("avatar", $avatar = "http://www.gravatar.com/avatar/".md5( strtolower( $author['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir_http')."img/weather-storm.png" )."&size=100");
 			
 			$breadcrumb = Settings::getVar('breadcrumb');
-			array_push($breadcrumb, array("name" => _("utilisateurs")));
+			array_push($breadcrumb, array("name" => _("utilisateurs"), "link" => "#"));
 			array_push($breadcrumb, array("name" => $username));
 			Settings::setVar('breadcrumb', $breadcrumb);
 			Settings::setVar('title', $username);

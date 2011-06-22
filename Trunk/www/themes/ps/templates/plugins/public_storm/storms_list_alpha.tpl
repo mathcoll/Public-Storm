@@ -19,7 +19,11 @@
 					{if $loopnum ge $item_per_col|floor}
 						</ul></div>
 						{assign var=loopnum value=0}
-						<div class="table-cell _30"><ul class="liste">
+						<div class="table-cell _30">
+							<ul class="liste">
+								{if $cap eq $prevcap}
+									<li class="cap">{$cap|ucfirst} {t}(suite){/t}</li>
+								{/if}
 					{/if}
 					
 					{if $cap ne $prevcap}

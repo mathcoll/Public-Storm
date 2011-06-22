@@ -23,7 +23,11 @@
 					{if $loopnum ge $item_per_col|floor}
 						</ul></div>
 						{assign var=loopnum value=0}
-						<div class="table-cell _50"><ul class="liste">
+						<div class="table-cell _50">
+							<ul class="liste">
+								{if $week eq $storm.date|date_format:"%W"}
+									<li class="cap">{t}Semaine{/t} {$storm.date|date_format:"%W"} {t}(suite){/t}</li>
+								{/if}
 					{/if}
 					
 					{if $week ne $storm.date|date_format:"%W"}
