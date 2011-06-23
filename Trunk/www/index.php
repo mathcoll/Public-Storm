@@ -57,7 +57,9 @@ if( $statuses['compressor'] == 1 )
 				);
 				Settings::removeCss($file['stylesheet']);
 			}
+			//print "--> ".$file['stylesheet']."<br />\n";
 		}
+		//print_r(Settings::getCsss('screen', true))."\n";
 		$debug = DEBUG == true ? "debug/" : "";
 		Settings::addCss('screen', Settings::getVar('base_url')."/css/groups/".$css."/".$debug, $css);
 	}
@@ -238,8 +240,8 @@ function sksort(&$array, $subkey="id", $sort_descending=false, $keep_keys_in_sub
    /*
   * filtering an array
   */
-function filter_by_value($array, $index, $value)
-{
+function filter_by_value($array, $index, $value) {
+	//print "filtering ".$index."->".$value."<br />\n";
 	if( is_array($array) && count($array)>0 ) 
 	{
 		foreach(array_keys($array) as $key)
@@ -248,9 +250,13 @@ function filter_by_value($array, $index, $value)
 			if ( $temp[$key] != $value )
 			{
 				$newarray[$key] = $array[$key];
+			} else {
+				$newarray[$key] = "";
+				unset($newarray[$key]);
 			}
 		}
 	}
+	//print_r($newarray);
 	return $newarray;
 } 
 ?>

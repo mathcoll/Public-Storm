@@ -29,8 +29,8 @@ final class openlike extends Plugins
 	{
 		require(Settings::getVar('prefix') . 'conf/openlike.php');
 
-		Settings::addCss('screen', Settings::getVar('ROOT').'/plugins/openlike/openlike/v1/openlike.css', 'all.css');
-		Settings::addJs('text/javascript', Settings::getVar('ROOT').'/plugins/openlike/openlike/v1/openlike.dev.js', 'all.js');
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").'/plugins/openlike/openlike/v1/openlike.css', 'all.css');
+		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").'/plugins/openlike/openlike/v1/openlike.dev.js', 'all.js');
 	}
 	
 	public function loadLang()

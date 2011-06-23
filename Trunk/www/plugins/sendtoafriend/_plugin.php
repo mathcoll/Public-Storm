@@ -18,18 +18,16 @@
     along with Public-Storm. If not, see <http://www.gnu.org/licenses/>.
  */
 		
-final class sendtoafriend extends Plugins
-{
+final class sendtoafriend extends Plugins {
  	public static $subdirs = array("sendtoafriend", "yahoo_callback");
  	public static $name = "sendtoafriend";
 	public static $db;
 	public static $s;
  	
-	public function __construct()
-	{
+	public function __construct() {
 		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
-		Settings::addCss('screen', Settings::getVar('ROOT').Settings::getVar('theme_dir').'/plugins/'.self::$name.'/styles/'.self::$name.'.css', 'all.css');
-		Settings::addJs('text/javascript', Settings::getVar('ROOT').Settings::getVar('theme_dir').'/plugins/'.self::$name.'/scripts/'.self::$name.'.js');
+		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/'.self::$name.'/scripts/'.self::$name.'.js', 'all.js');
+		//Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/'.self::$name.'/styles/'.self::$name.'.css', 'all.css');
 	}	
 	
 	public function loadLang()

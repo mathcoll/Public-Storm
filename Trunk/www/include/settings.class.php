@@ -69,7 +69,6 @@ final class Settings
 		$styles = self::getVar('styles');
 		//print_r($styles);
 		$styles = filter_by_value($styles, 'stylesheet', $css);
-		//print_r($styles);
 		return self::setVar('styles', $styles);
 	}
 	

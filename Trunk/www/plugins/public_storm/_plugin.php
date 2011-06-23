@@ -32,21 +32,21 @@ final class public_storm extends Plugins
 	public function __construct()
 	{
 		require(Settings::getVar('prefix') . 'conf/public_storm.php');
-		Settings::addCss('screen', "/".Settings::getVar('theme_dir').'plugins/public_storm/styles/styles.css', 'all.css');
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/public_storm/styles/styles.css', 'all.css');
 		/* general styles */
-		Settings::addCss('screen', "/".Settings::getVar('theme_dir').'styles/styles.css', 'all.css');
-		//Settings::addCss('print', "/".Settings::getVar('theme_dir').'styles/print.css', 'all.css');
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/styles.css', 'all.css');
+		//Settings::addCss('print', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/print.css', 'all.css');
 
 		/* Public-Storm scripts */
-		Settings::addJs('text/javascript', "/".Settings::getVar('theme_dir').'scripts/main.js', 'all.js');
-		Settings::addJs('text/javascript', "/".Settings::getVar('theme_dir').'plugins/public_storm/scripts/public_storm.js', 'all.js');
+		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'scripts/main.js', 'all.js');
+		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/public_storm/scripts/public_storm.js', 'all.js');
 		
 		/* javascripts jQuery */
-		//Settings::addJs('text/javascript', "/".Settings::getVar('theme_dir').'scripts/jquery-1.3.2.min.js', 'jquery.js');
-		Settings::addJs('text/javascript', "/".Settings::getVar('theme_dir').'scripts/jquery.scrollTo-min.js', 'jquery.js');
-		Settings::addJs('text/javascript', "/".Settings::getVar('theme_dir').'scripts/jquery.localscroll.js', 'jquery.js');
-		Settings::addJs('text/javascript', "/".Settings::getVar('theme_dir').'scripts/jquery.serialScroll-min.js', 'jquery.js');
-		Settings::addJs('text/javascript', "/".Settings::getVar('theme_dir').'scripts/coda-slider.js', 'jquery.js');
+		//Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'scripts/jquery-1.3.2.min.js', 'jquery.js');
+		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'scripts/jquery.scrollTo-min.js', 'jquery.js');
+		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'scripts/jquery.localscroll.js', 'jquery.js');
+		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'scripts/jquery.serialScroll-min.js', 'jquery.js');
+		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'scripts/coda-slider.js', 'jquery.js');
 
 		if ( !class_exists(Settings::$DB_TYPE) )
 		{
