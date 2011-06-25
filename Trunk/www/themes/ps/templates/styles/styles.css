@@ -16,6 +16,9 @@ img
 	margin: 0;
 	padding: 0;
 }
+span.nobr {
+    white-space: nowrap;
+}
 ul.list-pages li a {padding:2px 5px;}
 body
 {

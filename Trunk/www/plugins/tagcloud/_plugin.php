@@ -47,7 +47,7 @@ final class tagcloud extends Plugins
 				$js = "suggest_too('".addslashes($value['word']) . "', '".Settings::getVar('BASE_URL')."')";
 				$s = '<span class="suggest-too" title="'._('Je suggère moi aussi !').'"><input type="button" value="+" onclick="'.$js.'"/></span>';
 			}
-			$c .= ' <nobr><a href="'.Settings::getVar('BASE_URL_HTTP').'/storm/'.modifier_url($value['word']).'/" class="word size'.$value['sizeRange'].'" title="'.$value['word'].' : '.$value['sizeRange'].' suggest.">'.$value['word'].'</a>'.$s.'&nbsp;</nobr>';
+			$c .= ' <span class="nobr"><a href="'.Settings::getVar('BASE_URL_HTTP').'/storm/'.modifier_url($value['word']).'/" class="word size'.$value['sizeRange'].'" title="'.$value['word'].' : '.$value['sizeRange'].' suggest.">'.$value['word'].'</a>'.$s.'&nbsp;</span>';
 		}
 		return $c;
 	}
