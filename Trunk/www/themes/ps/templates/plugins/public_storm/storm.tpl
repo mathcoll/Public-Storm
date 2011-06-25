@@ -24,7 +24,7 @@
 						<time itemprop="dtreviewed" datetime="{$storm.date|date_format:"%Y-%m-%d"}"><span class="data">{$storm.date|date_format:"%a, %d %B %Y %Hh%M:%S GMT"}</span></time><br />
 					{if $storm.author_login ne ""}{* should'nt be null ! :-) *}
 						<label class="author">{t 1=$rootCap}Auteur du storm %1 :{/t}</label>
-						<img src="{$avatar}" style="float:right;" />
+						<img src="{$avatar}" style="float:right;" alt="{$storm.author|escape}" />
 							<span class="data" itemprop="reviewer"><a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a></span><br />
 						<br />
 					{/if}

@@ -115,7 +115,7 @@ switch ( $uri[$ind+1] )
 			$sPlug->AddData("username", $username);
 			$sPlug->AddData("login", $author['login']);
 			$sPlug->AddData("member_since", $author['subscription_date']);
-			$sPlug->AddData("avatar", $avatar = "http://www.gravatar.com/avatar/".md5( strtolower( $author['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir_http')."img/weather-storm.png" )."&size=100");
+			$sPlug->AddData("avatar", $avatar = "http://www.gravatar.com/avatar/".md5( strtolower( $author['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir_http')."img/weather-storm.png" )."&amp;size=100");
 			
 			$breadcrumb = Settings::getVar('breadcrumb');
 			array_push($breadcrumb, array("name" => _("utilisateurs"), "link" => "#"));
