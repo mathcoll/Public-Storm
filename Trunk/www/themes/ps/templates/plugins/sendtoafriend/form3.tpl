@@ -29,7 +29,7 @@
 </head>
 
 <body>
-<h4>{t}Partager à me amis{/t} > <b>{$storm}</b></h4>
+<h4>{t}Partager à me amis{/t} > {t}Storm{/t} <b>{$storm}</b></h4>
 <p>{$message}</p>
 </body>
 </html>

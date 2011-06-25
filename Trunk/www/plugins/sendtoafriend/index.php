@@ -35,6 +35,24 @@ else
 	$ind = 1;
 }
 
+$title = Settings::getVar('title') != NULL ? Settings::getVar('title') : Settings::getVar('SITE_NAME').", ".i18n::_("baseline");
+$description = Settings::getVar('description') != NULL ? Settings::getVar('description') : i18n::_("description");
+$meta_keywords = Settings::getVar('meta_keywords') != NULL ? Settings::getVar('meta_keywords') : i18n::_("meta_keywords");
+$meta_description = Settings::getVar('meta_description') != NULL ? Settings::getVar('meta_description') : i18n::_("meta_description");
+$s = new Settings::$VIEWER_TYPE;
+$s->AddData("title", $title);
+$s->AddData("meta_keywords", i18n::_("Partage, Partagez, connexion, OAuth, yahoo, Google, Facebook"));
+$s->AddData("meta_description", i18n::_("Partagez Public-Storm via une connexion OAuth"));
+$s->AddData("description", $description);
+$s->AddData("site_name", Settings::getVar('SITE_NAME'));
+$s->AddData("site_description", Settings::getVar('SITE_DESCRIPTION'));
+$s->AddData("site_baseline", Settings::getVar('SITE_BASELINE'));
+$s->AddData("version", Settings::getVar('SITE_VERSION'));
+$s->AddData("prefix", Settings::getVar('prefix'));
+$s->AddData("base_url", Settings::getVar('base_url'));
+$s->AddData("base_url_http", Settings::getVar('base_url_http'));
+$s->AddData("theme_dir", Settings::getVar('theme_dir'));
+
 switch ( $uri[$ind+1]) {
 	case "yahoo_" : 
 		include_once Settings::getVar('ROOT')."plugins/sendtoafriend/classes/oauth-php/library/OAuthStore.php";
@@ -45,8 +63,6 @@ switch ( $uri[$ind+1]) {
 	case "send" :
 		require(Settings::getVar('inc_dir') . "phpMailer/class.phpmailer.php");
 		
-		$mail    = new PHPMailer();
-		$s = new Settings::$VIEWER_TYPE;
 		$s->AddData("base_url", Settings::getVar('base_url_http'));
 		$s->AddData("theme_dir_http", Settings::getVar('theme_dir_http'));
 		$s->AddData("theme_dir", Settings::getVar('theme_dir'));
@@ -54,6 +70,7 @@ switch ( $uri[$ind+1]) {
 		
 		$body = $s->fetch("default.tpl", "plugins/sendtoafriend/mails");
 		
+		$mail    = new PHPMailer();
 		$mail->From     = Settings::getVar('From');
 		$mail->FromName = Settings::getVar('FromName');
 		$mail->Mailer = Settings::getVar('Mailer');

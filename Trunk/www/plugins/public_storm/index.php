@@ -57,8 +57,11 @@ switch ( $uri[$ind] )
 					break;
 				
 				default :
-					$storm_permaname = $uri[$ind+1];
-					require("storm.php");
+					if ( $storm_permaname = $uri[$ind+1] ) {
+						require("storm.php");
+					} else {
+						errordocument::setError(404);
+					}
 					break;
 			}
 			break;
@@ -86,9 +89,3 @@ switch ( $uri[$ind] )
 			}
 			break;
 }
-
-
-
-
-
-

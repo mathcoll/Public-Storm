@@ -29,9 +29,12 @@
 </head>
 
 <body>
-<h4>{t}Partager à me amis{/t} > <b>{$storm}</b></h4>
-<p>{t escape=""}Choisissez le service auquel vous souhaitez vous connecter. Vous pourrez ensuite envoyer un message à vos amis.<br />Public-Storm ne conserve aucune donnée vous concernant.{/t}</p>
-<p>&nbsp;</p>
+<h4>{t}Partager à me amis{/t} > {t}Storm{/t} <b>{$storm}</b></h4>
+<div id="site_name">
+	<p style="padding-left:95px;">
+		{t escape=""}Choisissez le service auquel vous souhaitez vous connecter. Vous pourrez ensuite envoyer un message à vos amis.<br />Public-Storm ne conserve aucune donnée vous concernant.{/t}
+	</p>
+</div>
 
 <form action="{$base_url}/sendtoafriend/send/" method="post">
 <div id="accordion">

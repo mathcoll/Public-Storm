@@ -4,11 +4,11 @@
 		<div class="deuxCols">
 			<div style="float:left;">
 				<label for="emailField">{t}field.email{/t}</label>
-				<label for="login">{t}field.login{/t}</label>
+				<label for="loginField">{t}field.login{/t}</label>
 			</div>
 			<div style="margin-left:150px;">
-				<input type="text" name="email" value="{$user_infos.email}" id="emailField" class="field" />
-				<input type="text" name="login" value="{$user_infos.login}" class="field" />
+				<input type="text" name="email" id="emailField" value="{$user_infos.email}" class="field" />
+				<input type="text" name="login" id="loginField" value="{$user_infos.login}" class="field" />
 			</div>
 		</div>
 		<div>

@@ -112,7 +112,10 @@ function display_my_add_form() {
 		resizable: false,
 		modal: true,
 		buttons: {
-			"Ajouter": function() { $jQuery('#add_this_storm form').submit() }
+			"Ajouter": function() {
+				$jQuery( "button" ).button( "option", "disabled", true );
+				$jQuery('#add_this_storm form').submit();
+			}
 		}
 	});
 	$jQuery('#add_this_storm_form').width(350);

@@ -113,7 +113,7 @@ if ( isset($id) || isset($_SESSION['id']) )
 	if ( $is_cloud==true ) $sPlug->AddData("cloud", $cloud->showCloud());
 	
 	$storm = is_array($storm) ? $storm : array();
-	$suggestions = $storm["suggestions"];	
+	$suggestions = $storm["suggestions"];
 	if ( is_array($suggestions) )
 	{
 		$storm["suggestions"] = array_slice($suggestions, 0, 5);
@@ -128,10 +128,16 @@ if ( isset($id) || isset($_SESSION['id']) )
 			}
 			$sPlug->AddData("cloud1", $cloud1->showCloud(true));
 		}
+		$meta_keywords = array();
+		foreach( $suggestions as $suggestion ) {
+			array_push($meta_keywords, $suggestion['suggestion']);
+		}
 	}
 	$sPlug->AddData("storm", $storm);
 	$sPlug->AddData("cache_dir_http", Settings::getVar('cache_dir_http'));
 	$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
+	$get_meta_keywords = Settings::getVar('meta_keywords') != NULL ? Settings::getVar('meta_keywords') : i18n::_("meta_keywords");
+	Settings::setVar('meta_keywords', implode(", ", $meta_keywords).", ".$get_meta_keywords);
 	#$sPlug->AddData("i18n", i18n::getLng());
 	
 	//exit;

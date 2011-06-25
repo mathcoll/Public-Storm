@@ -122,6 +122,7 @@ div#add_this_storm
 div#add_this_storm input
 {
 	width:100%;
+	border:0;
 }
 div.TwoCols
 {
@@ -243,7 +244,8 @@ div.fiche h4.fiche
 }
 div.ficheContainer
 {
-	padding: 0 10px 0 10px;
+	padding: 10px 10px 0 10px;
+	border: 1px solid #156E1E;
 	background: transparent url(../img/gradient.png) repeat-x left bottom;
 }
 div.outils a
