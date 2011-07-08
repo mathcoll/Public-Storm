@@ -138,6 +138,7 @@ if ( isset($id) || isset($_SESSION['id']) )
 	$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
 	$get_meta_keywords = Settings::getVar('meta_keywords') != NULL ? Settings::getVar('meta_keywords') : i18n::_("meta_keywords");
 	Settings::setVar('meta_keywords', implode(", ", $meta_keywords).", ".$get_meta_keywords);
+	Settings::setVar('meta_description', i18n::_("description", array($root)));
 	#$sPlug->AddData("i18n", i18n::getLng());
 	
 	//exit;

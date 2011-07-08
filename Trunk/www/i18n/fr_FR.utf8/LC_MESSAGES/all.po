@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Public-Storm\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-03-26 16:46+0100\n"
-"PO-Revision-Date: 2011-03-26 16:51+0100\n"
+"PO-Revision-Date: 2011-07-08 21:56+0100\n"
 "Last-Translator: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "Language-Team: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,7 @@ msgstr "Accueil"
 #: ../index.php:107
 #: ../plugins/backend/rss.php:52
 msgid "description"
-msgstr "<i>Public-Storm</i> est un outil en ligne de <i><strong>Remue-méninges</strong></i> collaboratif.<br/>Sur un thème donné (un <i>Storm</i>), laissez votre <strong>imagination</strong> et votre <strong>créativité</strong> déborder...<br/>et proposez vos <strong>suggestions</strong>."
+msgstr "<i>Public-Storm</i> est un outil en ligne de <i><strong>Remue-méninges</strong></i> collaboratif.<br/>Sur un thème donné (le <i>Storm</i> %s), laissez votre <strong>imagination</strong> et votre <strong>créativité</strong> déborder... et proposez vos <strong>suggestions</strong>."
 
 #: ../i18n/sources/main.gettext.php:13
 #: ../i18n/sources/plugins/all/all.gettext.php:10
@@ -740,7 +740,7 @@ msgstr "outil, Brainstorm, remue-méninges, association d'idées, idées, sugges
 
 #: ../index.php:109
 msgid "meta_description"
-msgstr "<i>Public-Storm</i> est un outil en ligne de <i><strong>Remue-méninges</strong></i> collaboratif.<br/>Sur un thème donné (un <i>Storm</i>), laissez votre <strong>imagination</strong> et votre <strong>créativité</strong> déborder...<br/>et proposez vos <strong>suggestions</strong>."
+msgstr "<i>Public-Storm</i> est un outil en ligne de <i><strong>Remue-méninges</strong></i> collaboratif.<br/>Sur un thème donné (le <i>Storm</i> %s), laissez votre <strong>imagination</strong> et votre <strong>créativité</strong> déborder...<br/>et proposez vos <strong>suggestions</strong>."
 
 #: ../plugins/admin/forbidden.php:27
 msgid "forbidden"
@@ -906,7 +906,6 @@ msgid "Le Storm '%s' à été enlevé de vos favoris !"
 msgstr "Le Storm '%s' à été enlevé de vos favoris !"
 
 #: ../plugins/users/valideremail.php:28
-#, php-format
 msgid "L'adresse e-mail '%s' n'est pas valide"
 msgstr "L'adresse e-mail '%s' n'est pas valide"
 
@@ -915,7 +914,6 @@ msgid "Error : user exists"
 msgstr "Erreur : l'utilisateur existe déjà"
 
 #: ../prepend.php:136
-#, php-format
 msgid "Error: Plugin definition class is not present for %s"
 msgstr "Erreur : La définition de la classe du plugin est introuvable : %s"
 

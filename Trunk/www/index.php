@@ -109,7 +109,7 @@ $s->AddData("breadcrumb", Settings::getVar('breadcrumb'));
 $title = Settings::getVar('title') != NULL ? Settings::getVar('title') : Settings::getVar('SITE_NAME').", ".i18n::_("baseline");
 $description = Settings::getVar('description') != NULL ? Settings::getVar('description') : i18n::_("description");
 $meta_keywords = Settings::getVar('meta_keywords') != NULL ? Settings::getVar('meta_keywords') : i18n::_("meta_keywords");
-$meta_description = Settings::getVar('meta_description') != NULL ? Settings::getVar('meta_description') : i18n::_("meta_description");
+$meta_description = Settings::getVar('meta_description') != NULL ? Settings::getVar('meta_description', i18n::_("description", i18n::_("description", array("")))) : i18n::_("meta_description", array(""));
 $s->AddData("title", $title);
 $s->AddData("meta_keywords", $meta_keywords);
 $s->AddData("meta_description", $meta_description);

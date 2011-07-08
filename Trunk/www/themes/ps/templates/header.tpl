@@ -42,7 +42,7 @@
 		<h1><a href="{$base_url}/">{$site_name} <span class="baseline">{t}baseline{/t}</span></a></h1>
 		<a href="{$base_url}/" class="home" title="{t}Go to home page{/t}">{t}Go to home page{/t}</a>
 		{if $description ne "&nbsp;"}
-			<div class="description">{t escape=""}description{/t}</div>
+			<div class="description">{$meta_description}</div>
 		{/if}
 		{if $statuses.rechercher eq 1}
 			{include file="plugins/rechercher/form_recherche.tpl" base_url=$base_url i18n=$i18n s=$s}

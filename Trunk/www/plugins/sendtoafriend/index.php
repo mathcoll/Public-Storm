@@ -38,11 +38,11 @@ else
 $title = Settings::getVar('title') != NULL ? Settings::getVar('title') : Settings::getVar('SITE_NAME').", ".i18n::_("baseline");
 $description = Settings::getVar('description') != NULL ? Settings::getVar('description') : i18n::_("description");
 $meta_keywords = Settings::getVar('meta_keywords') != NULL ? Settings::getVar('meta_keywords') : i18n::_("meta_keywords");
-$meta_description = Settings::getVar('meta_description') != NULL ? Settings::getVar('meta_description') : i18n::_("meta_description");
+$meta_description = Settings::getVar('meta_description') != NULL ? Settings::getVar('meta_description', i18n::_("description", array($uri[$ind+2]))) : i18n::_("meta_description", i18n::_("description", array($uri[$ind+2])));
 $s = new Settings::$VIEWER_TYPE;
 $s->AddData("title", $title);
-$s->AddData("meta_keywords", i18n::_("Partage, Partagez, connexion, OAuth, yahoo, Google, Facebook"));
-$s->AddData("meta_description", i18n::_("Partagez Public-Storm via une connexion OAuth"));
+$s->AddData("meta_keywords", i18n::_("Partage, Partagez, connexion, OAuth, yahoo, Google, Facebook, %s", array($uri[$ind+2])));
+$s->AddData("meta_description", i18n::_("Partagez le Storm %s via une connexion OAuth", array($uri[$ind+2])));
 $s->AddData("description", $description);
 $s->AddData("site_name", Settings::getVar('SITE_NAME'));
 $s->AddData("site_description", Settings::getVar('SITE_DESCRIPTION'));
