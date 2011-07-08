@@ -121,10 +121,10 @@ switch ( $uri[$ind+1] )
 			array_push($breadcrumb, array("name" => _("utilisateurs"), "link" => "#"));
 			array_push($breadcrumb, array("name" => $username));
 			Settings::setVar('breadcrumb', $breadcrumb);
-			Settings::setVar('title', $username);
 
 			$current_page = $uri[$ind+2] != NULL ? $uri[$ind+2] : 1;
 			$sPlug->AddData("current_page", $current_page);
+			Settings::setVar('title', i18n::_("Liste des Storms de %s, page %s", array($username, $current_page)));
 			$sPlug->AddData("nb_pages", ceil(public_storm::getNbStorms($user_id) / Settings::getVar('user_storms_per_page')));
 			$sPlug->AddData("nbstorms", public_storm::getNbStorms($user_id));
 			
