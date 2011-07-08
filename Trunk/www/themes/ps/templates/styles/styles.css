@@ -283,10 +283,12 @@ div.breadcrumb ul li
 
 #description, div.description
 {
-	padding: 0 1em 0 0;
+	padding: 0 3em 0 0;
 	color: #444;
 	font-style: italic;
 	text-align: justify;
+	height: 63px;
+    overflow: hidden;
 }
 
 #message
