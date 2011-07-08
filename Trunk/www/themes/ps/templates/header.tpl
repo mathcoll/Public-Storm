@@ -31,6 +31,9 @@
    <script type="text/javascript" defer="defer">
 		{literal}if($jQuery("#message")) { $jQuery("#message").hide(); }{/literal}
 	</script>
+	<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+	  {literal}{lang: 'fr'}{/literal}
+	</script>
 </head>
 <body>
 

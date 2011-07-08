@@ -16,3 +16,9 @@ var cfg = {
 {/literal}
 OPENLIKE.Widget(cfg)
 </script>
+
+<div class="openlike">
+	<ul>
+		<li><g:plusone size="medium"></g:plusone></li>
+	</ul>
+</div>
