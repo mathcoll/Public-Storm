@@ -45,8 +45,14 @@ if ( $uri[$ind] )
 	}
 
 	//print $_SERVER['HTTP_REFERER'];
-	header("HTTP/1.1 301 moved Permanently", true, 301);
-	header("Location: ".$_SERVER['HTTP_REFERER'], true, 301);
+	if ( isset($_SERVER['HTTP_REFERER']) ) {
+		header("HTTP/1.1 301 moved Permanently", true, 301);
+		header("Location: ".$_SERVER['HTTP_REFERER'], true, 301);
+	} else {
+		$_SESSION["message"] = "";
+		header("HTTP/1.1 301 moved Permanently", true, 301);
+		header("Location: ".Settings::getVar('BASE_URL_HTTP'), true, 301);
+	}
 }
 
 

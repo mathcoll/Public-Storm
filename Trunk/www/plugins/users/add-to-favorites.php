@@ -38,7 +38,14 @@ try{
 } catch(Exception $e) {
 	$_SESSION["message"] = i18n::_("Une erreur est survenue !");
 }
-header("HTTP/1.1 302 Moved temporarily", false, 302);
-header("Location: ".$_SERVER['HTTP_REFERER'], false, 302);
+
+if ( isset($_SERVER['HTTP_REFERER']) ) {
+	header("HTTP/1.1 302 Moved temporarily", false, 302);
+	header("Location: ".$_SERVER['HTTP_REFERER'], false, 302);
+} else {
+	$_SESSION["message"] = "";
+	header("HTTP/1.1 302 Moved temporarily", false, 302);
+	header("Location: ".Settings::getVar('BASE_URL_HTTP'), false, 302);
+}
 exit;
 ?>
