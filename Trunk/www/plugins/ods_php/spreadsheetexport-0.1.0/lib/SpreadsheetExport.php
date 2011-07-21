@@ -357,7 +357,6 @@ class SpreadsheetExport {
 			}
 
 		}
-
 		$zip->addFromString("content.xml", $xml->asXML());
 
 
