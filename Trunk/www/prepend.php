@@ -127,7 +127,13 @@ elseif ( $pluginName = searchInList($qdirs[0], $listRegisteredSubdirs) )
 		}
 		else
 		{
-			require_once(Settings::getVar('plug_dir') . strtolower($pluginName . "/" .$page));
+			$f3 = new File(Settings::getVar('plug_dir') . strtolower($pluginName . "/" .$page));
+			if ( $f3->Exists() ) {
+				require_once(Settings::getVar('plug_dir') . strtolower($pluginName . "/" .$page));
+			} else {
+				/* It should be a 404 error page */
+				errordocument::setError(404);
+			}
 		}
 	}
 	else
