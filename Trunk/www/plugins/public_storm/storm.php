@@ -197,6 +197,7 @@ if ( isset($id) || isset($_SESSION['id']) )
 else
 {
 	Settings::setVar('title', "Connectez-vous pour créer le storm : ".$storm_permaname);
+	Settings::setVar('meta_description', i18n::_("description", array($storm_permaname)));
 	$breadcrumb = Settings::getVar('breadcrumb');
 	array_push($breadcrumb, array("name" => i18n::_("Storms"), "link" => Settings::getVar('BASE_URL')."/storms/"));
 	array_push($breadcrumb, array("name" => $storm_permaname));
