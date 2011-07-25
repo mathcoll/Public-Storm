@@ -3,7 +3,7 @@
 {assign var=year value=0}
 {assign var=loopnum value=0}
 {assign var=s_count value=$storms|@count}
-{assign var=item_per_col value=$s_count/2}
+{assign var=item_per_col value=$s_count/2|ceil}
 {assign var=base value=$base_url|cat:'/storms/'}
 <p>{t}Liste des derniers Storms créés :{/t}</p>
 

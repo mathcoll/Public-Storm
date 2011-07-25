@@ -3,7 +3,7 @@
 {assign var=loopnum value=0}
 {assign var=s_count value=$storms|@count}
 {assign var=base value=$base_url|cat:'/storms/alpha/'}
-{assign var=item_per_col value=$s_count/3}
+{assign var=item_per_col value=$s_count/3|ceil}
 {t}Liste des Storms triés par ordre alphabêtique :{/t}
 
 {include file="pagination.tpl" base=$base nb_pages=$nb_pages current_page=$current_page base_url_http=$base_url_http}
