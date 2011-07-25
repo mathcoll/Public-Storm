@@ -41,7 +41,7 @@ $sPlug->AddData("nbstorms", public_storm::getNbStorms());
 //print Settings::getVar('storms_per_page')." ";
 //print $current_page;
 
-Settings::setVar('title', i18n::L("Storms"));
+Settings::setVar('title', i18n::_("Liste des Storms, page %s", array($current_page)));
 $breadcrumb = Settings::getVar('breadcrumb');
 array_push($breadcrumb, array("name" => i18n::L("Storms")));
 Settings::setVar('breadcrumb', $breadcrumb);
