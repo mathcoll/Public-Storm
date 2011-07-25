@@ -27,7 +27,7 @@ final class i18n extends Plugins
 	{
 		//print "version ".self::$version;
 		require(Settings::getVar('prefix') . 'conf/i18n.php');
-		self::$subdirs = split(";", Settings::getVar('languages'));
+		self::$subdirs = explode(";", Settings::getVar('languages'));
 	}
 	
 	public function langs()
