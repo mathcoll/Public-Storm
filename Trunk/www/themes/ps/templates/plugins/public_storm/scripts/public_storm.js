@@ -9,6 +9,7 @@ function add_suggestion(base_url)
 	if( exists == false )
 	{
 		var id = 'elt_'+alea(5);
+		var username = $jQuery("#username").html() ? $jQuery("#username").html() : "Anonymous";
 		var e = $jQuery(
 			'<li class="size_10 hidden bulle" id="'+id+'">' +
 			'<blockquote title=""><a href="'+base_url+'/storm/'+permaname(suggestion)+'/">'+ucfirst(suggestion)+'</a>' +
@@ -17,7 +18,7 @@ function add_suggestion(base_url)
 			'	<input type="hidden" name="suggestion" value="'+permaname(suggestion)+'">' +
 			'</blockquote>' +
 			'	<cite>' +
-			'		Suggérée par xxxx, le xx/xx/xxxx' +
+			'		Suggérée par ' + username +
 			'	</cite>' +
 			'</li>'
 		);
