@@ -97,8 +97,14 @@ Settings::setVar('BASE_URL_HTTP', 'http://'.$_SERVER["HTTP_HOST"].Settings::getV
 Settings::setVar('BASE_URL_HTTPS', 'https://'.$_SERVER["HTTP_HOST"].Settings::getVar('BASE_URL'));
 Settings::setVar('REQ_URL', $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 
+/*
+print strpos($_SERVER['REQUEST_URI'], "?");
+exit;
+*/
 //$request_uri = rtrim($_SERVER['REQUEST_URI'], '/');
-$request_uri = $_SERVER['REQUEST_URI'];
+$pos = (strpos($_SERVER['REQUEST_URI'], "?") > 0) ? strpos($_SERVER['REQUEST_URI'], "?") : strlen($_SERVER['REQUEST_URI']);
+$request_uri = substr($_SERVER['REQUEST_URI'], 0, $pos);
+//print $request_uri."----".$pos;
 if ( strpos(Settings::getVar('BASE_URL'), '/') )
 {
 	$query = str_replace(Settings::getVar('BASE_URL') . "/", "", $request_uri);

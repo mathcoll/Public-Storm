@@ -24,8 +24,9 @@
 $sPlug = new Settings::$VIEWER_TYPE;
 Settings::setVar('template', 'main.tpl');
 
-
-$uri = explode('/', $_SERVER['REQUEST_URI']);
+$pos = (strpos($_SERVER['REQUEST_URI'], "?") > 0) ? strpos($_SERVER['REQUEST_URI'], "?") : strlen($_SERVER['REQUEST_URI']);
+$request_uri = substr($_SERVER['REQUEST_URI'], 0, $pos);
+$uri = explode('/', $request_uri);
 #$id = array_pop($uri); # TODO : ca retourne rien ???!!!!
 
 if( Settings::getVar('BASE_URL') != "" )
@@ -125,6 +126,7 @@ switch ( $uri[$ind+1] )
 
 			$current_page = $uri[$ind+2] != NULL ? $uri[$ind+2] : 1;
 			$sPlug->AddData("current_page", $current_page);
+			Settings::setVar('meta_description', i18n::_("description user", array($username)));
 			Settings::setVar('title', i18n::_("Liste des Storms de %s, page %s", array($username, $current_page)));
 			$sPlug->AddData("nb_pages", ceil(public_storm::getNbStorms($user_id) / Settings::getVar('user_storms_per_page')));
 			$sPlug->AddData("nbstorms", public_storm::getNbStorms($user_id));

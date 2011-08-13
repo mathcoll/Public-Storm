@@ -21,7 +21,9 @@
 $sPlug = new Settings::$VIEWER_TYPE;
 
 
-$uri = explode('/', $_SERVER['REQUEST_URI']);
+$pos = (strpos($_SERVER['REQUEST_URI'], "?") > 0) ? strpos($_SERVER['REQUEST_URI'], "?") : strlen($_SERVER['REQUEST_URI']);
+$request_uri = substr($_SERVER['REQUEST_URI'], 0, $pos);
+$uri = explode('/', $request_uri);
 #$id = array_pop($uri); # TODO : ca retourne rien ???!!!!
 
 if( Settings::getVar('BASE_URL') != "" )
