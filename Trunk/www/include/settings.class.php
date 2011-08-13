@@ -109,7 +109,7 @@ final class Settings
 				self::$customizableType[$varName]=$type;
 				self::$customizableDesc[$varName]=$desc;
 			}
-			return self::$vars[$varName];
+			return self::$vars[strToLower($varName)];
 		}
 	}
 	
