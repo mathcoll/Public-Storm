@@ -9,7 +9,6 @@ gettext("baseline");
 gettext("baseline");
 gettext("Go to home page");
 gettext("Go to home page");
-gettext("description");
 gettext("available_languages");
 gettext("Aider à la traduction");
 

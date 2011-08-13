@@ -17,12 +17,15 @@ gettext("fogotten_password.signature");
 ?><?php
 gettext("mes_storms");
 gettext("Semaine");
+gettext("(suite)");
+gettext("Semaine");
 
 ?><?php
 gettext("Storms de %1");
-gettext("Prénom");
-gettext("Nom");
 gettext("Membre depuis le %1");
+gettext("Langue :");
+gettext("Semaine");
+gettext("(suite)");
 gettext("Semaine");
 
 ?><?php
@@ -55,6 +58,8 @@ gettext("by");
 ?><?php
 gettext("Pages :");
 gettext("Page précédente");
+gettext("Storms");
+gettext("page");
 gettext("Page suivante");
 
 ?><?php
@@ -102,6 +107,7 @@ gettext("mes_storms");
 gettext("Mes favoris");
 
 ?><?php
+gettext("Les champs marqués d'un * sont obligatoires.");
 gettext("field.prenom");
 gettext("field.nom");
 gettext("field.email");

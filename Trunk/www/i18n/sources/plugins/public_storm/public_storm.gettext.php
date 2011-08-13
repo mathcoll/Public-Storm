@@ -25,12 +25,16 @@ gettext("intro_p4");
 ?><?php
 gettext("Liste des derniers Storms créés :");
 gettext("Semaine");
+gettext("(suite)");
+gettext("Semaine");
 
 ?><?php
 gettext("Création du storm :");
 gettext("Auteur du storm %1 :");
 gettext("Contributeurs :");
 gettext("Utilisateurs connectés :");
+gettext("Partager avec mes amis");
+gettext("Partager avec mes amis");
 gettext("export2ods");
 gettext("export2csv");
 gettext("Ajouter aux favoris");
@@ -50,11 +54,14 @@ gettext("Nuage de storms liés à %1");
 
 ?><?php
 gettext("Liste des Storms triés par ordre alphabêtique :");
+gettext("(suite)");
 gettext("by");
 
 ?><?php
 gettext("Pages :");
 gettext("Page précédente");
+gettext("Storms");
+gettext("page");
 gettext("Page suivante");
 
 ?><?php
@@ -77,6 +84,5 @@ gettext("telechargez_p2");
 
 ?><?php
 gettext("Ajouter ce 'Storm' :");
-gettext("Ajouter");
 
 ?>
