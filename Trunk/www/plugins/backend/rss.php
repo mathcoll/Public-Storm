@@ -33,8 +33,6 @@ else
 {
 	$ind = 1;
 }
-$_SESSION["periode"] = @isset($uri[$ind+1]) ? $uri[$ind+1] : 30;
-
 
 if ( !preg_match('/feedburner/i', $_SERVER['HTTP_USER_AGENT']) && Settings::getVar('feedburner_url') != "" ) 
 {
@@ -55,7 +53,6 @@ $sPlug->AddData("theme_dir_http", Settings::getVar('theme_dir_http'));
 $sPlug->AddData("rss_generator", Settings::getVar('RSS_GENERATOR'));
 $sPlug->AddData("rss_webmaster", Settings::getVar('RSS_WEBMASTER'));
 $sPlug->AddData("rss_managingeditor", Settings::getVar('RSS_MANAGINGEDITOR'));
-$sPlug->AddData("periode", i18n::_("period_".$_SESSION["periode"]));
 $sPlug->AddData("date", date('r'));
 #$sPlug->->AddData("i18n", i18n::getLng());
 
