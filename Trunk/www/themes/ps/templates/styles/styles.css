@@ -19,7 +19,7 @@ img
 span.nobr {
     white-space: nowrap;
 }
-ul.list-pages li a {padding:2px 5px;}
+ul.list-pages li a, ul.list-pages li b {padding:2px 5px;}
 body
 {
 	background: #ffffff;
