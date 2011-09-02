@@ -57,7 +57,7 @@ $sPlug->AddData("date", date('r'));
 #$sPlug->->AddData("i18n", i18n::getLng());
 
 
-$sPlug->AddData("storms", public_storm::getStormsByDate(20));
+$sPlug->AddData("storms", public_storm::getStormsByDate(0,20));
 
 $sPlug->Show("rss.tpl", "plugins/backend");
 //$content = "<pre>".htmlentities($sPlug->fetch("rss.tpl", "plugins/backend"))."</pre>";
