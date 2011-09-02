@@ -899,7 +899,7 @@ msgstr "Liste des utilisateurs"
 
 #: ../../../plugins/users/index.php:128
 msgid "description user"
-msgstr "Liste des Storms créés par l'utilisateur (membre inscrit sur 'Public-Storm') %s. Public-Storm est un outil en ligne de Remue-méninges collaboratif."
+msgstr "Liste des Storms créés par l'utilisateur %s (membre inscrit sur 'Public-Storm'). Public-Storm est un outil en ligne de Remue-méninges collaboratif."
 
 #: ../../../plugins/users/index.php:129
 #, php-format
