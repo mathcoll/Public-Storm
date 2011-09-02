@@ -4,7 +4,7 @@
 {foreach from=$storms item=storm}
 	{if $storm.permaname ne ""}
 	<url>
-		<loc>{$base_url_http}/storm/{$storm.permaname|url}/</loc>
+		<loc>{$base_url_http}/storm/{$storm.permaname}/</loc>
 		<lastmod>{$smarty.now|date_format:"%Y-%m-%dT%k:%M:00+00:00"}</lastmod>
 		<changefreq>hourly</changefreq>
 		<priority>0.8</priority>

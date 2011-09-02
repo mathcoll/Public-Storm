@@ -17,7 +17,7 @@
 					{/if}
 					<li class="cap">{$cap|ucfirst}</li>
 				{/if}
-				{if $storm.root ne ""}<li><a href="{$base_url}/storm/{$storm.permaname|url}/" class="storm">{$storm.root|ucfirst}</a>{if $storm.author_login ne ""} <small class="author">({t}by{/t} <a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a>)</small>{/if}</li>{/if}
+				{if $storm.root ne ""}<li><a href="{$base_url}/storm/{$storm.permaname}/" class="storm">{$storm.root|ucfirst}</a>{if $storm.author_login ne ""} <small class="author">({t}by{/t} <a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a>)</small>{/if}</li>{/if}
 				{assign var=prevcap value=$cap}
 				
 				{assign var=loopnum value=$loopnum+1}

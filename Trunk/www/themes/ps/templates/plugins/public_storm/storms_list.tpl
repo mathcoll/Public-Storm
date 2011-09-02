@@ -41,7 +41,7 @@
 					{/if}
 					
 					<li>
-						<a href="{$base_url}/storm/{$storm.permaname|url}/" class="storm">{$storm.root|ucfirst}</a><br />
+						<a href="{$base_url}/storm/{$storm.permaname}/" class="storm">{$storm.root|ucfirst}</a><br />
 						{if $storm.author_login ne ""}
 							créé par <a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a>
 						{/if}
