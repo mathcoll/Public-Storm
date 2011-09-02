@@ -106,7 +106,7 @@ switch ( $uri[$ind+1] )
 		break;
 		
 	default :/* list storms for a user */
-		if( $user_id = User::userExists($uri[$ind+1]) )
+		if( $user_id = User::userExists(urldecode($uri[$ind+1])) )
 		{
 			$author = public_storm::getStormAuthor($user_id);
 			$username = ucWords($author['prenom']." ".$author['nom']);
