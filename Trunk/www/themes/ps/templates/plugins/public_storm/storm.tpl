@@ -51,14 +51,14 @@
 					{/if}
 
 					<ul class="tools">
-						{if $statuses.sendtoafriend eq 1}<li><a href="{$base_url}/sendtoafriend/form/{$storm.permaname|url}/" class="sendToAFriend" title="{t}Partager avec mes amis{/t}">{t}Partager avec mes amis{/t}</a></li>{/if}
-						<li><a href="{$base_url}/odsExport/{$storm.permaname|url}/" class="stormExport">{t}export2ods{/t}</a></li>
-						<li><a href="{$base_url}/csvExport/{$storm.permaname|url}/" class="stormExport">{t}export2csv{/t}</a></li>
+						{if $statuses.sendtoafriend eq 1}<li><a href="{$base_url}/sendtoafriend/form/{$storm.permaname}/" class="sendToAFriend" title="{t}Partager avec mes amis{/t}">{t}Partager avec mes amis{/t}</a></li>{/if}
+						<li><a href="{$base_url}/odsExport/{$storm.permaname}/" class="stormExport">{t}export2ods{/t}</a></li>
+						<li><a href="{$base_url}/csvExport/{$storm.permaname}/" class="stormExport">{t}export2csv{/t}</a></li>
 						{if $user.logged}
 							{if $is_favorites eq 0}
-								<li><a href="{$base_url}/utilisateurs/add-to-favorites/{$storm.permaname|url}/" class="add-to-favorites">{t}Ajouter aux favoris{/t}</a></li>
+								<li><a href="{$base_url}/utilisateurs/add-to-favorites/{$storm.permaname}/" class="add-to-favorites">{t}Ajouter aux favoris{/t}</a></li>
 							{else}
-								<li><a href="{$base_url}/utilisateurs/remove-from-favorites/{$storm.permaname|url}/" class="remove-from-favorites">{t}Enlever des favoris{/t}</a></li>
+								<li><a href="{$base_url}/utilisateurs/remove-from-favorites/{$storm.permaname}/" class="remove-from-favorites">{t}Enlever des favoris{/t}</a></li>
 							{/if}
 						{/if}
 					</ul>
