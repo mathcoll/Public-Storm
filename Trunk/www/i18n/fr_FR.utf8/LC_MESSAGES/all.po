@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Public-Storm\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-08-06 10:48+0100\n"
-"PO-Revision-Date: 2011-08-06 13:12+0100\n"
+"PO-Revision-Date: 2011-09-04 13:39+0100\n"
 "Last-Translator: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "Language-Team: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "MIME-Version: 1.0\n"
@@ -1068,8 +1068,8 @@ msgstr "Vous venez de créer le storm %s !"
 
 #: ../../../plugins/public_storm/storm.php:62
 #, php-format
-msgid "Nouveau storm créé : %s %s"
-msgstr "Nouveau storm créé : %s %s"
+msgid "Nouveau storm créé : %s %s par %s"
+msgstr "Nouveau storm créé : %s %s par %s"
 
 #: ../../../plugins/public_storm/storm.php:71
 #, php-format

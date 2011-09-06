@@ -802,8 +802,8 @@ msgstr "You have created the storm %s!"
 
 #: ../plugins/public_storm/storm.php:62
 #, php-format
-msgid "Nouveau storm créé : %s %s"
-msgstr "New storm added: %s %s"
+msgid "Nouveau storm créé : %s %s par %s"
+msgstr "New storm added: %s %s (by %s)"
 
 #: ../plugins/public_storm/storm.php:71
 #, php-format
