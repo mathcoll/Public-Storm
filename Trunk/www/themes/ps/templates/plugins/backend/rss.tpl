@@ -25,7 +25,7 @@
 		{foreach from=$storms item=storm}
 		{if $storm.root ne ""}
 		<item>
-			<title>{$storm.root|ucfirst}</title>
+			<title>{t}Storm{/t} {$storm.root|ucfirst} {t}by{/t} {$storm.author}</title>
 			<!--<author>({$storm.author})</author>-->
 			<link>{$base_url_http}/storm/{$storm.permaname}/</link>
 			<description><![CDATA[{assign var=rootCap value=$storm.root|ucfirst}{$i18n.suggest_it|sprintf:$rootCap} <a href="{$base_url_http}/storm/{$storm.permaname}/">{$storm.root|ucfirst}</a>]]></description>
