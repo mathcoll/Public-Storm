@@ -29,7 +29,7 @@ final class meteor extends Plugins
 		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		//require_once('./plugins/'.self::$name.'/classes/'.self::$name.'.php');
 		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/'.self::$name.'/styles/'.self::$name.'.css', 'all.css');
-		if( $_SESSION['isadmin'] == 1 )
+		if( @$_SESSION['isadmin'] == 1 )
 		{
 			Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/'.self::$name.'/styles/admin.css', 'admin.css');
 		}

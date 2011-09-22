@@ -39,6 +39,7 @@ define("DEBUG_FILE_PATH", "./debug.log");
 define("NOTICE" ,"NOTICE");
 define("WARNING","WARNING");
 define("ERROR"  ,"ERROR");
+define("SQL","SQL");
 
 /**
  *
@@ -72,16 +73,20 @@ final class Debug
     elseif (stristr($debug_type,"screen"))
     {
       self::$instance->log_screen = true;
+      print "<script defer='defer'>var fdebug = window.open('about:blank', 'fdebug', 'scrollbars=1,width=500,height=500');
+      fdebug.document.write('<h1>".i18n::_("Debug window")."</h1><style>span.tab{width:200px;}span.info{width:200px;}span.line{width:200px;}span.file{width:200px;}</style>');</script>\r\n\r\n";
     }
     
     self::$last_debug_type = $debug_type;
   }
  
  
-  public static function Log ($message,$level=NOTICE)
+  public static function Log ($message,$level=NOTICE,$file_line=false,$file_name=false)
   {
     $data[] = $level;
     $data[] = $message;
+    $data[] = $file_line;
+    $data[] = $file_name;
     self::WriteLine(self::PrepareLine($data));
   }
 
@@ -96,7 +101,7 @@ final class Debug
  //   $file_line = $debug_calls[sizeof($debug_calls)-1]["line"] ;
 
  //   $line.= sprintf("%-8s%'04d,%s %s ",$data[0],$file_line,$file_name,$data[1]);
-      $line.= sprintf("%-8s %s ",$data[0],$data[1]);
+      $line.= sprintf("%-8s%s %s %s %s", "</span>", "<span class='tab'>".$data[0]."</span>", "<span class='info'>".$data[1]."</span>", "<span class='line'>".$data[2]."</span>", "<span class='file'>".$data[3]."</span>")."</div>";
 
 
     return $line;
@@ -114,7 +119,7 @@ final class Debug
        file_put_contents(DEBUG_FILE_PATH,$data."\r\n",FILE_APPEND);
 
     if (self::$instance->log_screen)
-       echo "<pre>".$data."</pre>";
+       print "<script>fdebug.document.write('<div><span class=\'date\'>".addslashes($data)."');</script>\r\n";
   }
 
 

@@ -61,7 +61,7 @@ foreach( $plug->listPlugins() as $pluginName )
 
 
 /* Load languages */
-$locale = $_COOKIE["locale"] != "" ? $_COOKIE["locale"] : LANG;
+$locale = isset($_COOKIE["locale"]) ? $_COOKIE["locale"] : LANG;
 i18n::setLocale($locale);
 /* end Load languages */
 
@@ -70,9 +70,12 @@ i18n::setLocale($locale);
 $n = 0;
 foreach( $plug->listPlugins() as $pluginName )
 {
-	if ( method_exists($plugins[$n], 'initAdminMenu') )
-	{
-		$plugins[$n]->initAdminMenu();
+	if ( @isset($plugins[$n]) ) {
+		if ( method_exists($plugins[$n], 'initAdminMenu') ) {
+			$plugins[$n]->initAdminMenu();
+		}
+	} else {
+		Debug::Log("Undefined index: ".$n." line:".__LINE__, "WARNING");
 	}
 	$n++;
 }

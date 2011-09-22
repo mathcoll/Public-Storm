@@ -75,6 +75,18 @@ final class User
 		if ( empty($_SESSION['id']) || $_SESSION['id'] == 0 )
 		{
 			self::$logged = false;
+			$_SESSION['id'] = false;
+			$_SESSION['user_id'] = false;
+			$_SESSION['uid'] = false;
+			$_SESSION['sessionId'] = false;
+			$_SESSION['login'] = false;
+			$_SESSION['LANG'] = false;
+			$_SESSION['prenom'] = false;
+			$_SESSION['nom'] = false;
+			$_SESSION['subscription_date'] = false;
+			$_SESSION['email'] = false;
+			$_SESSION['avatar'] = false;
+			$_SESSION['isadmin'] = false;
 			return false;
 		}
 		else

@@ -6,7 +6,7 @@ Settings::setVar('compressor_use_gzip', true, 'compressor', 'Gzipping your CSS (
 Settings::setVar('listeJs', 'jquery.js,all.js', 'compressor', 'Liste des fichiers de scripts disponibles');
 Settings::setVar('compress html output', true, 'compressor', 'Compress the html output (true or false)');
 
-if( !$_SESSION['isadmin'] ) {
+if( !@$_SESSION['isadmin'] ) {
 	Settings::setVar('listeCss', 'all.css', 'compressor', 'Liste des feuilles de styles disponibles');
 } else {
 	Settings::setVar('listeCss', 'all.css,admin.css', 'compressor', 'Liste des feuilles de styles disponibles');

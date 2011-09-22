@@ -254,9 +254,8 @@ final class public_storm extends Plugins
 	
 	public function getSuggestions($storm_id, $nb=null)
 	{
-		if( !isset($self->$suggestions[$storm_id]) ) {
+		if( !@isset($self->$suggestions[$storm_id]) ) {
 			$u = Settings::getVar('BASE_URL_HTTP')."/storm/";
-		
 			//$suggestions = self::$db->q2("SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = :storm_id GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC LIMIT :nb", "public_storms.db", array(':nb' => $nb, ':storm_id' => $storm_id));
 			$q = "SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = %s GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC";
 			if( isset($nb) && $nb > 0 ) {
@@ -272,9 +271,9 @@ final class public_storm extends Plugins
 			//print "SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = ".$storm_id." GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC LIMIT ".$nb."<br />\n";
 			//print_r($suggestions);
 			unset($suggestions[$storm_id][0]);
-			$self->$suggestions[$storm_id] = $suggestions[$storm_id];
+			@$self->$suggestions[$storm_id] = $suggestions[$storm_id];
 		}
-		return $self->$suggestions[$storm_id];
+		return @$self->$suggestions[$storm_id];
 	}
 	
 	public function getStormAuthor($user_id)
@@ -282,7 +281,7 @@ final class public_storm extends Plugins
 		if( isset($user_id) ) {
 			$author = self::$db->q("SELECT u.* FROM users u WHERE u.user_id=%d", "users.db", array($user_id));
 			unset($author[0]);
-			return $author[1];
+			return @is_array($author[1])?$author[1]:false;
 		} else {
 			return false;
 		}
@@ -296,19 +295,16 @@ final class public_storm extends Plugins
 	public function getStormIdFromUrl($storm)
 	{
 		$s = self::$db->q("SELECT s.storm_id FROM storms s WHERE s.permaname = '%s'", "public_storms.db", array($storm));
-		return $s[1]['storm_id'];
+		return @is_array($s[1])?$s[1]['storm_id']:null;
 	}
 	
 	public function getNbStorms($user_id=null)
 	{
 		$q = "SELECT count(*) as c FROM storms s";
-		if ( isset($user_id) )
-		{
+		if ( isset($user_id) ) {
 			$q .= " WHERE s.user_id = :user_id";
 			$datas = array(':user_id' => $user_id);
-		}
-		else
-		{
+		} else {
 			$datas = array();
 		}
 		$storms = self::$db->q2($q, "public_storms.db", $datas);
@@ -318,14 +314,14 @@ final class public_storm extends Plugins
 	public function getContributors($storm_id=null, $filter_user_id)
 	{
 		//print "-->".$storm_id;
-		$suggestions = isset($self->$suggestions[$storm_id]) ? $self->$suggestions[$storm_id] : self::getSuggestions($storm_id);
+		$suggestions = @isset($self->$suggestions[$storm_id]) ? $self->$suggestions[$storm_id] : self::getSuggestions($storm_id);
 		//print_r($suggestions);
 		$contributors = Array();
 		foreach($suggestions as $s) {
 			$s["author"] = $s["author"] == " " || $s["author"] == "" ? i18n::_("Anonyme") : $s["author"];
 			$s["author_login"] = $s["author_login"] == " " || $s["author_login"] == "" ? "-anonymous-" : $s["author_login"];
 			//print_r($s);
-			if ( !in_multi_array($s["author_login"], $contributors) && $filter_user_id != $s["user_id"] ) {
+			if ( !in_multi_array($s["author_login"], $contributors) ) {
 				array_push($contributors, array("author_login" => $s["author_login"], "author" => $s["author"]));
 			}
 		}

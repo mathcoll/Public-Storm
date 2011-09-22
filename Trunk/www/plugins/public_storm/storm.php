@@ -46,8 +46,7 @@ if ( isset($id) || isset($_SESSION['id']) )
 	//print '</pre>';
 	$root = isset($id) ? $storm['root'] : $storm_permaname;
 	//exit;
-	if ( !isset($id) )
-	{
+	if ( is_null($id) ) {
 		/* on créé le storm */
 		$storm_root = $uri[$ind+2] != "" ? $uri[$ind+2] : $root;
 		
@@ -62,9 +61,7 @@ if ( isset($id) || isset($_SESSION['id']) )
 			else {
 				//print "updateStatus => ".fixEncoding(i18n::_("Nouveau storm créé : %s %s par %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname), $_SESSION["prenom"]." ".$_SESSION["nom"])));
 			}
-		}
-		else
-		{
+		} else {
 			$_SESSION["message"] = i18n::_("Erreur lors de la création du storm %s", array(urldecode($storm_root)));
 		}
 		$storm = public_storm::getStorm($id);
@@ -82,40 +79,41 @@ if ( isset($id) || isset($_SESSION['id']) )
 	 * http://www.google.com/support/webmasters/bin/answer.py?hl=fr&answer=146645#Aggregate_reviews
 	*/
 	$sPlug->AddData("votes", count($storm['suggestions']));
-	$sPlug->AddData("rating", public_storm::getNbSuggestionsFromUserId($id, $storm["user_id"])*5 / count($storm['suggestions']));
+	$count = is_null(count($storm['suggestions']))?count($storm['suggestions']):1;
+	$sPlug->AddData("rating", public_storm::getNbSuggestionsFromUserId($id, $storm["user_id"])*5 / $count);
 	/* fin Google Rich snippets */
 	
 	$cloud = new tagcloud();
 	$is_cloud=false;
-	foreach ( $storm["suggestions"] AS $suggestion )
-	{
-		/* on recherche tous les autres storms qui ont la même suggestion */
-		$storms_list = public_storm::getStormsFromSuggestion($suggestion['suggestion'], $storm["storm_id"]);
-		//print "<pre>";
-		//print_r( $storms_list);
-		//print "</pre>";
-		/* pour chaque storm connexe, on recherche ses suggestions */		
-		foreach( $storms_list AS $sugg )
-		{
-			$st = public_storm::getStorm($sugg['storm_id']);
-			//print $suggestion['suggestion'].":".$st['root']." (id=".$sugg['storm_id'].")<br />";
+	if ( is_array($storm) ) {
+		foreach ( $storm["suggestions"] AS $suggestion ) {
+			/* on recherche tous les autres storms qui ont la même suggestion */
+			$storms_list = public_storm::getStormsFromSuggestion($suggestion['suggestion'], $storm["storm_id"]);
 			//print "<pre>";
-			//print_r($st);
+			//print_r( $storms_list);
 			//print "</pre>";
-			$is_cloud=true;
-			$cloud->addWord($st['root'], 1);
+			/* pour chaque storm connexe, on recherche ses suggestions */		
+			foreach( $storms_list AS $sugg )
+			{
+				$st = public_storm::getStorm($sugg['storm_id']);
+				//print $suggestion['suggestion'].":".$st['root']." (id=".$sugg['storm_id'].")<br />";
+				//print "<pre>";
+				//print_r($st);
+				//print "</pre>";
+				$is_cloud=true;
+				$cloud->addWord($st['root'], 1);
+			}
 		}
 	}
 	//print_r($cloud->getWords());
 	if ( $is_cloud==true ) $sPlug->AddData("cloud", $cloud->showCloud());
 	
 	$storm = is_array($storm) ? $storm : array();
-	$suggestions = $storm["suggestions"];
-	if ( is_array($suggestions) )
-	{
+	$suggestions = @$storm["suggestions"];
+	$meta_keywords = array();
+	if ( @is_array($suggestions) ) {
 		$storm["suggestions"] = array_slice($suggestions, 0, 5);
-		if ( sizeOf($suggestions) > 5 )
-		{
+		if ( sizeOf($suggestions) > 5 ) {
 			$cloud1 = new tagcloud();
 			//print_r(array_slice($suggestions, 6, sizeOf($suggestions)-5));
 			foreach( array_slice($suggestions, 5, sizeOf($suggestions)) AS $sugg )
@@ -125,7 +123,6 @@ if ( isset($id) || isset($_SESSION['id']) )
 			}
 			$sPlug->AddData("cloud1", $cloud1->showCloud(true));
 		}
-		$meta_keywords = array();
 		foreach( $suggestions as $suggestion ) {
 			array_push($meta_keywords, $suggestion['suggestion']);
 		}
@@ -133,7 +130,7 @@ if ( isset($id) || isset($_SESSION['id']) )
 	$sPlug->AddData("storm", $storm);
 	$sPlug->AddData("cache_dir_http", Settings::getVar('cache_dir_http'));
 	$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
-	$get_meta_keywords = Settings::getVar('meta_keywords') != NULL ? Settings::getVar('meta_keywords') : i18n::_("meta_keywords");
+	$get_meta_keywords = Settings::getVar('meta_keywords') != "" ? Settings::getVar('meta_keywords') : i18n::_("meta_keywords");
 	Settings::setVar('meta_keywords', implode(", ", $meta_keywords).", ".$get_meta_keywords);
 	Settings::setVar('meta_description', i18n::_("description", array($root)));
 	#$sPlug->AddData("i18n", i18n::getLng());
@@ -169,11 +166,11 @@ if ( isset($id) || isset($_SESSION['id']) )
 	array_push($breadcrumb, array("name" => $root));
 	Settings::setVar('breadcrumb', $breadcrumb);
 
-	$author = public_storm::getStormAuthor($storm['user_id']);
+	$author = public_storm::getStormAuthor(@$storm['user_id']);
 	$sPlug->AddData("username", $author['prenom']." ".$author['nom']);
 	$sPlug->AddData("avatar", "http://www.gravatar.com/avatar/".md5( strtolower( $author['email'] ) )."?default=".urlencode( Settings::getVar('base_url_http').Settings::getVar('theme_dir')."/img/weather-storm.png" )."&amp;size=30");
 	
-	$sPlug->AddData("contributors", public_storm::getContributors($id, $storm['user_id']));
+	$sPlug->AddData("contributors", public_storm::getContributors($id, "")); //no filter
 	$sPlug->AddData("is_favorites", users::isFavorites($id));
 	if( $statuses['users'] == 1 )
 	{

@@ -84,7 +84,17 @@ final class Settings
 	public function getVar($varName)
 	{
 		//print_r(self::$vars);
-		return self::$vars[strToLower($varName)];
+		if ( $varName && isset(self::$vars[strToLower($varName)]) ) {
+			//print $varName." -> ".strToLower($varName)." -> ".self::$vars[strToLower($varName)]."<br />";
+			try {
+				return isset(self::$vars[strToLower($varName)])?self::$vars[strToLower($varName)]:null;
+			} catch(Exception $exception) {
+				Debug::Log("Variable non définie : ".strToLower($varName), "WARNING");
+			}
+		} else {
+			Debug::Log("Variable non définie : ".strToLower($varName), "WARNING");
+			return false;
+		}
 	}
 	
 	public function getJss($filter='text/javascript', $isCleanable=true)

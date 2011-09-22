@@ -66,7 +66,7 @@ class Database_sqlite extends Database
 		$result = self::$dbUser->query($query);
 		if ( !$result && DEBUG )
 		{
-			Debug::Log("Erreur 1".$query, NOTICE);
+			Debug::Log("Erreur 1".$query, ERROR);
 		}
 		else
 		{
@@ -97,7 +97,7 @@ class Database_sqlite extends Database
 		$result = self::$dbUser->query($query);
 		if ( DEBUG )
 		{
-			Debug::Log("Erreur 2".$query, NOTICE);
+			Debug::Log("Erreur 2".$query, SQL);
 			#Debug::Log(print_r(mysql_fetch_assoc($result), 1), NOTICE);
 		}
 		if ( !$result && DEBUG )
@@ -140,7 +140,7 @@ class Database_sqlite extends Database
 		//print $query;
 		if ( DEBUG )
 		{
-			Debug::Log("Erreur 3".$query, NOTICE);
+			Debug::Log("Erreur 3".$query, SQL);
 		}
 		return self::$dbUser->query($query);
 	}
@@ -186,7 +186,7 @@ class Database_sqlite extends Database
 		);
 		if ( DEBUG )
 		{
-			Debug::Log("Erreur 4".$query, NOTICE);
+			Debug::Log("Erreur 4".$query, SQL);
 		}
 		return self::$dbUser->query($query);
 	}
@@ -229,7 +229,7 @@ class Database_sqlite extends Database
 		}
 		else
 		{
-			Debug::Log("Erreur 5".$query, ERROR);
+			Debug::Log("Erreur 5".$query, SQL);
 		}
 	}
 
@@ -266,7 +266,7 @@ class Database_sqlite extends Database
 		);
 		if ( DEBUG )
 		{
-			Debug::Log("Erreur 6".$query, NOTICE);
+			Debug::Log("Erreur 6".$query, SQL);
 		}
 		self::$dbUser->query($query);
 		return $password;
@@ -293,6 +293,7 @@ class Database_sqlite extends Database
 			$q,
 			self::escape_string($login)
 		);
+		Debug::Log("userExists ".$query, SQL);
 		if ( $result = self::$dbUser->query($query) )
 		{
 			while ( $row = $result->fetch() )
@@ -329,6 +330,7 @@ class Database_sqlite extends Database
 			$nombre
 		);
 		//print $query;
+		Debug::Log("getAllUsers ".$query, SQL);
 		if ( $result = self::$dbUser->query($query) )
 		{
 			$r = array();
@@ -359,7 +361,7 @@ class Database_sqlite extends Database
 		//print $query;
 		if ( DEBUG )
 		{
-			Debug::Log("Erreur addTB ".$query, NOTICE);
+			Debug::Log("addTB ".$query, SQL);
 		}
 		if ( self::$dbTB->query($query) )
 		{
@@ -381,7 +383,7 @@ class Database_sqlite extends Database
 		$result = self::$dbTB->query($query);
 		if ( DEBUG )
 		{
-			Debug::Log($query, NOTICE);
+			Debug::Log("getAllTb ".$query, SQL);
 		}
 		if ( !$result )
 		{
@@ -427,7 +429,7 @@ class Database_sqlite extends Database
 		$result = self::$db_custom->query($query);
 		if ( !$result && DEBUG )
 		{
-			Debug::Log("Erreur q ".$query, NOTICE);
+			Debug::Log("Erreur q ".$query, SQL);
 		}
 		else
 		{
@@ -455,6 +457,7 @@ class Database_sqlite extends Database
 		//print $q."<br />";
 		//print_r($datas);
 		$sth = self::$db_custom->prepare($q, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+		//Debug::Log($sth->debugDumpParams(), SQL);
 		$sth->execute($datas);
 		return $sth->fetchAll();		
 	}
@@ -476,6 +479,7 @@ class Database_sqlite extends Database
 			self::escape_string($datas[0])
 		);
 		//print $query;
+		Debug::Log($query, SQL);
 		if ( self::$db_custom->query($query) )
 		{
 			return self::$db_custom->lastInsertId();

@@ -71,7 +71,7 @@ switch ( $uri[$ind] )
 			header('Content-Type: text/csv; name="storm_'.$uri[$ind+1].'.csv"');
 			header("Expires: 0");
 			header("Cache-Control: no-cache, must-revalidate");
-			header("Pragma: no-cache");  
+			header("Pragma: no-cache");
 			exit;
 			break;
 		
