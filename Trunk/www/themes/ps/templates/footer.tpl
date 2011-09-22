@@ -6,6 +6,8 @@
 		<a href="{$base_url}/">{$site_name} {t}version{/t} {$version}</a><br />
 	</div><!-- end of footer -->
 </div><!-- end of page -->
+<a href="javascript:habillage_sondage();" title="Sondage Public-Storm" id="a_habillage"></a>
+</div><!-- end of habillage -->
 
 {if $statuses.analytics eq 1}{include file="plugins/analytics/analytics.tpl" analytics=$plugins.analytics}{/if}
 

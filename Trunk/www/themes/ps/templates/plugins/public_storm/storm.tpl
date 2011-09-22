@@ -69,7 +69,7 @@
 		</div>
 
 {* colomn 2 *}
-		<div class="table-cell _20 accroche-suggestion">
+		<div class="table-cell _30 accroche-suggestion">
 			<p>
 				{t 1=$rootCap escape=""}accroche incitation suggestion{/t}
 			</p>

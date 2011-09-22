@@ -37,6 +37,8 @@
 </head>
 <body>
 
+
+<div id="habillage">
 <div id="page">
 	<div id="site_name">
 		<h1><a href="{$base_url}/">{$site_name} <span class="baseline">{t}baseline{/t}</span></a></h1>

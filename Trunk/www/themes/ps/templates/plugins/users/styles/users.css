@@ -99,16 +99,15 @@ ul.nolist li a
 
 #login
 {
-	position: absolute;
-	top: 0;
-	right: 21em;
+	float: right;
 }
 #login._0
 {
-	top: 1em;
+	margin-top:-7em;
 }
 #login._1
 {
+	margin-top:-7em;
 	/*background: url(../../../img/weather-storm.png) no-repeat 0 10px;*/
 	height: 60px;
 	padding: 0 0 0 15px;

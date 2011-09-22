@@ -26,7 +26,7 @@
 				<div class="scroll">
 					<div class="scrollContainer">
 						<div id="tab1" class="panel">
-							<img src="{$theme_dir}img/creer_storms.jpg" title="{t}intro_title1{/t}" alt="{t}intro_title1{/t}" width="360" height="360" />
+							<img src="{$theme_dir}img/creer_storms.jpg" title="{t}intro_title1{/t}" alt="{t}intro_title1{/t}" width="320" height="320" />
 							<h4>{t}intro_title1{/t}</h4>
 							<ul class="panel-desc">
 								<li>{t}intro_p1{/t}</li>
@@ -36,7 +36,7 @@
 							</ul>
 						</div>
 						<div id="tab2" class="panel">
-							<img src="{$theme_dir}img/suggest.jpg" title="{t}intro_title2{/t}" alt="{t}intro_title2{/t}" width="360" height="360" />
+							<img src="{$theme_dir}img/suggest.jpg" title="{t}intro_title2{/t}" alt="{t}intro_title2{/t}" width="320" height="320" />
 							<h4>{t}intro_title2{/t}</h4>
 							<ul class="panel-desc">
 								<li class="icon">
@@ -49,7 +49,7 @@
 							</ul>
 						</div>
 						<div id="tab3" class="panel">
-							<img src="{$theme_dir}img/export.jpg" title="{t}intro_title3{/t}" alt="{t}intro_title3{/t}" width="360" height="360" />
+							<img src="{$theme_dir}img/export.jpg" title="{t}intro_title3{/t}" alt="{t}intro_title3{/t}" width="320" height="320" />
 							<h4>{t}intro_title3{/t}</h4>
 							<ul class="panel-desc">
 								<li class="icon">
@@ -62,7 +62,7 @@
 							</ul>
 						</div>
 						<div id="tab4" class="panel">
-							<img src="{$theme_dir}img/creer_storms.jpg" title="{t}intro_title4{/t}" alt="{t}intro_title4{/t}" width="360" height="360" />
+							<img src="{$theme_dir}img/creer_storms.jpg" title="{t}intro_title4{/t}" alt="{t}intro_title4{/t}" width="320" height="320" />
 							<h4>{t}intro_title4{/t}</h4>
 							<ul class="panel-desc">
 								<li class="icon">
