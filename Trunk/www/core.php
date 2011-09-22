@@ -25,8 +25,14 @@
 
 require_once('./_global_settings.php');
 
-function __autoload($class_name) 
-{
+checkFilePermissions(Settings::getVar('cache_dir'), "0777");
+checkFilePermissions(Settings::getVar('prefix') . 'datas/', "0777");
+checkFileReadable(Settings::getVar('prefix') . 'themes/');
+checkFileReadable(Settings::getVar('prefix') . 'conf/');
+checkFileReadable(Settings::getVar('inc_dir'));
+checkFileReadable(Settings::getVar('plug_dir'));
+
+function __autoload($class_name) {
 	try {
 		require_once './include/' . strtolower($class_name) . '.class.php';
 		if ( @defined(DEBUG) && DEBUG == true ) {
@@ -38,11 +44,44 @@ function __autoload($class_name)
 		}
 	}
 }
+
+function checkFilePermissions($path, $permission) {
+	$f = new file($path);
+	if( !$f->HasPermissions($permission) ) {
+		exit(
+			vsprintf(
+				gettext("Erreur interne, le fichier '%s' n'a pas les permissions : %s"),
+				array($path, $permission)
+			)
+		);
+	}
+}
+
+function checkFileReadable($path) {
+	$f = new file($path);
+	if( !$f->IsReadable() ) {
+		exit(
+			vsprintf(
+				gettext("Erreur interne, le fichier '%s' n'est pas lisible"),
+				array($path)
+			)
+		);
+	}
+}
+
 date_default_timezone_set(Settings::getVar('timezone'));
 
 Server::Normalize();
-header('Content-Type: text/html; charset=utf-8');
+
 User::$current = Session::Start();
+
+header('Content-Type: text/html; charset=utf-8');
+/*
+$expires = 3600;
+header("Pragma: public", true);
+header("Cache-Control: maxage=".$expires.", must-revalidate");
+header("Expires: " . gmdate("D, d M Y H:i:s", time()+$expires) . " GMT");
+*/
 if( DEBUG == true ) {
 	error_reporting(E_ALL);
 	ini_set('error_reporting', E_ALL);
@@ -52,7 +91,6 @@ if( DEBUG == true ) {
 	ini_set('error_reporting', '');
 	ini_set('display_errors', 0);
 }
-#i18n::load();
 
 
 ?>

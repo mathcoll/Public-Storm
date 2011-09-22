@@ -39,10 +39,6 @@ $s->AddData("s", @$_SESSION['s']);
 $s->AddData("langs", i18n::langs());
 $s->AddData("fb_app_id", Settings::getVar('fb_app_id'));
 
-$f = new file(Settings::getVar('cache_dir'));
-if( !$f->IsWritable() ) {
-	exit(i18n::_("Erreur interne, le dossier '%s' est en lecture seule !", array(Settings::getVar('cache_dir'))));
-}
 if( $statuses['compressor'] == 1 )
 {
 	$listeCss = explode(",", Settings::getVar('listeCss'));

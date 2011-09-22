@@ -138,6 +138,22 @@ class file
    }
 
    /**
+    * Check if the selected file has the permissions set to a value
+    * 
+    * @access public
+    * @return boolean
+    */
+   public function HasPermissions($wantedPerms)
+   {
+		$actualPerms = substr(decoct(fileperms($this->sFile)), 1);
+		if($actualPerms == $wantedPerms) {
+			return true;
+		} else {
+			return false;
+		}
+   }
+
+   /**
     * Check if the selected file is writable
     * 
     * @access public
