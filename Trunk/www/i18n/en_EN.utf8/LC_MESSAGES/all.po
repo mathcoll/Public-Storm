@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: Public-Storm\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-03-26 16:46+0100\n"
-"PO-Revision-Date: 2011-08-06 13:12+0100\n"
+"PO-Revision-Date: 2011-09-26 22:26+0100\n"
 "Last-Translator: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "Language-Team: Mathieu Lory <mathcoll@internetcollaboratif.info>\n"
 "MIME-Version: 1.0\n"
@@ -540,7 +540,7 @@ msgstr "Login"
 #: ../i18n/sources/plugins/users/users.gettext.php:95
 #: ../i18n/sources/plugins/users/users.gettext.php:109
 msgid "field.password"
-msgstr ""
+msgstr "Password"
 
 #: ../i18n/sources/plugins/users/users.gettext.php:8
 msgid "inscription.signature"
@@ -563,7 +563,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:18
 #: ../i18n/sources/plugins/users/users.gettext.php:101
 msgid "mes_storms"
-msgstr ""
+msgstr "My Storms"
 
 #: ../i18n/sources/plugins/users/users.gettext.php:22
 msgid "Storms de %1"
@@ -660,21 +660,21 @@ msgstr "Login"
 #: ../i18n/sources/plugins/users/users.gettext.php:80
 #: ../i18n/sources/plugins/users/users.gettext.php:110
 msgid "field.captcha"
-msgstr ""
+msgstr "Captcha"
 
 #: ../i18n/sources/plugins/users/users.gettext.php:81
 #: ../i18n/sources/plugins/users/users.gettext.php:111
 msgid "field.reload_captcha"
-msgstr ""
+msgstr "unreadable captcha"
 
 #: ../i18n/sources/plugins/users/users.gettext.php:85
 msgid "mes_alertes"
-msgstr ""
+msgstr "My alerts"
 
 #: ../i18n/sources/plugins/users/users.gettext.php:88
 #: ../i18n/sources/plugins/users/users.gettext.php:99
 msgid "mes_informations"
-msgstr ""
+msgstr "My informations"
 
 #: ../i18n/sources/plugins/users/users.gettext.php:89
 msgid "Changer ma photo"
@@ -731,7 +731,7 @@ msgstr "Home page"
 
 #: ../index.php:108
 msgid "meta_keywords"
-msgstr ""
+msgstr "tool, Brainstorm, association of ideas, ideas, suggestions, storm"
 
 #: ../index.php:109
 msgid "meta_description"
