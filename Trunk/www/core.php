@@ -31,6 +31,12 @@ checkFileReadable(Settings::getVar('prefix') . 'themes/');
 checkFileReadable(Settings::getVar('prefix') . 'conf/');
 checkFileReadable(Settings::getVar('inc_dir'));
 checkFileReadable(Settings::getVar('plug_dir'));
+checkFileWritable(Settings::getVar('prefix') . 'datas/' . 'articles.db');
+checkFileWritable(Settings::getVar('prefix') . 'datas/' . 'plugins.db');
+checkFileWritable(Settings::getVar('prefix') . 'datas/' . 'prelaunch.db');
+checkFileWritable(Settings::getVar('prefix') . 'datas/' . 'public_storms.db');
+checkFileWritable(Settings::getVar('prefix') . 'datas/' . 'trackbacks.db');
+checkFileWritable(Settings::getVar('prefix') . 'datas/' . 'users.db');
 
 function __autoload($class_name) {
 	try {
@@ -63,6 +69,18 @@ function checkFileReadable($path) {
 		exit(
 			vsprintf(
 				gettext("Erreur interne, le fichier '%s' n'est pas lisible"),
+				array($path)
+			)
+		);
+	}
+}
+
+function checkFileWritable($path) {
+	$f = new file($path);
+	if( !$f->IsWritable() ) {
+		exit(
+			vsprintf(
+				gettext("Erreur interne, le fichier '%s' n'est pas inscriptible"),
 				array($path)
 			)
 		);
