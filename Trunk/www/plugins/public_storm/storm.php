@@ -34,12 +34,23 @@ else
 }
 
 $id = public_storm::getStormIdFromUrl(strToLower($storm_permaname));
-//print $id."-)".$_SESSION['id'];
-
-if ( isset($id) || isset($_SESSION['id']) )
-{
+//identica_php::updateStatus('test 1'.$id);
+//print $id."<-------->".$_SESSION['id'];
+if ( !isset($id) && !is_null($_SESSION['id']) ) {
+	Settings::setVar('title', "Connectez-vous pour créer le storm : ".$storm_permaname);
+	Settings::setVar('meta_description', i18n::_("description", array($storm_permaname)));
+	$breadcrumb = Settings::getVar('breadcrumb');
+	array_push($breadcrumb, array("name" => i18n::_("Storms"), "link" => Settings::getVar('BASE_URL')."/storms/"));
+	array_push($breadcrumb, array("name" => $storm_permaname));
+	Settings::setVar('breadcrumb', $breadcrumb);
+	$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
+	#$sPlug->->AddData("i18n", i18n::getLng());
+	$sPlug->AddData("storm_permaname", $storm_permaname);
+	$content = $sPlug->fetch("add_storm_or_loggin.tpl", "plugins/users");
+} else {
 	//print "--".$id."--";
 	$storm = public_storm::getStorm($id, 100);
+	//identica_php::updateStatus('test 2'.$storm);
 	//print "--".$id."--";
 	//print '<pre>';
 	//print_r($storm);
@@ -49,13 +60,14 @@ if ( isset($id) || isset($_SESSION['id']) )
 	if ( is_null($id) ) {
 		/* on créé le storm */
 		$storm_root = $uri[$ind+2] != "" ? $uri[$ind+2] : $root;
-		
+				
 		//print "Root=".$root."<br/>";
 		//print "permaname=".$storm_permaname."<br/>";
 		//print "storm_root=".$storm_root."<br/>";
 		if ( $id = public_storm::addStorm($storm_permaname, time(), urldecode($storm_root), $_SESSION['id']) ) {
 			$_SESSION["message"] = i18n::_("Vous venez de créer le storm %s !", array(urldecode($storm_root)));
 			if( DEV != true ) {
+				//print "identica_php::updateStatus";
 				identica_php::updateStatus(i18n::_("Nouveau storm créé : %s %s par %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname), $_SESSION["prenom"]." ".$_SESSION["nom"])));
 			}
 			else {
@@ -67,7 +79,7 @@ if ( isset($id) || isset($_SESSION['id']) )
 		$storm = public_storm::getStorm($id);
 		$storm["storm_id"] = $id;
 	}
-	
+	//identica_php::updateStatus('test 3'.$storm);
 	/*
 	print '<pre>';
 	print_r($storm);
@@ -160,6 +172,11 @@ if ( isset($id) || isset($_SESSION['id']) )
 			/*exec("neato -T$type -Odot " . Settings::getVar('cache_dir') . $file . ".dot");*/
 		}
 	}
+	
+	$hubs = viadeo_api::getJsonGroups($root, 5);
+	//print_r($hubs);
+	if( !is_array($hubs) ) $sPlug->AddData("hubs", $hubs["data"]);
+	
 	Settings::setVar('title', "Storm ".$root);
 	$breadcrumb = Settings::getVar('breadcrumb');
 	array_push($breadcrumb, array("name" => i18n::_("Storms"), "link" => Settings::getVar('BASE_URL')."/storms/"));
@@ -188,19 +205,7 @@ if ( isset($id) || isset($_SESSION['id']) )
 	$sPlug->AddData("statuses", $statuses);
 	$content = $sPlug->fetch("storm.tpl", "plugins/public_storm");
 }
-else
-{
-	Settings::setVar('title', "Connectez-vous pour créer le storm : ".$storm_permaname);
-	Settings::setVar('meta_description', i18n::_("description", array($storm_permaname)));
-	$breadcrumb = Settings::getVar('breadcrumb');
-	array_push($breadcrumb, array("name" => i18n::_("Storms"), "link" => Settings::getVar('BASE_URL')."/storms/"));
-	array_push($breadcrumb, array("name" => $storm_permaname));
-	Settings::setVar('breadcrumb', $breadcrumb);
-	$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
-	#$sPlug->->AddData("i18n", i18n::getLng());
-	$sPlug->AddData("storm_permaname", $storm_permaname);
-	$content = $sPlug->fetch("add_storm_or_loggin.tpl", "plugins/users");
-}
+
 
 // Fixes the encoding to uf8
 function fixEncoding($in_str) {

@@ -134,7 +134,7 @@ p
 div.description
 {
 	font-size: 1.1em;
-	margin:0.3em 37em 0 95px;
+	margin:0 39em 0 95px;
 	text-align: justify;
 	overflow: auto;
 }
@@ -285,11 +285,11 @@ div.breadcrumb ul li
 
 #description, div.description
 {
-	padding: 0 3em 0 0;
+	padding: 0;
 	color: #444;
 	font-style: italic;
 	text-align: justify;
-	height: 63px;
+	height: 65px;
     overflow: hidden;
 }
 

@@ -242,13 +242,12 @@ function sksort(&$array, $subkey="id", $sort_descending=false, $keep_keys_in_sub
   */
 function filter_by_value($array, $index, $value) {
 	//print "filtering ".$index."->".$value."<br />\n";
-	if( is_array($array) && count($array)>0 ) 
-	{
-		foreach(array_keys($array) as $key)
-		{
+	if( is_array($array) && count($array)>0 ) {
+		$temp = array();
+		$newarray = array();
+		foreach(array_keys($array) as $key) {
 			$temp[$key] = $array[$key][$index];
-			if ( $temp[$key] != $value )
-			{
+			if ( $temp[$key] != $value ) {
 				$newarray[$key] = $array[$key];
 			} else {
 				$newarray[$key] = "";
@@ -257,6 +256,6 @@ function filter_by_value($array, $index, $value) {
 		}
 	}
 	//print_r($newarray);
-	return $newarray;
+	return @isset($newarray)?$newarray:$array;
 } 
 ?>

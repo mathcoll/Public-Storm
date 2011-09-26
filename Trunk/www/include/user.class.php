@@ -237,6 +237,8 @@ final class User
 				setcookie("uid", self::$uid, $end, Settings::getVar("BASE_URL")."/");
 				//header("Set-Cookie: persistentConnection=".$persistent, false, 302);
 				//header("Set-Cookie: uid=".User::$uid, false, 302);
+				header("Cache-Control: no-cache, must-revalidate", true); // HTTP/1.1
+				header("Expires: Sat, 26 Jul 1997 05:00:00 GMT", true); // Date in the past
 			}
 			return true;
 		}
@@ -294,6 +296,8 @@ final class User
 				setcookie("uid", self::$uid, $end, Settings::getVar("BASE_URL")."/");
 				//header("Set-Cookie: persistentConnection=".$persistent, false, 302);
 				//header("Set-Cookie: uid=".User::$uid, false, 302);
+				header("Cache-Control: no-cache, must-revalidate", true); // HTTP/1.1
+				header("Expires: Sat, 26 Jul 1997 05:00:00 GMT", true); // Date in the past
 			}
 			return true;
 		}
@@ -367,6 +371,8 @@ final class User
 		setcookie("persistentConnection", "0", $end, Settings::getVar("BASE_URL")."/");
 		setcookie("PHPSESSID", "0", $end, Settings::getVar("BASE_URL")."/");
 		setcookie("uid", "0", $end, Settings::getVar("BASE_URL")."/");
+		header("Cache-Control: no-cache, must-revalidate", true); // HTTP/1.1
+		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT", true); // Date in the past
 		session_regenerate_id(true);
 		return true;
 	}

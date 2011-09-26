@@ -25,11 +25,11 @@ require_once(Settings::getVar('inc_dir') . "securimage/securimage.php");
 $securimage = new Securimage();
 
 $user_infos = array();
-$user_infos['prenom'] = $_POST['prenom'];
-$user_infos['nom'] = $_POST['nom'];
-$user_infos['email'] = $_POST['email'];
-$user_infos['login'] = $_POST['login'];
-$user_infos['password'] = $_POST['password'];
+$user_infos['prenom'] = isset($_POST['prenom'])?$_POST['prenom']:"";
+$user_infos['nom'] = isset($_POST['nom'])?$_POST['nom']:"";
+$user_infos['email'] = isset($_POST['email'])?$_POST['email']:"";
+$user_infos['login'] = isset($_POST['login'])?$_POST['login']:"";
+$user_infos['password'] = isset($_POST['password'])?$_POST['password']:"";
 
 $sPlug->AddData("user_infos", $user_infos);
 $sPlug->AddData("base_url", Settings::getVar('base_url_http'));
