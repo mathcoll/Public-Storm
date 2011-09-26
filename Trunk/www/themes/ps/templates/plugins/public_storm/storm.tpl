@@ -16,7 +16,7 @@
 
 <div class="table">
 	<div class="table-row">
-{* colomn 1 *}
+{* column 1 *}
 		<div class="table-cell _w200">
 			<div class="fiche">
 				<div class="ficheContainer _w200">
@@ -68,7 +68,7 @@
 			{include file="../openlike/openlike.tpl" rootCap=$rootCap base_url_http=$base_url_http}
 		</div>
 
-{* colomn 2 *}
+{* column 2 *}
 		<div class="table-cell _30 accroche-suggestion">
 			<p>
 				{t 1=$rootCap escape=""}accroche incitation suggestion{/t}
@@ -88,9 +88,22 @@
 			{else}
 				<p><a href="{$base_url}/utilisateurs/creer-un-compte.php">{t}creer_un_compte{/t}</a> - <a href="{$base_url}/utilisateurs/mot-de-passe-oublie.php">{t}mot_de_passe_oublie{/t}</a></p>
 			{/if}
+			
+			{if $hubs != null}
+			<div style="margin:0 0 10px 0">
+				<h4 class="viadeo_api" title="{t 1=$rootCap escape=""}Hubs Viadeo liés à '%1'{/t}">{t 1=$rootCap escape=""}Hubs Viadeo liés à '%1'{/t}</h4>
+				<ul class="hubs">
+				{foreach from=$hubs item=hub}
+					<li>
+						<a href="{$hub.link}" target="_blank">{$hub.name}</a>
+    				</li>
+				{/foreach}
+				</ul>
+			</div>
+			{/if}
 		</div>
 
-{* colomn 3 *}
+{* column 3 *}
 		<div class="table-cell _60">
 			<div class="table">
 				<div class="table-row">
