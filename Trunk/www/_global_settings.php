@@ -36,7 +36,7 @@ Settings::setVar('SITE_BASELINE', '', 'admin', 'Site baseline, also defined in t
 Settings::setVar('SITE_DESCRIPTION', '', 'admin', 'Site description, also defined in the languages files');
 
 // Current version
-Settings::setVar('SITE_VERSION', '11.8.13');
+Settings::setVar('SITE_VERSION', '11.9.30');
 
 // Site name
 Settings::setVar('fb_app_id', '21015190410', 'admin', 'Facebook, préciser les administrateurs dans une balise méta fb:app_id');
@@ -146,6 +146,7 @@ if ( !$f->Exists() )
 Settings::setVar('breadcrumb', array());
 Settings::setVar('prefix', $prefix);
 Settings::setVar('theme_dir', Settings::getVar('BASE_URL') . '/themes/' . Settings::getVar('SITE_THEME') . '/templates/');
+Settings::setVar('theme_plug_dir', Settings::getVar('BASE_URL') . '/themes/' . Settings::getVar('SITE_THEME') . '/templates/plugins/');
 Settings::setVar('theme_dir_http', Settings::getVar('BASE_URL_HTTP') . '/themes/' . Settings::getVar('SITE_THEME') . '/templates/');
 Settings::setVar('page_templates_path', Settings::getVar('ROOT') . '/themes/' . Settings::getVar('SITE_THEME') . '/templates/');
 Settings::setVar('theme_mail_dir', Settings::getVar('ROOT') . '/themes/' . Settings::getVar('SITE_THEME') . '/templates/mails/');
