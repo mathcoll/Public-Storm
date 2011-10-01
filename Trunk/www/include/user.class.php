@@ -229,6 +229,8 @@ final class User
 			$_SESSION['email'] = $email;
 			$_SESSION['avatar'] = $avatar;
 			$_SESSION['isadmin'] = $isadmin;
+			i18n::setLocale($lang);
+			setcookie("locale", $_SESSION["LANG"], time() + 3600 * 24 * 30, Settings::getVar("BASE_URL")."/");
 			Session::StartUser(User::GetById($id));
 			if ( self::$persistent == "1" )
 			{
@@ -288,6 +290,8 @@ final class User
 			$_SESSION['email'] = $email;
 			$_SESSION['avatar'] = $avatar;
 			$_SESSION['isadmin'] = $isadmin;
+			i18n::setLocale($lang);
+			setcookie("locale", $_SESSION["LANG"], time() + 3600 * 24 * 30, Settings::getVar("BASE_URL")."/");
 			Session::StartUser(User::GetById($id));
 			if ( self::$persistent == "1" )
 			{

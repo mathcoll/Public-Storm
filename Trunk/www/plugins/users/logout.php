@@ -22,9 +22,8 @@
  */
 
 
-if ( User::userLogout() )
-{
-	$_SESSION["message"] = i18n::_("vous êtes déconnecté");
+if ( User::userLogout() ) {
+	//$_SESSION["message"] = i18n::_("vous êtes déconnecté");
 	
 	header("HTTP/1.1 301 moved Permanently", true, 301);
 	header("Location: ".$_SERVER['HTTP_REFERER'], true, 301);

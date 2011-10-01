@@ -24,42 +24,35 @@ $sPlug->AddData("theme_dir", Settings::getVar('theme_dir'));
 $uri = explode('/', $_SERVER['REQUEST_URI']);
 #$id = array_pop($uri); # TODO : ca retourne rien ???!!!!
 
-if( Settings::getVar('BASE_URL') != "" )
-{
+if( Settings::getVar('BASE_URL') != "" ) {
 	$ind = 2;
-}
-else
-{
+} else {
 	$ind = 1;
 }
 
 $id = public_storm::getStormIdFromUrl(strToLower($storm_permaname));
 //identica_php::updateStatus('test 1'.$id);
 //print $id."<-------->".$_SESSION['id'];
-if ( !isset($id) && !is_null($_SESSION['id']) ) {
-	Settings::setVar('title', "Connectez-vous pour créer le storm : ".$storm_permaname);
-	Settings::setVar('meta_description', i18n::_("description", array($storm_permaname)));
-	$breadcrumb = Settings::getVar('breadcrumb');
-	array_push($breadcrumb, array("name" => i18n::_("Storms"), "link" => Settings::getVar('BASE_URL')."/storms/"));
-	array_push($breadcrumb, array("name" => $storm_permaname));
-	Settings::setVar('breadcrumb', $breadcrumb);
-	$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
-	#$sPlug->->AddData("i18n", i18n::getLng());
-	$sPlug->AddData("storm_permaname", $storm_permaname);
-	$content = $sPlug->fetch("add_storm_or_loggin.tpl", "plugins/users");
-} else {
-	//print "--".$id."--";
-	$storm = public_storm::getStorm($id, 100);
-	//identica_php::updateStatus('test 2'.$storm);
-	//print "--".$id."--";
-	//print '<pre>';
-	//print_r($storm);
-	//print '</pre>';
-	$root = isset($id) ? $storm['root'] : $storm_permaname;
-	//exit;
-	if ( is_null($id) ) {
-		/* on créé le storm */
-		$storm_root = $uri[$ind+2] != "" ? $uri[$ind+2] : $root;
+if ( !isset($id) ) {
+	/* le Storm n'existe pas */
+	//print "le Storm n'existe pas";
+	if( $_SESSION['id'] == "" ) {
+		/* pas de user loggé */
+		//print "pas de user loggé";
+		Settings::setVar('title', "Connectez-vous pour créer le storm : ".$storm_permaname);
+		Settings::setVar('meta_description', i18n::_("description", array($storm_permaname)));
+		$breadcrumb = Settings::getVar('breadcrumb');
+		array_push($breadcrumb, array("name" => i18n::_("Storms"), "link" => Settings::getVar('BASE_URL')."/storms/"));
+		array_push($breadcrumb, array("name" => $storm_permaname));
+		Settings::setVar('breadcrumb', $breadcrumb);
+		$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
+		$sPlug->AddData("theme_plug_dir", Settings::getVar('theme_plug_dir'));
+		$sPlug->AddData("storm_permaname", $storm_permaname);
+		$content = $sPlug->fetch("add_storm_or_loggin.tpl", "plugins/users");
+	} else {
+		/* user loggé : on créé le Storm */
+		//print "user loggé : on créé le Storm";
+		$storm_root = $uri[$ind+2] != "" ? $uri[$ind+2] : $storm_permaname;
 				
 		//print "Root=".$root."<br/>";
 		//print "permaname=".$storm_permaname."<br/>";
@@ -79,12 +72,13 @@ if ( !isset($id) && !is_null($_SESSION['id']) ) {
 		$storm = public_storm::getStorm($id);
 		$storm["storm_id"] = $id;
 	}
-	//identica_php::updateStatus('test 3'.$storm);
-	/*
-	print '<pre>';
-	print_r($storm);
-	print '</pre>';
-	*/
+}
+
+
+if ( isset($id) ) {
+	/* le Storm vient d'être créé ou alors il exstait déjà */
+	$storm = public_storm::getStorm($id, 100);
+	$root = isset($id) ? $storm['root'] : $storm_permaname;
 	
 	/* 
 	 * Calculs des Google Rich snippets
@@ -105,8 +99,7 @@ if ( !isset($id) && !is_null($_SESSION['id']) ) {
 			//print_r( $storms_list);
 			//print "</pre>";
 			/* pour chaque storm connexe, on recherche ses suggestions */		
-			foreach( $storms_list AS $sugg )
-			{
+			foreach( $storms_list AS $sugg ) {
 				$st = public_storm::getStorm($sugg['storm_id']);
 				//print $suggestion['suggestion'].":".$st['root']." (id=".$sugg['storm_id'].")<br />";
 				//print "<pre>";
@@ -128,8 +121,7 @@ if ( !isset($id) && !is_null($_SESSION['id']) ) {
 		if ( sizeOf($suggestions) > 5 ) {
 			$cloud1 = new tagcloud();
 			//print_r(array_slice($suggestions, 6, sizeOf($suggestions)-5));
-			foreach( array_slice($suggestions, 5, sizeOf($suggestions)) AS $sugg )
-			{
+			foreach( array_slice($suggestions, 5, sizeOf($suggestions)) AS $sugg ) {
 				//print_r($sugg);
 				$cloud1->addWord($sugg['suggestion'], $sugg['nb']);
 			}
@@ -154,8 +146,7 @@ if ( !isset($id) && !is_null($_SESSION['id']) ) {
 		$dot = "digraph G {
 			node [shape=circle, overlap=true];
 			edge [len=1];";
-		foreach($storm['suggestions'] as $suggestion)
-		{
+		foreach($storm['suggestions'] as $suggestion) {
 			$dot .= "\"".ucFirst($storm['root'])."\" -> \"".ucFirst($suggestion['suggestion'])."\" [label=\"".$suggestion['nb']."\"];"; 
 		}
 		$dot .= "\"".ucFirst($storm['root'])."\" [shape=doublecircle]";
@@ -164,8 +155,7 @@ if ( !isset($id) && !is_null($_SESSION['id']) ) {
 	
 		$type = Settings::getVar('graphviz_type');
 		$file = $storm["storm_id"];
-		if($fp = fopen(Settings::getVar('cache_dir') . $file . '.dot', "w+"))
-		{
+		if($fp = fopen(Settings::getVar('cache_dir') . $file . '.dot', "w+")) {
 			fputs($fp, $dot);
 			fclose($fp);
 			graphviz::renderDotFile(Settings::getVar('cache_dir') . $file . '.dot', Settings::getVar('cache_dir') . $file . '.jpg', 'jpg', Settings::getVar('graphviz_type'));
@@ -174,23 +164,22 @@ if ( !isset($id) && !is_null($_SESSION['id']) ) {
 	}
 	
 	$hubs = viadeo_api::getJsonGroups($root, 5);
-	//print_r($hubs);
-	if( !is_array($hubs) ) $sPlug->AddData("hubs", $hubs["data"]);
+	//print_r($hubs["data"]);
+	if( is_array($hubs) ) $sPlug->AddData("hubs", $hubs["data"]);
 	
 	Settings::setVar('title', "Storm ".$root);
 	$breadcrumb = Settings::getVar('breadcrumb');
 	array_push($breadcrumb, array("name" => i18n::_("Storms"), "link" => Settings::getVar('BASE_URL')."/storms/"));
 	array_push($breadcrumb, array("name" => $root));
 	Settings::setVar('breadcrumb', $breadcrumb);
-
+	
 	$author = public_storm::getStormAuthor(@$storm['user_id']);
 	$sPlug->AddData("username", $author['prenom']." ".$author['nom']);
 	$sPlug->AddData("avatar", "http://www.gravatar.com/avatar/".md5( strtolower( $author['email'] ) )."?default=".urlencode( Settings::getVar('base_url_http').Settings::getVar('theme_dir')."/img/weather-storm.png" )."&amp;size=30");
 	
 	$sPlug->AddData("contributors", public_storm::getContributors($id, "")); //no filter
 	$sPlug->AddData("is_favorites", users::isFavorites($id));
-	if( $statuses['users'] == 1 )
-	{
+	if( $statuses['users'] == 1 ) {
 		$user = Array(
 			'logged'	=> User::isLogged() != NULL ? 1 : 0,
 			'id'		=> $_SESSION['user_id'],
@@ -205,6 +194,9 @@ if ( !isset($id) && !is_null($_SESSION['id']) ) {
 	$sPlug->AddData("statuses", $statuses);
 	$content = $sPlug->fetch("storm.tpl", "plugins/public_storm");
 }
+
+
+
 
 
 // Fixes the encoding to uf8

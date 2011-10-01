@@ -73,7 +73,7 @@ final class Debug
     elseif (stristr($debug_type,"screen"))
     {
       self::$instance->log_screen = true;
-      print "<script defer='defer'>var fdebug = window.open('about:blank', 'fdebug', 'scrollbars=1,width=500,height=500');
+      print "<script defer='defer'>var fdebug = window.open('about:blank', 'fdebug', 'scrollbars=1,width=1000,height=700');
       fdebug.document.write('<h1>".i18n::_("Debug window")."</h1><style>span.tab{width:200px;}span.info{width:200px;}span.line{width:200px;}span.file{width:200px;}</style>');</script>\r\n\r\n";
     }
     

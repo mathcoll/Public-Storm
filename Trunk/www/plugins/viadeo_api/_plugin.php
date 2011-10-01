@@ -41,6 +41,7 @@ final class viadeo_api extends Plugins
 		$ch = curl_init ($url);
 		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 		$res = curl_exec($ch);
+		//print_r(json_decode($res, TRUE));
 		curl_close ($ch);
 		return !is_null($res)?(json_decode($res, TRUE)):null;
 	}

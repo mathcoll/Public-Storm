@@ -38,7 +38,8 @@ $sPlug->AddData("theme_dir", Settings::getVar('theme_dir'));
 $sPlug->AddData("current_lang", $_SESSION['LANG']);
 Settings::setVar('title', i18n::_("creer_un_compte"));
 $sPlug->AddData("title", Settings::getVar('title'));
-Settings::setVar('description', '&nbsp;');
+Settings::setVar('description', i18n::_("description", array("")));
+Settings::setVar('meta_description', i18n::_("description", array("")));
 #$sPlug->->AddData("i18n", i18n::getLng());
 
 if ( $_POST ) {

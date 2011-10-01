@@ -38,6 +38,7 @@ if ( @!empty($_COOKIE) ) {
 }
 
 
+
 /* Gestion des plugins */
 $n = 0;
 $plug = new Plugins;
@@ -59,12 +60,7 @@ foreach( $plug->listPlugins() as $pluginName )
 	}
 }
 
-
-/* Load languages */
-$locale = isset($_COOKIE["locale"]) ? $_COOKIE["locale"] : LANG;
-i18n::setLocale($locale);
-/* end Load languages */
-
+//Debug::Log("_SESSION=".var_dump($_SESSION, 1), "NOTICE");
 
 /* init AdminMenu only when all plugins are loaded */
 $n = 0;
