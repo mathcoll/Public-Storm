@@ -47,7 +47,7 @@ $sPlug = new Settings::$VIEWER_TYPE;
 $sPlug->AddData("title", Settings::getVar('SITE_NAME'));
 $sPlug->AddData("base_url_http", Settings::getVar('base_url_http'));
 $sPlug->AddData("site_baseline", Settings::getVar('SITE_BASELINE'));
-$sPlug->AddData("site_description", strip_tags(i18n::_('description')));
+$sPlug->AddData("site_description", strip_tags(i18n::_('description', array(""))));
 $sPlug->AddData("site_theme", Settings::getVar('theme_dir'));
 $sPlug->AddData("theme_dir_http", Settings::getVar('theme_dir_http'));
 $sPlug->AddData("rss_generator", Settings::getVar('RSS_GENERATOR'));
@@ -57,7 +57,7 @@ $sPlug->AddData("date", date('r'));
 #$sPlug->->AddData("i18n", i18n::getLng());
 
 
-$sPlug->AddData("storms", public_storm::getStormsByDate(0,20));
+$sPlug->AddData("storms", public_storm::getStormsByDate(0, Settings::getVar('backend number of items')));
 
 $sPlug->Show("rss.tpl", "plugins/backend");
 //$content = "<pre>".htmlentities($sPlug->fetch("rss.tpl", "plugins/backend"))."</pre>";

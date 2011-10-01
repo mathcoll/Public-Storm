@@ -27,7 +27,7 @@ $sPlug = new Settings::$VIEWER_TYPE;
 $sPlug->AddData("title", Settings::getVar('SITE_NAME'));
 $sPlug->AddData("base_url_http", Settings::getVar('base_url_http'));
 $sPlug->AddData("site_baseline", Settings::getVar('SITE_BASELINE'));
-$sPlug->AddData("site_description", Settings::getVar('SITE_DESCRIPTION'));
+$sPlug->AddData("site_description", strip_tags(i18n::_('description', array(""))));
 $sPlug->AddData("site_theme", Settings::getVar('theme_dir'));
 $sPlug->AddData("rss_generator", Settings::getVar('RSS_GENERATOR'));
 $sPlug->AddData("rss_webmaster", Settings::getVar('RSS_WEBMASTER'));
@@ -35,8 +35,11 @@ $sPlug->AddData("rss_managingeditor", Settings::getVar('RSS_MANAGINGEDITOR'));
 $sPlug->AddData("date", date('r'));
 #$sPlug->->AddData("i18n", i18n::getLng());
 
+
+$sPlug->AddData("storms", public_storm::getStormsByDate(0, Settings::getVar('backend number of items')));
+
 $sPlug->Show("atom.tpl", "plugins/backend");
-//$content = "<pre>".htmlentities($sPlug->fetch("rss.tpl", "plugins/backend"))."</pre>";
+//$content = "<pre>".htmlentities($sPlug->fetch("atom.tpl", "plugins/backend"))."</pre>";
 exit;
 
 ?>

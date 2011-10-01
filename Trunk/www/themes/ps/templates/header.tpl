@@ -12,7 +12,8 @@
 	<meta property="og:description" content="{$meta_description|strip_tags}" />
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link href="{$rss}" rel="alternate" type="application/rss+xml" title="Flux RSS {$site_name}" />
+	<link href="{$rss}" rel="alternate" type="application/rss+xml" title="{t}Flux RSS{/t} {$site_name}" />
+	<link href="{$atom}" rel="alternate" type="application/atom+xml" title="{t}Flux Atom{/t} {$site_name}" />
 	<link rel="shortcut icon" href="{$theme_dir}favicon.ico" type="image/x-icon" />
 	<meta name="description" content="{t}baseline{/t} {$meta_description|strip_tags}" />
 	<meta name="keywords" content="{$meta_keywords}" />
