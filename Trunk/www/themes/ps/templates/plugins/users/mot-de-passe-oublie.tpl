@@ -13,6 +13,6 @@
 		</div>
 		<div>
 			<span class="centered"><input type="submit" class="btn_submit" value="{t}valider{/t}" /></span>
-		<div>
+		</div>
 	</form>	
 </p>

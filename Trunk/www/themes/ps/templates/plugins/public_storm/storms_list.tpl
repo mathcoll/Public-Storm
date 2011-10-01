@@ -43,9 +43,9 @@
 					<li>
 						<a href="{$base_url}/storm/{$storm.permaname}/" class="storm">{$storm.root|ucfirst}</a><br />
 						{if $storm.author_login ne ""}
-							créé par <a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a>
+							{t escape="" 1=$base_url 2=$storm.author_login 3=$storm.author}créé par <a href="%1/utilisateurs/%2/">%3</a>{/t}
 						{/if}
-						le {$storm.date|date_format:"%A %d %B %Y %Hh%M GMT"}
+						{t 1=$storm.date|date_format:"%A %d %B %Y %Hh%M GMT"}le %1{/t}
 					</li>
 					{assign var=week value=$storm.date|date_format:"%W"}
 					{assign var=year value=$storm.date|date_format:"%Y"}
