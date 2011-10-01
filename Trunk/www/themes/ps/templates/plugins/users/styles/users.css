@@ -119,10 +119,15 @@ ul.nolist li a
 	right: 0em;
 }
 
-#login input[type=text], #login input[type=password]
-{
-	width: 100px;
+#login input[type=text], #login input[type=password] {
 	border: 1px solid #156e1e;
+}
+#login input[type=text] {
+	width:240px;
+	margin: 0 0 5px 0;
+}
+#login input[type=password] {
+	width:200px;
 }
 
 #login input
