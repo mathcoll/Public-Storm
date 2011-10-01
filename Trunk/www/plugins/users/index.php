@@ -122,6 +122,7 @@ switch ( $uri[$ind+1] )
 					)
 				);
 				$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
+				$sPlug->AddData("theme_dir", Settings::getVar('theme_dir'));
 				$sPlug->AddData("nom", $author['nom']);
 				$sPlug->AddData("prenom", $author['prenom']);
 				$sPlug->AddData("username", $username);

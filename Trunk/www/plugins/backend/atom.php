@@ -21,6 +21,7 @@
     <shtirlic@users.sourceforge.net>
  */
 
+header("Content-type: application/rss+atom", true, 200);
 $sPlug = new Settings::$VIEWER_TYPE;
 
 
