@@ -5,3 +5,5 @@ apt-get install php5-curl
 pear install Net_URL2-0.3.1
 pear install HTTP_Request2-2.0.0RC1
 pear install HTTP_OAuth-0.2.2
+
+Warning for Linux (Ubuntu) users!  Your system will *only* support the locales installed on your OS, in the *exact* format given by your OS.  (See also the PHP setlocale man page.)  To get a list of them, enter locale -a

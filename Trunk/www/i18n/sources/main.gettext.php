@@ -5,6 +5,8 @@ gettext("a_propos");
 gettext("version");
 
 ?><?php
+gettext("Flux RSS");
+gettext("Flux Atom");
 gettext("baseline");
 gettext("baseline");
 gettext("Go to home page");

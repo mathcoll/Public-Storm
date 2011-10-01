@@ -28,6 +28,23 @@ final class i18n extends Plugins
 		//print "version ".self::$version;
 		require(Settings::getVar('prefix') . 'conf/i18n.php');
 		self::$subdirs = explode(";", Settings::getVar('languages'));
+		
+		/* Load languages */
+		$locale = "";
+		if( $_COOKIE["locale"] != "" ) {
+			$locale = $_COOKIE["locale"];
+		} elseif( $_SESSION["LANG"] != "" ) {
+			$locale = $_SESSION["LANG"];
+		} else {
+			$locale = LANG;
+		}
+		//$locale = $_COOKIE["locale"]!=""?$_COOKIE["locale"]:$_SESSION["LANG"]!=""?$_SESSION["LANG"]:LANG; #TODO, why it doesn't works ?
+		Debug::Log("_COOKIE['locale']=".$_COOKIE['locale'], "NOTICE");
+		Debug::Log("_SESSION['LANG']=".$_SESSION['LANG'], "NOTICE");
+		Debug::Log("LANG=".LANG, "NOTICE");
+		Debug::Log("locale=".$locale, "NOTICE");
+		self::setLocale($locale);
+		/* end Load languages */
 	}
 	
 	public function langs()
@@ -59,9 +76,9 @@ final class i18n extends Plugins
 		}
 	}
 	
-	public function l($index)
+	public function l($index, $datas=null)
 	{
-		return self::_($index);
+		return self::_($index, $datas);
 	}
 	
 	public function setLocale($locale)
@@ -75,7 +92,8 @@ final class i18n extends Plugins
 		
 		//print $_COOKIE["locale"]." (i18n/_plugin.php, 56)";
 		//print dgettext("admin", "liste_plugins")."<br />";
-		//print dgettext("public_storm", "intro_accroche")."<br />";
+		//print "-------meta_description=".dgettext("all", "meta_description")."<br />";
+		//print "-------meta_description=".self::_("meta_description", array("popopo"))."<br />";
 		return $locale;
 	}		
 	

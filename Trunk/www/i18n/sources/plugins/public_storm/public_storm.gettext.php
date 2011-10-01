@@ -5,6 +5,7 @@ gettext("...ou créez un nouveau storm !");
 gettext("intro_title1");
 gettext("intro_title2");
 gettext("intro_title3");
+gettext("intro_title4");
 gettext("intro_title1");
 gettext("intro_title1");
 gettext("intro_title1");
@@ -27,6 +28,8 @@ gettext("Liste des derniers Storms créés :");
 gettext("Semaine");
 gettext("(suite)");
 gettext("Semaine");
+gettext("créé par <a href=\"%1/utilisateurs/%2/\">%3</a>");
+gettext("le %1");
 
 ?><?php
 gettext("Création du storm :");
@@ -44,6 +47,8 @@ gettext("suggest_it");
 gettext("ajouter_un_storm");
 gettext("creer_un_compte");
 gettext("mot_de_passe_oublie");
+gettext("Hubs Viadeo liés à '%1'");
+gettext("Hubs Viadeo liés à '%1'");
 gettext("Suggestions principales");
 gettext("Je suggère moi aussi !");
 gettext("Pas encore de suggestion pour %1");
