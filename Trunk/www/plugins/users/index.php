@@ -106,33 +106,45 @@ switch ( $uri[$ind+1] )
 		break;
 		
 	default :/* list storms for a user */
-		if( $user_id = User::userExists(urldecode($uri[$ind+1])) )
-		{
-			$author = public_storm::getStormAuthor($user_id);
-			$username = ucWords($author['prenom']." ".$author['nom']);
-			$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
-			$sPlug->AddData("nom", $author['nom']);
-			$sPlug->AddData("prenom", $author['prenom']);
-			$sPlug->AddData("username", $username);
-			$sPlug->AddData("login", $author['login']);
-			$sPlug->AddData("lang", $author['lang']);
-			$sPlug->AddData("member_since", $author['subscription_date']);
-			$sPlug->AddData("avatar", $avatar = "http://www.gravatar.com/avatar/".md5( strtolower( $author['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir_http')."img/weather-storm.png" )."&amp;size=100");
-			
-			$breadcrumb = Settings::getVar('breadcrumb');
-			array_push($breadcrumb, array("name" => _("utilisateurs"), "link" => "#"));
-			array_push($breadcrumb, array("name" => $username));
-			Settings::setVar('breadcrumb', $breadcrumb);
-
-			$current_page = $uri[$ind+2] != NULL ? $uri[$ind+2] : 1;
-			$sPlug->AddData("current_page", $current_page);
-			Settings::setVar('meta_description', i18n::_("description user", array($username)));
-			Settings::setVar('title', i18n::_("Liste des Storms de %s, page %s", array($username, $current_page)));
-			$sPlug->AddData("nb_pages", ceil(public_storm::getNbStorms($user_id) / Settings::getVar('user_storms_per_page')));
-			$sPlug->AddData("nbstorms", public_storm::getNbStorms($user_id));
-			
-			$sPlug->AddData("storms", public_storm::getStormsByAuthor($current_page==1 ? 0 : ((Settings::getVar('user_storms_per_page')*($current_page-1))), Settings::getVar('user_storms_per_page'), $user_id));
-			$content = $sPlug->fetch("user-storms.tpl", "plugins/users");
+		if( $user_id = User::userExists(urldecode($uri[$ind+1])) ) {
+			if ( $uri[$ind+2] == "rss" ) {
+				require(Settings::getVar('plug_dir')."users/rss.php");
+				exit;
+			} else {
+				$author = public_storm::getStormAuthor($user_id);
+				$username = ucWords($author['prenom']." ".$author['nom']);
+				backend::addRssfeeds(
+					array(
+						"href"	=> Settings::getVar('base_url').'/users/'.urldecode($uri[$ind+1]).'/rss/',
+						"rel"	=> "alternate",
+						"type"	=> "application/rss+xml",
+						"title"	=> i18n::_("Flux Rss")." ".$username,
+					)
+				);
+				$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
+				$sPlug->AddData("nom", $author['nom']);
+				$sPlug->AddData("prenom", $author['prenom']);
+				$sPlug->AddData("username", $username);
+				$sPlug->AddData("login", $author['login']);
+				$sPlug->AddData("lang", $author['lang']);
+				$sPlug->AddData("member_since", $author['subscription_date']);
+				$sPlug->AddData("avatar", $avatar = "http://www.gravatar.com/avatar/".md5( strtolower( $author['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir_http')."img/weather-storm.png" )."&amp;size=100");
+				
+				$breadcrumb = Settings::getVar('breadcrumb');
+				array_push($breadcrumb, array("name" => _("utilisateurs"), "link" => "#"));
+				array_push($breadcrumb, array("name" => $username));
+				Settings::setVar('breadcrumb', $breadcrumb);
+	
+				$current_page = $uri[$ind+2] != NULL ? $uri[$ind+2] : 1;
+				$sPlug->AddData("current_page", $current_page);
+				Settings::setVar('meta_description', i18n::_("description user", array($username)));
+				Settings::setVar('title', i18n::_("Liste des Storms de %s, page %s", array($username, $current_page)));
+				$sPlug->AddData("nb_pages", ceil(public_storm::getNbStorms($user_id) / Settings::getVar('user_storms_per_page')));
+				$sPlug->AddData("nbstorms", public_storm::getNbStorms($user_id));
+				
+				$sPlug->AddData("storms", public_storm::getStormsByAuthor($current_page==1 ? 0 : ((Settings::getVar('user_storms_per_page')*($current_page-1))), Settings::getVar('user_storms_per_page'), $user_id));
+				$content = $sPlug->fetch("user-storms.tpl", "plugins/users");
+			}
 		}
 		else
 		{

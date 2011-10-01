@@ -33,8 +33,6 @@ $s->AddData("prefix", Settings::getVar('prefix'));
 $s->AddData("base_url", Settings::getVar('base_url'));
 $s->AddData("base_url_http", Settings::getVar('base_url_http'));
 $s->AddData("theme_dir", Settings::getVar('theme_dir'));
-$s->AddData("rss", Settings::getVar('base_url').'/backend/rss.php');
-$s->AddData("atom", Settings::getVar('base_url').'/backend/atom.php');
 $s->AddData("current_lang", @$_COOKIE["locale"]);
 $s->AddData("s", @$_SESSION['s']);
 $s->AddData("langs", i18n::langs());
@@ -130,9 +128,9 @@ if ( isset($_SESSION['status']) )
 	$_SESSION['status'] = NULL;
 }
 
-if( $statuses['backend'] == 1 )
-{
-	
+if( $statuses['backend'] == 1 ) {
+	$rssfeeds = backend::getRssfeeds() != NULL ? backend::getRssfeeds() : array();
+	$s->AddData("rssfeeds", $rssfeeds);
 }
 
 if( $statuses['users'] == 1 )
