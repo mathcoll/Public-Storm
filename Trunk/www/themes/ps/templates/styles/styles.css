@@ -49,6 +49,17 @@ a.block
 {
 	display: block;
 }
+a.ohloh_iusethis {
+	border-bottom: medium none;
+	text-decoration: none;
+	display: block;
+	background: url(../img/ohloh.net_iusethis.png) no-repeat scroll 0px 0px transparent;
+	width: 73px;
+	height: 23px;
+}
+a.ohloh_iusethis:hover {
+	background-position: 0 -23px;
+}
 #message
 {
 	z-index: 9999;

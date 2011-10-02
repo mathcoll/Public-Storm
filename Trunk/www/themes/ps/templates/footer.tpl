@@ -10,6 +10,8 @@
 </div><!-- end of habillage -->
 
 {if $statuses.analytics eq 1}{include file="plugins/analytics/analytics.tpl" analytics=$plugins.analytics}{/if}
-
+	<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+	  {literal}{lang: 'fr'}{/literal}
+	</script>
 </body>
 </html>
