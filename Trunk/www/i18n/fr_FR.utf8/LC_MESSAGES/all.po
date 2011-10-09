@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Public-Storm\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-09-28 21:47+0100\n"
-"PO-Revision-Date: 2011-09-30 22:21+0100\n"
+"PO-Revision-Date: 2011-10-09 10:52+0100\n"
 "Last-Translator: Mathieu Lory <mathieu@internetcollaboratif.info>\n"
 "Language-Team: English <mathieu@internetcollaboratif.info>\n"
 "MIME-Version: 1.0\n"
@@ -129,7 +129,7 @@ msgstr "Erreur lors de l'envoi du mail"
 #: ../../../include/user.class.php:149
 #: ../../../plugins/sendtoafriend/index.php:97
 msgid "Mail sent"
-msgstr "Mail sent"
+msgstr "Un email de confirmation vous a été envoyé."
 
 #: ../../../include/user.class.php:165
 #: ../../../include/user.class.php:173
@@ -978,7 +978,7 @@ msgstr "Veuillez spécifier un identifiant !"
 
 #: ../../../plugins/users/creer-un-compte.php:60
 msgid "Vérifier voter boite de réception email !"
-msgstr "Vérifier voter boite de réception email !"
+msgstr "Vérifiez votre boite de réception email !"
 
 #: ../../../plugins/users/creer-un-compte.php:64
 msgid "Erreur lors de la création du compte !"
