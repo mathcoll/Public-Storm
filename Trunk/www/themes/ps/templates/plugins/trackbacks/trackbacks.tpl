@@ -2,7 +2,7 @@
 <p>{t}trackback_intro{/t}</p>
 
 <br />
-<a href="{$base_url}/trackbacks/index.php">{t}Lien de TrackBack{/t}</a>
+<a href="{$base_url_http}/trackbacks/index.php">{t}Lien de TrackBack{/t}</a>
 
 {if $trackbacks|@sizeof gt 0}
 	{foreach from=$trackbacks item=tb}
@@ -10,5 +10,5 @@
 		<p>{$tb.excerpt}<a href="{$tb.url}" rel="follow" onclick="window.open(this.href); return false;">...</a></p>
 	{/foreach}
 	<p>&nbsp;</p>
-	<a href="{$base_url}/trackbacks/index.php">{t}Lien de TrackBack{/t}</a>
+	<a href="{$base_url_http}/trackbacks/index.php">{t}Lien de TrackBack{/t}</a>
 {/if}

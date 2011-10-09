@@ -12,7 +12,7 @@
 			</div>
 		</div>
 		<div>
-			<span class="centered"><input type="submit" class="btn_submit" value="{t}valider{/t}" /></span>
+			<span><input type="submit" value="{t}valider{/t}" class="ui-state-default ui-corner-all" /></span>
 		</div>
 	</form>	
 </p>

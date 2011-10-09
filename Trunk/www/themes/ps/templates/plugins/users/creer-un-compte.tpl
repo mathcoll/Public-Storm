@@ -1,8 +1,8 @@
-
 <div class="table">
 	<div class="table-row">
 		<div class="table-cell _50" style="padding:10px">
-			<p>{$i18n.inscription_intro}</p>
+			{if $useradd!="true"}
+			<p>{t}inscription_intro{/t}</p>
 			<p>{t}Les champs marqués d'un * sont obligatoires.{/t}</p>
 			<div class="spacer">&nbsp;</div>
 			<div>
@@ -70,7 +70,7 @@
 							<div class="table-cell">
 								<div class="spacer">&nbsp;</div>
 								<div>
-									<span class="centered"><input type="submit" class="btn_submit" value="{t}valider{/t}" /></span>
+									<span><input type="submit" value="{t}valider{/t}" class="ui-state-default ui-corner-all" /></span>
 								</div>
 							</div><!-- //table-cell -->
 						</div><!-- //table-row -->
@@ -78,6 +78,9 @@
 					</div><!-- //table -->
 				</form>
 			</div>
+			{else}
+				{t}inscription.subject{/t} {t}Mail sent{/t}
+			{/if}
 		</div><!-- //table-cell -->
 		<div class="table-cell _50">
 			<img src="{$theme_dir}plugins/public_storm/img/avantage_1.png" alt="{t}avantage_1{/t}" title="{t}avantage_1{/t}" class="avantages" />

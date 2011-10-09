@@ -91,6 +91,10 @@ ul.nolist
 	list-style: none;
 	margin:10px;
 }
+ul.nomargin
+{
+	margin:0;
+}
 ul.nolist li a
 {
 	display: block;
@@ -158,8 +162,18 @@ ul.liste li a.storm
 .must-login {
 	padding:10px 80px;
 }
-.must-login div.table-cell-must-login {
-	padding:30px;
+.must-login div.table-cell-create-account {
 	border:2px solid #156E1E;
 	padding: 10px 40px;
+	background: url(../img/green-tick.png) no-repeat scroll 0 0 transparent;
+}
+.must-login div.table-cell-must-login {
+	border:2px solid #156E1E;
+	padding: 10px 40px;
+	background: url(../img/ftconnect_creating.png) no-repeat scroll 0 0 transparent;
+}
+.must-login div.table-cell-must-login h3,
+.must-login div.table-cell-create-account h3 {
+	padding:1.5em 0 1em 2.5em;
+	background: none;
 }

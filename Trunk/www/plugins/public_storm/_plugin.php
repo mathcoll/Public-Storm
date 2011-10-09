@@ -35,6 +35,7 @@ final class public_storm extends Plugins
 		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/public_storm/styles/styles.css', 'all.css');
 		/* general styles */
 		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/styles.css', 'all.css');
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/widgetWikio.css', 'all.css');
 		//Settings::addCss('print', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/print.css', 'all.css');
 
 		/* Public-Storm scripts */

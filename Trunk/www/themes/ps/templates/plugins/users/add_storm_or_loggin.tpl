@@ -37,8 +37,9 @@
 						</div>
 					</div>
 					<div class="table-row">
+						<div class="table-cell"></div>
 						<div class="table-cell">
-							<span><input type="submit" value="{t}ok{/t}" /></span>
+							<span><input type="submit" value="{t}ok{/t}" class="ui-state-default ui-corner-all" /></span>
 						</div>
 					</div>
 				</div>
@@ -51,7 +52,7 @@
 			<span>&nbsp;</span>
 		</div>
 
-		<div class="table-cell _40 table-cell-must-login">
+		<div class="table-cell _40 table-cell-create-account">
 			<h3>{t}creer_un_compte{/t}</h3>
 			<form action="{$base_url}/utilisateurs/creer-un-compte.php" method="post" class="formulaire">
 			<input type="hidden" name="lang" value="{$current_lang}" />
@@ -113,10 +114,11 @@
 				</div><!-- //table-row -->
 						
 				<div class="table-row">
+					<div class="table-cell"></div>
 					<div class="table-cell">
 						<div class="spacer">&nbsp;</div>
 						<div>
-							<span class="centered"><input type="submit" class="btn_submit" value="{t}valider{/t}" /></span>
+							<span><input type="submit" value="{t}valider{/t}" class="ui-state-default ui-corner-all" /></span>
 						</div>
 					</div><!-- //table-cell -->
 				</div><!-- //table-row -->

@@ -8,7 +8,7 @@
 <div itemscope itemtype="http://schema.org/Person">
 	<div class="left _40">
 		<img src="{$avatar}" alt="{$username|escape}" itemprop="image" style="float:left; margin: 0 5px 0 0;" />
-		<ul class="nolist">
+		<ul class="nolist nomargin">
 			<li><span itemprop="name"><b>{$prenom|ucfirst} {$nom|ucfirst}</b></span></li>
 			<li>{t 1=$member_since|date_format:"%d %B %Y"}Membre depuis le %1{/t}</li>
 			<li>{t}Langue :{/t} {t}{$lang}{/t}</li>

@@ -338,15 +338,17 @@ function getChannelName()
 		return false;
 	}
 }
-function processing(data)
-{
+
+//<script>p(id, "channel String", "{call:'newSuggestion',suggestion:'suggestion String',user:'username String'}");</script>
+function processing(data) {
 	eval("var data = "+data+";");
 	if( data.call == "newSuggestion" )
 	{
+		if ( data.user == " " ) {data.user="Anonyme";}
 		//alert(data.user + " says :\n" + data.suggestion);
 		var storm_id = $jQuery("#storm_id").val();
 		//alert('ok'+storm_id+'<--');
-		//alert('ok'+permaname(data.suggestion)+'<--');
+		//alert('ok '+'storm_'+storm_id+'\n'+permaname(data.suggestion)+'<--');
 		display_new_suggestion('storm_'+storm_id, '+1', permaname(data.suggestion));
 		//alert('ok');
 	}

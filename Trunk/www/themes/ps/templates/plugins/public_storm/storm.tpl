@@ -79,7 +79,7 @@
 				<input type="hidden" name="storm_permaname" id="storm_permaname" value="{$storm.root|ucfirst}" />	
 				<label for="suggestion"><img src="{$theme_dir}plugins/public_storm/img/light.png" style="vertical-align:middle;" alt="Suggestion" /></label>
 				<input type="text" class="input" name="suggestion" id="suggestion" value="" onfocus="this.select();" maxlength="140" />
-				<input type="submit" value="&gt;" />
+				<input type="submit" value="&gt;" class="ui-state-default ui-corner-all" />
 			</form>
 			
 			<div style="margin:0 0 10px 0">&nbsp;</div>
@@ -115,7 +115,7 @@
 								{foreach from=$storm.suggestions item=suggestion}
 								<li class="size_{$size} bulle">
 									<blockquote title="Suggérée le {$suggestion.date|date_format:"%A %d %B %Y %Hh%M:%S GMT"}">
-										<a href="{$base_url}/storm/{$suggestion.suggestion|url}/">{$suggestion.suggestion|ucfirst}</a>
+										<a href="{$base_url}/storm/{$suggestion.suggestion|url}/{$suggestion.suggestion|ucfirst}/">{$suggestion.suggestion|ucfirst}</a>
 										<span class="size" id="total_{$suggestion.suggestion|url}">({$suggestion.nb})</span>
 										<span id="suggestions_{$suggestion.suggestion|url}" class="hidden" style="vertical-align:top;"></span>
 										<input type="hidden" name="suggestion" value="{$suggestion.suggestion|url}" />

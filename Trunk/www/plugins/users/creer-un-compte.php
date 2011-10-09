@@ -42,6 +42,7 @@ Settings::setVar('description', i18n::_("description", array("")));
 Settings::setVar('meta_description', i18n::_("description", array("")));
 #$sPlug->->AddData("i18n", i18n::getLng());
 
+$useradd="false";
 if ( $_POST ) {
 	if ( $securimage->check($_POST['captcha_code']) == false ) {
 		$_SESSION["message"] = i18n::_("The code you entered was incorrect. Go back and try again.");
@@ -57,9 +58,10 @@ if ( $_POST ) {
 			} else {
 				$_POST['lang'] = $_POST['lang'] != "" ? $_POST['lang'] : $_SESSION['LANG'];
 				if ( User::userAdd($_POST) ) {
-					$_SESSION["message"] = i18n::_("Vérifier voter boite de réception email !");
-					Settings::setVar('pageview', '/creer-un-compte-ok');
 					User::sendWelcomeMail($_POST, $sPlug);
+					$useradd="true";
+					Settings::setVar('pageview', '/creer-un-compte-ok');
+					$_SESSION["message"] = i18n::_("Vérifier voter boite de réception email !");
 				} else {
 					$_SESSION["message"] = i18n::_("Erreur lors de la création du compte !");
 					Settings::setVar('pageview', '/creer-un-compte-error');
@@ -68,11 +70,9 @@ if ( $_POST ) {
 		}
 	}
 }
-
-
+$sPlug->AddData("useradd", $useradd);
 $breadcrumb = Settings::getVar('breadcrumb');
 array_push($breadcrumb, array("name" => Settings::getVar('title')));
 Settings::setVar('breadcrumb', $breadcrumb);
 $content = $sPlug->fetch("creer-un-compte.tpl", "plugins/users");
-
 ?>

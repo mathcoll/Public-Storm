@@ -424,10 +424,9 @@ div.deuxCols div input
 	border: 1px solid #156e1e;
 	width: auto;
 }
-div.deuxCols div input:focus
+input:focus
 {
 	border: 1px solid #cbcbcb;
-	background: #156e1e;
 }
 
 table#troisCols_100
@@ -635,7 +634,18 @@ td.bee_rain_how_to p, td.trackbacks p
 	font-weight:bold;
 	line-height:34px;
 }
-
+.margint10{
+	margin-top:10px;
+}
+.marginr10{
+	margin-right:10px;
+}
+.marginb10{
+	margin-bottom:10px;
+}
+.marginl10{
+	margin-left:10px;
+}
 
 /* nuage */
 ul.nuage

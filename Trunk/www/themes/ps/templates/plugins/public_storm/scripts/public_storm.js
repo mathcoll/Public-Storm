@@ -12,7 +12,7 @@ function add_suggestion(base_url)
 		var username = $jQuery("#username").html() ? $jQuery("#username").html() : "Anonymous";
 		var e = $jQuery(
 			'<li class="size_10 hidden bulle" id="'+id+'">' +
-			'<blockquote title=""><a href="'+base_url+'/storm/'+permaname(suggestion)+'/">'+ucfirst(suggestion)+'</a>' +
+			'<blockquote title=""><a href="'+base_url+'/storm/'+permaname(suggestion)+'/'+ucfirst(suggestion)+'/">'+ucfirst(suggestion)+'</a>' +
 			'	<span class="size" id="total_'+permaname(suggestion)+'">(1)</span>' +
 			'	<span id="suggestions_'+permaname(suggestion)+'" class="hidden" style="vertical-align:top;" />' +
 			'	<input type="hidden" name="suggestion" value="'+permaname(suggestion)+'">' +
