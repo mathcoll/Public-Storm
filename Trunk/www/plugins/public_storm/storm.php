@@ -165,6 +165,13 @@ if ( isset($id) ) {
 	
 	$hubs = viadeo_api::getJsonGroups($root, 5);
 	//print_r($hubs["data"]);
+	$n=0;
+	foreach($hubs["data"] as $data) {
+		//print_r($data);
+		$containerId = substr($data["link"], strpos($data["link"], "containerId=")+12, strlen($data["link"])); 
+		$hubs["data"][$n]["link"] = "http://www.viadeo.com/hu03/".$containerId."/".urlencode($data["name"]);
+		$n++;
+	}
 	if( is_array($hubs) ) $sPlug->AddData("hubs", $hubs["data"]);
 	
 	Settings::setVar('title', "Storm ".$root);
