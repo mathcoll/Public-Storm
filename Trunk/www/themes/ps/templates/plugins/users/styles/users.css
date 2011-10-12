@@ -112,18 +112,18 @@ ul.nolist li a
 #login._1
 {
 	margin-top:-7em;
-	/*background: url(../../../img/weather-storm.png) no-repeat 0 10px;*/
 	height: 60px;
 	padding: 0 0 0 15px;
-	/*padding-left: 40px;*/
 }
 
 #login label
 {
-	right: 0em;
+	right: 0;
 }
 
-#login input[type=text], #login input[type=password] {
+#login input[type=text],
+#login input[type=password],
+input.field {
 	border: 1px solid #156e1e;
 }
 #login input[type=text] {
@@ -145,7 +145,7 @@ ul.nolist li a
 	margin: 1em 0 0 -10px;
 }
 
-#login input:focus
+input:focus
 {
 	background: #a3ab0e;
 }
