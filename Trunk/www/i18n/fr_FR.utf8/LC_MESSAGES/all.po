@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Public-Storm\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-09-28 21:47+0100\n"
-"PO-Revision-Date: 2011-10-09 10:52+0100\n"
+"PO-Revision-Date: 2011-10-19 21:38+0100\n"
 "Last-Translator: Mathieu Lory <mathieu@internetcollaboratif.info>\n"
 "Language-Team: English <mathieu@internetcollaboratif.info>\n"
 "MIME-Version: 1.0\n"
@@ -719,28 +719,28 @@ msgstr "...ou créez un nouveau storm !"
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:10
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:11
 msgid "intro_title1"
-msgstr "1. Créez des Storms"
+msgstr "Créez des Storms"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:6
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:13
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:14
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:15
 msgid "intro_title2"
-msgstr "2. Suggérez des idées"
+msgstr "Suggérez des idées"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:7
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:17
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:18
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:19
 msgid "intro_title3"
-msgstr "3. Organisez et exploitez les données"
+msgstr "Organisez & exploitez les données"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:8
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:21
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:22
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:23
 msgid "intro_title4"
-msgstr "4. Créez un compte"
+msgstr "Créez un compte"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:12
 msgid "intro_p1"
