@@ -19,7 +19,7 @@
 							<label for="field.login">{t}field.login{/t}</label>
 						</div>
 						<div class="table-cell">
-							<input type="text" class="login_form" name="login" id="field.login" value="" onfocus="this.select();" />
+							<input type="text" class="login_form field" name="login" id="field.login" value="" onfocus="this.select();" />
 						</div>
 					</div>
 					<div class="table-row">
@@ -27,7 +27,7 @@
 							<label for="field.password">{t}field.password{/t}</label>
 						</div>
 						<div class="table-cell">
-							<input type="password" class="login_form" name="password" id="field.password" value="" onfocus="this.select();" />
+							<input type="password" class="login_form field" name="password" id="field.password" value="" onfocus="this.select();" />
 						</div>
 					</div>
 					<div class="table-row">
@@ -39,7 +39,7 @@
 					<div class="table-row">
 						<div class="table-cell"></div>
 						<div class="table-cell">
-							<span><input type="submit" value="{t}ok{/t}" class="ui-state-default ui-corner-all" /></span>
+							<span><input type="submit" value="{t}ok{/t}" class="ui-state-default ui-corner-all field" /></span>
 						</div>
 					</div>
 				</div>
@@ -108,7 +108,7 @@
 					<div class="table-cell">
 						<label for="captcha_code" style="float:left;text-align:left;">{t escape=""}field.captcha{/t}</label><br />
 						<img id="captcha" src="{$base_url}/include/securimage/securimage_show.php" alt="CAPTCHA Image" /><br />
-						<input type="text" name="captcha_code" id="captcha_code" size="10" maxlength="6" /><br />
+						<input type="text" name="captcha_code" id="captcha_code" size="10" maxlength="6" class="field" /><br />
 						<label style="float:none;"><a href="#" onclick="document.getElementById('captcha').src = '{$base_url}/include/securimage/securimage_show.php?' + Math.random(); return false">{t}field.reload_captcha{/t}</a></label>
 					</div><!-- //table-cell -->
 				</div><!-- //table-row -->
@@ -118,7 +118,7 @@
 					<div class="table-cell">
 						<div class="spacer">&nbsp;</div>
 						<div>
-							<span><input type="submit" value="{t}valider{/t}" class="ui-state-default ui-corner-all" /></span>
+							<span><input type="submit" value="{t}valider{/t}" class="ui-state-default ui-corner-all field" /></span>
 						</div>
 					</div><!-- //table-cell -->
 				</div><!-- //table-row -->

@@ -13,6 +13,14 @@ $jQuery(document).ready( function() {
 	if( $jQuery("input[type=submit]").html() ) {
 		$jQuery("input[type=submit]").button({ icons: {primary:'ui-icon-gear', secondary:'ui-icon-triangle-1-s'} });
 	}
+	if( $jQuery("div.share_openlike").html() ) {
+		$jQuery("div.share_openlike").mouseenter( function() {
+			$jQuery("#share_openlike").show(500);
+		});
+		$jQuery("div.share_openlike").mouseleave( function() {
+			$jQuery("#share_openlike").hide(500);
+		});
+	}
 	loadMeteor();
 });
 

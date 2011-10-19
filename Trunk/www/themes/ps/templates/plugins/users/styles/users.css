@@ -126,6 +126,11 @@ ul.nolist li a
 input.field {
 	border: 1px solid #156e1e;
 }
+input.field {
+	-moz-border-radius: 5px 5px 5px 5px;
+    margin: 0 0 5px;
+    padding: 5px;
+}
 #login input[type=text] {
 	width:240px;
 	margin: 0 0 5px 0;

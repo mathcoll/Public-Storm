@@ -764,19 +764,19 @@ div#menu.intro
 	width:700px !important;
 }
 
-div#menu ol.navigation li,
-div.scroll ul li
+div#menu ol.navigation > li,
+div.scroll > ul li
 {
 	display: inline;
 	float: left;
-	margin: 0 3px;
-	padding: 0;
+	margin: 0 2px;
+	padding: 0 10px;
 }
 
 div#menu ol.navigation
 {
 	text-align: left;
-	font-size:.9em;
+	font-size:.87em;
 	padding:5px 0 0 0;
 }
 div#menu ol.navigation li a:hover

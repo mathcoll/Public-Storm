@@ -1,3 +1,9 @@
+#share_openlike {
+	display:none;
+}
+.share_openlike {
+	width:222px;
+}
 .openlike {
 	position: relative;
 	font-weight: bold;

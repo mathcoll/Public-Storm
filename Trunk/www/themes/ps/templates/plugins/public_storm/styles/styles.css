@@ -1,3 +1,8 @@
+span.free {
+	font-size:1.8em;
+	font-style:italic;
+	font-weight:bold;
+}
 a.icon
 {
 	height:16px !important;
@@ -94,6 +99,9 @@ form.suggestion input[type="text"]:focus
 	padding:190px 0 0 0!important;
 	background: transparent url(../../../img/sprite.png) no-repeat 0 -615px !important;
 }
+.accroche-suggestion > * {
+	padding:0 10px;
+}
 li.hidden, .hidden
 {
 	display: none;
@@ -140,6 +148,10 @@ div.TwoCols
 ._100 { width: 100%; }
 ._w100 { width: 100px; }
 ._w200 { width: 200px; }
+._w250 { width: 250px; }
+._w300 { width: 300px; }
+._w430 { width: 430px; }
+._w710 { width: 710px; }
 
 div.left
 {

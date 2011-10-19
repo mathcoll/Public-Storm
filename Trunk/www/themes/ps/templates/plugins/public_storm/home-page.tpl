@@ -16,10 +16,10 @@
 			<div class="table-cell _100 right" id="screen">
 				<div id="menu" class="intro">
 					<ol class="navigation ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
-						<li class="ui-state-default ui-corner-top" onmouseover="$jQuery(this).addClass('ui-state-hover');" onmouseout="$jQuery(this).removeClass('ui-state-hover');"><a href="#tab1" onclick="_gaq.push(['_trackEvent', 'tab1', 'clicked']);">{t}intro_title1{/t}</a></li>
-						<li class="ui-state-default ui-corner-top" onmouseover="$jQuery(this).addClass('ui-state-hover');" onmouseout="$jQuery(this).removeClass('ui-state-hover');"><a href="#tab2" onclick="_gaq.push(['_trackEvent', 'tab2', 'clicked']);">{t}intro_title2{/t}</a></li>
-						<li class="ui-state-default ui-corner-top" onmouseover="$jQuery(this).addClass('ui-state-hover');" onmouseout="$jQuery(this).removeClass('ui-state-hover');"><a href="#tab3" onclick="_gaq.push(['_trackEvent', 'tab3', 'clicked']);">{t}intro_title3{/t}</a></li>
-						<li class="ui-state-default ui-corner-top" onmouseover="$jQuery(this).addClass('ui-state-hover');" onmouseout="$jQuery(this).removeClass('ui-state-hover');"><a href="#tab4" onclick="_gaq.push(['_trackEvent', 'tab4', 'clicked']);">{t}intro_title4{/t}</a></li>
+						<li class="ui-state-default ui-corner-top" onmouseover="$jQuery(this).addClass('ui-state-hover');" onmouseout="$jQuery(this).removeClass('ui-state-hover');"><a href="#tab1" onclick="_gaq.push(['_trackEvent', 'tab1', 'clicked']);"><span class="free">1</span>. {t}intro_title1{/t}</a></li>
+						<li class="ui-state-default ui-corner-top" onmouseover="$jQuery(this).addClass('ui-state-hover');" onmouseout="$jQuery(this).removeClass('ui-state-hover');"><a href="#tab2" onclick="_gaq.push(['_trackEvent', 'tab2', 'clicked']);"><span class="free">2</span>. {t}intro_title2{/t}</a></li>
+						<li class="ui-state-default ui-corner-top" onmouseover="$jQuery(this).addClass('ui-state-hover');" onmouseout="$jQuery(this).removeClass('ui-state-hover');"><a href="#tab3" onclick="_gaq.push(['_trackEvent', 'tab3', 'clicked']);"><span class="free">3</span>. {t}intro_title3{/t}</a></li>
+						<li class="ui-state-default ui-corner-top" onmouseover="$jQuery(this).addClass('ui-state-hover');" onmouseout="$jQuery(this).removeClass('ui-state-hover');"><a href="#tab4" onclick="_gaq.push(['_trackEvent', 'tab4', 'clicked']);"><span class="free">4</span>. {t}intro_title4{/t}</a></li>
 					</ol>
 				</div>
 				<div class="clearboth"></div>

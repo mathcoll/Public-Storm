@@ -51,7 +51,7 @@ exit;
 
 if( false /*akismet_spam::isSpam($d['post_id'], $d['url'], $d['title'], $d['excerpt'], $d['blog_name'])*/ )
 {
-	print $trackback->recieve(false, "Erreur, SPAM détecté");
+	print $trackback->recieve(false, i18n::_("Erreur, SPAM détecté"));
 }
 else
 {
@@ -63,12 +63,12 @@ else
 		}
 		else
 		{
-			print $trackback->recieve(false, "Erreur interne");
+			print $trackback->recieve(false, i18n::_("Erreur interne"));
 		}
 	}
 	else
 	{
-		print $trackback->recieve(false, "Erreur, vous devez au moins fournir le titre et l'url !");
+		print $trackback->recieve(false, i18n::_("Erreur, vous devez au moins fournir le titre et l'url !"));
 	}
 }
 

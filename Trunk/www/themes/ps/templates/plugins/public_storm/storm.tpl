@@ -69,7 +69,7 @@
 		</div>
 
 {* column 2 *}
-		<div class="table-cell _30 accroche-suggestion">
+		<div class="table-cell _w300 accroche-suggestion">
 			<p>
 				{t 1=$rootCap escape=""}accroche incitation suggestion{/t}
 			</p>
@@ -78,8 +78,8 @@
 				<input type="hidden" name="storm_id" id="storm_id" value="{$storm.storm_id}" />
 				<input type="hidden" name="storm_permaname" id="storm_permaname" value="{$storm.root|ucfirst}" />	
 				<label for="suggestion"><img src="{$theme_dir}plugins/public_storm/img/light.png" style="vertical-align:middle;" alt="Suggestion" /></label>
-				<input type="text" class="input" name="suggestion" id="suggestion" value="" onfocus="this.select();" maxlength="140" />
-				<input type="submit" value="&gt;" class="ui-state-default ui-corner-all" />
+				<input type="text" class="input field" name="suggestion" id="suggestion" value="" onfocus="this.select();" maxlength="140" />
+				<input type="submit" value="&gt;" class="ui-state-default ui-corner-all field" />
 			</form>
 			
 			<div style="margin:0 0 10px 0">&nbsp;</div>
@@ -104,7 +104,7 @@
 		</div>
 
 {* column 3 *}
-		<div class="table-cell _60">
+		<div class="table-cell">
 			<div class="table">
 				<div class="table-row">
 					<div class="table-cell _50">
