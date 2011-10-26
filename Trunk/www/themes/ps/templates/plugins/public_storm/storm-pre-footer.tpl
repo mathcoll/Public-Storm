@@ -8,7 +8,14 @@
 	<h3>{t}plus_actifs{/t}</h3>
 	<ul>
 	{foreach from=$storms item=storm name=liste}<li><a href="{$storm.url}">{$storm.root|ucfirst}</a>{if $storm.author_login ne ""} <small class="author">({t}by{/t} <a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a>)</small>{/if}</li>{/foreach}
-	</ul>	
+	</ul>
+	
+	<h3>{t}Les plus appréciés{/t}</h3>
+	<ul>
+	{foreach from=$storms_note item=storm name=liste}
+		<li><a href="{$storm.url}">{$storm.root|ucfirst}</a><span class="heart{$storm.hearts}"></span></li>
+	{/foreach}
+	</ul>
 </div>
 <div class="table-cell _30">
 	<h3>{t}contribuez{/t}</h3>

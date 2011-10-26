@@ -121,8 +121,8 @@ function tab(name, id, folder, subpage)
 			
 			$jQuery("#menu ul li a").each(function(i){$jQuery(this).removeClass('tab-hightlight');});
 			
-			$jQuery("#menu ul li a#"+id).addClass('tab-hightlight');
-			$jQuery("#menu ul li a#"+id).removeClass('tab');
+			$jQuery("#menu ul li a span#"+id).parent().addClass('tab-hightlight');
+			$jQuery("#menu ul li a span#"+id).parent().removeClass('tab');
 		}
 	);
 }

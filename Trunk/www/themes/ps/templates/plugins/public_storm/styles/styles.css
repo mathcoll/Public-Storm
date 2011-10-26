@@ -18,10 +18,14 @@ div.panel ul.panel-desc li {
 	width:360px;
 	line-height:20px;
 	font-size: 14px;
+	line-height: 24px;
+	padding: 5px 0;
+	background:#fff;
 }
 div.panel ul.panel-desc li.icon {
 	width:40px;
 	margin:0 5px;
+	background:none !important;
 }
 div.panel ul.panel-desc li.icon a:hover {
 	background:none;
@@ -135,6 +139,24 @@ div#add_this_storm input
 div.TwoCols
 {
 
+}
+span.heart1 {
+	background: transparent url(../../../img/sprite.png) no-repeat -60px -500px !important;
+	width:10px;
+	height:15px;
+	display:inline-block;
+}
+span.heart2 {
+	background: transparent url(../../../img/sprite.png) no-repeat -75px -500px !important;
+	width:20px;
+	height:15px;
+	display:inline-block;
+}
+span.heart3 {
+	background: transparent url(../../../img/sprite.png) no-repeat -95px -500px !important;
+	width:25px;
+	height:15px;
+	display:inline-block;
 }
 ._10 { width: 10%; }
 ._20 { width: 20%; }

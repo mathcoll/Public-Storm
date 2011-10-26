@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="sunburst.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="100.80761"
+       height="101.1758"
+       patternTransform="translate(0,951.2525)"
+       id="pattern3169">
+      <g
+         id="g3165"
+         transform="translate(0,-951.2525)">
+        <path
+           style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999797px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 0.49999899,951.82647 L 0.59562859,994.86218 L 41.436001,951.7525 L 0.49999899,951.82647 z"
+           id="path3157"
+           sodipodi:nodetypes="cccc" />
+        <path
+           style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 58.310306,1051.8416 L 100.30761,1007.5882 L 100.13407,952.22812 L 1.3015693,1051.9283 L 58.310306,1051.8416 z"
+           id="path3163"
+           sodipodi:nodetypes="ccccc" />
+      </g>
+    </pattern>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.5"
+     inkscape:cx="430.81866"
+     inkscape:cy="120.68256"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="970"
+     inkscape:window-x="0"
+     inkscape:window-y="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4917" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 542.78355,509.18674 L 588.04817,1052.3622 L 497.51893,1052.3622 L 542.78355,509.18674 z"
+       id="rect4914"
+       sodipodi:nodetypes="cccc"
+       inkscape:transform-center-y="271.58772"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <path
+       inkscape:transform-center-y="262.94967"
+       sodipodi:nodetypes="cccc"
+       id="path4959"
+       d="M 542.78355,509.18674 L 771.09533,1004.1234 L 686.02567,1035.0861 L 542.78355,509.18674 z"
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:transform-center-x="-114.15589"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <path
+       inkscape:transform-center-y="262.94967"
+       sodipodi:nodetypes="cccc"
+       id="path4961"
+       d="M 542.78357,509.18674 L 399.54143,1035.0861 L 314.47177,1004.1234 L 542.78357,509.18674 z"
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:transform-center-x="114.15589"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <path
+       inkscape:transform-center-y="222.59604"
+       sodipodi:nodetypes="cccc"
+       id="path4991"
+       d="M 542.78355,509.18674 L 926.60472,896.18781 L 857.2553,954.37888 L 542.78355,509.18674 z"
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:transform-center-x="-191.91058"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <path
+       inkscape:transform-center-x="-246.51802"
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 542.78353,509.18674 L 1035.8196,741.57422 L 990.55501,819.97482 L 542.78353,509.18674 z"
+       id="path4993"
+       sodipodi:nodetypes="cccc"
+       inkscape:transform-center-y="155.39401"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <path
+       inkscape:transform-center-y="69.449178"
+       sodipodi:nodetypes="cccc"
+       id="path4995"
+       d="M 542.78353,509.18674 L 1085.5671,558.93128 L 1069.8468,648.08516 L 542.78353,509.18674 z"
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:transform-center-x="-271.39177"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <path
+       inkscape:transform-center-x="-271.39176"
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 542.78353,509.18676 L 1069.8469,370.2884 L 1085.5671,459.4423 L 542.78353,509.18676 z"
+       id="path4997"
+       sodipodi:nodetypes="cccc"
+       inkscape:transform-center-y="-69.449192"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <path
+       inkscape:transform-center-y="-155.39402"
+       sodipodi:nodetypes="cccc"
+       id="path4999"
+       d="M 542.78351,509.18678 L 990.55501,198.39872 L 1035.8196,276.79936 L 542.78351,509.18678 z"
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:transform-center-x="-246.518"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <path
+       inkscape:transform-center-x="-191.91057"
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 542.78353,509.1868 L 857.25534,63.994663 L 926.60472,122.18577 L 542.78353,509.1868 z"
+       id="path5001"
+       sodipodi:nodetypes="cccc"
+       inkscape:transform-center-y="-222.59605"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <path
+       inkscape:transform-center-y="-262.94969"
+       sodipodi:nodetypes="cccc"
+       id="path5003"
+       d="M 542.78353,509.18682 L 686.02569,-16.71264 L 771.09533,14.250226 L 542.78353,509.18682 z"
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:transform-center-x="-114.15587"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <path
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 542.78355,509.18682 L 497.51895,-33.988715 L 588.04817,-33.988679 L 542.78355,509.18682 z"
+       id="path5005"
+       sodipodi:nodetypes="cccc"
+       inkscape:transform-center-y="-271.58774"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <path
+       inkscape:transform-center-y="-262.94969"
+       sodipodi:nodetypes="cccc"
+       id="path5007"
+       d="M 542.78357,509.18682 L 314.47176,14.25019 L 399.54143,-16.712603 L 542.78357,509.18682 z"
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:transform-center-x="114.15589"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <path
+       inkscape:transform-center-x="191.9106"
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 542.78357,509.18682 L 158.96234,122.18575 L 228.3118,63.994703 L 542.78357,509.18682 z"
+       id="path5009"
+       sodipodi:nodetypes="cccc"
+       inkscape:transform-center-y="-222.59603"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <path
+       inkscape:transform-center-y="-155.39401"
+       sodipodi:nodetypes="cccc"
+       id="path5011"
+       d="M 542.78357,509.18682 L 49.74746,276.79936 L 95.012111,198.39874 L 542.78357,509.18682 z"
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:transform-center-x="246.51804"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <path
+       inkscape:transform-center-x="271.39176"
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 542.78359,509.18682 L 0,459.44232 L 15.72027,370.2884 L 542.78359,509.18682 z"
+       id="path5013"
+       sodipodi:nodetypes="cccc"
+       inkscape:transform-center-y="-69.44918"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <path
+       inkscape:transform-center-y="69.44921"
+       sodipodi:nodetypes="cccc"
+       id="path5015"
+       d="M 542.78359,509.1868 L 15.72024,648.0852 L 3e-05,558.93126 L 542.78359,509.1868 z"
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:transform-center-x="271.39174"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <path
+       inkscape:transform-center-x="246.518"
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 542.78359,509.18678 L 95.012091,819.97488 L 49.7475,741.5742 L 542.78359,509.18678 z"
+       id="path5017"
+       sodipodi:nodetypes="cccc"
+       inkscape:transform-center-y="155.39404"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+    <path
+       inkscape:transform-center-y="222.59603"
+       sodipodi:nodetypes="cccc"
+       id="path5019"
+       d="M 542.78359,509.18676 L 228.3118,954.37888 L 158.96238,896.18779 L 542.78359,509.18676 z"
+       style="opacity:0.25;fill:#156e1e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.90284878000000002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:transform-center-x="191.91057"
+       inkscape:export-filename="/home/mathieu/Projets/current/internetcollaboratif.info/public-storm/Trunk/www/themes/ps/templates/img/sunburst.png"
+       inkscape:export-xdpi="97"
+       inkscape:export-ydpi="97" />
+  </g>
+</svg>

@@ -46,6 +46,7 @@ else
 $current_page = $uri[$ind+3] != NULL ? $uri[$ind+3] : 1;
 $sTab->AddData("current_page", $current_page);
 $sTab->AddData("login", $_SESSION['login']);
+$sTab->AddData("item_per_col", 5);
 $sTab->AddData("nb_pages", ceil(public_storm::getNbStorms($_SESSION['id']) / Settings::getVar('user_storms_per_page')));
 $sTab->AddData("nbstorms", public_storm::getNbStorms($_SESSION['id']));
 

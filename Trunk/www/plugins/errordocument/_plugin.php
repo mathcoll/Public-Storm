@@ -31,7 +31,13 @@ final class errordocument extends Plugins
 		self::$s = new Settings::$VIEWER_TYPE;	
 	}
 	
-	public static function setError($errorCode)
+	/**
+	* Return aaaaaa
+	* @param int $errorCode HTTP/1.1 Status Code
+	* @param boolean $fetchTemplate true means that the page fetch and exit the template page
+	* @return void
+	*/
+	public static function setError($errorCode, $fetchTemplate=true)
 	{
 		switch( $errorCode )
 		{
@@ -50,6 +56,12 @@ final class errordocument extends Plugins
 				$template = "503.tpl";
 				break;
 				
+			case "401" : 
+			default :
+				$status = "401 Unauthorized";
+				$template = "401.tpl";
+				break;
+				
 			case "404" : 
 			default :
 				$status = "404 Not Found";
@@ -59,15 +71,17 @@ final class errordocument extends Plugins
 		}
 		header('Status: '.$status, true, $errorCode);
 		header('HTTP/1.1 '.$status, true, $errorCode);
-		self::$s->AddData("site_name", Settings::getVar('SITE_NAME'));
-		self::$s->AddData("site_description", Settings::getVar('SITE_DESCRIPTION'));
-		self::$s->AddData("site_baseline", i18n::_("baseline"));
-		self::$s->AddData("version", Settings::getVar('SITE_VERSION'));
-		self::$s->AddData("prefix", Settings::getVar('prefix'));
-		self::$s->AddData("base_url", Settings::getVar('base_url_http'));
-		self::$s->AddData("theme_dir", Settings::getVar('theme_dir'));
-		print self::$s->fetch($template, "plugins/errordocument");
-		exit;
+		if ( $fetchTemplate ) {
+			self::$s->AddData("site_name", Settings::getVar('SITE_NAME'));
+			self::$s->AddData("site_description", Settings::getVar('SITE_DESCRIPTION'));
+			self::$s->AddData("site_baseline", i18n::_("baseline"));
+			self::$s->AddData("version", Settings::getVar('SITE_VERSION'));
+			self::$s->AddData("prefix", Settings::getVar('prefix'));
+			self::$s->AddData("base_url", Settings::getVar('base_url_http'));
+			self::$s->AddData("theme_dir", Settings::getVar('theme_dir'));
+			print self::$s->fetch($template, "plugins/errordocument");
+			exit;
+		}
 	}
 	
 	public function loadLang()

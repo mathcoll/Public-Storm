@@ -160,6 +160,9 @@ final class public_storm extends Plugins
 			$storms[$n]['author'] = $author['prenom']." ".$author['nom'];
 			$storms[$n]['author_login'] = $author['login'];
 			$storms[$n]['url'] = self::getUrl($storms[$n]['permaname']);
+			if( User::isLogged() && users::isFavorites($storms[$n]['storm_id']) ) {
+				$storms[$n]['hearts'] = "1";
+			}
 		}
 		return $storms;
 	}
@@ -182,7 +185,28 @@ final class public_storm extends Plugins
 			$storms[$n]['author'] = $author['prenom']." ".$author['nom'];
 			$storms[$n]['author_login'] = $author['login'];
 			$storms[$n]['url'] = self::getUrl($storms[$n]['permaname']);
+			if( User::isLogged() ) {
+				$storms[$n]['hearts'] = "1"; // always 1 because getMyFavorites return only the user faforites Storms
+			}
 		}
+		return $storms;
+	}
+	
+	public function getStormsByMostFavorites() {
+		$storms = array();
+		$tot = 6;
+		#TODO 
+		$q = "select storm_id, count(storm_id) as cpt from favorites group by storm_id order by cpt DESC limit ".$tot;
+		//print $q;
+		$storms = self::$db->q2($q, "users.db", array());
+		$hearts = array(3,3,2,2,1,1);
+		for($n=0; $n<sizeOf($storms); $n++) {
+			$s = self::getStorm($storms[$n]['storm_id']);
+			$storms[$n]['root'] = $s['root'];
+			$storms[$n]['hearts'] = $hearts[$n];
+			$storms[$n]['url'] = self::getUrl($s['permaname']);
+		}
+		//print_r($storms);
 		return $storms;
 	}
 	
@@ -208,6 +232,9 @@ final class public_storm extends Plugins
 			$storms[$n]['author'] = $author['prenom']." ".$author['nom'];
 			$storms[$n]['author_login'] = $author['login'];
 			$storms[$n]['url'] = self::getUrl($storms[$n]['permaname']);
+			if( User::isLogged() && users::isFavorites($storms[$n]['storm_id']) ) {
+				$storms[$n]['hearts'] = "1";
+			}
 		}
 		return $storms;
 	}
@@ -232,6 +259,9 @@ final class public_storm extends Plugins
 			$author = self::getStormAuthor($storms[$n]['user_id']);
 			$storms[$n]['author'] = $author['prenom']." ".$author['nom'];
 			$storms[$n]['author_login'] = $author['login'];
+			if( User::isLogged() && users::isFavorites($storms[$n]['storm_id']) ) {
+				$storms[$n]['hearts'] = "1";
+			}
 		}
 		return $storms;
 	}

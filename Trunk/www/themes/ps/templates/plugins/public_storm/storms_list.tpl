@@ -41,7 +41,7 @@
 					{/if}
 					
 					<li>
-						<a href="{$base_url}/storm/{$storm.permaname}/" class="storm">{$storm.root|ucfirst}</a><br />
+						{if $storm.hearts}<span class="heart1" title="{t}I love this Storm !{/t}"></span>{/if} <a href="{$base_url}/storm/{$storm.permaname}/" class="storm">{$storm.root|ucfirst}</a><br />
 						{if $storm.author_login ne ""}
 							{t escape="" 1=$base_url 2=$storm.author_login 3=$storm.author}créé par <a href="%1/utilisateurs/%2/">%3</a>{/t}
 						{/if}

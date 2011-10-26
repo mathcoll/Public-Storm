@@ -199,3 +199,10 @@ ul.list-pages, ul.list-pages li
 {
 	display: inline;
 }
+
+
+#admin #menu li a {
+	display: block;
+	margin: 0 0 1px 0;
+	padding:1em 0 1em 4em !important;
+}

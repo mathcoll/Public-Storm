@@ -176,12 +176,15 @@ div.description
 
 #page
 {
-	background-color: #fff;
+	background:#fff;
 	margin: auto;
 	padding: 0 .5em .5em .5em;
 	width:1000px;
 	z-index:1;
 	position:relative;
+}
+#screen {
+	background:url("/themes/ps/templates/img/sunburst.png") no-repeat scroll 50% 50% #FFFFFF;
 }
 
 #site_name a
@@ -626,13 +629,17 @@ td.bee_rain_how_to p, td.trackbacks p
 	margin: 1em 0;
 }
 
-.accroche
+ul.accroche
 {
 	color:#156E1E;
 	font-size:20px;
 	font-style:italic;
 	font-weight:bold;
 	line-height:34px;
+}
+
+ul.accroche li {
+	line-height:22px;
 }
 .margint10{
 	margin-top:10px;
@@ -773,6 +780,10 @@ div.scroll > ul li
 	padding: 0 10px;
 }
 
+div#menu ol.navigation > li a {
+	padding:.5em 0;
+}
+
 div#menu ol.navigation
 {
 	text-align: left;
@@ -784,9 +795,15 @@ div#menu ol.navigation li a:hover
 	background:none;
 }
 
+div#menu ul
+{
+	padding:0;
+	margin:0;
+}
 div#menu ul li
 {
-	padding: 1em 1em 0 0;
+	padding:0 1em 0 0;
+	margin:10px 0 0;
 }
 
 div.scroll

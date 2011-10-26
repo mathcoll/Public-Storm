@@ -70,7 +70,7 @@
 					<div class="table-row">
 						<div class="table-cell">
 							<div class="spacer">&nbsp;</div>
-							<span class="centered"><input type="submit" class="ui-state-default ui-corner-all" value="{t}valider{/t}" /></span>
+							<span class="centered"><input type="submit" class="ui-state-default ui-corner-all field" value="{t}valider{/t}" /></span>
 						</div><!-- //table-cell -->
 					</div><!-- //table-row -->
 				</div>

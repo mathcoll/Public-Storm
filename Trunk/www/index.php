@@ -160,6 +160,7 @@ if( $statuses['public_storm'] == 1 )
 {
 	$storms = public_storm::getStormsByMostActive(6);
 	$s->AddData("storms", $storms);
+	$s->AddData("storms_note", public_storm::getStormsByMostFavorites());
 }
 if( $statuses['analytics'] == 1 )
 {

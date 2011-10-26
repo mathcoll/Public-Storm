@@ -41,7 +41,7 @@ if ( isset($_SESSION["message"]) )
 	$_SESSION["message"] = NULL;
 }
 
-
+errordocument::setError(401, false);
 $breadcrumb = Settings::getVar('breadcrumb');
 array_push($breadcrumb, array("name" => Settings::getVar('title')));
 Settings::setVar('breadcrumb', $breadcrumb);

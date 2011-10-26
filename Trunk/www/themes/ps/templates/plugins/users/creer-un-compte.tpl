@@ -89,7 +89,7 @@
 					</form>
 				</div>
 				<div class="left">
-					<img src="{$theme_dir}img/creer_storms.jpg" alt="" width="280" height="280" />
+					<img src="{$theme_dir}img/creer_storms.png" alt="" width="280" height="280" />
 				</div>
 			</div>
 			{else}
