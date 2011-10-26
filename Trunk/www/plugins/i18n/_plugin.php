@@ -49,7 +49,7 @@ final class i18n extends Plugins
 	
 	public function langs()
 	{
-		$ls = split(";", Settings::getVar('languages'));
+		$ls = explode(";", Settings::getVar('languages'));
 		$l = array();
 		for($i=0; $i<sizeOf($ls); $i++)
 		{
