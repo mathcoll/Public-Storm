@@ -32,15 +32,31 @@ final class errordocument extends Plugins
 	}
 	
 	/**
-	* Return aaaaaa
+	* Display a page with Http 1.1 Status code in the header
 	* @param int $errorCode HTTP/1.1 Status Code
 	* @param boolean $fetchTemplate true means that the page fetch and exit the template page
 	* @return void
 	*/
-	public static function setError($errorCode, $fetchTemplate=true)
-	{
-		switch( $errorCode )
-		{
+	public static function setError($errorCode, $fetchTemplate=true) {
+		switch( $errorCode ) {
+				
+			case "401" : 
+			default :
+				$status = "401 Unauthorized";
+				$template = "401.tpl";
+				break;
+				
+			case "403" : 
+			default :
+				$status = "403 Forbidden";
+				$template = "403.tpl";
+				break;
+				
+			case "404" :
+				$status = "404 Not Found";
+				$template = "404.tpl";
+				break;
+				
 			case "500" : 
 				$status = "500 Internal Server Error";
 				$template = "500.tpl";
@@ -56,13 +72,6 @@ final class errordocument extends Plugins
 				$template = "503.tpl";
 				break;
 				
-			case "401" : 
-			default :
-				$status = "401 Unauthorized";
-				$template = "401.tpl";
-				break;
-				
-			case "404" : 
 			default :
 				$status = "404 Not Found";
 				$template = "404.tpl";
