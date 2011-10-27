@@ -18,6 +18,13 @@ DirectoryIndex index.php
 
 FileETag none
 
+RedirectMatch 301 /cache/(.*) /teststatus/403/$1
+RedirectMatch 301 /conf/(.*) /teststatus/403/$1
+RedirectMatch 301 /datas/(.*) /teststatus/403/$1
+RedirectMatch 301 /docs/(.*) /teststatus/403/$1
+RedirectMatch 301 /i18n/(.*) /teststatus/403/$1
+RedirectMatch 301 /includes/(.*) /teststatus/403/$1
+
 # Insert filter
 SetOutputFilter DEFLATE
 

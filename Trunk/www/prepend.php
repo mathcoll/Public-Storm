@@ -21,6 +21,7 @@
     <shtirlic@users.sourceforge.net>
  */
 
+if (basename($_SERVER['SCRIPT_NAME'])==basename(__FILE__))die(gettext("You musn't call this page directly ! please, go away !"));
 
 header('Status: 200 OK', false, 200);
 header('HTTP/1.1 200 OK', false, 200);
@@ -147,7 +148,12 @@ else
 }
 
 
-// Function for looking for a value in a multi-dimensional array
+/**
+ * Function for looking for a value in a multi-dimensional array
+ * @param string $dir string to search
+ * @param array $plugins array in witch the string may be found
+ * @return string : the plugin name
+ */
 function searchInList($dir, $plugins)
 {
 	foreach( $plugins as $plugin => $listeRsd ) /*rsd means registeredSubDir*/
