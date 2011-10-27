@@ -191,8 +191,10 @@ $s->Show($template, "");
 ob_end_flush();
 
 
-/*
+/**
  * return an array whose elements are shuffled in random order.
+ * @param array $my_array
+ * @return array
  */
 function custom_shuffle($my_array = array()) {
   $copy = array();
@@ -207,6 +209,14 @@ function custom_shuffle($my_array = array()) {
   return $copy;
 }
 
+/**
+ * Sort an array
+ * @param array $array
+ * @param string $subkey
+ * @param boolean $sort_descending
+ * @param boolean $keep_keys_in_sub
+ * @return array
+ */
 function sksort(&$array, $subkey="id", $sort_descending=false, $keep_keys_in_sub = false) {
     $temp_array = $array;
 
@@ -237,9 +247,13 @@ function sksort(&$array, $subkey="id", $sort_descending=false, $keep_keys_in_sub
     return $temp_array;
   }
 
-   /*
-  * filtering an array
-  */
+/**
+ * filter an array to keep only some $index => $values items
+ * @param array $array
+ * @param string $index
+ * @param string $value
+ * @return array
+ */
 function filter_by_value($array, $index, $value) {
 	//print "filtering ".$index."->".$value."<br />\n";
 	if( is_array($array) && count($array)>0 ) {

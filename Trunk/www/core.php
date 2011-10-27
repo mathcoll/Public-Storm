@@ -22,7 +22,7 @@
  */
 
 
-
+if (basename($_SERVER['SCRIPT_NAME'])==basename(__FILE__))die(gettext("You musn't call this page directly ! please, go away !"));
 require_once('./_global_settings.php');
 
 checkFilePermissions(Settings::getVar('cache_dir'), "0777");
@@ -51,6 +51,11 @@ function __autoload($class_name) {
 	}
 }
 
+/**
+ * Check if a file have some permission, read, write, execute
+ * @param string $path The full path to the file to check permission from
+ * @param int $permission permission in octal mode ie 0777 or 0644
+ */
 function checkFilePermissions($path, $permission) {
 	$f = new file($path);
 	if( !$f->HasPermissions($permission) ) {
@@ -63,6 +68,12 @@ function checkFilePermissions($path, $permission) {
 	}
 }
 
+/**
+ * Check if a file is readable or not
+ * @param string $path The full path to the file to check
+ * @return void
+ * @todo should return a boolean ! :-)
+ */
 function checkFileReadable($path) {
 	$f = new file($path);
 	if( !$f->IsReadable() ) {
@@ -75,6 +86,12 @@ function checkFileReadable($path) {
 	}
 }
 
+/**
+ * Check if a file is writable or not
+ * @param string $path The full path to the file to check
+ * @return void
+ * @todo should return a boolean ! :-)
+ */
 function checkFileWritable($path) {
 	$f = new file($path);
 	if( !$f->IsWritable() ) {
