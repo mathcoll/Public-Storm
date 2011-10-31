@@ -1,6 +1,4 @@
-{setlocale type="all" locale="fr_FR.utf8"}
 <h3>{t}liste_plugins{/t}</h3>
-{setlocale type="all" locale="fr_FR.utf8"}
 <ul class="list-plugins">
 	<li class="header">
 		<span class="icon">&nbsp;</span>

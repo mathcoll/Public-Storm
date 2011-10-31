@@ -30,7 +30,7 @@
 						<li class="cap">{$cap|ucfirst}</li>
 					{/if}
 						
-					{if $storm.root ne ""}<li>{if $storm.hearts}<span class="heart1" title="{t}I love this Storm !{/t}"></span>{/if} <a href="{$base_url}/storm/{$storm.permaname}/" class="storm">{$storm.root|ucfirst}</a>{if $storm.author_login ne ""} <small class="author">({t}by{/t} <a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a>)</small>{/if}</li>{/if}
+					{if $storm.root ne ""}<li>{if $storm.hearts}<span class="sprite heart1" title="{t}I love this Storm !{/t}"></span>{/if} <a href="{$base_url}/storm/{$storm.permaname}/" class="storm">{$storm.root|ucfirst}</a>{if $storm.author_login ne ""} <small class="author">({t}by{/t} <a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a>)</small>{/if}</li>{/if}
 			
 					{assign var=prevcap value=$cap}
 					{assign var=loopnum value=$loopnum+1}

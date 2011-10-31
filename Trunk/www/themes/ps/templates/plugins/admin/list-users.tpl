@@ -1,5 +1,4 @@
 <h3>{t}list_users{/t}</h3>
-{setlocale type="all" locale="fr_FR.utf8"}
 
 {if $nb_pages gt 0}
 {t}Pages :{/t}

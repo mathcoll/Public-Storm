@@ -13,7 +13,7 @@
 	<h3>{t}Les plus appréciés{/t}</h3>
 	<ul>
 	{foreach from=$storms_note item=storm name=liste}
-		<li><a href="{$storm.url}">{$storm.root|ucfirst}</a><span class="heart{$storm.hearts}"></span></li>
+		<li><a href="{$storm.url}">{$storm.root|ucfirst}</a><span class="sprite heart{$storm.hearts}"></span></li>
 	{/foreach}
 	</ul>
 </div>

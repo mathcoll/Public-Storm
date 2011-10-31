@@ -1,6 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xml:lang="fr" lang="fr">
-{setlocale type="all" locale="fr_FR.utf8"}
 <head>
 	<title>{$title} - {$site_name}</title>
 	<meta property="fb:app_id" content="{$fb_app_id}" />
@@ -38,7 +37,7 @@
 
 <div id="habillage">
 <div id="page">
-	<div id="site_name">
+	<div id="site_name" class="sprite">
 		<h1><a href="{$base_url}/">{$site_name} <span class="baseline">{t}baseline{/t}</span></a></h1>
 		<a href="{$base_url}/" class="home" title="{t}Go to home page{/t}">{t}Go to home page{/t}</a>
 		{if $description ne "&nbsp;"}
@@ -79,5 +78,5 @@
 		<span id="create_storm"></span>
 		{/if}
 		
-		<div id="message">{$message}</div>
+		<div id="message" class="sprite">{$message}</div>
 	</div><!-- rightBox -->

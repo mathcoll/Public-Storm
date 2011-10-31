@@ -7,6 +7,7 @@ type : <select name="type">
 	<option value="database_sqlite">SqLite</option>
 	<option value="database_mysql" selected="true">Mysql</option>
 </select><br />
+data folder (SqLite) : <input type="text" name="data_dir" value="datas"><br />
 host : <input type="text" name="host" value="localhost"><br />
 user : <input type="text" name="user" value="user"><br />
 password : <input type="password" name="password" value="*****"><br />

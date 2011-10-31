@@ -1,4 +1,3 @@
-{setlocale type="all" locale="fr_FR.utf8"}
 {assign var=week value=0}
 {assign var=year value=0}
 {assign var=loopnum value=0}
@@ -52,7 +51,7 @@
 						{assign var=loopnum value=0}
 						<div class="table-cell _50"><ul class="liste">
 					{/if}
-					<li>{if $storm.hearts}<span class="heart1" title="{t}I love this Storm !{/t}"></span>{/if} <a href="{$base_url}/storm/{$storm.permaname}/" class="storm">{$storm.root|ucfirst}</a>, créé le {$storm.date|date_format:"%A %d %B %Y %Hh%M GMT"}</li>
+					<li>{if $storm.hearts}<span class="sprite heart1" title="{t}I love this Storm !{/t}"></span>{/if} <a href="{$base_url}/storm/{$storm.permaname}/" class="storm">{$storm.root|ucfirst}</a>, {t}créé le{/t} {$storm.date|date_format:"%A %d %B %Y %Hh%M GMT"}</li>
 					{assign var=week value=$storm.date|date_format:"%W"}
 					{assign var=year value=$storm.date|date_format:"%Y"}
 				{/if}

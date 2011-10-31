@@ -1,6 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
-{setlocale type="all" locale="fr_FR.utf8"}
 <head>
 	<title>{$title} - {$site_name}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -30,7 +29,7 @@
 
 <body>
 <h4>{t}Partager à me amis{/t} > {t}Storm{/t} <b>{$storm}</b></h4>
-<div id="site_name">
+<div id="site_name" class="sprite">
 	<p style="padding-left:95px;">
 		{t escape=""}Choisissez le service auquel vous souhaitez vous connecter. Vous pourrez ensuite envoyer un message à vos amis.<br />Public-Storm ne conserve aucune donnée vous concernant.{/t}
 	</p>

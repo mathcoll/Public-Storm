@@ -1,5 +1,4 @@
 <h3>{t}prelaunch_beta_users{/t}</h3>
-{setlocale type="all" locale="fr_FR.utf8"}
 {t}Pages :{/t}
 <ul class="list-pages">
 	{section name=foo loop=$nb_pages}

@@ -32,7 +32,8 @@ div.panel ul.panel-desc li.icon a:hover {
 }
 ul.storm
 {
-	margin: 0 20px 0 -20px;
+	margin: 0;
+	padding:0;
 	list-style: none;
 }
 ul.storm li
@@ -101,7 +102,7 @@ form.suggestion input[type="text"]:focus
 }
 .accroche-suggestion {
 	padding:190px 0 0 0!important;
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -615px !important;
+	background-position:0 -615px !important;
 }
 .accroche-suggestion > * {
 	padding:0 10px;
@@ -136,24 +137,20 @@ div#add_this_storm input
 	width:100%;
 	border:0;
 }
-div.TwoCols
-{
-
-}
 span.heart1 {
-	background: transparent url(../../../img/sprite.png) no-repeat -60px -500px !important;
+	background-position:-60px -500px !important;
 	width:10px;
 	height:15px;
 	display:inline-block;
 }
 span.heart2 {
-	background: transparent url(../../../img/sprite.png) no-repeat -75px -500px !important;
+	background-position:-75px -500px !important;
 	width:20px;
 	height:15px;
 	display:inline-block;
 }
 span.heart3 {
-	background: transparent url(../../../img/sprite.png) no-repeat -95px -500px !important;
+	background-position:-95px -500px !important;
 	width:25px;
 	height:15px;
 	display:inline-block;
@@ -173,6 +170,7 @@ span.heart3 {
 ._w250 { width: 250px; }
 ._w300 { width: 300px; }
 ._w430 { width: 430px; }
+._w500 { width: 500px; }
 ._w710 { width: 710px; }
 
 div.left
@@ -204,66 +202,49 @@ ul.tools{
 	padding:0 0 20px 0;
 }
 ul.tools li{
-	margin:10px 0;
+	padding:10px 0;
 	list-style:none;
 }
 ul.tools li a{
 	display:block;
 }
-a.stormExport
+a span.stormExport
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -397px;
+	background-position:0 -397px;
 	padding:13px 0 5px 30px;
 }
-a.stormExport:hover
+a span.add-to-favorites
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 1px -396px !important;
-}
-a.add-to-favorites
-{
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -458px;
+	background-position:0 -458px;
 	padding:13px 0 5px 30px;
-}
-a.add-to-favorites:hover
+}span.remove-from-favorites
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 1px -457px !important;
-}
-a.remove-from-favorites
-{
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -487px;
+	background-position:0 -487px;
 	padding:10px 0 5px 30px;
 }
-a.remove-from-favorites:hover
+a span.sendToAFriend
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 1px -486px !important;
-}
-a.sendToAFriend
-{
-	background: transparent url(../../../img/sprite.png) no-repeat -30px -457px;
+	background-position:-30px -457px;
 	padding:13px 0 5px 30px;
-}
-a.sendToAFriend:hover
-{
-	background: transparent url(../../../img/sprite.png) no-repeat -29px -456px !important;
 }
 label.date
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -335px;
+	background-position:0 -335px;
 	padding:13px 0 5px 30px;
 }
 label.author
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -430px;
+	background-position:0 -430px;
 	padding:10px 0 5px 30px;
 }
 label.contributors
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -516px;
+	background-position:0 -516px;
 	padding:13px 0 5px 30px;
 }
 label.connected
 {
-	background: transparent url(../../../img/sprite.png) no-repeat 0 -369px;
+	background-position:0 -369px;
 	padding:10px 0 5px 30px;
 }
 
@@ -299,6 +280,7 @@ li.bulle blockquote {
     padding: 5px;
     border: 1px solid #c9c2c1;
     background-color: #fff;
+    -moz-border-radius:5px;
 }
 
 li.bulle blockquote a {
@@ -334,7 +316,7 @@ span.suggest-too input
 }
 span.suggest-too input:hover
 {
-    background: transparent url(../img/light.png) no-repeat 1px 1px;
+    background-position:1px 1px;
 }
 
 .neato

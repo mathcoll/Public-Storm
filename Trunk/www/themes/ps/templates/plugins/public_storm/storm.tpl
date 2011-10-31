@@ -1,14 +1,9 @@
-{setlocale type="all" locale="fr_FR.utf8"}
 {assign var=rootCap value=$storm.root|ucfirst}
 
 <div itemscope itemtype="http://data-vocabulary.org/Review">
 	<span itemprop="summary" class="Review">{$title}</span>
 	<span itemprop="rating" class="Review">{$rating}</span>
 	<span itemprop="count" class="Review">{$votes}</span>
-	{*
-		<img itemprop="photo" src="" />
-		<span itemprop="description"></span>
-	*}
 
 <h3 class="storm"><a href="{$storm.url}" itemprop="itemreviewed">{$storm.root|ucfirst}</a></h3>
 
@@ -20,16 +15,16 @@
 		<div class="table-cell _w200">
 			<div class="fiche">
 				<div class="ficheContainer _w200">
-					<label class="date">{t}Création du storm :{/t}</label>
+					<label class="sprite date">{t}Création du storm :{/t}</label>
 						<time itemprop="dtreviewed" datetime="{$storm.date|date_format:"%Y-%m-%d"}"><span class="data">{$storm.date|date_format:"%a, %d %B %Y %Hh%M:%S GMT"}</span></time><br />
 					{if $storm.author_login ne ""}{* should'nt be null ! :-) *}
-						<label class="author">{t 1=$rootCap}Auteur du storm %1 :{/t}</label>
+						<label class="sprite author">{t 1=$rootCap}Auteur du storm %1 :{/t}</label>
 						<img src="{$avatar}" style="float:right;" alt="{$storm.author|escape}" />
 							<span class="data" itemprop="reviewer"><a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author}</a></span><br />
 						<br />
 					{/if}
 					{if $contributors ne ""}{* should'nt be null ! :-) *}
-					<label class="contributors">{t}Contributeurs :{/t}</label>
+					<label class="sprite contributors">{t}Contributeurs :{/t}</label>
 						<ul>
 							{foreach from=$contributors item=contributor}
 								<li>
@@ -45,20 +40,20 @@
 					{/if}
 
 					{if $user.isadmin eq 1}
-					<label class="connected">{t}Utilisateurs connectés :{/t}</label>
+					<label class="sprite connected">{t}Utilisateurs connectés :{/t}</label>
 						<span class="data" id="countSubscribers"></span>
 						<br />
 					{/if}
 
 					<ul class="tools">
-						{if $statuses.sendtoafriend eq 1}<li><a href="{$base_url}/sendtoafriend/form/{$storm.permaname}/" class="sendToAFriend" title="{t}Partager avec mes amis{/t}">{t}Partager avec mes amis{/t}</a></li>{/if}
-						<li><a href="{$base_url}/odsExport/{$storm.permaname}/" class="stormExport">{t}export2ods{/t}</a></li>
-						<li><a href="{$base_url}/csvExport/{$storm.permaname}/" class="stormExport">{t}export2csv{/t}</a></li>
+						{if $statuses.sendtoafriend eq 1}<li><a href="{$base_url}/sendtoafriend/form/{$storm.permaname}/" title="{t}Partager avec mes amis{/t}"><span class="sprite sendToAFriend"></span>{t}Partager avec mes amis{/t}</a></li>{/if}
+						<li><a href="{$base_url}/odsExport/{$storm.permaname}/"><span class="sprite stormExport"></span>{t}export2ods{/t}</a></li>
+						<li><a href="{$base_url}/csvExport/{$storm.permaname}/"><span class="sprite stormExport"></span>{t}export2csv{/t}</a></li>
 						{if $user.logged}
 							{if $is_favorites eq 0}
-								<li><a href="{$base_url}/utilisateurs/add-to-favorites/{$storm.permaname}/" class="add-to-favorites">{t}Ajouter aux favoris{/t}</a></li>
+								<li><a href="{$base_url}/utilisateurs/add-to-favorites/{$storm.permaname}/"><span class="sprite add-to-favorites"></span>{t}Ajouter aux favoris{/t}</a></li>
 							{else}
-								<li><a href="{$base_url}/utilisateurs/remove-from-favorites/{$storm.permaname}/" class="remove-from-favorites">{t}Enlever des favoris{/t}</a></li>
+								<li><a href="{$base_url}/utilisateurs/remove-from-favorites/{$storm.permaname}/"><span class="sprite remove-from-favorites"></span>{t}Enlever des favoris{/t}</a></li>
 							{/if}
 						{/if}
 					</ul>
@@ -69,7 +64,7 @@
 		</div>
 
 {* column 2 *}
-		<div class="table-cell _w300 accroche-suggestion">
+		<div class="table-cell _w300 sprite accroche-suggestion">
 			<p>
 				{t 1=$rootCap escape=""}accroche incitation suggestion{/t}
 			</p>
@@ -104,7 +99,7 @@
 		</div>
 
 {* column 3 *}
-		<div class="table-cell">
+		<div class="table-cell  _w500">
 			<div class="table">
 				<div class="table-row">
 					<div class="table-cell _50">
@@ -126,7 +121,6 @@
 									</cite>
 								</li>
 								{assign var=size value=$size-1}
-							
 								{/foreach}
 							{else}
 								<li class="no_suggestion">{t 1=$rootCap}Pas encore de suggestion pour %1{/t}</li>
@@ -156,7 +150,7 @@
 			<div class="nuage">
 				<h4>{t 1=$rootCap}Nuage de storms liés à %1{/t}</h4>
 				{$cloud}
-			</div><!-- //nuage -->
+			</div>
 			{/if}
 		</div>
 	</div>

@@ -1,4 +1,3 @@
-{setlocale type="all" locale="fr_FR.utf8"}
 {assign var=week value=0}
 {assign var=year value=0}
 {assign var=loopnum value=0}
@@ -41,9 +40,9 @@
 					{/if}
 					
 					<li>
-						{if $storm.hearts}<span class="heart1" title="{t}I love this Storm !{/t}"></span>{/if} <a href="{$base_url}/storm/{$storm.permaname}/" class="storm">{$storm.root|ucfirst}</a><br />
+						{if $storm.hearts}<span class="sprite heart1" title="{t}I love this Storm !{/t}"></span>{/if} <a href="{$base_url}/storm/{$storm.permaname}/" class="storm">{$storm.root|ucfirst}</a><br />
 						{if $storm.author_login ne ""}
-							{t escape="" 1=$base_url 2=$storm.author_login 3=$storm.author}créé par <a href="%1/utilisateurs/%2/">%3</a>{/t}
+							{t escape="" 1=$base_url 2=$storm.author_login 3=$storm.author}{t}créé par{/t} <a href="%1/utilisateurs/%2/">%3</a>{/t}
 						{/if}
 						{t 1=$storm.date|date_format:"%A %d %B %Y %Hh%M GMT"}le %1{/t}
 					</li>
