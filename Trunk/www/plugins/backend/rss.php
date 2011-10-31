@@ -53,6 +53,7 @@ $sPlug->AddData("theme_dir_http", Settings::getVar('theme_dir_http'));
 $sPlug->AddData("rss_generator", Settings::getVar('RSS_GENERATOR'));
 $sPlug->AddData("rss_webmaster", Settings::getVar('RSS_WEBMASTER'));
 $sPlug->AddData("rss_managingeditor", Settings::getVar('RSS_MANAGINGEDITOR'));
+$sPlug->AddData("version", Settings::getVar('SITE_VERSION'));
 $sPlug->AddData("date", date('r'));
 #$sPlug->->AddData("i18n", i18n::getLng());
 

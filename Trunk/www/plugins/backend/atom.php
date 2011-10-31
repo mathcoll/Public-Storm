@@ -20,8 +20,28 @@
     Project started on 2008-11-22 with help from Serg Podtynnyi
     <shtirlic@users.sourceforge.net>
  */
+ 
 
-header("Content-type: application/rss+atom", true, 200);
+$uri = explode('/', $_SERVER['REQUEST_URI']);
+#$id = array_pop($uri); # TODO : ca retourne rien ???!!!!
+
+if( Settings::getVar('BASE_URL') != "" )
+{
+	$ind = 2;
+}
+else
+{
+	$ind = 1;
+}
+
+if ( !preg_match('/feedburner/i', $_SERVER['HTTP_USER_AGENT']) && Settings::getVar('feedburner_url') != "" ) 
+{
+	header("HTTP/1.1 301 moved Permanently", true, 301);
+	header("Location: ".Settings::getVar('feedburner_url'), true, 301);
+	exit;
+}
+
+header("Content-type: application/atom+xml", true, 200);
 $sPlug = new Settings::$VIEWER_TYPE;
 
 
@@ -31,9 +51,11 @@ $sPlug->AddData("site_baseline", Settings::getVar('SITE_BASELINE'));
 $sPlug->AddData("site_description", strip_tags(i18n::_('description', array(""))));
 $sPlug->AddData("site_theme", Settings::getVar('theme_dir'));
 $sPlug->AddData("rss_generator", Settings::getVar('RSS_GENERATOR'));
-$sPlug->AddData("rss_webmaster", Settings::getVar('RSS_WEBMASTER'));
+$sPlug->AddData("atom_webmaster_name", Settings::getVar('ATOM_WEBMASTER_NAME'));
+$sPlug->AddData("atom_webmaster_email", Settings::getVar('ATOM_WEBMASTER_EMAIL'));
 $sPlug->AddData("rss_managingeditor", Settings::getVar('RSS_MANAGINGEDITOR'));
-$sPlug->AddData("date", date('r'));
+$sPlug->AddData("version", Settings::getVar('SITE_VERSION'));
+$sPlug->AddData("date", date('c'));
 #$sPlug->->AddData("i18n", i18n::getLng());
 
 
