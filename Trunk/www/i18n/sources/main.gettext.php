@@ -1,12 +1,11 @@
 <?php
 
 ?><?php
+gettext("Nous contacter :");
 gettext("a_propos");
 gettext("version");
 
 ?><?php
-gettext("Flux RSS");
-gettext("Flux Atom");
 gettext("baseline");
 gettext("baseline");
 gettext("Go to home page");
@@ -24,5 +23,7 @@ gettext("listpages");
 
 ?><?php
 gettext("partagez");
+gettext("Support Public-Storm by adding it to your stack at Ohloh");
+gettext("Boost");
 
 ?>

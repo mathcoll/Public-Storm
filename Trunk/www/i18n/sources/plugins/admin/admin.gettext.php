@@ -23,6 +23,7 @@ gettext("Mise à jour");
 gettext("Pages :");
 
 ?><?php
+gettext("forbidden");
 gettext("forbidden_details");
 
 ?><?php

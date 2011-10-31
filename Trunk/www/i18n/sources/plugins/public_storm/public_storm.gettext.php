@@ -28,6 +28,7 @@ gettext("Liste des derniers Storms créés :");
 gettext("Semaine");
 gettext("(suite)");
 gettext("Semaine");
+gettext("I love this Storm !");
 gettext("créé par <a href=\"%1/utilisateurs/%2/\">%3</a>");
 gettext("le %1");
 
@@ -60,6 +61,7 @@ gettext("Nuage de storms liés à %1");
 ?><?php
 gettext("Liste des Storms triés par ordre alphabêtique :");
 gettext("(suite)");
+gettext("I love this Storm !");
 gettext("by");
 
 ?><?php
@@ -75,6 +77,7 @@ gettext("list_alpha");
 gettext("list_date");
 gettext("plus_actifs");
 gettext("by");
+gettext("Les plus appréciés");
 gettext("contribuez");
 gettext("contribuez_p1");
 gettext("contribuez_p2");

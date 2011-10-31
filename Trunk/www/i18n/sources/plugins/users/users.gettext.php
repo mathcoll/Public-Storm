@@ -19,14 +19,19 @@ gettext("mes_storms");
 gettext("Semaine");
 gettext("(suite)");
 gettext("Semaine");
+gettext("I love this Storm !");
 
 ?><?php
 gettext("Storms de %1");
 gettext("Membre depuis le %1");
 gettext("Langue :");
+gettext("Flux Rss");
+gettext("Flux Rss");
+gettext("Flux Rss");
 gettext("Semaine");
 gettext("(suite)");
 gettext("Semaine");
+gettext("I love this Storm !");
 
 ?><?php
 gettext("login intro");
@@ -53,6 +58,7 @@ gettext("valider");
 
 ?><?php
 gettext("Mes favoris");
+gettext("I love this Storm !");
 gettext("by");
 
 ?><?php
@@ -107,7 +113,9 @@ gettext("mes_storms");
 gettext("Mes favoris");
 
 ?><?php
-gettext("Les champs marqués d'un * sont obligatoires.");
+gettext("creer_un_compte");
+gettext("gratuit");
+gettext("sur Public-Storm !");
 gettext("field.prenom");
 gettext("field.nom");
 gettext("field.email");
@@ -115,7 +123,10 @@ gettext("field.login");
 gettext("field.password");
 gettext("field.captcha");
 gettext("field.reload_captcha");
-gettext("valider");
+gettext("Les champs marqués d'un * sont obligatoires.");
+gettext("creer_un_compte");
+gettext("inscription.subject");
+gettext("Mail sent");
 gettext("avantage_1");
 gettext("avantage_1");
 gettext("avantage_2");
