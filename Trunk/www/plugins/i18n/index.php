@@ -38,7 +38,7 @@ if ( $uri[$ind] )
 {
 	if ( $lang = i18n::setLocale($uri[$ind]) )
 	{
-		setcookie("locale", $_SESSION["LANG"], time() + 3600 * 24 * 30, Settings::getVar("BASE_URL")."/");
+		setcookie("locale", $_SESSION["LANG"], time() + Settings::getVar("languages cookie lifetime"), Settings::getVar("BASE_URL")."/");
 		if ( User::isLogged() ) print User::setLang($lang);
 		$_SESSION["message"] = i18n::_("Changement de langue effectué");
 		//print "<br />".$uri[$ind].$_SESSION["message"]; exit;
@@ -59,6 +59,7 @@ if ( $uri[$ind] )
 function just_for_having_translations_in_po_file() {
 	_("fr_FR.utf8");
 	_("en_EN.utf8");
+	_("en_GB.utf8");
 }
 
 ?>
