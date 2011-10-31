@@ -28,7 +28,7 @@
  */
 
 
-if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die();
+if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die(gettext("You musn't call this page directly ! please, go away !"));
 
 class Database_sqlite extends Database
 {	
@@ -48,7 +48,7 @@ class Database_sqlite extends Database
 		}
 		catch (Exception $e)
 		{
-			Debug::Log($e, ERROR);
+			Debug::Log($e, ERROR, __LINE__, __FILE__);
 			return false;
 		}
 		return self::$db;
@@ -66,7 +66,7 @@ class Database_sqlite extends Database
 		$result = self::$dbUser->query($query);
 		if ( !$result && DEBUG )
 		{
-			Debug::Log("Erreur 1".$query, ERROR);
+			Debug::Log("Erreur userLogin ".$query, ERROR, __LINE__, __FILE__);
 		}
 		else
 		{
@@ -97,12 +97,12 @@ class Database_sqlite extends Database
 		$result = self::$dbUser->query($query);
 		if ( DEBUG )
 		{
-			Debug::Log("Erreur 2".$query, SQL);
-			#Debug::Log(print_r(mysql_fetch_assoc($result), 1), NOTICE);
+			Debug::Log("Erreur authentificationByUid ".$query, SQL, __LINE__, __FILE__);
+			#Debug::Log(print_r(mysql_fetch_assoc($result), 1), NOTICE, __LINE__, __FILE__);
 		}
 		if ( !$result && DEBUG )
 		{
-			Debug::Log("Erreur 12".$query, ERROR);
+			Debug::Log("Erreur 12".$query, ERROR, __LINE__, __FILE__);
 			return false;
 		}
 		else
@@ -140,7 +140,7 @@ class Database_sqlite extends Database
 		//print $query;
 		if ( DEBUG )
 		{
-			Debug::Log("Erreur 3".$query, SQL);
+			Debug::Log("Erreur 3".$query, SQL, __LINE__, __FILE__);
 		}
 		return self::$dbUser->query($query);
 	}
@@ -155,7 +155,7 @@ class Database_sqlite extends Database
 			self::escape_string($login),
 			self::escape_string($password_md5)
 		);
-		//Debug::Log("no result for request ".$query, ERROR);
+		//Debug::Log("no result for request ".$query, ERROR, __LINE__, __FILE__);
 		return self::$dbUser->query($query);
 	}
 	
@@ -167,7 +167,7 @@ class Database_sqlite extends Database
 			self::escape_string($lang),
 			self::escape_string($user_id)
 		);
-		//Debug::Log("no result for request ".$query, ERROR);
+		//Debug::Log("no result for request ".$query, ERROR, __LINE__, __FILE__);
 		return self::$dbUser->query($query);
 	}
 	
@@ -186,7 +186,7 @@ class Database_sqlite extends Database
 		);
 		if ( DEBUG )
 		{
-			Debug::Log("Erreur 4".$query, SQL);
+			Debug::Log("Erreur 4".$query, SQL, __LINE__, __FILE__);
 		}
 		return self::$dbUser->query($query);
 	}
@@ -208,7 +208,7 @@ class Database_sqlite extends Database
 		}
 		else
 		{
-			Debug::Log("Erreur 12".$query, ERROR);
+			Debug::Log("Erreur 12".$query, ERROR, __LINE__, __FILE__);
 		}
 	}
 
@@ -229,7 +229,7 @@ class Database_sqlite extends Database
 		}
 		else
 		{
-			Debug::Log("Erreur 5".$query, SQL);
+			Debug::Log("Erreur 5".$query, SQL, __LINE__, __FILE__);
 		}
 	}
 
@@ -250,7 +250,7 @@ class Database_sqlite extends Database
 		}
 		else
 		{
-			Debug::Log("Erreur 5".$query, ERROR);
+			Debug::Log("Erreur 5".$query, ERROR, __LINE__, __FILE__);
 		}
 	}
 
@@ -266,7 +266,7 @@ class Database_sqlite extends Database
 		);
 		if ( DEBUG )
 		{
-			Debug::Log("Erreur 6".$query, SQL);
+			Debug::Log("Erreur 6".$query, SQL, __LINE__, __FILE__);
 		}
 		self::$dbUser->query($query);
 		return $password;
@@ -293,7 +293,7 @@ class Database_sqlite extends Database
 			$q,
 			self::escape_string($login)
 		);
-		Debug::Log("userExists ".$query, SQL);
+		Debug::Log("userExists ".$query, SQL, __LINE__, __FILE__);
 		if ( $result = self::$dbUser->query($query) )
 		{
 			while ( $row = $result->fetch() )
@@ -303,7 +303,7 @@ class Database_sqlite extends Database
 		}
 		else
 		{
-			Debug::Log("Erreur userExists ".$query, ERROR);
+			Debug::Log("Erreur userExists ".$query, ERROR, __LINE__, __FILE__);
 		}
 	}
 	
@@ -317,7 +317,7 @@ class Database_sqlite extends Database
 		}
 		else
 		{
-			Debug::Log("Erreur getNbUsers ".$query, ERROR);
+			Debug::Log("Erreur getNbUsers ".$query, ERROR, __LINE__, __FILE__);
 		}
 	}
 	
@@ -330,7 +330,7 @@ class Database_sqlite extends Database
 			$nombre
 		);
 		//print $query;
-		Debug::Log("getAllUsers ".$query, SQL);
+		Debug::Log("getAllUsers ".$query, SQL, __LINE__, __FILE__);
 		if ( $result = self::$dbUser->query($query) )
 		{
 			$r = array();
@@ -343,7 +343,7 @@ class Database_sqlite extends Database
 		}
 		else
 		{
-			Debug::Log("Erreur getAllUsers ".$query, ERROR);
+			Debug::Log("Erreur getAllUsers ".$query, ERROR, __LINE__, __FILE__);
 		}
 	}
 	
@@ -361,7 +361,7 @@ class Database_sqlite extends Database
 		//print $query;
 		if ( DEBUG )
 		{
-			Debug::Log("addTB ".$query, SQL);
+			Debug::Log("addTB ".$query, SQL, __LINE__, __FILE__);
 		}
 		if ( self::$dbTB->query($query) )
 		{
@@ -383,13 +383,13 @@ class Database_sqlite extends Database
 		$result = self::$dbTB->query($query);
 		if ( DEBUG )
 		{
-			Debug::Log("getAllTb ".$query, SQL);
+			Debug::Log("getAllTb ".$query, SQL, __LINE__, __FILE__);
 		}
 		if ( !$result )
 		{
 			if ( DEBUG )
 			{
-				Debug::Log("Erreur getAllTb ".$query, ERROR);
+				Debug::Log("Erreur getAllTb ".$query, ERROR, __LINE__, __FILE__);
 			}
 			return false;
 		}
@@ -414,7 +414,7 @@ class Database_sqlite extends Database
 		}
 		catch (Exception $e)
 		{
-			Debug::Log($e, ERROR);
+			Debug::Log($e, ERROR, __LINE__, __FILE__);
 			return false;
 		}
 		if( is_array($datas) && sizeOf($datas) > 0 ) {
@@ -429,7 +429,7 @@ class Database_sqlite extends Database
 		$result = self::$db_custom->query($query);
 		if ( !$result && DEBUG )
 		{
-			Debug::Log("Erreur q ".$query, SQL);
+			Debug::Log("Erreur q ".$query, SQL, __LINE__, __FILE__);
 		}
 		else
 		{
@@ -451,13 +451,13 @@ class Database_sqlite extends Database
 		}
 		catch (Exception $e)
 		{
-			Debug::Log($e, ERROR);
+			Debug::Log($e, ERROR, __LINE__, __FILE__);
 			return false;
 		}
 		//print $q."<br />";
 		//print_r($datas);
 		$sth = self::$db_custom->prepare($q, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-		//Debug::Log($sth->debugDumpParams(), SQL);
+		//Debug::Log($sth->debugDumpParams(), SQL, __LINE__, __FILE__);
 		$sth->execute($datas);
 		return $sth->fetchAll();		
 	}
@@ -471,7 +471,7 @@ class Database_sqlite extends Database
 		}
 		catch (Exception $e)
 		{
-			Debug::Log($e, ERROR);
+			Debug::Log($e, ERROR, __LINE__, __FILE__);
 			return false;
 		}
 		$query = sprintf(
@@ -479,7 +479,7 @@ class Database_sqlite extends Database
 			self::escape_string($datas[0])
 		);
 		//print $query;
-		Debug::Log($query, SQL);
+		Debug::Log($query, SQL, __LINE__, __FILE__);
 		if ( self::$db_custom->query($query) )
 		{
 			return self::$db_custom->lastInsertId();

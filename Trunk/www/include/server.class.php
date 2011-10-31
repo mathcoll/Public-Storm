@@ -26,7 +26,7 @@
  * @subpackage Server
  */
 
-if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die();
+if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die(gettext("You musn't call this page directly ! please, go away !"));
 
  /**  
   * Call Server::Normalize();

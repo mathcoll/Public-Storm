@@ -39,10 +39,10 @@ final class i18n extends Plugins
 			$locale = LANG;
 		}
 		//$locale = $_COOKIE["locale"]!=""?$_COOKIE["locale"]:$_SESSION["LANG"]!=""?$_SESSION["LANG"]:LANG; #TODO, why it doesn't works ?
-		Debug::Log("_COOKIE['locale']=".$_COOKIE['locale'], "NOTICE");
-		Debug::Log("_SESSION['LANG']=".$_SESSION['LANG'], "NOTICE");
-		Debug::Log("LANG=".LANG, "NOTICE");
-		Debug::Log("locale=".$locale, "NOTICE");
+		Debug::Log("_COOKIE['locale']=".$_COOKIE['locale'], "NOTICE", __LINE__, __FILE__);
+		Debug::Log("_SESSION['LANG']=".$_SESSION['LANG'], "NOTICE", __LINE__, __FILE__);
+		Debug::Log("LANG=".LANG, "NOTICE", __LINE__, __FILE__);
+		Debug::Log("locale=".$locale, "NOTICE", __LINE__, __FILE__);
 		self::setLocale($locale);
 		/* end Load languages */
 	}

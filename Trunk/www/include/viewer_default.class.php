@@ -27,7 +27,7 @@
  * @author     Mathieu Lory <mathieu@internetcollaboratif.info>
  */
 
-if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die();
+if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die(gettext("You musn't call this page directly ! please, go away !"));
 
 
 final class Viewer_default extends Viewer
@@ -56,7 +56,7 @@ final class Viewer_default extends Viewer
     }
     catch (Exception $e)
     {
-      Debug::Log($e,WARNING);
+      Debug::Log($e,WARNING, __LINE__, __FILE__);
       return false;
     }
     return self::$data_items[strtolower($data_name)];
@@ -96,7 +96,7 @@ final class Viewer_default extends Viewer
       }
       catch (Exception $e)
       {
-         Debug::Log($e,ERROR);
+         Debug::Log($e,ERROR, __LINE__, __FILE__);
          return false;
       }
       return true;
@@ -126,7 +126,7 @@ final class Viewer_default extends Viewer
     }
     catch (Exception $e)
     {
-      Debug::Log($e,ERROR);
+      Debug::Log($e,ERROR, __LINE__, __FILE__);
       return false;
     }
     return true;

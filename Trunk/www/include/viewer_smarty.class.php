@@ -27,7 +27,7 @@
  * @author     Mathieu Lory <mathieu@internetcollaboratif.info>
  */
 
-if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die();
+if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die(gettext("You musn't call this page directly ! please, go away !"));
 final class viewer_smarty extends Viewer
 {
 	private static $template;

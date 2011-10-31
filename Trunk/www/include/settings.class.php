@@ -27,7 +27,7 @@
  * @author     Mathieu Lory <mathieu@internetcollaboratif.info>
  */
 
-if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die();
+if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die(gettext("You musn't call this page directly ! please, go away !"));
 
 final class Settings
 {
@@ -89,10 +89,10 @@ final class Settings
 			try {
 				return isset(self::$vars[strToLower($varName)])?self::$vars[strToLower($varName)]:null;
 			} catch(Exception $exception) {
-				Debug::Log("Variable non définie : ".strToLower($varName), "WARNING");
+				Debug::Log("Variable non définie : ".strToLower($varName), "WARNING", __LINE__, __FILE__);
 			}
 		} else {
-			Debug::Log("Variable non définie : ".strToLower($varName), "WARNING");
+			Debug::Log("Variable non définie : ".strToLower($varName), "WARNING", __LINE__, __FILE__);
 			return false;
 		}
 	}

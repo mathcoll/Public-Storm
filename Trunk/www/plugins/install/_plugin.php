@@ -30,10 +30,9 @@ final class install extends Plugins
 	
 	public function buildDbFile($file, $datas)
 	{
-		# TODO : vrifier la présence du fichier et faire un warning si le fichier existe
-		# TODO : chmod and file writable ?
-		$fp = fopen($file, 'w+');
-		fwrite($fp, '<?php
+		$f = new file("./_global_db.php5");
+		if ( $f->IsWritable() ) {
+			$sContent = '<?php
 /* installation is done */
 define(\'DB_TYPE\', \''.$datas['type'].'\'); /* mysql exclusively! */
 define(\'DB_HOST\', \''.$datas['host'].'\');
@@ -41,8 +40,12 @@ define(\'DB_NAME\', \''.$datas['database'].'\');
 define(\'DB_USER\', \''.$datas['user'].'\');
 define(\'DB_PASS\', \''.$datas['password'].'\');
 define(\'DB_PREFIX\', \''.$datas['password'].'\');
-?>');
-		fclose($fp);
+?>';
+			$f->Write($sContent);
+		} else {
+			echo "Error !!";
+		}
+		exit;
 	}
 	
 	public function loadLang()

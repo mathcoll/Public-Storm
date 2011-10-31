@@ -61,7 +61,7 @@ foreach( $plug->listPlugins() as $pluginName )
 	}
 }
 
-//Debug::Log("_SESSION=".var_dump($_SESSION, 1), "NOTICE");
+//Debug::Log("_SESSION=".var_dump($_SESSION, 1), "NOTICE", __LINE__, __FILE__);
 
 /* init AdminMenu only when all plugins are loaded */
 $n = 0;
@@ -72,7 +72,7 @@ foreach( $plug->listPlugins() as $pluginName )
 			$plugins[$n]->initAdminMenu();
 		}
 	} else {
-		Debug::Log("Undefined index: ".$n." line:".__LINE__, "WARNING");
+		Debug::Log("Undefined index: ".$n, "WARNING", __LINE__, __FILE__);
 	}
 	$n++;
 }

@@ -27,7 +27,7 @@
  * @author     Mathieu Lory <mathieu@internetcollaboratif.info>
  */
 
-if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die();
+if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die(gettext("You musn't call this page directly ! please, go away !"));
 
 /**
  * Some defines for DEBUG
@@ -73,15 +73,22 @@ final class Debug
     elseif (stristr($debug_type,"screen"))
     {
       self::$instance->log_screen = true;
-      print "<script defer='defer'>var fdebug = window.open('about:blank', 'fdebug', 'scrollbars=1,width=1000,height=700');
-      fdebug.document.write('<h1>".i18n::_("Debug window")."</h1><style>span.tab{width:200px;}span.info{width:200px;}span.line{width:200px;}span.file{width:200px;}</style>');</script>\r\n\r\n";
+      print "<script defer='defer'>\r\n\tvar fdebug = window.open('about:blank', 'fdebug', 'scrollbars=1,width=1000,height=700');\r\n";
+      print "\tfdebug.document.write('<h1>".gettext("Debug window")."</h1>');\r\n";
+      print "\tfdebug.document.write('<style>ul.liste li {list-style: inline;}div.logLine span {display:table-row;}div.logLine span {display:table-cell;}div.logLine span.date {display:none}div.logLine span.info {width: 400px;}div.logLine span.line {width: 20px;}div.logLine span.file {width: 400px;overflow:hidden;}div.logLine:hover {background:#cdcdcd;}</style>');\r\n";
+      print "\tfdebug.document.write('<ul class=\'liste\'>');\r\n";
+      print "\tfdebug.document.write('	<li id=\"".NOTICE."\"><h2>".NOTICE."</h2></li>');\r\n";
+      print "\tfdebug.document.write('	<li id=\"".WARNING."\"><h2>".WARNING."</h2></li>');\r\n";
+      print "\tfdebug.document.write('	<li id=\"".ERROR."\"><h2>".ERROR."</h2></li>');\r\n";
+      print "\tfdebug.document.write('	<li id=\"".SQL."\"><h2>".SQL."</h2></li>');\r\n";
+      print "\tfdebug.document.write('</ul>');</script>\r\n\r\n";
     }
     
     self::$last_debug_type = $debug_type;
   }
  
  
-  public static function Log ($message,$level=NOTICE,$file_line=false,$file_name=false)
+  public static function Log ($message,$level=NOTICE,$file_line="-",$file_name="-")
   {
     $data[] = $level;
     $data[] = $message;
@@ -91,21 +98,36 @@ final class Debug
   }
 
  
-  private static function PrepareLine ($data)
-  {
-    $line = date("c");
-    $line.= " ";
-    
- //   $debug_calls = debug_backtrace();
- //   $file_name = basename($debug_calls[sizeof($debug_calls)-1]["file"]);
- //   $file_line = $debug_calls[sizeof($debug_calls)-1]["line"] ;
-
- //   $line.= sprintf("%-8s%'04d,%s %s ",$data[0],$file_line,$file_name,$data[1]);
-      $line.= sprintf("%-8s%s %s %s %s", "</span>", "<span class='tab'>".$data[0]."</span>", "<span class='info'>".$data[1]."</span>", "<span class='line'>".$data[2]."</span>", "<span class='file'>".$data[3]."</span>")."</div>";
-
-
-    return $line;
-  }
+	private static function PrepareLine ($data) {
+		// $line = date("c");
+		// $line.= " ";
+		// $debug_calls = debug_backtrace();
+		// $file_name = basename($debug_calls[sizeof($debug_calls)-1]["file"]);
+		// $file_line = $debug_calls[sizeof($debug_calls)-1]["line"] ;
+		// $line.= sprintf("%-8s%'04d,%s %s ",$data[0],$file_line,$file_name,$data[1]);
+		switch( $data[0] ) {
+			case NOTICE :
+				$line = $data[1];
+				break;
+			case ERROR :
+				$line = $data[1];
+				break;
+			case WARNING :
+				$line = $data[1];
+				break;
+			case SQL :
+				$line = $data[1];
+				break;
+			default :
+				$line = $data[1];
+				break;
+		}
+		//$line.= sprintf("%-8s%s %s %s %s", "</span>", "<span class='tab'>".$data[0]."</span>", "<span class='info'>".$data[1]."</span>", "<span class='line'>".$data[2]."</span>", "<span class='file'>".$data[3]."</span>")."</div>";
+		$line = "<script defer='defer'>";
+		$line .= "	fdebug.document.getElementById('".$data[0]."').innerHTML+='<div class=\'logLine\'><span class=\'date\'>".date("d/m/Y h\hi:s")."</span><span class=\'info\'>".$data[1]."</span><span class=\'file\'>".$data[3]."</span><span class=\'line\'>".$data[2]."</span></div>';";
+		$line .= "</script>\r\n";
+		return $line;
+	}
 
 
   private static function WriteLine ($data)
@@ -119,7 +141,8 @@ final class Debug
        file_put_contents(DEBUG_FILE_PATH,$data."\r\n",FILE_APPEND);
 
     if (self::$instance->log_screen)
-       print "<script>fdebug.document.write('<div><span class=\'date\'>".addslashes($data)."');</script>\r\n";
+    	print $data;
+       //print "<script defer='defer'>fdebug.document.write('<div><span class=\'date\'>".addslashes($data)."');</script>\r\n";
   }
 
 

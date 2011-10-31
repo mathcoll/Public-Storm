@@ -28,7 +28,7 @@
  */
 
 
-if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die();
+if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die(gettext("You musn't call this page directly ! please, go away !"));
 
 final class Database_mysql extends Database
 {	
@@ -48,12 +48,12 @@ final class Database_mysql extends Database
 			
 			//if( !is_object(self::$db) )
 			//{
-			//	Debug::Log("\$db not an object : ".self::$db, ERROR);
+			//	Debug::Log("\$db not an object : ".self::$db, ERROR, __LINE__, __FILE__);
 			//}
 		}
 		catch (Exception $e)
 		{
-			Debug::Log($e, ERROR);
+			Debug::Log($e, ERROR, __LINE__, __FILE__);
 			return false;
 		}
 		return self::$db;
@@ -71,12 +71,12 @@ final class Database_mysql extends Database
 		$result = mysql_query($query, self::$db);
 		if ( DEBUG )
 		{
-			Debug::Log($query, NOTICE);
-			#Debug::Log(print_r(mysql_fetch_assoc($result), 1), NOTICE);
+			Debug::Log($query, NOTICE, __LINE__, __FILE__);
+			#Debug::Log(print_r(mysql_fetch_assoc($result), 1), NOTICE, __LINE__, __FILE__);
 		}
 		if ( !$result && DEBUG )
 		{
-			Debug::Log("no result for request ".$query, ERROR);
+			Debug::Log("no result for request ".$query, ERROR, __LINE__, __FILE__);
 			return false;
 		}
 		else
@@ -96,12 +96,12 @@ final class Database_mysql extends Database
 		$result = mysql_query($query, self::$db);
 		if ( DEBUG )
 		{
-			Debug::Log($query, NOTICE);
-			#Debug::Log(print_r(mysql_fetch_assoc($result), 1), NOTICE);
+			Debug::Log($query, NOTICE, __LINE__, __FILE__);
+			#Debug::Log(print_r(mysql_fetch_assoc($result), 1), NOTICE, __LINE__, __FILE__);
 		}
 		if ( !$result && DEBUG )
 		{
-			Debug::Log("no result for request ".$query, ERROR);
+			Debug::Log("no result for request ".$query, ERROR, __LINE__, __FILE__);
 			return false;
 		}
 		else
@@ -126,7 +126,7 @@ final class Database_mysql extends Database
 		);
 		if ( DEBUG )
 		{
-			Debug::Log($query, NOTICE);
+			Debug::Log($query, NOTICE, __LINE__, __FILE__);
 		}
 		return mysql_query($query, self::$db);
 	}
@@ -142,7 +142,7 @@ final class Database_mysql extends Database
 			mysql_real_escape_string($login),
 			mysql_real_escape_string($password_md5)
 		);
-		//Debug::Log("no result for request ".$query, ERROR);
+		//Debug::Log("no result for request ".$query, ERROR, __LINE__, __FILE__);
 		return mysql_query($query, self::$db);
 	}
 	
@@ -162,7 +162,7 @@ final class Database_mysql extends Database
 		//print $query;
 		if ( DEBUG )
 		{
-			Debug::Log($query, NOTICE);
+			Debug::Log($query, NOTICE, __LINE__, __FILE__);
 		}
 		return mysql_query($query, self::$db);
 	}
@@ -178,7 +178,7 @@ final class Database_mysql extends Database
 		);
 		if ( DEBUG )
 		{
-			Debug::Log($query, NOTICE);
+			Debug::Log($query, NOTICE, __LINE__, __FILE__);
 		}
 		$r = mysql_query($query, self::$db);
 		$res = mysql_fetch_array($r);
@@ -196,7 +196,7 @@ final class Database_mysql extends Database
 		);
 		if ( DEBUG )
 		{
-			Debug::Log($query, NOTICE);
+			Debug::Log($query, NOTICE, __LINE__, __FILE__);
 		}
 		$r = mysql_query($query, self::$db);
 		$res = mysql_fetch_array($r);
@@ -216,7 +216,7 @@ final class Database_mysql extends Database
 		);
 		if ( DEBUG )
 		{
-			Debug::Log($query, NOTICE);
+			Debug::Log($query, NOTICE, __LINE__, __FILE__);
 		}
 		mysql_query($query, self::$db);
 		return $password;
@@ -248,11 +248,11 @@ final class Database_mysql extends Database
 		$result = mysql_query($query, self::$db);
 		if ( DEBUG )
 		{
-			Debug::Log($query, NOTICE);
+			Debug::Log($query, NOTICE, __LINE__, __FILE__);
 		}
 		if ( !$result && DEBUG )
 		{
-			Debug::Log("no result for request ".$query, ERROR);
+			Debug::Log("no result for request ".$query, ERROR, __LINE__, __FILE__);
 			return false;
 		}
 		else
@@ -274,7 +274,7 @@ final class Database_mysql extends Database
 		);
 		if ( DEBUG )
 		{
-			Debug::Log($query, NOTICE);
+			Debug::Log($query, NOTICE, __LINE__, __FILE__);
 		}
 		return mysql_query($query, self::$db);
 	}
@@ -291,11 +291,11 @@ final class Database_mysql extends Database
 		$result = mysql_query($query, self::$db);
 		if ( DEBUG )
 		{
-			Debug::Log($query, NOTICE);
+			Debug::Log($query, NOTICE, __LINE__, __FILE__);
 		}
 		if ( !$result && DEBUG )
 		{
-			Debug::Log("no result for request ".$query, ERROR);
+			Debug::Log("no result for request ".$query, ERROR, __LINE__, __FILE__);
 			return false;
 		}
 		else
@@ -323,11 +323,11 @@ final class Database_mysql extends Database
 		$result = mysql_query($query, self::$db);
 		if ( DEBUG )
 		{
-			Debug::Log($query, NOTICE);
+			Debug::Log($query, NOTICE, __LINE__, __FILE__);
 		}
 		if ( !$result && DEBUG )
 		{
-			Debug::Log("no result for request ".$query, ERROR);
+			Debug::Log("no result for request ".$query, ERROR, __LINE__, __FILE__);
 			return false;
 		}
 		else
@@ -358,7 +358,7 @@ final class Database_mysql extends Database
 		);
 		if ( DEBUG )
 		{
-			Debug::Log($query, NOTICE);
+			Debug::Log($query, NOTICE, __LINE__, __FILE__);
 		}
 		return mysql_query($query, self::$db);
 	}
@@ -375,7 +375,7 @@ final class Database_mysql extends Database
 		//return "sss".$query;
 		if ( DEBUG )
 		{
-			Debug::Log($query, NOTICE);
+			Debug::Log($query, NOTICE, __LINE__, __FILE__);
 		}
 		return mysql_query($query, self::$db);
 	}
@@ -392,11 +392,11 @@ final class Database_mysql extends Database
 		$result = mysql_query($query, self::$db);
 		if ( DEBUG )
 		{
-			Debug::Log($query, NOTICE);
+			Debug::Log($query, NOTICE, __LINE__, __FILE__);
 		}
 		if ( !$result && DEBUG )
 		{
-			Debug::Log("no result for request ".$query, ERROR);
+			Debug::Log("no result for request ".$query, ERROR, __LINE__, __FILE__);
 			return false;
 		}
 		else
@@ -422,11 +422,11 @@ final class Database_mysql extends Database
 		$result = mysql_query($query, self::$db);
 		if ( DEBUG )
 		{
-			Debug::Log($query, NOTICE);
+			Debug::Log($query, NOTICE, __LINE__, __FILE__);
 		}
 		if ( !$result && DEBUG )
 		{
-			Debug::Log("no result for request ".$query, ERROR);
+			Debug::Log("no result for request ".$query, ERROR, __LINE__, __FILE__);
 			return false;
 		}
 		else

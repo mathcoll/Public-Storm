@@ -43,13 +43,13 @@ final class prelaunch extends Plugins
 		
 		if ( !class_exists(Settings::$DB_TYPE) )
 		{
-			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR);
+			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR, __LINE__, __FILE__);
 		}
 		else
 		{
 			if ( !self::$db = new Settings::$DB_TYPE )
 			{
-				Debug::Log($err, ERROR);
+				Debug::Log($err, ERROR, __LINE__, __FILE__);
 				return false;
 				exit($err);
 			}

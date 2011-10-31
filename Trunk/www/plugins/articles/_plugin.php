@@ -28,7 +28,7 @@ public function __construct()
 {
 if ( !class_exists(Settings::$DB_TYPE) )
 {
-Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR);
+Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR, __LINE__, __FILE__);
 }
 else
 {
@@ -39,7 +39,7 @@ return true;
 }
 else
 {
-Debug::Log($err, ERROR);
+Debug::Log($err, ERROR, __LINE__, __FILE__);
 return false;
 exit($err);
 }

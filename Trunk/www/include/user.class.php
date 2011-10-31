@@ -27,7 +27,7 @@
  * @author     Mathieu Lory <mathieu@internetcollaboratif.info>
  */
 
-if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die();
+if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die(gettext("You musn't call this page directly ! please, go away !"));
 
 
 final class User
@@ -53,7 +53,7 @@ final class User
 	{
 		if ( !class_exists(Settings::$DB_TYPE) )
 		{
-			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR);
+			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR, __LINE__, __FILE__);
 		}
 		else
 		{
@@ -63,7 +63,7 @@ final class User
 			}
 			else
 			{
-				Debug::Log($err, ERROR);
+				Debug::Log($err, ERROR, __LINE__, __FILE__);
 				return false;
 				exit($err);
 			}

@@ -42,14 +42,15 @@ function __autoload($class_name) {
 	try {
 		require_once './include/' . strtolower($class_name) . '.class.php';
 		if ( @defined(DEBUG) && DEBUG == true ) {
-			Debug::Log('Class "'.$class_name. '" loaded !', NOTICE);
+			Debug::Log('Class "'.$class_name. '" loaded !', NOTICE, __LINE__, __FILE__);
 		}
 	} catch(Exception $e) {
 		if ( @defined(DEBUG) && DEBUG == true ) {
-			Debug::Log('Class "'.$class_name. '" Error !', ERROR);
+			Debug::Log('Class "'.$class_name. '" Error !', ERROR, __LINE__, __FILE__);
 		}
 	}
 }
+Settings::setVar("Starting at", microtime(true));
 
 /**
  * Check if a file have some permission, read, write, execute

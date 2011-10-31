@@ -32,7 +32,7 @@ final class users extends Plugins
 		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/users/styles/users.css', 'all.css');
 		if ( !class_exists(Settings::$DB_TYPE) )
 		{
-			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR);
+			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR, __LINE__, __FILE__);
 		}
 		else
 		{
@@ -42,7 +42,7 @@ final class users extends Plugins
 			}
 			else
 			{
-				Debug::Log($err, ERROR);
+				Debug::Log($err, ERROR, __LINE__, __FILE__);
 				return false;
 				exit($err);
 			}

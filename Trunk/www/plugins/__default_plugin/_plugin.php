@@ -18,6 +18,11 @@
     along with Public-Storm. If not, see <http://www.gnu.org/licenses/>.
  */
 		
+/**
+ * Enter description here ...
+ * @author Firstname Lastname <email>
+ *
+ */
 final class __default_plugin extends Plugins
 {
  	public static $subdirs = array();
@@ -25,6 +30,9 @@ final class __default_plugin extends Plugins
 	public static $db;
 	public static $s;
  	
+	/**
+	 * Constructor
+	 */
 	public function __construct()
 	{
 		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');

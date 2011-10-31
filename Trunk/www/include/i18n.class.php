@@ -28,7 +28,7 @@
  */
 
 
-if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die();
+if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die(gettext("You musn't call this page directly ! please, go away !"));
 
 
 class I18n_OLD
@@ -76,7 +76,7 @@ class I18n_OLD
 		{
 			if(DEBUG)
 			{
-				Debug::Log("Key undefined");
+				Debug::Log("Key undefined", WARNING, __LINE__, __FILE__);
 			}
 			return "[[$key]]";
 		}
@@ -94,7 +94,7 @@ class I18n_OLD
 		{
 			if(DEBUG)
 			{
-				Debug::Log("Key '".$key."' need to be translated into ".$_SESSION["LANG"]);
+				Debug::Log("Key '".$key."' need to be translated into ".$_SESSION["LANG"], WARNING, __LINE__, __FILE__);
 			}
 			return "[[$key]]";
 		}
@@ -118,7 +118,7 @@ class I18n_OLD
 		//print $file;
 		if (is_readable($file)) {
 			require($file);
-			Debug::Log("Language '".$ln."' is loaded, file : '".$file."'", NOTICE);
+			Debug::Log("Language '".$ln."' is loaded, file : '".$file."'", NOTICE, __LINE__, __FILE__);
 		}
 		elseif (is_readable(substr($file, 1))) /* TODO ! c'est pas propre ! */
 		{
@@ -138,8 +138,8 @@ class I18n_OLD
 		self::$code = $code;
 		if( DEBUG )
 		{
-			Debug::Log("Language '".$ln."' is loaded, file : '".$file."'", NOTICE);
-			Debug::Log("'Login' in ".$ln." = ".self::L('Login'), NOTICE);
+			Debug::Log("Language '".$ln."' is loaded, file : '".$file."'", NOTICE, __LINE__, __FILE__);
+			Debug::Log("'Login' in ".$ln." = ".self::L('Login'), NOTICE, __LINE__, __FILE__);
 		}
 	}
 	

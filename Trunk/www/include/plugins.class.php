@@ -27,7 +27,7 @@
  * @author     Mathieu Lory <mathieu@internetcollaboratif.info>
  */
 
-if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die();
+if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die(gettext("You musn't call this page directly ! please, go away !"));
 
 class Plugins
 {
@@ -44,7 +44,7 @@ class Plugins
 	{
 		if ( !class_exists(Settings::$DB_TYPE) )
 		{
-			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR);
+			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR, __LINE__, __FILE__);
 		}
 		else
 		{
@@ -54,13 +54,18 @@ class Plugins
 			}
 			else
 			{
-				Debug::Log($err, ERROR);
+				Debug::Log($err, ERROR, __LINE__, __FILE__);
 				return false;
 				exit($err);
 			}
 		}
 	}
 	
+	/**
+	 * Retrieve the status information of a plugin
+	 * @param string $pluginName The name of the plugin to check
+	 * @return boolean
+	 */
 	public static function isActive($pluginName)
 	{
 		$res = self::$db->q('SELECT status FROM plugins WHERE name="%s"', 'plugins.db', array($pluginName));
@@ -70,6 +75,10 @@ class Plugins
 		return self::$activatedPlugins[$pluginName];
 	}
 	
+	/**
+	 * Get a list of all available plugins from Database
+	 * @return array
+	 */
 	public static function listPlugins()
 	{
 		$res = self::$db->q('SELECT name FROM plugins ORDER BY sort ASC', 'plugins.db', array());
@@ -83,6 +92,10 @@ class Plugins
 		//return file::GetDirs(Settings::getVar('plug_dir'));
 	}
 	
+	/**
+	 * Retrieve all the available datas from all plugins
+	 * @return array
+	 */
 	public static function listAllDatasPlugins()
 	{
 		$res = self::$db->q('SELECT * FROM plugins ORDER BY name ASC', 'plugins.db', array());
@@ -109,6 +122,11 @@ class Plugins
 		return $p;
 	}
 	
+	/**
+	 * Load a plugin into the script memory : play the __construct method and manage the urls of such plugin
+	 * @param string $pluginName The name of the plugin to load
+	 * @return false|string plugin name
+	 */
 	public static function LoadPlugin($pluginName)
 	{
 		array_push(self::$loadedPlugins, $pluginName);
@@ -118,14 +136,14 @@ class Plugins
 			require(Settings::getVar('plug_dir') . strtolower($pluginName) . '/_plugin.php');
 			if( DEBUG )
 			{
-				Debug::Log('Plugin "' . strtolower($pluginName) . '" is activated', NOTICE);
+				Debug::Log('Plugin "' . strtolower($pluginName) . '" is activated', NOTICE, __LINE__, __FILE__);
 			}
 		}
 		else
 		{
 			if( DEBUG )
 			{
-				Debug::Log(Settings::getVar('plug_dir') . strtolower($pluginName) . '/_plugin.php' . " doesn't exists", NOTICE);
+				Debug::Log(Settings::getVar('plug_dir') . strtolower($pluginName) . '/_plugin.php' . " doesn't exists", NOTICE, __LINE__, __FILE__);
 			}
 			return false;
 		}
@@ -141,7 +159,7 @@ class Plugins
 					if ( $registred = Settings::registerSubdir($dir, $pluginName) )
 					{
 						//print_r($registred);
-						Debug::Log('Folder "' . $dir . '" is registered by "' . $pluginName . '"' , NOTICE);
+						Debug::Log('Folder "' . $dir . '" is registered by "' . $pluginName . '"' , NOTICE, __LINE__, __FILE__);
 					}
 				}
 			}
@@ -149,6 +167,11 @@ class Plugins
 		}
 	}
 	
+	/**
+	 * Get a list of all the php scripts pages available for a plugin
+	 * @param string $pluginName The name of the plugin
+	 * @return array
+	 */
 	public function listPages($pluginName)
 	{
 		$liste = array();
@@ -163,22 +186,35 @@ class Plugins
 		return $liste;
 	}
 	
+	/**
+	 * Disable a plugin from he entire application (Admin option)
+	 * @param string $pluginName The name of the plugin
+	 */
 	public static function deActivatePlugin($pluginName)
 	{
-		Debug::Log($pluginName . " is de-activated", NOTICE);
+		Debug::Log($pluginName . " is disabled", NOTICE, __LINE__, __FILE__);
 		self::$db->u('UPDATE plugins SET status="0" WHERE name="%s"', 'plugins.db', array($pluginName));
 		self::$activatedPlugins[$pluginName] = 0;
 		//self::$activatedPlugins
 	}
 	
+	/**
+	 * Enable a plugin from he entire application (Admin option)
+	 * @param string $pluginName The name of the plugin
+	 */
 	public static function activatePlugin($pluginName)
 	{
-		Debug::Log($pluginName . " is activated", NOTICE);
+		Debug::Log($pluginName . " is enabled", NOTICE, __LINE__, __FILE__);
 		self::$db->u('UPDATE plugins SET status="1" WHERE name="%s"', 'plugins.db', array($pluginName));
 		self::$activatedPlugins[$pluginName] = 1;
 		//self::$activatedPlugins
 	}
 	
+	/**
+	 * Get informations about a plugin
+	 * @param string $pluginName The name of the plugin
+	 * @return array
+	 */
 	public static function pluginGetInfos($pluginName)
 	{
 		if ( in_array($pluginName, self::$activatedPlugins) )
@@ -199,6 +235,11 @@ class Plugins
 		}
 	}
 	
+	/**
+	 * Get the full path of the plugin icon
+	 * @param string $pluginName The name of the plugin
+	 * @return string
+	 */
 	public function getIcon($name)
 	{
 		//$file = Settings::getVar('theme_dir') . 'plugins/' . strtolower($name) . '/img/icon.png';
@@ -212,26 +253,49 @@ class Plugins
 		}
 	}
 	
+	/**
+	 * Alias of isActive
+	 * @param string $pluginName The name of the plugin
+	 * @return boolean
+	 */
 	public function getStatus($pluginName)
 	{
 		return self::isActive($pluginName);
 	}
 	
+	/**
+	 * Return the name of the current plugin
+	 * @return string
+	 */
 	public function getName()
 	{
 		return self::$name;
 	}
 	
+	/**
+	 * Return the version of the current plugin
+	 * @return float
+	 */
 	public function getVersion()
 	{
 		return self::$version;
 	}
 	
+	
+	/**
+	 * Return the description of the current plugin
+	 * @return string
+	 */
 	public function getDescription()
 	{
 		return self::$description;
 	}
 	
+	
+	/**
+	 * Return the author of the current plugin
+	 * @return string
+	 */
 	public function getAuthor()
 	{
 		return self::$author;

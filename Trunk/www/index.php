@@ -25,6 +25,7 @@ require("core.php");
 require("prepend.php");
 $s = new Settings::$VIEWER_TYPE;
 
+$s->AddData("locale", LANG);
 $s->AddData("site_name", Settings::getVar('SITE_NAME'));
 $s->AddData("site_description", Settings::getVar('SITE_DESCRIPTION'));
 $s->AddData("site_baseline", Settings::getVar('SITE_BASELINE'));
@@ -271,5 +272,9 @@ function filter_by_value($array, $index, $value) {
 	}
 	//print_r($newarray);
 	return @isset($newarray)?$newarray:$array;
-} 
+}
+
+Debug::Log("Strarting at ".date("c", Settings::getVar("Starting at")), NOTICE, __LINE__, __FILE__);
+Debug::Log("Ending at ".date("c", microtime(true)), NOTICE, __LINE__, __FILE__);
+Debug::Log("Execution time ".round(microtime(true) - Settings::getVar("Starting at"), 4), NOTICE, __LINE__, __FILE__);
 ?>
