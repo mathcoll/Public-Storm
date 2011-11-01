@@ -30,17 +30,14 @@
 
 if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die(gettext("You musn't call this page directly ! please, go away !"));
 
-final class Database_mysql extends Database
-{	
-	public function __construct()
-	{
+final class Database_mysql extends Database {	
+	public function __construct() {
 		self::$host = Settings::getVar('DB_HOST');
 		self::$username = Settings::getVar('DB_USER');
 		self::$password = Settings::getVar('DB_PASS');
 		self::$db_name = Settings::getVar('DB_NAME');
 		self::$db_prefix = Settings::getVar('DB_PREFIX');
-		try
-		{
+		try {
 			self::$db = mysql_connect( self::$host, self::$username, self::$password );
 			mysql_select_db( self::$db_name, self::$db );
 			if ( mysql_error() )
@@ -50,17 +47,14 @@ final class Database_mysql extends Database
 			//{
 			//	Debug::Log("\$db not an object : ".self::$db, ERROR, __LINE__, __FILE__);
 			//}
-		}
-		catch (Exception $e)
-		{
+		} catch (Exception $e) {
 			Debug::Log($e, ERROR, __LINE__, __FILE__);
 			return false;
 		}
 		return self::$db;
 	}
 	
-	public static function userLogin( $login, $password_md5 )
-	{
+	public static function userLogin( $login, $password_md5 ) {
 		$q = 'SELECT user_id as id, uid, lang, nom, prenom, email FROM %susers WHERE login = "%s" AND password="%s"';
 		$query = sprintf(
 			$q,
@@ -69,24 +63,19 @@ final class Database_mysql extends Database
 			mysql_real_escape_string($password_md5)
 		);
 		$result = mysql_query($query, self::$db);
-		if ( DEBUG )
-		{
+		if ( DEBUG ) {
 			Debug::Log($query, NOTICE, __LINE__, __FILE__);
 			#Debug::Log(print_r(mysql_fetch_assoc($result), 1), NOTICE, __LINE__, __FILE__);
 		}
-		if ( !$result && DEBUG )
-		{
+		if ( !$result && DEBUG ) {
 			Debug::Log("no result for request ".$query, ERROR, __LINE__, __FILE__);
 			return false;
-		}
-		else
-		{
+		} else {
 			return mysql_fetch_assoc($result);
 		}
 	}
 	
-	public static function authentificationByUid( $uid )
-	{
+	public static function authentificationByUid( $uid ) {
 		$q = 'SELECT user_id as id, uid, lang, nom, prenom, email FROM %susers WHERE uid = "%s" AND persistent="1"';
 		$query = sprintf(
 			$q,
@@ -167,7 +156,6 @@ final class Database_mysql extends Database
 		return mysql_query($query, self::$db);
 	}
 
-
 	public static function getEmailFromLogin($login)
 	{
 		$q = 'SELECT email FROM %susers WHERE login = "%s" LIMIT 1';
@@ -185,7 +173,6 @@ final class Database_mysql extends Database
 		return $res['email'];
 	}
 
-
 	public static function getLoginFromEmail($email)
 	{
 		$q = 'SELECT login FROM %susers WHERE email = "%s" LIMIT 1';
@@ -202,7 +189,6 @@ final class Database_mysql extends Database
 		$res = mysql_fetch_array($r);
 		return $res['login'];
 	}
-
 
 	public static function userResetPassword($login)
 	{
@@ -222,7 +208,6 @@ final class Database_mysql extends Database
 		return $password;
 	}
 
-
 	public static function generatePassword($nb_car, $chaine='azertyuiopqsdfghjklmwxcvbn0123456789')
 	{
 		$nb_lettres = strlen($chaine) - 1;
@@ -235,7 +220,7 @@ final class Database_mysql extends Database
 		}
 		return $generation;
 	}
-	
+
 	public static function userExists( $login )
 	{
 		$q = 'SELECT user_id as id FROM %susers WHERE login = "%s"';
@@ -278,7 +263,7 @@ final class Database_mysql extends Database
 		}
 		return mysql_query($query, self::$db);
 	}
-	
+
 	public function getAllTb($limit=5)
 	{
 		$q = 'SELECT * FROM %strackbacks ORDER BY datetime DESC LIMIT 0, %d';
@@ -308,133 +293,6 @@ final class Database_mysql extends Database
 				array_push($r, $row);
 			}
 			return $r;
-		}
-	}
-	
-	public static function getAllTweetsAccounts()
-	{
-		$q = 'SELECT * FROM %stweet_accounts WHERE user_id = "%s"';
-		$query = sprintf(
-			$q,
-			mysql_real_escape_string(self::$db_prefix),
-			mysql_real_escape_string($_SESSION['id'])
-		);
-		
-		$result = mysql_query($query, self::$db);
-		if ( DEBUG )
-		{
-			Debug::Log($query, NOTICE, __LINE__, __FILE__);
-		}
-		if ( !$result && DEBUG )
-		{
-			Debug::Log("no result for request ".$query, ERROR, __LINE__, __FILE__);
-			return false;
-		}
-		else
-		{
-			//print $query;
-			$r = array();
-			while ($row = mysql_fetch_assoc($result))
-			{
-				array_push($r, $row);
-			}
-			return $r;
-		}
-	}
-	
-	public static function addTweetsAccounts($prepend, $lang, $user, $password, $screen_name, $id)
-	{
-		$q = 'INSERT INTO %stweet_accounts (user_id, prepend, lang, user, password, screen_name, id ) VALUES ("%s", "%s", "%s", "%s", "%s", "%s", "%s")';
-		$query = sprintf(
-			$q,
-			mysql_real_escape_string(self::$db_prefix),
-			mysql_real_escape_string($_SESSION['id']),
-			mysql_real_escape_string($prepend),
-			mysql_real_escape_string($lang),
-			mysql_real_escape_string($user),
-			mysql_real_escape_string($password),
-			mysql_real_escape_string($screen_name),
-			mysql_real_escape_string($id)
-		);
-		if ( DEBUG )
-		{
-			Debug::Log($query, NOTICE, __LINE__, __FILE__);
-		}
-		return mysql_query($query, self::$db);
-	}
-	
-	public static function deleteTweetsAccounts($id)
-	{
-		$q = 'DELETE FROM %stweet_accounts WHERE user_id=%s and account_id=%s LIMIT 1';
-		$query = sprintf(
-			$q,
-			mysql_real_escape_string(self::$db_prefix),
-			mysql_real_escape_string($_SESSION['id']),
-			mysql_real_escape_string($id)
-		);
-		//return "sss".$query;
-		if ( DEBUG )
-		{
-			Debug::Log($query, NOTICE, __LINE__, __FILE__);
-		}
-		return mysql_query($query, self::$db);
-	}
-	
-	public static function getDistinctLangs()
-	{
-		$q = 'SELECT DISTINCT(lang) as lang, account_id, prepend, id, screen_name FROM %stweet_accounts WHERE user_id = "%s"';
-		/* TODO : le distinct ne fonctionne pas ; mais finalement ca m'arrange ! */
-		$query = sprintf(
-			$q,
-			mysql_real_escape_string(self::$db_prefix),
-			mysql_real_escape_string($_SESSION['id'])
-		);
-		$result = mysql_query($query, self::$db);
-		if ( DEBUG )
-		{
-			Debug::Log($query, NOTICE, __LINE__, __FILE__);
-		}
-		if ( !$result && DEBUG )
-		{
-			Debug::Log("no result for request ".$query, ERROR, __LINE__, __FILE__);
-			return false;
-		}
-		else
-		{
-			//print $query;
-			$r = array();
-			while ($row = mysql_fetch_assoc($result))
-			{
-				array_push($r, $row);
-			}
-			return $r;
-		}
-	}
-	
-	public static function getAuths($account_id)
-	{
-		$q = 'SELECT user, password, screen_name, id FROM %stweet_accounts WHERE account_id = "%s"';
-		$query = sprintf(
-			$q,
-			mysql_real_escape_string(self::$db_prefix),
-			mysql_real_escape_string($account_id)
-		);
-		$result = mysql_query($query, self::$db);
-		if ( DEBUG )
-		{
-			Debug::Log($query, NOTICE, __LINE__, __FILE__);
-		}
-		if ( !$result && DEBUG )
-		{
-			Debug::Log("no result for request ".$query, ERROR, __LINE__, __FILE__);
-			return false;
-		}
-		else
-		{
-			//print $query;
-			$r = array();
-			$row = mysql_fetch_assoc($result);
-			return array($row['user'], $row['password'], $row['screen_name'], $row['id']);
 		}
 	}
 

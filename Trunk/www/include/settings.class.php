@@ -109,6 +109,14 @@ final class Settings
 		return self::getVar('styles');
 	}
 	
+	/**
+	 * Define a new variable for the script
+	 * @param string $varName the name of the variable
+	 * @param multitype $value the value of the variable
+	 * @param string $type the group containing the variable
+	 * @param string $desc the text that describe the new variable
+	 * @return multitype
+	 */
 	public function setVar($varName, $value, $type="general", $desc="")
 	{
 		if ( @isset($varName) && @isset($value) ) {

@@ -39,7 +39,7 @@ define("DEBUG_FILE_PATH", "./debug.log");
 define("NOTICE" ,"NOTICE");
 define("WARNING","WARNING");
 define("ERROR"  ,"ERROR");
-define("SQL","SQL");
+define("SQL"	,"SQL");
 
 /**
  *
