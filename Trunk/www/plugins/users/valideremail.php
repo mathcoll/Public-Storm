@@ -28,7 +28,6 @@ if ( !preg_match($regex, $email) ) {
 	print i18n::_("L'adresse e-mail '%s' n'est pas valide", array($email));
 } else {
 	if ( $email = User::getLoginFromEmail($email) ) {
-		# TODO : localiser
 		print i18n::_("Error : user exists");
 	}
 }

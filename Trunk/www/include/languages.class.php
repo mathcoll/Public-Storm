@@ -30,7 +30,7 @@
 
 if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die(gettext("You musn't call this page directly ! please, go away !"));
 
-
+#TODO : remove this deprecated class
 final class Languages_OLD extends i18n
 {
 	public static function getLanguages()
