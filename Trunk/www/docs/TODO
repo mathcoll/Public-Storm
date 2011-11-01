@@ -1,6 +1,0 @@
-#TODO : ajouter un storm : onSubmit : ajouter un effet de loading sur la popin (progress-bar ?)
-#TODO : public_storm::getSuggestions() => il faut garder en mémoire chaque storm pour éviter de requeter plusieurs fois le même storm
-#TODO : ajouter un flux RSS pour chaque Storm
-#TODO : 
-#TODO : 
-#TODO : 
