@@ -79,6 +79,14 @@ if ( isset($id) ) {
 	/* le Storm vient d'être créé ou alors il exstait déjà */
 	$storm = public_storm::getStorm($id, 100);
 	$root = isset($id) ? $storm['root'] : $storm_permaname;
+	backend::addRssfeeds(
+		array(
+			"href"	=> Settings::getVar('base_url').'/backend/storm/'.urldecode($uri[$ind+1]).'/rss.php',
+			"rel"	=> "alternate",
+			"type"	=> "application/rss+xml",
+			"title"	=> i18n::_("Suggestions de '%s'", array($root)),
+		)
+	);
 	
 	/* 
 	 * Calculs des Google Rich snippets
@@ -175,6 +183,7 @@ if ( isset($id) ) {
 	if( is_array($hubs) ) $sPlug->AddData("hubs", $hubs["data"]);
 	
 	Settings::setVar('title', "Storm ".$root);
+	$sPlug->AddData("rss_storm", Settings::getVar('base_url').'/backend/storm/'.urldecode($uri[$ind+1]).'/rss.php');
 	$breadcrumb = Settings::getVar('breadcrumb');
 	array_push($breadcrumb, array("name" => i18n::_("Storms"), "link" => Settings::getVar('BASE_URL')."/storms/"));
 	array_push($breadcrumb, array("name" => $root));

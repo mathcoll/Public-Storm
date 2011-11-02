@@ -6,7 +6,12 @@
 	<span itemprop="count" class="Review">{$votes}</span>
 
 <h3 class="storm"><a href="{$storm.url}" itemprop="itemreviewed">{$storm.root|ucfirst}</a></h3>
-
+<div class="right">
+	<a href="{$rss_storm}">
+		<img width="14" height="14" align="top" src="{$theme_dir}/img/rss.png" alt="{t 1=$rootCap}Flux Rss des suggestions de '%1'{/t}" title="{t 1=$rootCap}Flux Rss des suggestions de '%1'{/t}" />
+		{t 1=$rootCap}Flux Rss des suggestions de '%1'{/t}
+	</a>
+</div>
 <div style="margin:0 0 20px 0">&nbsp;</div>
 
 <div class="table">

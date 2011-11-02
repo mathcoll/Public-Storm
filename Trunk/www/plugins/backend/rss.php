@@ -44,7 +44,6 @@ if ( !preg_match('/feedburner/i', $_SERVER['HTTP_USER_AGENT']) && Settings::getV
 header("Content-type: application/rss+xml", true, 200);
 $sPlug = new Settings::$VIEWER_TYPE;
 
-$sPlug->AddData("title", Settings::getVar('SITE_NAME'));
 $sPlug->AddData("base_url_http", Settings::getVar('base_url_http'));
 $sPlug->AddData("site_baseline", Settings::getVar('SITE_BASELINE'));
 $sPlug->AddData("site_description", strip_tags(i18n::_('description', array(""))));
@@ -57,11 +56,19 @@ $sPlug->AddData("version", Settings::getVar('SITE_VERSION'));
 $sPlug->AddData("date", date('r'));
 #$sPlug->->AddData("i18n", i18n::getLng());
 
-
-$sPlug->AddData("storms", public_storm::getStormsByDate(0, Settings::getVar('backend number of items')));
-
-$sPlug->Show("rss.tpl", "plugins/backend");
-//$content = "<pre>".htmlentities($sPlug->fetch("rss.tpl", "plugins/backend"))."</pre>";
+if ( $uri[$ind+1] == "storm" && $id = public_storm::getStormIdFromUrl(urldecode($uri[$ind+2])) ) {
+	/* Rss for a storm : list last suggestions */
+	$sPlug->AddData("title", i18n::_("Suggestions de '%s'", array(urldecode($uri[$ind+2]))));
+	$sPlug->AddData("storm", urldecode($uri[$ind+2]));
+	$sPlug->AddData("suggestions", public_storm::getSuggestions($id, Settings::getVar('backend number of items')));
+	$sPlug->Show("rss_storm.tpl", "plugins/backend");
+	//$content = "<pre>".htmlentities($sPlug->fetch("rss.tpl", "plugins/backend"))."</pre>";
+} else {
+	$sPlug->AddData("title", Settings::getVar('SITE_NAME'));
+	$sPlug->AddData("storms", public_storm::getStormsByDate(0, Settings::getVar('backend number of items')));
+	$sPlug->Show("rss.tpl", "plugins/backend");
+	//$content = "<pre>".htmlentities($sPlug->fetch("rss.tpl", "plugins/backend"))."</pre>";
+}
 exit;
 
 ?>
