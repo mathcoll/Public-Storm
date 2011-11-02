@@ -1,24 +1,24 @@
 <?php
 /*
-    Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
-    This file is part of Public-Storm.
+ Public-Storm
+ Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+ This file is part of Public-Storm.
 
-    Public-Storm is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+ Public-Storm is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
 
-    Public-Storm is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+ Public-Storm is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with Public-Storm. If not, see <http://www.gnu.org/licenses/>.
-    
-    Project started on 2008-11-22 with help from Serg Podtynnyi
-    <shtirlic@users.sourceforge.net>
+ You should have received a copy of the GNU General Public License
+ along with Public-Storm. If not, see <http://www.gnu.org/licenses/>.
+
+ Project started on 2008-11-22 with help from Serg Podtynnyi
+ <shtirlic@users.sourceforge.net>
  */
 
 /**
@@ -30,8 +30,7 @@
 if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die(gettext("You musn't call this page directly ! please, go away !"));
 
 
-final class User
-{
+final class User {
 	public static $id;
 	public static $uid;
 	public static $prenom;
@@ -70,6 +69,10 @@ final class User
 		}
 	}
 
+	/**
+	 * Return true if the current user has an account and he's currently logged
+	 * @return boolean true if the current user is logged-in
+	 */
 	public static function isLogged()
 	{
 		if ( empty($_SESSION['id']) || $_SESSION['id'] == 0 )
@@ -95,24 +98,38 @@ final class User
 			return $_SESSION['id'];
 		}
 	}
-	
+
+	/**
+	 * Get a User object from its Id
+	 * @param string $id
+	 * @return User
+	 */
 	public static function GetById($id)
 	{
 		$obj = new User();
 		return $obj;
 	}
-	
+
+	/**
+	 * Set the default user language in DataBase
+	 * @param string $lang the lang to set
+	 */
 	public static function setLang($lang)
 	{
 		self::$lang = $lang;
 		self::$db->setLang(self::$lang, $_SESSION['id']);
 		return self::$lang;
 	}
-	
+
+	/**
+	 * Send a welcome email to a user
+	 * @param array $datas
+	 * @param Viewer $s the viewer object
+	 */
 	public static function sendWelcomeMail($datas, $s)
 	{
 		require(Settings::getVar('inc_dir') . "phpMailer/class.phpmailer.php");
-		
+
 		$mail    = new PHPMailer();
 		$user_infos = array();
 		$user_infos['prenom'] = $datas['prenom'];
@@ -125,9 +142,9 @@ final class User
 		$s->AddData("theme_dir", Settings::getVar('theme_dir'));
 		#$s->AddData("i18n", i18n::getLng());
 		$s->AddData("subject", i18n::_("inscription.subject"));
-		
+
 		$body = $s->fetch('nouveau-compte.tpl', 'plugins/users/mails/');
-		
+
 		$mail->From     = Settings::getVar('From');
 		$mail->FromName = Settings::getVar('FromName');
 		$mail->Mailer = Settings::getVar('Mailer');
@@ -137,7 +154,7 @@ final class User
 		$mail->CharSet = 'utf-8';
 		$mail->MsgHTML($body);
 		$mail->AddAddress($user_infos['email'], $user_infos['prenom']." ".$user_infos['nom']);
-		
+
 		if( !$mail->Send() )
 		{
 			Settings::setVar('message', i18n::_("Failed to send mail", array($datas['email'])));
@@ -150,10 +167,15 @@ final class User
 		}
 	}
 
+	/**
+	 * Send a email to a user with its username and password
+	 * @param array $datas
+	 * @param Viewer $s the viewer object
+	 */
 	public static function userResendPassword($datas, $s)
 	{
 		require(Settings::getVar('inc_dir') . "phpMailer/class.phpmailer.php");
-		
+
 		$mail    = new PHPMailer();
 		$user_infos = array();
 		$user_infos['email'] = $datas['email'];
@@ -163,9 +185,9 @@ final class User
 		$user_infos['password'] = $datas['password'];
 		$s->AddData("user_infos", $user_infos);
 		$s->AddData("subject", i18n::_("fogotten_password.subject"));
-		
+
 		$body = $s->fetch('fogotten-password.tpl', 'plugins/users/mails/');
-		
+
 		$mail->From     = Settings::getVar('From');
 		$mail->FromName = Settings::getVar('FromName');
 		$mail->Mailer = Settings::getVar('Mailer');
@@ -175,7 +197,7 @@ final class User
 		$mail->CharSet = 'utf-8';
 		$mail->MsgHTML($body);
 		$mail->AddAddress($datas['email'], $datas['prenom']." ".$datas['nom']);
-		
+
 		if( !$mail->Send() )
 		{
 			Settings::setVar('message', i18n::_("Failed to send mail", array($datas['email'])));
@@ -188,6 +210,11 @@ final class User
 		}
 	}
 
+	/**
+	 * Authenticate a user with its cookie user_id
+	 * @param string $uid
+	 * @return boolean
+	 */
 	public static function authentificationByUid($uid)
 	{
 		$datas = self::$db->authentificationByUid($uid);
@@ -250,6 +277,13 @@ final class User
 		}
 	}
 
+	/**
+	 * Try to log a user with its usename and password
+	 * @param string $login
+	 * @param string $password_md5 md5 encoded password string
+	 * @param boolean $persistent true if the connection has to be persistent with a cookie
+	 * @return boolean
+	 */
 	public static function userLogin($login, $password_md5, $persistent=false)
 	{
 		self::$persistent = $persistent == true ? 1 : 0;
@@ -311,51 +345,94 @@ final class User
 		}
 	}
 
+	/**
+	 * Return the email adress of the provided login
+	 * @param string $login
+	 */
 	public static function getEmailFromLogin($login)
 	{
 		return self::$db->getEmailFromLogin($login);
 	}
 
+	/**
+	 * Return the login of the provided email adress
+	 * @param string $email
+	 */
 	public static function getLoginFromEmail($email)
 	{
 		return self::$db->getLoginFromEmail($email);
 	}
 
+	/**
+	 * Return the user Name from the provided email
+	 * @param string $email
+	 */
 	public static function getNameFromEmail($email)
 	{
 		return self::$db->getNameFromEmail($email);
 	}
 
+	/**
+	 * Reset the password in DataBase for the user
+	 * @param string $login
+	 */
 	public static function userResetPassword($login)
 	{
 		return self::$db->userResetPassword($login);
 	}
-	
+	/**
+	 * Update a new user in DataBase
+	 * @param array $user_infos
+	 */
 	public static function userUpdate($user_infos)
 	{
 		return self::$db->userUpdate($user_infos);
 	}
 
+	/**
+	 * Add a new user in DataBase
+	 * @param array $datas
+	 * @return
+	 */
 	public static function userAdd($datas)
 	{
 		return self::$db->userAdd($datas);
 	}
 
+	/**
+	 * Return true if the provided login is already in the DataBase
+	 * @param string $login
+	 * @return boolean
+	 */
 	public static function userExists($login)
 	{
 		return self::$db->userExists($login);
 	}
-	
+
+	/**
+	 * Get a range of user from DataBase
+	 * @param int $from
+	 * @param int $nombre
+	 * @return int
+	 */
 	public static function getAllUsers($from=0, $nombre=5)
 	{
 		return self::$db->getAllUsers($from, $nombre);
 	}
 
+	/**
+	 * Count the users in DataBase
+	 * @return int
+	 */
 	public static function getNbUsers()
 	{
 		return self::$db->getNbUsers();
 	}
 
+	/**
+	 * Empty the session
+	 * @return boolean
+	 */
 	public static function userLogout()
 	{
 		self::$current->id = 0;
