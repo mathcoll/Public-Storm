@@ -36,7 +36,7 @@ Settings::setVar('SITE_BASELINE', '', 'admin', 'Site baseline, also defined in t
 Settings::setVar('SITE_DESCRIPTION', '', 'admin', 'Site description, also defined in the languages files');
 
 // Current version
-Settings::setVar('SITE_VERSION', '11.10.29');
+Settings::setVar('SITE_VERSION', '11.11.03');
 
 // Site name
 Settings::setVar('fb_app_id', '21015190410', 'admin', 'Facebook, préciser les administrateurs dans une balise méta fb:app_id');
