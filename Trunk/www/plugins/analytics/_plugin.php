@@ -28,6 +28,10 @@ final class analytics extends Plugins
 		require(Settings::getVar('prefix') . 'conf/analytics.php');
 	}
 	
+	/**
+	 * Return the Google Analytics code identifier
+	 * @return string
+	 */
 	public function getCode()
 	{
 		return Settings::getVar('code');

@@ -27,6 +27,15 @@ final class akismet_spam extends Plugins
 		require(Settings::getVar('prefix') . 'conf/akismet_spam.php');
 	}
 	
+	/**
+	 * Return true if the datas may be considered as spam
+	 * @param string $tb_id
+	 * @param string $tb_url
+	 * @param string $tb_title
+	 * @param string $tb_excerpt
+	 * @param string $tb_name
+	 * @return boolean
+	 */
 	public function isSpam($tb_id, $tb_url, $tb_title, $tb_excerpt, $tb_name)
 	{
 		//print "->".Settings::$akismetAPIKey;

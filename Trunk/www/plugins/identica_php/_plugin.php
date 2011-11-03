@@ -35,11 +35,23 @@ final class identica_php extends Plugins
 		}
 	}
 	
+	/**
+	 * update the identica status of the account
+	 * @param string $string
+	 * @return Ambigous <the, mixed>
+	 */
 	public function updateStatus($string)
 	{	
 		return self::$identica->updateStatus(substr($string, 0, 140));
 	}
 	
+	/** 
+    * Returns extended information of a given user, specified by ID or email as per the required id parameter.  
+    * @param format is the extension for the result file (xml, json). 
+    * @param id is the ID of specified user.
+    * @param email is the email of specified user.
+    * @return extended information of a given user.
+    */
 	public function showUser($format, $id, $email = NULL)
 	{
 		return self::$identica->showUser($format, $id, $email=NULL);

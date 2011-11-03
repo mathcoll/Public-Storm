@@ -33,6 +33,12 @@ final class viadeo_api extends Plugins
 		//Settings::addJs('text/javascript', Settings::getVar('ROOT').Settings::getVar('theme_dir').'/plugins/'.self::$name.'/scripts/'.self::$name.'.js');
 	}
 	
+	/**
+	 * Get group/hub datas retrieved from Viadeo API
+	 * @param string $storm_permaname
+	 * @param int $limit
+	 * @return string the json datas retrieved from Viadeo API
+	 */
 	public function getJsonGroups($storm_permaname, $limit=10) {
 		$client_id     = Settings::getVar('Client Id');
 		$client_secret = Settings::getVar('Client Secret');

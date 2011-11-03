@@ -43,12 +43,21 @@ final class admin extends Plugins
 		return self::$db->getAllUsers($from, $nombre);
 	}
 	
+	/**
+	 * Add an item to the admin menu
+	 * @param array $menu
+	 * @return array
+	 */
 	public function addAdminMenu($menu)
 	{
 		array_push(self::$adminMenu, $menu);
 		return self::$adminMenu;
 	}
 	
+	/**
+	 * Get a list of item menu
+	 * @return array
+	 */
 	public function getAdminMenu()
 	{
 		return self::$adminMenu;

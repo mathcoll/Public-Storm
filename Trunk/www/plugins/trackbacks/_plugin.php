@@ -86,11 +86,22 @@ final class trackbacks extends Plugins
 		return self::$subdirs;
 	}
 	
+	/**
+	 * Add a new TrackBack to DataBase
+	 * @param string $tb_title
+	 * @param string $tb_url
+	 * @param string $tb_excerpt
+	 * @param string $tb_author
+	 */
 	public function addTB($tb_title=NULL, $tb_url=NULL, $tb_excerpt=NULL, $tb_author=NULL)
 	{	
 		return self::$db->addTB($tb_title, $tb_url, $tb_excerpt, $tb_author);
 	}
 	
+	/**
+	 * Get the list of all TrackBacks from DataBase
+	 * @param int $limit
+	 */
 	public function getAllTb($limit=5)
 	{
 		return self::$db->getAllTb($limit);

@@ -44,11 +44,22 @@ final class Settings
 		self::$DB_TYPE = DB_TYPE;
 	}
 	
+	/**
+	 * Get the list of all registered sub-directories
+	 * @return array
+	 */
 	public function getSubdirsRegistered()
 	{
 		return self::$subdirsRegistered;
 	}
 	
+	/**
+	 * Define a new Css file to stack
+	 * @param string $media
+	 * @param string $stylesheet
+	 * @param string $file
+	 * @return multitype the value of $styles
+	 */
 	public static function addCss($media="screen", $stylesheet, $file='all.css')
 	{
 		$styles = self::getVar('styles');
@@ -56,6 +67,13 @@ final class Settings
 		return self::setVar('styles', $styles);
 	}
 	
+	/**
+	 * Define a new Javascript file to stack
+	 * @param string $type
+	 * @param string $javascript
+	 * @param string $file
+	 * @return multitype the value of $javascripts
+	 */
 	public static function addJs($type="text/javascript", $javascript, $file='all.js')
 	{
 		$javascripts = self::getVar('javascripts');
@@ -64,6 +82,11 @@ final class Settings
 		return self::setVar('javascripts', $javascripts);
 	}
 	
+	/**
+	 * Remove a Css file from stack
+	 * @param string $css
+	 * @return multitype the value of $styles
+	 */
 	public static function removeCss($css)
 	{
 		$styles = self::getVar('styles');
@@ -72,6 +95,11 @@ final class Settings
 		return self::setVar('styles', $styles);
 	}
 	
+	/**
+	 * Remove a Javascript file from stack
+	 * @param string $js
+	 * @return multitype the value of $javascripts
+	 */
 	public static function removeJs($js)
 	{
 		$javascripts = self::getVar('javascripts');
@@ -81,6 +109,11 @@ final class Settings
 		return self::setVar('javascripts', $javascripts);
 	}
 	
+	/**
+	 * Return the value of a previously set variable
+	 * @param string $varName
+	 * @return multitype the value of the $varName variable
+	 */
 	public function getVar($varName)
 	{
 		//print_r(self::$vars);
@@ -97,12 +130,24 @@ final class Settings
 		}
 	}
 	
+	/**
+	 * Get the list of Javascripts from stack
+	 * @param string $filter
+	 * @param boolean $isCleanable
+	 * @return array
+	 */
 	public function getJss($filter='text/javascript', $isCleanable=true)
 	{
 		#TODO : return only for filters and cleanable boolean filter
 		return self::getVar('javascripts');
 	}
 	
+	/**
+	 * Get the list of Css from stack
+	 * @param string $filter
+	 * @param boolean $isCleanable
+	 * @return array
+	 */
 	public function getCsss($filter='screen', $isCleanable=true)
 	{
 		#TODO : return only for filters and cleanable boolean filter
@@ -131,21 +176,39 @@ final class Settings
 		}
 	}
 	
+	/**
+	 * 
+	 * @return array
+	 */
 	public function getCustomizable()
 	{
 		return self::$customizable;
 	}
 	
+	/**
+	 * 
+	 * @return array
+	 */
 	public function getCustomizableDesc($val)
 	{
 		return self::$customizableDesc[$val];
 	}
 	
+	/**
+	 * 
+	 * @return array
+	 */
 	public function getCustomizableType($val)
 	{
 		return self::$customizableType[$val];
 	}
 	
+	/**
+	 * Add a new sub-directory to stack
+	 * @param string $dir
+	 * @param string $pluginName
+	 * @return array
+	 */
 	public function registerSubdir($dir=NULL, $pluginName=NULL)
 	{
 		if ( $dir != NULL ) self::$subdirsRegistered[$pluginName][] = $dir;

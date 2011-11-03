@@ -87,12 +87,20 @@ final class prelaunch extends Plugins
 		exit;
 	}
 	
+	/**
+	 * Return how many users are in DataBase from prelaunch DB
+	 */
 	public static function getNbPrelaunchUsers()
 	{
 		$count = self::$db->q("SELECT count(*) as nb FROM prelaunch", "prelaunch.db", array());
 		return $count[0]['nb'];
 	}
 	
+	/**
+	 * Get a list of users who subscribe to prelaunch
+	 * @param int $from
+	 * @param int $nombre the number of rows to get
+	 */
 	public static function getAllPrelaunchUsers($from=0, $nombre=5)
 	{
 		return self::$db->q2("SELECT email, date, referrer FROM prelaunch ORDER BY date DESC LIMIT :from, :nombre", "prelaunch.db", array(':from' => $from, ':nombre' => $nombre));

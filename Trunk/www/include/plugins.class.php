@@ -60,7 +60,15 @@ class Plugins
 			}
 		}
 	}
-	
+
+	/**
+	 * Add items in the admin menu
+	 * @return boolean
+	 */
+	public function initAdminMenu() {
+		admin::addAdminMenu(array(i18n::L("Menu link"), "pluginName/file.php", "identifier"));
+		return true;
+	}
 	/**
 	 * Retrieve the status information of a plugin
 	 * @param string $pluginName The name of the plugin to check

@@ -86,6 +86,11 @@ final class isspam extends Plugins
 		return self::$subdirs;
 	}
 	
+	/**
+	 * Deprecated !!
+	 * @param int $word_id
+	 * @return PDOStatement
+	 */
 	public function markAsSpam($word_id)
 	{
 		$q = 'INSERT INTO bee_spam (by_user_id, word_id) VALUES ("%s", "%d");';

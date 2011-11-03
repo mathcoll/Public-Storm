@@ -56,6 +56,14 @@ final class graphviz extends Plugins
 
 	}
 	
+	/**
+	 * Create a new Dot file to server
+	 * @param string $dotfile
+	 * @param string $outputfile
+	 * @param string $format
+	 * @param unknown_type $command
+	 * @return Ambigous <boolean, unknown>
+	 */
 	public function renderDotFile($dotfile, $outputfile, $format='svg', $command=null)
 	{
 		return self::$graph->renderDotFile($dotfile, $outputfile, $format, $command);

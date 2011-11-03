@@ -49,24 +49,43 @@ final class users extends Plugins
 		}
 	}
 	
+	/**
+	 * Get user datas from DataBase
+	 * @param string $username
+	 * @return array
+	 */
 	public function getUserInfos($username)
 	{
 		$user = self::$db->q2("SELECT u.nom, u.prenom, u.email, u.login FROM users u WHERE u.login = :username", "users.db", array(":username" => $username));
 		return $user[0];
 	}
 	
+	/**
+	 * Add a storm to users's favorits list
+	 * @param int $storm_id
+	 * @return unknown
+	 */
 	public function addToFavorites($storm_id)
 	{
 		$favorite = self::$db->q2("INSERT INTO favorites (user_id, storm_id) VALUES (:user_id, :storm_id)", "users.db", array(":user_id" => $_SESSION['id'], ":storm_id" => $storm_id));
 		return $favorite[0];
 	}
 	
+	/**
+	 * Remove a storm from users's favorits list
+	 * @param int $storm_id
+	 * @return unknown
+	 */
 	public function removeFromFavorites($storm_id)
 	{
 		$favorite = self::$db->q2("DELETE FROM favorites WHERE user_id=:user_id AND storm_id=:storm_id", "users.db", array(":user_id" => $_SESSION['id'], ":storm_id" => $storm_id));
 		return $favorite[0];
 	}
 	
+	/**
+	 * Return true if the storm is in the current user favorits list
+	 * @param int $storm_id
+	 */
 	public function isFavorites($storm_id)
 	{
 		$favorite = self::$db->q2("SELECT count(storm_id) as c FROM favorites WHERE user_id=:user_id AND storm_id=:storm_id", "users.db", array(":user_id" => $_SESSION['id'], ":storm_id" => $storm_id));
@@ -74,12 +93,20 @@ final class users extends Plugins
 		return $favorite[0]["c"];
 	}
 	
+	/**
+	 * Get the user's favorites list from DataBase
+	 * @return array
+	 */
 	public function getMyFavorites()
 	{
 		$favorites = self::$db->q2("SELECT storm_id FROM favorites WHERE user_id=:user_id", "users.db", array(":user_id" => $_SESSION['id']));
 		return $favorites;
 	}
 	
+	/**
+	 * Get the users list from DataBase
+	 * @return array
+	 */
 	public function getUsersList()
 	{
 		$users = self::$db->q2("SELECT u.nom, u.prenom, u.email, u.login FROM users u", "users.db", array());

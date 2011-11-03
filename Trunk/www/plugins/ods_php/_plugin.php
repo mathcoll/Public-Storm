@@ -35,6 +35,11 @@ final class ods_php extends Plugins
 		return $this;
 	}
 	
+	/**
+	 * Write a file to server
+	 * @param string $storm
+	 * @return ods_php
+	 */
 	public function generateFile($storm)
 	{
 		//print_r($storm);

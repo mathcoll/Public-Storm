@@ -28,29 +28,6 @@ final class rechercher extends Plugins
 		require(Settings::getVar('prefix') . 'conf/rechercher.php');
 	}
 	
-	public function getArticlesTitles()
-	{
-		return self::$articles;
-	}
-	
-	public function getTitle($id=NULL)
-	{
-		if( isset($id) )
-		{
-			foreach( self::$articles as $article)
-			{
-				if ( $article{'id'} == $id )
-				{
-					return $article{'title'};
-				}
-			}
-		}
-		else
-		{
-			return false;
-		}
-	}
-	
 	public function loadLang()
 	{
 		return parent::loadLang(self::$name);

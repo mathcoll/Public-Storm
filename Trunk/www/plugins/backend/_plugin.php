@@ -45,11 +45,20 @@ final class backend extends Plugins
 		);
 	}
 	
+	/**
+	 * Add an Rss to the stack
+	 * @param array $rss
+	 * @return array
+	 */
 	public function addRssfeeds($rss=array()) {
 		array_push(self::$rssfeeds, $rss); 
 		return self::$rssfeeds;
 	}
 	
+	/**
+	 * Get a list of all Rss set
+	 * @return array
+	 */
 	public function getRssfeeds() {
 		return self::$rssfeeds;
 	}

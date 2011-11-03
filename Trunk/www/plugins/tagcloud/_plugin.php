@@ -35,6 +35,11 @@ final class tagcloud extends Plugins
 		//print "version ".self::$version;
 	}
 	
+	/**
+	 * Get or display a cloud
+	 * @param boolean $displaySuggestion
+	 * @return string
+	 */
 	public function showCloud($displaySuggestion=false)
 	{
 		$myCloud = self::$cloud->showCloud("array");
@@ -51,12 +56,22 @@ final class tagcloud extends Plugins
 		return $c;
 	}
 	
+	/**
+	 * Add a word to the current cloud
+	 * @param string $word
+	 * @param int $value
+	 * @return array
+	 */
 	public function addWord($word, $value)
 	{
 		//print_r(self::getWords());
 		return self::$cloud->addWord($word, $value);
 	}
 	
+	/**
+	 * Get the words list
+	 * @return array
+	 */
 	public function getWords()
 	{
 		return self::$words;

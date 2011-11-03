@@ -28,6 +28,11 @@ final class install extends Plugins
 		//print "version ".self::$version;
 	}
 	
+	/**
+	 * Write the config file to server
+	 * @param string $file
+	 * @param array $datas
+	 */
 	public function buildDbFile($file, $datas)
 	{
 		$f = new file("./_global_db.php5");
