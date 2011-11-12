@@ -37,7 +37,7 @@ final class __default_plugin extends Plugins
 	{
 		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		require_once('./plugins/'.self::$name.'/classes/'.self::$name.'.php');
-		Settings::addCss('screen', Settings::getVar('ROOT').Settings::getVar('theme_dir').'/plugins/'.self::$name.'/styles/'.self::$name.'.css', 'all.css');
+		Settings::addCss('screen', Settings::getVar('ROOT').Settings::getVar('theme_dir').'/plugins/'.self::$name.'/styles/'.self::$name.'.css', 'screen.css');
 		Settings::addJs('text/javascript', Settings::getVar('ROOT').Settings::getVar('theme_dir').'/plugins/'.self::$name.'/scripts/'.self::$name.'.js');
 	}
 	

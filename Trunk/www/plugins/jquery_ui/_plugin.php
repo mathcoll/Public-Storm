@@ -28,7 +28,7 @@ final class jquery_ui extends Plugins
 	{
 		//require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		//require_once('./plugins/'.self::$name.'/classes/'.self::$name.'.php');
-		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").'/plugins/'.self::$name.'/css/custom-theme/jquery-ui-1.8.9.custom.css', 'all.css');
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").'/plugins/'.self::$name.'/css/custom-theme/jquery-ui-1.8.9.custom.css', 'screen.css');
 		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").'/plugins/'.self::$name.'/js/jquery-1.4.4.min.js', 'jquery.js');
 		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").'/plugins/'.self::$name.'/js/jquery-ui-1.8.9.custom.min.js', 'jquery.js');
 		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").'/plugins/'.self::$name.'/js/jquery.js', 'jquery.js');

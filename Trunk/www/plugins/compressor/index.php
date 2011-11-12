@@ -60,10 +60,23 @@ if ( $min_errorLogger ) {
 }
 
 
-if( $statuses['compressor'] == 1 )
-{
+if( $statuses['compressor'] == 1 ) {
 	/* compression des Css */
 	$csss = array();
+	$listeCss = explode(",", Settings::getVar('listeCss'));
+	foreach( $listeCss as $css ) {
+		foreach( Settings::getCsss($css, true) as $file ) {
+			//print $file['file']." == ".$uri[$ind+2]." && ".$file['media']." == ".$css."<br />\n\r";
+			if ( $file['file'] == $uri[$ind+2] && $file['media'] == $css ) {
+				array_push (
+					$csss,
+					$file['stylesheet']
+				);
+				Settings::removeCss($file['stylesheet']);
+			}
+		}
+	}
+	/*
 	foreach( Settings::getCsss('screen', true) as $file )
 	{
 		//print_r(Settings::getCsss('screen', true))."\n";
@@ -73,10 +86,11 @@ if( $statuses['compressor'] == 1 )
 				$csss,
 				$file['stylesheet']
 			);
-			//print "/*".$file['stylesheet']."*/\n".file_get_contents($file['stylesheet'])."\n";
+			//print "//".$file['stylesheet']."\n".file_get_contents($file['stylesheet'])."\n";
 			Settings::removeCss($file['stylesheet']);
 		}
 	}
+	*/
 	//print_r($csss);
 	/* compression des Js */
 	$jss = array();

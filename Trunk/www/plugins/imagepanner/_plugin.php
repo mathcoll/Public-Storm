@@ -28,7 +28,7 @@ final class imagepanner extends Plugins
 	public function __construct()
 	{
 		require(Settings::getVar('prefix') . 'conf/imagepanner.php');
-		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/imagepanner/styles/screen.css', 'all.css');
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/imagepanner/styles/screen.css', 'screen.css');
 
 		/* scripts for drag and dropping */
 		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/imagepanner/scripts/imagepanner.js', 'all.js');

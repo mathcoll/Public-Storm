@@ -29,7 +29,7 @@ final class users extends Plugins
  	
 	public function __construct()
 	{
-		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/users/styles/users.css', 'all.css');
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/users/styles/users.css', 'screen.css');
 		if ( !class_exists(Settings::$DB_TYPE) )
 		{
 			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR, __LINE__, __FILE__);

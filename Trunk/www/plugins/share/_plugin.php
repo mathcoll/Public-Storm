@@ -28,7 +28,7 @@ final class share extends Plugins
 	public function __construct()
 	{
 		require(Settings::getVar('prefix') . 'conf/share.php');
-		Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/share/styles/share.css', 'all.css');
+		Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/share/styles/share.css', 'screen.css');
 		Settings::addJs('text/javascript', Settings::getVar('theme_dir').'plugins/share/scripts/share.js');
 		//require_once("./plugins/default/classes/share.php");
 

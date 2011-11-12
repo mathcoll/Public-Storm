@@ -5,7 +5,7 @@
 					{include file="plugins/public_storm/storm-pre-footer.tpl" base_url=$base_url}
 				{/if}
 				
-				<div class="table-cell _30">
+				<div class="table-cell _30 _column3">
 					
 					{if $statuses.articles eq 1}
 						{if $articles != ""}

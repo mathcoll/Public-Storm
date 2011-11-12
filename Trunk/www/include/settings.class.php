@@ -44,36 +44,57 @@ final class Settings
 		self::$DB_TYPE = DB_TYPE;
 	}
 	
-	public function getSubdirsRegistered()
-	{
+	public function getSubdirsRegistered() {
 		return self::$subdirsRegistered;
 	}
 	
-	public static function addCss($media="screen", $stylesheet, $file='all.css')
-	{
+	/**
+	 * Add one Css file to the stack
+	 * @param string $media
+	 * @param string $stylesheet path to the css file
+	 * @param string $groupe
+	 * @return array
+	 */
+	public static function addCss($media="screen", $stylesheet, $groupe='screen.css') {
 		$styles = self::getVar('styles');
-		$styles[] = array('media' => $media, 'stylesheet' => $stylesheet, 'file' => $file);
+		if ( preg_match('/\b(\/MIDP|Mobile|IEMobile|Fennec|Opera Mini|Opera Mobi)\b/i', $_SERVER['HTTP_USER_AGENT']) ) {
+			Settings::setVar('listeCss-handheld', true);
+			if ( $media == "handheld" || $media == "screenToForce" ) {
+				if ( $media == "screenToForce" ) {
+					$media = "screen";
+				}
+				self::setVar('listeCss-handheld', true);
+				Debug::Log($media." stylesheet enabled:".$stylesheet, NOTICE, __LINE__, __FILE__);
+				array_push($styles, array('media' => $media, 'stylesheet' => $stylesheet, 'file' => $groupe));
+			}
+		} else {
+			Settings::setVar('listeCss-handheld', false);
+			if ( $media != "handheld" ) {
+				self::setVar('listeCss-'.$media, true);
+				Debug::Log($media." stylesheet enabled:".$stylesheet, NOTICE, __LINE__, __FILE__);
+				array_push($styles, array('media' => $media, 'stylesheet' => $stylesheet, 'file' => $groupe));
+			}
+		}
+		//print $stylesheet."<br />";
+		//print_r($styles);
 		return self::setVar('styles', $styles);
 	}
 	
-	public static function addJs($type="text/javascript", $javascript, $file='all.js')
-	{
+	public static function addJs($type="text/javascript", $javascript, $file='all.js') {
 		$javascripts = self::getVar('javascripts');
 		$javascripts[] = array('type' => $type, 'javascript' => $javascript, 'file' => $file);
 		//print "ADDING (".$type." = ".$file.") ".$javascript."\n";
 		return self::setVar('javascripts', $javascripts);
 	}
 	
-	public static function removeCss($css)
-	{
+	public static function removeCss($css) {
 		$styles = self::getVar('styles');
 		//print_r($styles);
 		$styles = filter_by_value($styles, 'stylesheet', $css);
 		return self::setVar('styles', $styles);
 	}
 	
-	public static function removeJs($js)
-	{
+	public static function removeJs($js) {
 		$javascripts = self::getVar('javascripts');
 		//print_r($javascripts);
 		$javascripts = filter_by_value($javascripts, 'javascript', $js);
@@ -81,8 +102,7 @@ final class Settings
 		return self::setVar('javascripts', $javascripts);
 	}
 	
-	public function getVar($varName)
-	{
+	public function getVar($varName) {
 		//print_r(self::$vars);
 		if ( $varName && isset(self::$vars[strToLower($varName)]) ) {
 			//print $varName." -> ".strToLower($varName)." -> ".self::$vars[strToLower($varName)]."<br />";
@@ -97,16 +117,20 @@ final class Settings
 		}
 	}
 	
-	public function getJss($filter='text/javascript', $isCleanable=true)
-	{
+	public function getJss($filter='text/javascript', $isCleanable=true) {
 		#TODO : return only for filters and cleanable boolean filter
 		return self::getVar('javascripts');
 	}
 	
-	public function getCsss($filter='screen', $isCleanable=true)
-	{
-		#TODO : return only for filters and cleanable boolean filter
-		return self::getVar('styles');
+	public function getCsss($filter='screen', $isCleanable=true) {
+		$return = array();
+		foreach ( self::getVar('styles') as $style) {
+			if ( $style['media'] == $filter ) {
+				//print "-->".$style['media']."==".$filter."<br />\n\r";
+				array_push($return, $style);
+			}
+		}
+		return $return;
 	}
 	
 	/**

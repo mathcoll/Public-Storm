@@ -27,7 +27,7 @@ final class sendtoafriend extends Plugins {
 	public function __construct() {
 		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/'.self::$name.'/scripts/'.self::$name.'.js', 'all.js');
-		//Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/'.self::$name.'/styles/'.self::$name.'.css', 'all.css');
+		//Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/'.self::$name.'/styles/'.self::$name.'.css', 'screen.css');
 	}	
 	
 	public function loadLang()

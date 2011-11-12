@@ -24,11 +24,9 @@ final class admin extends Plugins
  	public static $subdirs = array('admin');
  	public static $name = "admin";
  	
-	public function __construct()
-	{
+	public function __construct() {
 		require(Settings::getVar('prefix') . 'conf/admin.php');
-		if( $_SESSION['isadmin'] == 1 )
-		{
+		if( $_SESSION['isadmin'] == 1 ) {
 			Settings::addCss('screen', Settings::getVar('ROOT').Settings::getVar('theme_dir').'plugins/admin/styles/admin.css', 'admin.css');
 		}
 	}
