@@ -81,8 +81,9 @@ div.description{padding:1em 0;float: left;}
 }
 
 
-#footer, #pre-footer,
+#a_habillage,
 #screen #menu,
-#rightBox {
+.Review,
+.share_openlike {
 	display:none;
 }
