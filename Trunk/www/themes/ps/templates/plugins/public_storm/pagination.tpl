@@ -1,7 +1,7 @@
 {assign var=prev value=$current_page-1}
 {assign var=next value=$current_page+1}
 {if $nb_pages gt 1}
-<p>{t}Pages :{/t}</p>
+<p class="display-inline">{t}Pages :{/t}</p>
 <ul class="list-pages">
 	{if $current_page > 1}
 	<li><a href="{$base}{$prev}/" title="{t}Page précédente{/t}">&lt;</a></li>

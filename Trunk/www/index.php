@@ -37,6 +37,10 @@ $s->AddData("theme_dir", Settings::getVar('theme_dir'));
 $s->AddData("current_lang", @$_COOKIE["locale"]);
 $s->AddData("s", @$_SESSION['s']);
 $s->AddData("langs", i18n::langs());
+$s->AddData("is_mobile", Settings::getVar('is_mobile'));
+$s->AddData("has_prev", Settings::getVar('has_prev')); #TODO
+$s->AddData("has_next", Settings::getVar('has_next')); #TODO
+$s->AddData("has_start", Settings::getVar('has_start')); #TODO
 $s->AddData("fb_app_id", Settings::getVar('fb_app_id'));
 
 if( $statuses['compressor'] == 1 ) {

@@ -17,8 +17,18 @@
 	<meta name="description" content="{t}baseline{/t} {$meta_description|strip_tags}" />
 	<meta name="keywords" content="{$meta_keywords}" />
 	<meta name="generator" content="{$site_name} {$version} - {$base_url_http}" />
-	
+{if $has_prev != ""}
+<link rel="prev" href="{$has_prev.href}" title="{$has_prev.title}" />
+{/if}
+{if $has_start != ""}
+<link rel="start" href="{$has_start.href}" title="{$has_start.title}" />
+{/if}
+{if $has_next != ""}
+<link rel="next" href="{$has_next.href}" title="{$has_next.title}" />
+{/if}
+{if $is_mobile eq 1}
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{/if}
 {if $statuses.trackbacks eq 1}
 	<link rel="pingback" href="{$base_url_http}/trackbacks/index.php" />
 {/if}

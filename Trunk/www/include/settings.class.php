@@ -58,6 +58,7 @@ final class Settings
 	public static function addCss($media="screen", $stylesheet, $groupe='screen.css') {
 		$styles = self::getVar('styles');
 		if ( preg_match('/\b(\/MIDP|Mobile|IEMobile|Fennec|Opera Mini|Opera Mobi)\b/i', $_SERVER['HTTP_USER_AGENT']) ) {
+			Settings::setVar('is_mobile', true);
 			Settings::setVar('listeCss-handheld', true);
 			if ( $media == "handheld" || $media == "screenToForce" ) {
 				if ( $media == "screenToForce" ) {
