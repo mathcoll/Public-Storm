@@ -20,6 +20,7 @@ gettext("Semaine");
 gettext("(suite)");
 gettext("Semaine");
 gettext("I love this Storm !");
+gettext("créé le");
 
 ?><?php
 gettext("Storms de %1");
@@ -32,6 +33,7 @@ gettext("Semaine");
 gettext("(suite)");
 gettext("Semaine");
 gettext("I love this Storm !");
+gettext("créé le");
 
 ?><?php
 gettext("login intro");

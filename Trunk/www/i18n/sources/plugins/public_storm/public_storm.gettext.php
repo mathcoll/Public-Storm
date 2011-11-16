@@ -29,10 +29,13 @@ gettext("Semaine");
 gettext("(suite)");
 gettext("Semaine");
 gettext("I love this Storm !");
-gettext("créé par <a href=\"%1/utilisateurs/%2/\">%3</a>");
+gettext("créé par");
 gettext("le %1");
 
 ?><?php
+gettext("Flux Rss des suggestions de '%1'");
+gettext("Flux Rss des suggestions de '%1'");
+gettext("Flux Rss des suggestions de '%1'");
 gettext("Création du storm :");
 gettext("Auteur du storm %1 :");
 gettext("Contributeurs :");
