@@ -2,7 +2,7 @@ html {
 	width:100%;
 	margin:0;
 	padding:0;
-	background:#ffffff;
+	background:#156E1E;
 	font-size:11px;
 }
 a {
@@ -97,16 +97,76 @@ div input {
 input:focus {
 	border: 1px solid #cbcbcb;
 }
+input[type=submit] {
+	width: 120px;
+	height: 24px;
+	padding: 5px 16px 3px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border: 1px solid #ccc;
+	position: relative;
+	
+	/* Label */
+	color: #fff;
+	text-shadow: rgba(10, 10, 10, .5) 1px 2px 2px;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+
+	background-color: rgba(21, 110, 30, .8);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(10, 10, 10, .8)), to(rgba(21, 110, 30, .9)));
+	border-top-color: #156e1e;
+	border-right-color: #156e1e;
+	border-bottom-color: #156e1e;
+	border-left-color: #156e1e;
+	-webkit-box-shadow: rgba(21, 110, 30, .5) 0px 7px 5px;
+	-moz-box-shadow: rgba(21, 110, 30, .5) 0px 7px 5px; /* FF 3.5+ */
+}
+#suggestionForm input[type=submit],
+#loginForm input[type=submit] {
+	width:20px;
+}
+#suggestionForm label,
+#loginForm label {
+	margin:0 1em 0 0;
+	float:left;
+}
+#loginForm {display:block;}
+#login._1 {
+    height: 60px;
+    width:100%;
+    padding: 0 0 0 15px;
+	margin:-2em 0 2em 0;
+}
+ul.nolist {
+	list-style:none outside none;
+	margin: 10px;
+}
+ul.nolist li {
+	display:inline;
+}
+ul.nolist li:after {
+	content:" •";
+}
+#login span.avatar {
+    float: left;
+    margin: 1em 0 0 -10px;
+}
 /* tables */
 .table-cell-create-account .table,
+.must-login .table,
 #pre-footer .table {
 	display: table;
 }
 .table-cell-create-account .table-row,
+.must-login .table-row,
 #pre-footer .table-row {
 	display: table-row;
 }
 .table-cell-create-account .table-cell,
+.must-login .table-cell,
 #pre-footer .table-cell {
 	display: table-cell;
 	vertical-align: top;
@@ -116,6 +176,143 @@ input:focus {
 	margin: 0 5px 0 0;
 	text-align: right;
 	line-height: 22px;
+}
+.must-login .table-cell input.field {
+	width:140px;
+}
+div.gouttiere {
+	background:none !important;
+	width:0px;
+}
+li.size_20 a, li.size_19 a {
+	font-size: 26px;
+}
+li.size_18 a, li.size_17 a {
+	font-size: 24px;
+}
+li.size_16 a, li.size_15 a {
+	font-size: 22px;
+}
+li.size_14 a, li.size_13 a {
+	font-size: 20px;
+}
+li.size_12 a, li.size_11 a {
+	font-size: 18px;
+}
+li.size_10 a, li.size_9 a {
+	font-size: 16px;
+}
+li.size_8 a, li.size_7 a {
+	font-size: 14px;
+}
+li.size_6 a, li.size_5 a {
+	font-size: 12px;
+}
+li.size_4 a, li.size_3 a {
+	font-size: 10px;
+}
+li.size_2 a, li.size_1 a {
+	font-size: 8px;
+}
+
+/* nuage */
+ul.nuage {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+ul.nuage li {
+	display: inline;
+}
+ul.nuage li.nuage1 {
+	font-size: .8em;
+}
+ul.nuage li.nuage2 {
+	font-size: .9em;
+}
+ul.nuage li.nuage3 {
+	font-size: 1em;
+}
+ul.nuage li.nuage4 {
+	font-size: 1.1em;
+}
+ul.nuage li.nuage5 {
+	font-size: 1.2em;
+}
+ul.nuage li.nuage6 {
+	font-size: 1.3em;
+}
+ul.nuage li.nuage7 {
+	font-size: 1.4em;
+}
+ul.nuage li.nuage8 {
+	font-size: 1.5em;
+}
+ul.nuage li.nuage9 {
+	font-size: 1.6em;
+}
+ul.nuage li.nuage10 {
+	font-size: 1.7em;
+}
+div.nuage {
+	text-align: center;
+}
+div.nuage a {
+	line-height: 30px;
+}
+div.nuage a.word {
+	padding:4px 0 4px 4px;
+}
+div.nuage span.suggest-too input {
+	margin: 0;
+}
+div.nuage h4 {
+	text-align:left;
+}
+.word {
+	font-family: Tahoma;
+	padding: 4px 4px 4px 4px;
+	letter-spacing: 3px;
+}
+.size8 {
+	color: #ccc;
+	font-size: .6em;
+}
+.size7 {
+	color: #000;
+	font-size: 2.4em;
+}
+.size8 {
+	color: #333;
+	font-size:2.2em;
+}
+.size5 {
+	color: #666;
+	font-size: 2.0em;
+}
+.size4 {
+	color: #999;
+	font-size: 1.0em;
+}
+.size3 {
+	color: #aaa;
+	font-size: 1.6em;
+}
+.size2 {
+	color: #bbb;
+	font-size: 1.4em;
+}
+.size1 {
+	color: #ccc;
+	font-size: 1.2em;
+}
+.size0 {
+	color: #ddd;
+	font-size: .8em;
+}
+.centered {
+	text-align: center;
+	display: block;
 }
 
 
@@ -175,6 +372,7 @@ div.description{padding:1em 0;float:left;}
     margin:0 auto;
     padding:0 1em 1em;
     max-width:100%;
+    background:#ffffff;
 }
 p.display-inline {
 	display:inline;
@@ -248,11 +446,15 @@ label.connected {
 #pre-footer ._column3,
 #a_habillage,
 #screen #menu,
-#login,
+#login form p,
 .table-cell-create-account div.left > img,
 .Review,
-.share_openlike {
+.share_openlike,
+.nomobile {
 	display:none;
+}
+#login form p.login_page {
+	display:block;
 }
 #pre-footer div.table {
 	padding:0 0 1em 0.5em;

@@ -319,7 +319,9 @@ span.suggest-too input:hover
 {
     background-position:1px 1px;
 }
-
+#login form p.login_page {
+	display:none;
+}
 .neato
 {
 	width: 450px;

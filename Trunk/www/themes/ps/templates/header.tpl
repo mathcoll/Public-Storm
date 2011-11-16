@@ -77,7 +77,7 @@
 				{/foreach}
 			</ul>
 			<p>&nbsp;</p>
-			<p><a href="mailto:contact@internetcollaboratif.info">{t}Aider à la traduction{/t}</a></p>
+			<p class="nomobile"><a href="mailto:contact@internetcollaboratif.info">{t}Aider à la traduction{/t}</a></p>
 		</div><!-- languages -->
 		{/if}
 		

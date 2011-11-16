@@ -48,7 +48,7 @@
 			</form>
 		</div>
 		
-		<div class="table-cell _20" style="background:url({$theme_plug_dir}users/img/cycle_3.png) no-repeat scroll center center transparent;width:280px;height:286px;">
+		<div class="table-cell _20 gouttiere" style="background:url({$theme_plug_dir}users/img/cycle_3.png) no-repeat scroll center center transparent;width:280px;height:286px;">
 			<span>&nbsp;</span>
 		</div>
 

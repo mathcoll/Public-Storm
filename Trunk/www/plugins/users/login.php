@@ -48,5 +48,20 @@ if ( $_POST['login'] && $_POST['password'] )
 		header("Location: ".$_SERVER['HTTP_REFERER'], false, 302);
 		exit;
 	}
+} else {
+	$sPlug = new Settings::$VIEWER_TYPE;
+	Settings::setVar('template', 'main.tpl');
+	$sPlug->AddData("base_url", Settings::getVar('base_url_http'));
+	$sPlug->AddData("theme_dir_http", Settings::getVar('theme_dir_http'));
+	$sPlug->AddData("theme_dir", Settings::getVar('theme_dir'));
+	$sPlug->AddData("current_lang", $_SESSION['LANG']);
+	Settings::setVar('title', i18n::_("Login page"));
+	$sPlug->AddData("title", Settings::getVar('title'));
+	Settings::setVar('description', i18n::_("description", array("")));
+	Settings::setVar('meta_description', i18n::_("description", array("")));
+	$breadcrumb = Settings::getVar('breadcrumb');
+	array_push($breadcrumb, array("name" => Settings::getVar('title')));
+	Settings::setVar('breadcrumb', $breadcrumb);
+	$content = $sPlug->fetch("login_form.tpl", "plugins/users");
 }
 ?>
