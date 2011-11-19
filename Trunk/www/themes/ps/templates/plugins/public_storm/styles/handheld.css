@@ -144,10 +144,13 @@ ul.nolist {
 	list-style:none outside none;
 	margin: 10px;
 }
-ul.nolist li {
+#menu ul{margin:0;padding:0;}
+ul.nolist li,
+#menu ul li {
 	display:inline;
 }
-ul.nolist li:after {
+ul.nolist li:after,
+#menu ul li:after {
 	content:" •";
 }
 #login span.avatar {
@@ -156,16 +159,22 @@ ul.nolist li:after {
 }
 /* tables */
 .table-cell-create-account .table,
+.mes-informations .table,
+.mes-parametres .table,
 .must-login .table,
 #pre-footer .table {
 	display: table;
 }
 .table-cell-create-account .table-row,
+.mes-informations .table-row,
+.mes-parametres .table-row,
 .must-login .table-row,
 #pre-footer .table-row {
 	display: table-row;
 }
 .table-cell-create-account .table-cell,
+.mes-informations .table-cell,
+.mes-parametres .table-cell,
 .must-login .table-cell,
 #pre-footer .table-cell {
 	display: table-cell;

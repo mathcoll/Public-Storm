@@ -187,7 +187,7 @@ div.description
 	position:relative;
 }
 #screen {
-	background:url(/themes/ps/templates/img/sunburst.png) no-repeat scroll 50% 50% #FFFFFF;
+	background:url(../img/sunburst.png) no-repeat scroll 50% 50% #FFFFFF;
 }
 
 #site_name a
