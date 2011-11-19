@@ -18,12 +18,13 @@ DirectoryIndex index.php
 
 FileETag none
 
-RedirectMatch 301 /cache/(.*) /teststatus/403/$1
-RedirectMatch 301 /conf/(.*) /teststatus/403/$1
-RedirectMatch 301 /datas/(.*) /teststatus/403/$1
-RedirectMatch 301 /docs/(.*) /teststatus/403/$1
-RedirectMatch 301 /i18n/(.*) /teststatus/403/$1
-RedirectMatch 301 /include/^secureimage(.*) /teststatus/403/$1
+RedirectMatch 301	^/favicon\.ico					/themes/ps/templates/favicon.ico
+RedirectMatch 301	^/cache/(.*)					/teststatus/403/$1
+RedirectMatch 301	^/conf/(.*) 					/teststatus/403/$1
+RedirectMatch 301	^/datas/(.*) 					/teststatus/403/$1
+RedirectMatch 301	^/docs/(.*) 					/teststatus/403/$1
+RedirectMatch 301	^/i18n/(.*) 					/teststatus/403/$1
+RedirectMatch 301	^/include/[^secureimage](.*)	/teststatus/403/$1
 
 # Insert filter
 SetOutputFilter DEFLATE
@@ -58,4 +59,4 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-s
 RewriteCond %{REQUEST_FILENAME} !-l
 
-RewriteRule . index.php [L]
+RewriteRule .				index.php [L]
