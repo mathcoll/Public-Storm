@@ -48,7 +48,7 @@ if ( $_POST && ( $_POST["email"] || $_POST["login"] ) )
 	$prenom = $user["prenom"];
 	
 	
-	if ( isset($login) )
+	if ( isset($login) && User::getEmailFromLogin($login) ) /* check that email exist in DB */
 	{
 		if ( $password = User::userResetPassword($login) )
 		{
@@ -80,7 +80,7 @@ $user = Array(
 	'id'		=> $_SESSION['user_id'],
 	'prenom'	=> $_SESSION['prenom'],
 	'nom'		=> $_SESSION['nom'],
-	'email'	=> $_SESSION['email']
+	'email'		=> $_SESSION['email']
 );
 $sPlug->AddData("user", $user);
 
