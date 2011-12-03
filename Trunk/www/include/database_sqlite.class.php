@@ -478,7 +478,6 @@ class Database_sqlite extends Database
 			$q,
 			self::escape_string($datas[0])
 		);
-		//print $query;
 		Debug::Log($query, SQL, __LINE__, __FILE__);
 		if ( self::$db_custom->query($query) )
 		{

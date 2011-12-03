@@ -58,7 +58,7 @@
 			<input type="hidden" name="lang" value="{$current_lang}" />
 
 			<div class="table">
-				<div class="table-row">
+				<div class="table-row" align="left">
 					<div class="table-cell">
 						<label for="prenom">{t}field.prenom{/t}</label>
 					</div>

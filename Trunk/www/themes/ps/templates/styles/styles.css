@@ -131,6 +131,7 @@ hr
 
 .sprite {
 	background: transparent url(../img/sprite.png) no-repeat;
+	background-position: 0 0;
 }
 
 span.title
@@ -313,7 +314,7 @@ div.breadcrumb ul li
 #message
 {
 	padding: .5em .5em 0 95px;
-	background-position:0 -150px;
+	background-position:0 -150px !important;
 	font-size:1.5em;
 }
 

@@ -327,7 +327,7 @@ div.nuage h4 {
 
 /* header */
 #site_name {
-    background-position: 0 -155px;
+    background-position: 0 -155px !important;
     height: 80px;
     margin-top: 1em;
 }

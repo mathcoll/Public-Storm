@@ -45,7 +45,6 @@ $s->AddData("fb_app_id", Settings::getVar('fb_app_id'));
 
 if( $statuses['compressor'] == 1 ) {
 	$listeCss = explode(",", Settings::getVar('listeCss'));
-
 	foreach( $listeCss as $css ) {
 		foreach( Settings::getCsss($css, true) as $file ) {
 			if ( $file['media'] == $css ) {
@@ -60,8 +59,9 @@ if( $statuses['compressor'] == 1 ) {
 		Settings::setVar('listeCss-screen', true);
 	}
 	foreach( $listeCss as $css ) {
-		$media=$css=="admin"?"screen":$css;#TODO !!!! grrrr !!!!
+		$media=$css=="admin"?"screenToForce":$css;#TODO !!!! grrrr !!!!
 		$media=$css=="handheld"?"screenToForce":$css;#TODO !!!! grrrr !!!!
+		//print $css."=>".$media."<br />\n";
 		if ( Settings::getVar('listeCss-'.$css) == true ) {
 			//print $media." - media<br />";
 			//print $css." - css<br />";
