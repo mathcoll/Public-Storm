@@ -45,11 +45,12 @@ switch ( $uri[$ind] )
 			{
 				case "add_suggestion" :
 					//print $uri[$ind+1].$_POST['suggestion']; exit;
-					if ( $_POST['suggestion'] )
-					{
+					if ( $_POST['suggestion'] ) {
 						//$_SESSION["message"] = i18n::_("ok");
-						public_storm::addSuggestion($_POST['storm_id'], $_POST['suggestion'], $_SESSION["id"]);
-						print "ok";
+						//foreach( split("[,;:|\/]", stripslashes(urldecode($_POST['suggestion']))) as $m ) {
+							public_storm::addSuggestion($_POST['storm_id'], stripslashes($_POST['suggestion']), $_SESSION["id"]);
+							print "ok";
+						//}
 						exit;
 						//header("HTTP/1.1 302 Moved temporarily", false, 302);
 						//header("Location: ".$_SERVER['HTTP_REFERER'], false, 302);
