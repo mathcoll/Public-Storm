@@ -70,6 +70,7 @@ if ( $op = fsockopen(Settings::getVar('meteorServerIP'), Settings::getVar('meteo
 		$user = Settings::getVar('MeteorDefaultUserName');
 	}
 	$message = isset($_POST['message']) ? $_POST['message'] : "";
+	$print = isset($uri[$ind+5]) ? $uri[$ind+5] : "";
 	$ch = isset($_POST['channel']) ? $_POST['channel'] : $uri[$ind+4];
 	$time = time();
 	
@@ -78,19 +79,28 @@ if ( $op = fsockopen(Settings::getVar('meteorServerIP'), Settings::getVar('meteo
 
 	$haswritten = false;
 	$buf = "";
-	switch( $command )
-	{
+	switch( $command ) {
 		case "COUNTSUBSCRIBERS" :
 		case "getSubscribers" :
-			$out = "COUNTSUBSCRIBERS ".$ch."\n";
-			$ans = askMeteor($out, $op);
-			preg_match("/OK (\d+)/", $ans, $m);
-			$array = array(
-				"call" => "setSubscribers",
-				"channel" => $ch,
-				"nombre" => $m[1]
-			);
-			print json_encode($array);
+			if( $ch=="" ) {
+				print "<script>var foo=prompt('Channel ?');tab('meteor/COUNTSUBSCRIBERS', 'meteor3', 'admin', foo+'/print/');</script>";
+			} else {
+				$out = "COUNTSUBSCRIBERS ".$ch."\n";
+				$ans = askMeteor($out, $op);
+				preg_match("/OK (\d+)/", $ans, $m);
+				$array = array(
+					"call" => "setSubscribers",
+					"channel" => $ch,
+					"nombre" => $m[1]
+				);
+				print json_encode($array);
+				if ( $print ) {
+					print "<p>".$array["channel"]." : ".$array["nombre"]." users.</p>";
+				}
+				//print "<pre>";
+				//var_dump($array);
+				//print "</pre>";
+			}
 			break;
 			
 		case "SHOWSTATS" :
@@ -104,15 +114,20 @@ if ( $op = fsockopen(Settings::getVar('meteorServerIP'), Settings::getVar('meteo
 			break;
 			
 		case "addSuggestion" :
+			/*
 			$array = array(
 				"call" => "newSuggestion",
 				"suggestion" => stripslashes($message),
 				"user" => stripslashes($user)
 			);
+			*/
 			//$out = "ADDMESSAGE ".$ch." ".json_encode($array)."\n";
-			$out = "ADDMESSAGE ".$ch." {call:'newSuggestion',suggestion:'".stripslashes($message)."',user:'".stripslashes($user)."'}\n";
-			$ans = askMeteor($out, $op);
-			print $ans;
+			//foreach( split("[,;:|\/]", stripslashes($message)) as $m ) {
+				//print $m."<-----";
+				$out = "ADDMESSAGE ".$ch." {call:'newSuggestion',suggestion:'".stripslashes($message)."',user:'".stripslashes($user)."'}\n";
+				$ans = askMeteor($out, $op);
+				print $ans;
+			//}
 			break;
 			
 		case "ADDMESSAGE" :

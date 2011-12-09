@@ -56,7 +56,7 @@ foreach($customizable as $custom)
 	{
 		array_push($c, array($custom, Settings::getVar($custom), Settings::getCustomizableDesc($custom), Settings::getCustomizableType($custom) ));
 	}
-	elseif( Settings::getCustomizableType($custom) == $uri[$ind+3] )
+	elseif( Settings::getCustomizableType($custom) == $uri[$ind+3] || $uri[$ind+3] == "undefined" )
 	{
 		array_push($c, array($custom, Settings::getVar($custom), Settings::getCustomizableDesc($custom), Settings::getCustomizableType($custom) ));
 	}
