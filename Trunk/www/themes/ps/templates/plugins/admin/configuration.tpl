@@ -1,4 +1,4 @@
-<h3>{$i18n.configuration}</h3>
+<h3>{t}configuration{/t}</h3>
 
 <ul class="listCustoms">
 	<li class="header">
