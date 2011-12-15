@@ -24,7 +24,6 @@ ob_start();
 require("core.php");
 require("prepend.php");
 $s = new Settings::$VIEWER_TYPE;
-
 $s->AddData("locale", LANG);
 $s->AddData("site_name", Settings::getVar('SITE_NAME'));
 $s->AddData("site_description", Settings::getVar('SITE_DESCRIPTION'));

@@ -22,8 +22,7 @@
  */
 
 
-switch ( $tab )
-{
+switch ( $tab ) {
 	case "list-plugins" :
 		require(Settings::getVar('plug_dir')."admin/list-plugins.php");
 		break;
@@ -44,10 +43,16 @@ switch ( $tab )
 		require(Settings::getVar('plug_dir')."meteor/meteor.php");
 		exit;
 		break;
+				
+	case "cronlist" :
+		require(Settings::getVar('plug_dir')."aboutcron/cronlist.php");
+		break;
 	
 	default :
-		$iframe = Settings::getVar('BASE_URL')."/plugins/".$tab."/".$uri[$ind+3]."/".$uri[$ind+4];
-		require("iframe.php");
+		if ( !is_null($tab) ) {
+			$iframe = Settings::getVar('BASE_URL')."/plugins/".$tab."/".$uri[$ind+3]."/".$uri[$ind+4];
+			require("iframe.php");
+		}
 		break;
 }
 print $tabContent;

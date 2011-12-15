@@ -405,15 +405,11 @@ class Database_sqlite extends Database
 		}
 	}
 	
-	public static function q( $q, $database, $datas )
-	{
-		try
-		{
+	public static function q( $q, $database, $datas ) {
+		try {
 			self::$db_custom = new PDO("sqlite:./datas/".$database);
 			if ( !self::$db_custom ) throw new DatabaseException("error");
-		}
-		catch (Exception $e)
-		{
+		} catch (Exception $e) {
 			Debug::Log($e, ERROR, __LINE__, __FILE__);
 			return false;
 		}
@@ -427,14 +423,10 @@ class Database_sqlite extends Database
 		}
 		//print $query."<br />";
 		$result = self::$db_custom->query($query);
-		if ( !$result && DEBUG )
-		{
+		if ( !$result && DEBUG ) {
 			Debug::Log("Erreur q ".$query, SQL, __LINE__, __FILE__);
-		}
-		else
-		{
-			while ( $row = $result->fetch() )
-			{
+		} else {
+			while ( $row = $result->fetch() ) {
 				$datas[] = $row;
 			}
 			//print_r($datas);
@@ -442,15 +434,11 @@ class Database_sqlite extends Database
 		}
 	}
 	
-	public static function q2( $q, $database, $datas )
-	{
-		try
-		{
+	public static function q2( $q, $database, $datas ) {
+		try {
 			self::$db_custom = new PDO("sqlite:./datas/".$database);
 			if ( !self::$db_custom ) throw new DatabaseException("error");
-		}
-		catch (Exception $e)
-		{
+		} catch (Exception $e) {
 			Debug::Log($e, ERROR, __LINE__, __FILE__);
 			return false;
 		}
@@ -487,11 +475,6 @@ class Database_sqlite extends Database
 		{
 			return self::$db_custom->errorInfo();
 		}
-	}
-	
-	public static function escape_string($str)
-	{
-		return mysql_escape_string($str);
 	}
 
 	public static function install()

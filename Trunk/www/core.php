@@ -37,6 +37,8 @@ checkFileWritable(Settings::getVar('prefix') . 'datas/' . 'prelaunch.db');
 checkFileWritable(Settings::getVar('prefix') . 'datas/' . 'public_storms.db');
 checkFileWritable(Settings::getVar('prefix') . 'datas/' . 'trackbacks.db');
 checkFileWritable(Settings::getVar('prefix') . 'datas/' . 'users.db');
+checkFileWritable(Settings::getVar('prefix') . 'datas/' . 'errordocument.db');
+checkFileWritable(Settings::getVar('prefix') . 'datas/' . 'aboutcron.db');
 
 function __autoload($class_name) {
 	try {
@@ -50,7 +52,7 @@ function __autoload($class_name) {
 		}
 	}
 }
-Settings::setVar("Starting at", microtime(true));
+if( DEBUG == true ) { Settings::setVar("Starting at", microtime(true)); }
 
 /**
  * Check if a file have some permission, read, write, execute

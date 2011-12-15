@@ -49,6 +49,122 @@ final class users extends Plugins
 		}
 	}
 	
+	/**
+	 * send an email 1 week the account creation
+	 */
+	public function plusOneWeek($vars, $cronId) {
+		error_reporting(E_ALL);
+		$sPlugAboutCron = new Settings::$VIEWER_TYPE;
+		Settings::setVar('inc_dir', Settings::getVar('ROOT') . 'include/'); # TODO: why removing the slash before 'include'?
+		//print Settings::getVar('inc_dir')."phpMailer/class.phpmailer.php\n\n";
+		//$f = new file(Settings::getVar('inc_dir')."phpMailer/class.phpmailer.php");
+		//print "\n-->".$f->IsWritable()."<--\n"; 
+		require(Settings::getVar('inc_dir') . "phpMailer/class.phpmailer.php");
+
+		$mail    = new PHPMailer();
+		$sPlugAboutCron->AddData("base_url", Settings::getVar('base_url_http'));
+		$sPlugAboutCron->AddData("theme_dir", Settings::getVar('theme_dir'));
+		$sPlugAboutCron->AddData("theme_dir_http", Settings::getVar('theme_dir_http'));
+		$sPlugAboutCron->AddData("vars", json_decode($vars, true));
+		
+		$vars = json_decode(stripslashes($vars), true);
+		// get user Infos from the login
+		$thisUser = self::getUserInfos($vars["login"]);
+
+		if ( !is_null($thisUser["email"]) ) {
+			//print_r($thisUser);
+			$sPlugAboutCron->AddData("prenom", $thisUser["prenom"]);
+			$sPlugAboutCron->AddData("nom", $thisUser["nom"]);
+			$sPlugAboutCron->AddData("email", $thisUser["email"]);
+			$sPlugAboutCron->AddData("login", $thisUser["login"]);
+			$body = $sPlugAboutCron->fetch('plusOneWeek.tpl', 'plugins/users/mails/');
+			
+			$mail->From     = Settings::getVar('From');
+			$mail->FromName = Settings::getVar('FromName');
+			$mail->Mailer = Settings::getVar('Mailer');
+			$mail->Host = Settings::getVar('Host');
+			$mail->Subject = i18n::_("Membre de Public-Storm depuis plus d'une semaine !");
+			$mail->AltBody = i18n::_("To view the message, please use an HTML compatible email viewer!");
+			$mail->CharSet = 'utf-8';
+			$mail->MsgHTML($body);
+			$mail->AddAddress($thisUser["email"], $thisUser["prenom"]." ".$thisUser["nom"]);
+			
+			//print $body.$thisUser["email"]; exit;
+			try {
+				if ( @$mail->Send() ) {
+					//print $cronId."<----------";
+					print i18n::L("Mail sent")."<br />\n";
+					aboutcron::removeAction($cronId);
+				}
+			} catch (Exception $e) {
+				print i18n::L("Failed to send mail")."<br />\n";
+			}
+		} else {
+			aboutcron::removeAction($cronId);
+			print i18n::L("Email was not found ; We had removed the cron from the list.")."<br />\n";
+		}
+
+		return true;
+	}
+	
+	/**
+	 * send an email 2 weeks the account creation
+	 */
+	public function plusTwoWeeks($vars, $cronId) {
+		error_reporting(E_ALL);
+		$sPlugAboutCron = new Settings::$VIEWER_TYPE;
+		Settings::setVar('inc_dir', Settings::getVar('ROOT') . 'include/'); # TODO: why removing the slash before 'include'?
+		//print Settings::getVar('inc_dir')."phpMailer/class.phpmailer.php\n\n";
+		//$f = new file(Settings::getVar('inc_dir')."phpMailer/class.phpmailer.php");
+		//print "\n-->".$f->IsWritable()."<--\n"; 
+		require(Settings::getVar('inc_dir') . "phpMailer/class.phpmailer.php");
+
+		$mail    = new PHPMailer();
+		$sPlugAboutCron->AddData("base_url", Settings::getVar('base_url_http'));
+		$sPlugAboutCron->AddData("theme_dir", Settings::getVar('theme_dir'));
+		$sPlugAboutCron->AddData("theme_dir_http", Settings::getVar('theme_dir_http'));
+		$sPlugAboutCron->AddData("vars", json_decode($vars, true));
+		
+		$vars = json_decode(stripslashes($vars), true);
+		// get user Infos from the login
+		$thisUser = self::getUserInfos($vars["login"]);
+
+		if ( !is_null($thisUser["email"]) ) {
+			//print_r($thisUser);
+			$sPlugAboutCron->AddData("prenom", $thisUser["prenom"]);
+			$sPlugAboutCron->AddData("nom", $thisUser["nom"]);
+			$sPlugAboutCron->AddData("email", $thisUser["email"]);
+			$sPlugAboutCron->AddData("login", $thisUser["login"]);
+			$body = $sPlugAboutCron->fetch('plusTwoWeeks.tpl', 'plugins/users/mails/');
+			
+			$mail->From     = Settings::getVar('From');
+			$mail->FromName = Settings::getVar('FromName');
+			$mail->Mailer = Settings::getVar('Mailer');
+			$mail->Host = Settings::getVar('Host');
+			$mail->Subject = i18n::_("Membre de Public-Storm depuis plus de 2 semaines !");
+			$mail->AltBody = i18n::_("To view the message, please use an HTML compatible email viewer!");
+			$mail->CharSet = 'utf-8';
+			$mail->MsgHTML($body);
+			$mail->AddAddress($thisUser["email"], $thisUser["prenom"]." ".$thisUser["nom"]);
+			
+			//print $body.$thisUser["email"]; exit;
+			try {
+				if ( @$mail->Send() ) {
+					//print $cronId."<----------";
+					print i18n::L("Mail sent")."<br />\n";
+					aboutcron::removeAction($cronId);
+				}
+			} catch (Exception $e) {
+				print i18n::L("Failed to send mail")."<br />\n";
+			}
+		} else {
+			aboutcron::removeAction($cronId);
+			print i18n::L("Email was not found ; We had removed the cron from the list.")."<br />\n";
+		}
+
+		return true;
+	}
+	
 	public function getUserInfos($username)
 	{
 		$user = self::$db->q2("SELECT u.nom, u.prenom, u.email, u.login FROM users u WHERE u.login = :username", "users.db", array(":username" => $username));

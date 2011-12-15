@@ -1,0 +1,18 @@
+/* aboutcron */
+
+#cronlist {
+	background-image:url(../img/icon.png);
+	background-position:5px center;
+	background-repeat:no-repeat;
+	padding:1em 0 1em 40px;
+}
+#cronlist.tab-hightlight {
+	background-image:url(../img/icon.png);
+	background-position:5px center;
+	background-repeat:no-repeat;
+	padding:1em 0 1em 40px;
+	background-color: #156e1e;
+	color: #000000;
+}
+.show{display:block;}
+.hide{display:none !important;}

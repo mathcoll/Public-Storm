@@ -1,4 +1,25 @@
 <h3>{t}liste_plugins{/t}</h3>
+<p>
+	<a href="#" id="show_all">{t}Afficher tout{/t}</a>
+	<a href="#" id="hide_disabled">{t}Masquer les inactifs{/t}</a>
+</p>
+<p>&nbsp;</p>
+<script>{literal}
+$jQuery(document).ready(function() {
+	$jQuery("#show_all").click(function(i) {
+		$jQuery("ul.list-plugins > li").each(function() {
+			$jQuery(this).addClass("show");
+			$jQuery(this).removeClass("hide");
+		});
+	});
+	$jQuery("#hide_disabled").click(function(i) {
+		$jQuery("ul.list-plugins > li.disabled").each(function() {
+			$jQuery(this).removeClass("show");
+			$jQuery(this).addClass("hide");
+		});
+	});
+});
+{/literal}</script>
 <ul class="list-plugins">
 	<li class="header">
 		<span class="icon">&nbsp;</span>
@@ -9,7 +30,7 @@
 		<span class="status">{t}Statut{/t}</span>
 	</li>
 {foreach from=$plugins item=plugin}
-	<li>
+	<li class="{if $plugin.status eq "0"}disabled{else}enabled{/if}">
 		<span class="icon">{if $plugin.icon ne ''}<img src="{$plugin.icon}" width="32" alt="{$plugin.name|ucfirst}" />{else}&nbsp;{/if}</span>
 		<span class="name"><strong>{$plugin.name|ucfirst}</strong><br />v. {$plugin.version}</span>
 		<span class="description">{if $plugin.description ne ''}{$plugin.description}{/if}<br />{t}by{/t} <a href="mailto:{$plugin.author_email}">{$plugin.author_name}</a></span>

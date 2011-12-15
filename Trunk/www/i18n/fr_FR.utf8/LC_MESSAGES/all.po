@@ -1219,7 +1219,7 @@ msgstr "Flux Atom"
 #: ../../../plugins/public_storm/storm.php:87
 #, php-format
 msgid "Suggestions de '%s'"
-msgstr "SuggestionsSuggestions de '%s'"
+msgstr "Suggestions de '%s'"
 
 #: ../../../plugins/rechercher/index.php:63
 #: ../../../plugins/rechercher/index.php:64

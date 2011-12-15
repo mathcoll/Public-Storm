@@ -59,6 +59,7 @@ if ( $_POST ) {
 				$_POST['lang'] = $_POST['lang'] != "" ? $_POST['lang'] : $_SESSION['LANG'];
 				if ( User::userAdd($_POST) ) {
 					User::sendWelcomeMail($_POST, $sPlug);
+					aboutcron::addAction(array("users::plusOneWeek", json_encode(array("login" => $_POST['login'])), time()+604800)); //+ 1 week
 					$useradd="true";
 					Settings::setVar('pageview', '/creer-un-compte-ok');
 					$_SESSION["message"] = i18n::_("Vérifier voter boite de réception email !");
