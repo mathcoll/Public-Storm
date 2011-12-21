@@ -32,7 +32,7 @@ $user_infos['login'] = isset($_POST['login'])?$_POST['login']:"";
 $user_infos['password'] = isset($_POST['password'])?$_POST['password']:"";
 
 $sPlug->AddData("user_infos", $user_infos);
-$sPlug->AddData("base_url", Settings::getVar('base_url_http'));
+$sPlug->AddData("base_url_http", Settings::getVar('base_url_http'));
 $sPlug->AddData("theme_dir_http", Settings::getVar('theme_dir_http'));
 $sPlug->AddData("theme_dir", Settings::getVar('theme_dir'));
 $sPlug->AddData("current_lang", $_SESSION['LANG']);
@@ -40,7 +40,6 @@ Settings::setVar('title', i18n::_("creer_un_compte"));
 $sPlug->AddData("title", Settings::getVar('title'));
 Settings::setVar('description', i18n::_("description", array("")));
 Settings::setVar('meta_description', i18n::_("description", array("")));
-#$sPlug->->AddData("i18n", i18n::getLng());
 
 $useradd="false";
 if ( $_POST ) {
@@ -59,7 +58,7 @@ if ( $_POST ) {
 				$_POST['lang'] = $_POST['lang'] != "" ? $_POST['lang'] : $_SESSION['LANG'];
 				if ( User::userAdd($_POST) ) {
 					User::sendWelcomeMail($_POST, $sPlug);
-					aboutcron::addAction(array("users::plusOneWeek", json_encode(array("login" => $_POST['login'])), time()+604800)); //+ 1 week
+					aboutcron::addAction(array("users::plusTwoWeeks", json_encode(array("login" => $_POST['login'])), time()+2*604800)); //+ 2 weeks
 					$useradd="true";
 					Settings::setVar('pageview', '/creer-un-compte-ok');
 					$_SESSION["message"] = i18n::_("Vérifier voter boite de réception email !");

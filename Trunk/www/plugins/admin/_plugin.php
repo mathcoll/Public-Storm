@@ -37,10 +37,11 @@ final class admin extends Plugins {
 		$sPlugAboutCron = new Settings::$VIEWER_TYPE;
 		require(Settings::getVar('inc_dir') . "phpMailer/class.phpmailer.php");
 		$mail    = new PHPMailer();
-		$sPlugAboutCron->AddData("base_url", Settings::getVar('base_url_http'));
+		$sPlugAboutCron->AddData("base_url_http", Settings::getVar('base_url_http'));
 		$sPlugAboutCron->AddData("theme_dir", Settings::getVar('theme_dir'));
 		$sPlugAboutCron->AddData("theme_dir_http", Settings::getVar('theme_dir_http'));
 		$sPlugAboutCron->AddData("vars", json_decode($vars, true));
+		i18n::setLocale("fr_FR.utf8");
 		$body = $sPlugAboutCron->fetch('sendMailToAdmin.tpl', 'plugins/admin/mails/');
 		//print $body; exit;
 		$mail->From     = Settings::getVar('From');

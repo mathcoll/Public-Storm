@@ -35,6 +35,9 @@ if( Settings::getVar('BASE_URL') != "" ) {
 }
 
 
+if ( DEV  ) {
+	print i18n::L("DEV mode: on")."<br />\n";
+}
 if ( $uri[$ind+1] == Settings::getVar("aboutcron token") ) {
 	print i18n::L("ok, Token Identifier is valid.")."<br />\n";
 	print i18n::L("Get actions list...")."<br />\n";

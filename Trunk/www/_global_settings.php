@@ -118,8 +118,7 @@ $qdirs = split("/", $query);
 $page = array_pop($qdirs);
 $page = $page != NULL ? $page : "index.php";
 
-if ( $pos = strpos($page, '?') )
-{
+if ( $pos = strpos($page, '?') ) {
 	$page = substr($page, 0, $pos);
 }
 

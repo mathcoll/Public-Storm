@@ -18,8 +18,7 @@
     along with Public-Storm. If not, see <http://www.gnu.org/licenses/>.
  */
 
-final class users extends Plugins
-{
+final class users extends Plugins {
  	public static $subdirs = array(
  		'users',
  		'utilisateurs'
@@ -27,21 +26,14 @@ final class users extends Plugins
  	public static $name = "users";
 	public static $db;
  	
-	public function __construct()
-	{
+	public function __construct() {
 		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/users/styles/users.css', 'screen.css');
-		if ( !class_exists(Settings::$DB_TYPE) )
-		{
+		if ( !class_exists(Settings::$DB_TYPE) ) {
 			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR, __LINE__, __FILE__);
-		}
-		else
-		{
-			if ( self::$db = new Settings::$DB_TYPE )
-			{
+		} else {
+			if ( self::$db = new Settings::$DB_TYPE ) {
 				return true;
-			}
-			else
-			{
+			} else {
 				Debug::Log($err, ERROR, __LINE__, __FILE__);
 				return false;
 				exit($err);
@@ -62,7 +54,7 @@ final class users extends Plugins
 		require(Settings::getVar('inc_dir') . "phpMailer/class.phpmailer.php");
 
 		$mail    = new PHPMailer();
-		$sPlugAboutCron->AddData("base_url", Settings::getVar('base_url_http'));
+		$sPlugAboutCron->AddData("base_url_http", Settings::getVar('base_url_http'));
 		$sPlugAboutCron->AddData("theme_dir", Settings::getVar('theme_dir'));
 		$sPlugAboutCron->AddData("theme_dir_http", Settings::getVar('theme_dir_http'));
 		$sPlugAboutCron->AddData("vars", json_decode($vars, true));
@@ -77,6 +69,7 @@ final class users extends Plugins
 			$sPlugAboutCron->AddData("nom", $thisUser["nom"]);
 			$sPlugAboutCron->AddData("email", $thisUser["email"]);
 			$sPlugAboutCron->AddData("login", $thisUser["login"]);
+			i18n::setLocale($thisUser["lang"]);
 			$body = $sPlugAboutCron->fetch('plusOneWeek.tpl', 'plugins/users/mails/');
 			
 			$mail->From     = Settings::getVar('From');
@@ -88,10 +81,13 @@ final class users extends Plugins
 			$mail->CharSet = 'utf-8';
 			$mail->MsgHTML($body);
 			$mail->AddAddress($thisUser["email"], $thisUser["prenom"]." ".$thisUser["nom"]);
+			//$mail->AddAddress(Settings::getVar('From'), $thisUser["prenom"]." ".$thisUser["nom"]);
 			
 			//print $body.$thisUser["email"]; exit;
 			try {
-				if ( @$mail->Send() ) {
+				if( DEV ) {
+					print i18n::L("DEV mode: on => no mail sent")."<br />\n";
+				} elseif ( @$mail->Send() ) {
 					//print $cronId."<----------";
 					print i18n::L("Mail sent")."<br />\n";
 					aboutcron::removeAction($cronId);
@@ -120,7 +116,7 @@ final class users extends Plugins
 		require(Settings::getVar('inc_dir') . "phpMailer/class.phpmailer.php");
 
 		$mail    = new PHPMailer();
-		$sPlugAboutCron->AddData("base_url", Settings::getVar('base_url_http'));
+		$sPlugAboutCron->AddData("base_url_http", Settings::getVar('base_url_http'));
 		$sPlugAboutCron->AddData("theme_dir", Settings::getVar('theme_dir'));
 		$sPlugAboutCron->AddData("theme_dir_http", Settings::getVar('theme_dir_http'));
 		$sPlugAboutCron->AddData("vars", json_decode($vars, true));
@@ -135,6 +131,7 @@ final class users extends Plugins
 			$sPlugAboutCron->AddData("nom", $thisUser["nom"]);
 			$sPlugAboutCron->AddData("email", $thisUser["email"]);
 			$sPlugAboutCron->AddData("login", $thisUser["login"]);
+			i18n::setLocale($thisUser["lang"]);
 			$body = $sPlugAboutCron->fetch('plusTwoWeeks.tpl', 'plugins/users/mails/');
 			
 			$mail->From     = Settings::getVar('From');
@@ -146,10 +143,13 @@ final class users extends Plugins
 			$mail->CharSet = 'utf-8';
 			$mail->MsgHTML($body);
 			$mail->AddAddress($thisUser["email"], $thisUser["prenom"]." ".$thisUser["nom"]);
+			//$mail->AddAddress(Settings::getVar('From'), $thisUser["prenom"]." ".$thisUser["nom"]);
 			
 			//print $body.$thisUser["email"]; exit;
 			try {
-				if ( @$mail->Send() ) {
+				if( DEV ) {
+					print i18n::L("DEV mode: on => no mail sent")."<br />\n";
+				} elseif ( @$mail->Send() ) {
 					//print $cronId."<----------";
 					print i18n::L("Mail sent")."<br />\n";
 					aboutcron::removeAction($cronId);
@@ -167,7 +167,7 @@ final class users extends Plugins
 	
 	public function getUserInfos($username)
 	{
-		$user = self::$db->q2("SELECT u.nom, u.prenom, u.email, u.login FROM users u WHERE u.login = :username", "users.db", array(":username" => $username));
+		$user = self::$db->q2("SELECT u.nom, u.prenom, u.email, u.login, u.lang FROM users u WHERE u.login = :username", "users.db", array(":username" => $username));
 		return $user[0];
 	}
 	

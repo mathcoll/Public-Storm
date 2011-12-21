@@ -31,7 +31,7 @@ Settings::setVar('meta_description', i18n::_("description", array("")));
 $sPlug->AddData("site_baseline", Settings::getVar('SITE_BASELINE'));
 $sPlug->AddData("version", Settings::getVar('SITE_VERSION'));
 $sPlug->AddData("prefix", Settings::getVar('prefix'));
-$sPlug->AddData("base_url", Settings::getVar('base_url_http'));
+$sPlug->AddData("base_url_http", Settings::getVar('base_url_http'));
 $sPlug->AddData("theme_dir", Settings::getVar('theme_dir'));
 $sPlug->AddData("theme_dir_http", Settings::getVar('theme_dir_http'));
 $sPlug->AddData("user_infos", $user_infos);
