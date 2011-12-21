@@ -4,22 +4,6 @@
 	<a href="#" id="hide_disabled">{t}Masquer les inactifs{/t}</a>
 </p>
 <p>&nbsp;</p>
-<script>{literal}
-$jQuery(document).ready(function() {
-	$jQuery("#show_all").click(function(i) {
-		$jQuery("ul.list-plugins > li").each(function() {
-			$jQuery(this).addClass("show");
-			$jQuery(this).removeClass("hide");
-		});
-	});
-	$jQuery("#hide_disabled").click(function(i) {
-		$jQuery("ul.list-plugins > li.disabled").each(function() {
-			$jQuery(this).removeClass("show");
-			$jQuery(this).addClass("hide");
-		});
-	});
-});
-{/literal}</script>
 <ul class="list-plugins">
 	<li class="header">
 		<span class="icon">&nbsp;</span>
@@ -50,3 +34,17 @@ $jQuery(document).ready(function() {
 	
 {/foreach}
 </ul>
+<script>{literal}
+$jQuery("#show_all").click(function(i) {
+	$jQuery("ul.list-plugins > li").each(function() {
+		$jQuery(this).addClass("show");
+		$jQuery(this).removeClass("hide");
+	});
+});
+$jQuery("#hide_disabled").click(function(i) {
+	$jQuery("ul.list-plugins > li.disabled").each(function() {
+		$jQuery(this).removeClass("show");
+		$jQuery(this).addClass("hide");
+	});
+});
+{/literal}</script>

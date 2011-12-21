@@ -51,9 +51,9 @@ else
 $current_page = ($uri[$ind+3] != NULL) && ($uri[$ind+3] != 'undefined') ? $uri[$ind+3] : 1;
 
 $sTab->AddData("current_page", $current_page);
-$sTab->AddData("nb_pages", round(User::getNbUsers() / Settings::getVar('users_per_page')));
+$sTab->AddData("nb_pages", round(User::getNbUsers() / Settings::getVar('Admin users per page')));
 $sTab->AddData("nbusers", User::getNbUsers());
-$sTab->AddData("users", User::getAllUsers($current_page==1 ? 0 : ((Settings::getVar('users_per_page')*($current_page-1))+1), Settings::getVar('users_per_page')));
+$sTab->AddData("users", User::getAllUsers($current_page==1 ? 0 : ((Settings::getVar('Admin users per page')*($current_page-1))+1), Settings::getVar('Admin users per page')));
 
 //$breadcrumb = Settings::getVar('breadcrumb');
 //array_push($breadcrumb, array("name" => Settings::getVar('title')));

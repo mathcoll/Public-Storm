@@ -13,3 +13,17 @@
 		{$tabcontent}
 	</div><!-- // content -->
 </div><!-- // admin -->
+
+<script>{literal}
+$jQuery(document).ready(function() {
+	$jQuery("ul.list-plugins > li span.icon").each(function(i) {
+		$jQuery(this).click(function() {
+			if( $jQuery(this).parent().height() == 60 ) {
+				$jQuery(this).parent().css("height", "auto");
+			} else {
+				$jQuery(this).parent().css("height", "60px");
+			}
+		});
+	});
+});
+{/literal}</script>
