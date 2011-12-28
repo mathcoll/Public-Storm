@@ -36,7 +36,7 @@ Settings::setVar('SITE_BASELINE', '', 'global_settings', 'Site baseline, also de
 Settings::setVar('SITE_DESCRIPTION', '', 'global_settings', 'Site description, also defined in the languages files');
 
 // Current version
-Settings::setVar('SITE_VERSION', '11.12.15', 'global_settings', 'version of the source code');
+Settings::setVar('SITE_VERSION', '11.12.28', 'global_settings', 'version of the source code');
 
 // Site name
 Settings::setVar('fb_app_id', '21015190410', 'global_settings', 'Facebook, préciser les administrateurs dans une balise méta fb:app_id');
