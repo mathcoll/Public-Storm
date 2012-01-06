@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -27,60 +27,60 @@ if (basename($_SERVER['SCRIPT_NAME'])==basename(__FILE__))die(gettext("You musn'
 @require_once('./_specific.php');
 Settings::setVar('BASE_URL', $BASE_URL);
 // Site name
-Settings::setVar('SITE_NAME', 'Public-Storm', 'admin', 'Site name, also defined in the languages files');
+Settings::setVar('SITE_NAME', 'Public-Storm', 'global_settings', 'Site name, also defined in the languages files');
 
 // Site baseline
-Settings::setVar('SITE_BASELINE', '', 'admin', 'Site baseline, also defined in the languages files');
+Settings::setVar('SITE_BASELINE', '', 'global_settings', 'Site baseline, also defined in the languages files');
 
 // Site description
-Settings::setVar('SITE_DESCRIPTION', '', 'admin', 'Site description, also defined in the languages files');
+Settings::setVar('SITE_DESCRIPTION', '', 'global_settings', 'Site description, also defined in the languages files');
 
 // Current version
-Settings::setVar('SITE_VERSION', '11.11.03');
+Settings::setVar('SITE_VERSION', '12.01.06', 'global_settings', 'version of the source code');
 
 // Site name
-Settings::setVar('fb_app_id', '21015190410', 'admin', 'Facebook, préciser les administrateurs dans une balise méta fb:app_id');
+Settings::setVar('fb_app_id', '21015190410', 'global_settings', 'Facebook, préciser les administrateurs dans une balise méta fb:app_id');
 
 // Debug switch. Set it to true for output additional information.
 @define('DEBUG', false);
 
 // Theme name
-Settings::setVar('SITE_THEME', 'ps', 'admin', 'Website theme name (css theme folder)');
+Settings::setVar('SITE_THEME', 'ps', 'global_settings', 'Website theme name (css theme folder)');
 
 // Default language if nothing specified
 @define('LANG', 'fr_FR.utf8');
 
 // Timezone
-Settings::setVar('timezone', 'Europe/Paris', 'admin', 'Website timezone');
+Settings::setVar('timezone', 'Europe/Paris', 'global_settings', 'Website timezone');
 
 /* viewer_smarty or viewer_default */
 Settings::$VIEWER_TYPE = 'viewer_smarty';
 
 // Number of columns in list pages
-Settings::setVar('nbCol', '6', 'Number of columns in list pages');
+Settings::setVar('nbCol', '6', 'global_settings', 'Number of columns in list pages');
 
 /* DB conf vars */
 @define('DB_CONF_FILE', '_global_db.php');
 @require_once(DB_CONF_FILE);
 Settings::$DB_TYPE = DB_TYPE;
-Settings::setVar('DB_HOST', DB_HOST, 'admin', 'Database Host (for Mysql Db)');
-Settings::setVar('DB_USER', DB_USER, 'admin', 'Database user (for Mysql Db)');
-Settings::setVar('DB_PASS', DB_PASS, 'admin', 'Database password (for Mysql Db)');
-Settings::setVar('DB_NAME', DB_NAME, 'admin', 'Database name (for Mysql Db)');
-Settings::setVar('DB_PREFIX', DB_PREFIX, 'admin', 'Database table prefix');
+Settings::setVar('DB_HOST', DB_HOST, 'global_settings', 'Database Host (for Mysql Db)');
+Settings::setVar('DB_USER', DB_USER, 'global_settings', 'Database user (for Mysql Db)');
+Settings::setVar('DB_PASS', DB_PASS, 'global_settings', 'Database password (for Mysql Db)');
+Settings::setVar('DB_NAME', DB_NAME, 'global_settings', 'Database name (for Mysql Db)');
+Settings::setVar('DB_PREFIX', DB_PREFIX, 'global_settings', 'Database table prefix');
 
 /* emails config */
-Settings::setVar('FROMNAME', 'Public-Storm', 'admin', 'Email from name');
-Settings::setVar('FROM', 'contact@internetcollaboratif.info', 'admin', 'Email from email');
-Settings::setVar('HOST', 'smtp.free.fr', 'admin', 'Email smtp host');
-Settings::setVar('MAILER', $MAILER, 'admin', 'smtp or mail'); // smtp or mail
+Settings::setVar('FROMNAME', 'Public-Storm', 'global_settings', 'Email from name');
+Settings::setVar('FROM', 'contact@internetcollaboratif.info', 'global_settings', 'Email from email');
+Settings::setVar('HOST', 'smtp.free.fr', 'global_settings', 'Email smtp host');
+Settings::setVar('MAILER', $MAILER, 'global_settings', 'smtp or mail'); // smtp or mail
 
 /* */
 /* */
 /* */
 /* */
 /* */
-/* Do not change config after this line, calculated vars */
+/* Do not change config after this line, computed vars */
 /* */
 /* */
 /* */
@@ -118,8 +118,7 @@ $qdirs = split("/", $query);
 $page = array_pop($qdirs);
 $page = $page != NULL ? $page : "index.php";
 
-if ( $pos = strpos($page, '?') )
-{
+if ( $pos = strpos($page, '?') ) {
 	$page = substr($page, 0, $pos);
 }
 

@@ -7,9 +7,10 @@ Settings::setVar('listeJs', 'jquery.js,all.js', 'compressor', 'Liste des fichier
 Settings::setVar('compress html output', true, 'compressor', 'Compress the html output (true or false)');
 
 if( !@$_SESSION['isadmin'] ) {
-	Settings::setVar('listeCss', 'all.css', 'compressor', 'Liste des feuilles de styles disponibles');
+	Settings::setVar('listeCss', 'screen,print,handheld', 'compressor', 'Liste des feuilles de styles disponibles');
+	//#TODO : add projection and tv medias stylesheets
 } else {
-	Settings::setVar('listeCss', 'all.css,admin.css', 'compressor', 'Liste des feuilles de styles disponibles');
+	Settings::setVar('listeCss', 'screen,print,handheld,admin', 'compressor', 'Liste des feuilles de styles disponibles');
 }
 
 /**
@@ -38,14 +39,14 @@ $min_allowDebugFlag = true;
  *
  * @todo cache system does not have error logging yet.
  */
-$min_errorLogger = false;
+$min_errorLogger = true;
 
 
 /**
  * Allow use of the Minify URI Builder app. If you no longer need 
  * this, set to false.
  **/
-$min_enableBuilder = false;
+$min_enableBuilder = true;
 
 
 /**
