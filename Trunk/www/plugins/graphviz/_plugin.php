@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -56,14 +56,6 @@ final class graphviz extends Plugins
 
 	}
 	
-	/**
-	 * Create a new Dot file to server
-	 * @param string $dotfile
-	 * @param string $outputfile
-	 * @param string $format
-	 * @param unknown_type $command
-	 * @return Ambigous <boolean, unknown>
-	 */
 	public function renderDotFile($dotfile, $outputfile, $format='svg', $command=null)
 	{
 		return self::$graph->renderDotFile($dotfile, $outputfile, $format, $command);
@@ -91,7 +83,7 @@ final class graphviz extends Plugins
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()

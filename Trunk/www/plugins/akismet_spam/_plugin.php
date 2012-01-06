@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -27,15 +27,6 @@ final class akismet_spam extends Plugins
 		require(Settings::getVar('prefix') . 'conf/akismet_spam.php');
 	}
 	
-	/**
-	 * Return true if the datas may be considered as spam
-	 * @param string $tb_id
-	 * @param string $tb_url
-	 * @param string $tb_title
-	 * @param string $tb_excerpt
-	 * @param string $tb_name
-	 * @return boolean
-	 */
 	public function isSpam($tb_id, $tb_url, $tb_title, $tb_excerpt, $tb_name)
 	{
 		//print "->".Settings::$akismetAPIKey;
@@ -71,7 +62,7 @@ final class akismet_spam extends Plugins
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()

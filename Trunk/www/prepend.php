@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -31,7 +31,7 @@ header('HTTP/1.1 200 OK', false, 200);
 
 /* Gestion de la connexion persistente par cookies */
 if ( @!empty($_COOKIE) ) {
-	if ( @isset($_COOKIE["persistentConnection"]) && @isset($_COOKIE["uid"]) && !$_SESSION["uid"] ) {
+	if ( @isset($_COOKIE["persistentConnection"]) && @isset($_COOKIE["uid"]) && !@isset($_SESSION["uid"]) ) {
 		if ( $_COOKIE["persistentConnection"] == 1 ) {
 			User::authentificationByUid($_COOKIE["uid"]);
 		}
@@ -65,8 +65,7 @@ foreach( $plug->listPlugins() as $pluginName )
 
 /* init AdminMenu only when all plugins are loaded */
 $n = 0;
-foreach( $plug->listPlugins() as $pluginName )
-{
+foreach( $plug->listPlugins() as $pluginName ) {
 	if ( @isset($plugins[$n]) ) {
 		if ( method_exists($plugins[$n], 'initAdminMenu') ) {
 			$plugins[$n]->initAdminMenu();
@@ -80,8 +79,7 @@ foreach( $plug->listPlugins() as $pluginName )
 
 /* check if config file exists and if the database is installed */
 $f3 = new File(Settings::getVar('conf_dir') . '_global_db.php');
-if ( !$f3->Exists() && $qdirs[0] != 'install' )
-{
+if ( !$f3->Exists() && $qdirs[0] != 'install' ) {
 	header('Location: ' . Settings::getVar('BASE_URL_HTTP') . 'install/index.php');
 	exit;
 }
@@ -91,27 +89,20 @@ $listRegisteredSubdirs = Settings::getSubdirsRegistered();
 //print_r($listRegisteredSubdirs);
 //print $qdirs[1];
 
-if( !isset($qdirs[0]) && $query != "" )
-{
+if( !isset($qdirs[0]) && $query != "" ) {
 	# $qdirs[0] isn't defined but and $query too, that page doesn't match any plugin ;
 	# I could say it's a 404 error page
 	errordocument::setError(404);
-}
-elseif( !isset($qdirs[0]) && $query == "" )
-{
+} elseif( !isset($qdirs[0]) && $query == "" ) {
 	/* home page */
-}
-elseif ( $pluginName = searchInList($qdirs[0], $listRegisteredSubdirs) )
-{
+} elseif ( $pluginName = searchInList($qdirs[0], $listRegisteredSubdirs) ) {
 	/* a plugin could manage this subdirectory */
 	Settings::setVar('prefix', '../');
 
 	$f = new File(Settings::getVar('plug_dir') . strtolower($pluginName . '/_plugin.php'));
-	if ( $f->Exists() )
-	{
+	if ( $f->Exists() ) {
 		$f2 = new File(Settings::getVar('plug_dir') . strtolower($pluginName . '/index.php'));
-		if ( !isset($content) && $page == "index.php" && !$f2->Exists() )
-		{
+		if ( !isset($content) && $page == "index.php" && !$f2->Exists() ) {
 			$i = $pluginsNames[$pluginName];
 			$sPlug = new Settings::$VIEWER_TYPE;
 			$author = preg_replace('/(.*?) <(.*?)>/i', '<a href="mailto:$2">$1</a>', $plugins[$i]->GetAuthor($plugins[$i]->getName()));
@@ -121,12 +112,9 @@ elseif ( $pluginName = searchInList($qdirs[0], $listRegisteredSubdirs) )
 			$sPlug->AddData("author", $author);
 			$sPlug->AddData("version", $plugins[$i]->getVersion($plugins[$i]->getName()));
 			$sPlug->AddData("listplugins", Plugins::listPages($plugins[$i]->getName()));
-			#$sPlug->->AddData("i18n", i18n::getLng());
 			$content = $sPlug->fetch('pluginListPages.tpl', '');
-			//print $plugins[$i]->getName();
-		}
-		else
-		{
+			Settings::setVar('template', 'main.tpl');
+		} else {
 			$f3 = new File(Settings::getVar('plug_dir') . strtolower($pluginName . "/" .$page));
 			if ( $f3->Exists() ) {
 				require_once(Settings::getVar('plug_dir') . strtolower($pluginName . "/" .$page));
@@ -135,14 +123,10 @@ elseif ( $pluginName = searchInList($qdirs[0], $listRegisteredSubdirs) )
 				errordocument::setError(404);
 			}
 		}
-	}
-	else
-	{
+	} else {
 		$content = sprintf(gettext("Error: Plugin definition class is not present for %s"), $pluginName);
 	}
-}
-else
-{
+} else {
 	/* It should be a 404 error page */
 	errordocument::setError(404);
 }
@@ -154,14 +138,10 @@ else
  * @param array $plugins array in witch the string may be found
  * @return string : the plugin name
  */
-function searchInList($dir, $plugins)
-{
-	foreach( $plugins as $plugin => $listeRsd ) /*rsd means registeredSubDir*/
-	{
-		foreach( $listeRsd as $key => $rsd ) /*rsd means registeredSubDir*/
-		{
-			if ( $rsd == $dir ) 
-			{
+function searchInList($dir, $plugins) {
+	foreach( $plugins as $plugin => $listeRsd ) /*rsd means registeredSubDir*/ {
+		foreach( $listeRsd as $key => $rsd ) /*rsd means registeredSubDir*/ {
+			if ( $rsd == $dir ) {
 				return $plugin;
 			}
 		}

@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -28,11 +28,6 @@ final class install extends Plugins
 		//print "version ".self::$version;
 	}
 	
-	/**
-	 * Write the config file to server
-	 * @param string $file
-	 * @param array $datas
-	 */
 	public function buildDbFile($file, $datas)
 	{
 		$f = new file("./_global_db.php5");
@@ -75,7 +70,7 @@ define(\'DB_PREFIX\', \''.$datas['password'].'\');
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()

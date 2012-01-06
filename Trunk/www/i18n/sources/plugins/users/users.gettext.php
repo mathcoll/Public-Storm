@@ -1,10 +1,26 @@
 <?php
+gettext("Membre de Public-Storm depuis plus d'une semaine !");
+gettext("Cher");
+gettext("Vous êtes inscrit depuis plus d'une semaine sur Public-Storm ;");
+gettext("Toute l'équipe vous remercie pour votre participation.");
+gettext("À ce titre, nous vous encourageons à <a href=\"%1?utm_source=plusOneWeek&utm_medium=email&utm_term=key2&utm_campaign=Public-Storm\">créer des Storms</a>.");
+gettext("inscription.signature");
+
+?><?php
 gettext("inscription.subject");
 gettext("inscription.welcome");
 gettext("field.nom");
 gettext("field.prenom");
 gettext("field.login");
 gettext("field.password");
+gettext("inscription.signature");
+
+?><?php
+gettext("Membre de Public-Storm depuis plus de 2 semaines !");
+gettext("Cher");
+gettext("Vous êtes inscrit depuis plus de 2 semaines sur Public-Storm ;");
+gettext("Toute l'équipe vous remercie pour votre participation.");
+gettext("À ce titre, nous vous encourageons à <a href=\"%1?utm_source=plusTwoWeeks&utm_medium=email&utm_term=key2&utm_campaign=Public-Storm\">créer des Storms</a> et à participer aux suggestions.");
 gettext("inscription.signature");
 
 ?><?php
@@ -20,6 +36,7 @@ gettext("Semaine");
 gettext("(suite)");
 gettext("Semaine");
 gettext("I love this Storm !");
+gettext("créé le");
 
 ?><?php
 gettext("Storms de %1");
@@ -32,9 +49,11 @@ gettext("Semaine");
 gettext("(suite)");
 gettext("Semaine");
 gettext("I love this Storm !");
+gettext("créé le");
 
 ?><?php
 gettext("login intro");
+gettext("Login page");
 gettext("field.login");
 gettext("field.password");
 gettext("ok");

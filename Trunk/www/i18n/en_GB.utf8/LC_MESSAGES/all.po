@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Public-Storm\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 20:13+0100\n"
-"PO-Revision-Date: 2011-10-28 20:13+0100\n"
+"POT-Creation-Date: 2011-12-21 20:17+0100\n"
+"PO-Revision-Date: 2011-12-21 20:19+0100\n"
 "Last-Translator: Mathieu Lory <mathieu@internetcollaboratif.info>\n"
 "Language-Team: English <mathieu@internetcollaboratif.info>\n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,7 @@ msgstr ""
 #: ../../../include/debug.class.php:30
 #: ../../../include/user.class.php:30
 #: ../../../include/database.class.php:31
+#: ../../../include/file.class.php:29
 #: ../../../include/viewer_smarty.class.php:30
 #: ../../../include/languages.class.php:31
 #: ../../../include/database_mysql.class.php:31
@@ -43,13 +44,13 @@ msgstr "You musn't call this page directly ! please, go away !"
 msgid "Error: Plugin definition class is not present for %s"
 msgstr "Error: Plugin definition class is not present for %s"
 
-#: ../../../index.php:102
+#: ../../../index.php:109
 msgid "Title index"
 msgstr "Home page"
 
-#: ../../../index.php:108
-#: ../../../i18n/sources/main.gettext.php:9
+#: ../../../index.php:115
 #: ../../../i18n/sources/main.gettext.php:10
+#: ../../../i18n/sources/main.gettext.php:11
 #: ../../../i18n/sources/plugins/all/all.gettext.php:6
 #: ../../../i18n/sources/plugins/all/all.gettext.php:7
 #: ../../../i18n/sources/plugins/errordocument/errordocument.gettext.php:2
@@ -72,102 +73,115 @@ msgstr "Home page"
 #: ../../../i18n/sources/plugins/backend/backend.gettext.php:2
 #: ../../../i18n/sources/plugins/backend/backend.gettext.php:3
 #: ../../../i18n/sources/plugins/backend/backend.gettext.php:4
-#: ../../../i18n/sources/plugins/backend/backend.gettext.php:14
-#: ../../../plugins/errordocument/_plugin.php:86
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:15
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:16
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:17
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:27
+#: ../../../plugins/errordocument/_plugin.php:107
 #: ../../../plugins/sendtoafriend/index.php:38
 #: ../../../plugins/prelaunch/_plugin.php:38
 msgid "baseline"
 msgstr "Brainstorm together"
 
-#: ../../../index.php:109
+#: ../../../index.php:116
 #: ../../../plugins/sendtoafriend/index.php:39
 #: ../../../plugins/sendtoafriend/index.php:41
 #: ../../../plugins/users/creer-un-compte.php:41
 #: ../../../plugins/users/creer-un-compte.php:42
+#: ../../../plugins/users/login.php:60
+#: ../../../plugins/users/login.php:61
 #: ../../../plugins/users/rss.php:28
 #: ../../../plugins/users/mot-de-passe-oublie.php:29
 #: ../../../plugins/users/mot-de-passe-oublie.php:30
-#: ../../../plugins/backend/rss.php:50
-#: ../../../plugins/backend/atom.php:31
+#: ../../../plugins/backend/rss.php:49
+#: ../../../plugins/backend/atom.php:51
 #: ../../../plugins/public_storm/storm.php:43
-#: ../../../plugins/public_storm/storm.php:139
+#: ../../../plugins/public_storm/storm.php:147
 msgid "description"
 msgstr "<i>Public-Storm</i> is an online <i><strong>brainstorming</strong></i> tool. <br/> on a given topic (the Storm <i>%s</i>), let your <strong>imagination</strong> and your <strong>creativity</strong> overflow ... <br/> and offer your <strong>suggestions</strong>."
 
-#: ../../../index.php:110
+#: ../../../index.php:117
 #: ../../../plugins/sendtoafriend/index.php:40
-#: ../../../plugins/public_storm/storm.php:137
+#: ../../../plugins/public_storm/storm.php:145
 msgid "meta_keywords"
 msgstr "tool, Brainstorm, association of ideas, ideas, suggestions, storm"
 
-#: ../../../index.php:111
+#: ../../../index.php:118
 #: ../../../plugins/sendtoafriend/index.php:41
 msgid "meta_description"
 msgstr "<i>Public-Storm</i> is an online <i><strong>brainstorming</strong></i> tool. <br/> on a given topic (the Storm <i>%s</i>), let your <strong>imagination</strong> and your <strong>creativity</strong> overflow ... <br/> and offer your <strong>suggestions</strong>."
 
-#: ../../../core.php:64
+#: ../../../core.php:67
 #, php-format
 msgid "Erreur interne, le fichier '%s' n'a pas les permissions : %s"
 msgstr "Internal error : the file %s has not chmod %s"
 
-#: ../../../core.php:82
+#: ../../../core.php:85
 #, php-format
 msgid "Erreur interne, le fichier '%s' n'est pas lisible"
 msgstr "Internal error : the file %s is not readable"
 
-#: ../../../core.php:100
+#: ../../../core.php:103
 #, php-format
 msgid "Erreur interne, le fichier '%s' n'est pas inscriptible"
 msgstr "Internal error : the file %s is not writable"
 
 #: ../../../include/i18n.class.php:142
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:18
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:24
 msgid "Login"
 msgstr "Login"
 
-#: ../../../include/debug.class.php:77
+#: ../../../include/debug.class.php:75
 msgid "Debug window"
 msgstr "Debug window"
 
-#: ../../../include/user.class.php:127
-#: ../../../include/user.class.php:135
-#: ../../../i18n/sources/plugins/users/users.gettext.php:2
-#: ../../../i18n/sources/plugins/users/users.gettext.php:128
+#: ../../../include/user.class.php:144
+#: ../../../include/user.class.php:152
+#: ../../../i18n/sources/plugins/users/users.gettext.php:10
+#: ../../../i18n/sources/plugins/users/users.gettext.php:147
 msgid "inscription.subject"
 msgstr "inscription.subject"
 
-#: ../../../include/user.class.php:136
-#: ../../../include/user.class.php:174
+#: ../../../include/user.class.php:153
+#: ../../../include/user.class.php:196
 #: ../../../plugins/sendtoafriend/index.php:79
+#: ../../../plugins/aboutcron/_plugin.php:130
+#: ../../../plugins/users/_plugin.php:80
+#: ../../../plugins/users/_plugin.php:142
+#: ../../../plugins/admin/_plugin.php:52
 #: ../../../plugins/prelaunch/send_invitation.php:55
 msgid "To view the message, please use an HTML compatible email viewer!"
 msgstr "To view the message, please use an HTML compatible email viewer!"
 
-#: ../../../include/user.class.php:143
-#: ../../../include/user.class.php:144
-#: ../../../include/user.class.php:181
-#: ../../../include/user.class.php:182
+#: ../../../include/user.class.php:160
+#: ../../../include/user.class.php:161
+#: ../../../include/user.class.php:203
+#: ../../../include/user.class.php:204
 #: ../../../plugins/sendtoafriend/index.php:90
+#: ../../../plugins/users/_plugin.php:96
+#: ../../../plugins/users/_plugin.php:158
 #: ../../../plugins/prelaunch/send_invitation.php:62
 #: ../../../plugins/prelaunch/send_invitation.php:63
 msgid "Failed to send mail"
 msgstr "Failed to send mail"
 
-#: ../../../include/user.class.php:148
-#: ../../../include/user.class.php:149
-#: ../../../i18n/sources/plugins/users/users.gettext.php:129
+#: ../../../include/user.class.php:165
+#: ../../../include/user.class.php:166
+#: ../../../i18n/sources/plugins/users/users.gettext.php:148
 #: ../../../plugins/sendtoafriend/index.php:97
+#: ../../../plugins/users/_plugin.php:92
+#: ../../../plugins/users/_plugin.php:154
 msgid "Mail sent"
 msgstr "Mail sent"
 
-#: ../../../include/user.class.php:165
-#: ../../../include/user.class.php:173
-#: ../../../i18n/sources/plugins/users/users.gettext.php:11
+#: ../../../include/user.class.php:187
+#: ../../../include/user.class.php:195
+#: ../../../i18n/sources/plugins/users/users.gettext.php:27
 msgid "fogotten_password.subject"
 msgstr "fogotten_password.subject"
 
-#: ../../../include/user.class.php:186
-#: ../../../include/user.class.php:187
+#: ../../../include/user.class.php:208
+#: ../../../include/user.class.php:209
 msgid "msg confirm mot de passe oublie"
 msgstr "msg confirm mot de passe oublie"
 
@@ -185,49 +199,54 @@ msgstr "About - legal"
 msgid "version"
 msgstr "Version"
 
-#: ../../../i18n/sources/main.gettext.php:11
+#: ../../../i18n/sources/main.gettext.php:7
+msgid "Sondage Public-Storm"
+msgstr "Public-Storm survey"
+
 #: ../../../i18n/sources/main.gettext.php:12
+#: ../../../i18n/sources/main.gettext.php:13
 #: ../../../i18n/sources/plugins/all/all.gettext.php:8
 #: ../../../i18n/sources/plugins/all/all.gettext.php:9
 msgid "Go to home page"
 msgstr "Home page"
 
-#: ../../../i18n/sources/main.gettext.php:13
+#: ../../../i18n/sources/main.gettext.php:14
 #: ../../../i18n/sources/plugins/all/all.gettext.php:10
 msgid "available_languages"
 msgstr "Available languages"
 
-#: ../../../i18n/sources/main.gettext.php:14
+#: ../../../i18n/sources/main.gettext.php:15
 msgid "Aider à la traduction"
 msgstr "Help translating"
 
-#: ../../../i18n/sources/main.gettext.php:21
+#: ../../../i18n/sources/main.gettext.php:22
 #: ../../../i18n/sources/plugins/all/all.gettext.php:18
-#: ../../../i18n/sources/plugins/users/users.gettext.php:62
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:8
+#: ../../../i18n/sources/plugins/users/users.gettext.php:81
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:14
 #: ../../../i18n/sources/plugins/backend/backend.gettext.php:6
-#: ../../../i18n/sources/plugins/backend/backend.gettext.php:16
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:19
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:29
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:3
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:65
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:79
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:68
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:82
 msgid "by"
 msgstr "by"
 
-#: ../../../i18n/sources/main.gettext.php:22
+#: ../../../i18n/sources/main.gettext.php:23
 #: ../../../i18n/sources/plugins/all/all.gettext.php:19
 msgid "listpages"
 msgstr "Pages list"
 
-#: ../../../i18n/sources/main.gettext.php:25
+#: ../../../i18n/sources/main.gettext.php:26
 #: ../../../i18n/sources/plugins/all/all.gettext.php:22
 msgid "partagez"
 msgstr "Share"
 
-#: ../../../i18n/sources/main.gettext.php:26
+#: ../../../i18n/sources/main.gettext.php:27
 msgid "Support Public-Storm by adding it to your stack at Ohloh"
 msgstr "Support Public-Storm by adding it to your stack at Ohloh"
 
-#: ../../../i18n/sources/main.gettext.php:27
+#: ../../../i18n/sources/main.gettext.php:28
 msgid "Boost"
 msgstr "Boost"
 
@@ -269,7 +288,11 @@ msgid "Votre ami vous suggère de consulter Public-Storm..."
 msgstr "Votre ami vous suggère de consulter Public-Storm..."
 
 #: ../../../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:4
-#: ../../../i18n/sources/plugins/users/users.gettext.php:8
+#: ../../../i18n/sources/plugins/aboutcron/aboutcron.gettext.php:3
+#: ../../../i18n/sources/plugins/users/users.gettext.php:7
+#: ../../../i18n/sources/plugins/users/users.gettext.php:16
+#: ../../../i18n/sources/plugins/users/users.gettext.php:24
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:3
 msgid "inscription.signature"
 msgstr "inscription.signature"
 
@@ -282,10 +305,11 @@ msgstr "Share with my friends"
 #: ../../../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:9
 #: ../../../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:14
 #: ../../../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:25
-#: ../../../i18n/sources/plugins/backend/backend.gettext.php:5
-#: ../../../i18n/sources/plugins/backend/backend.gettext.php:7
-#: ../../../i18n/sources/plugins/backend/backend.gettext.php:15
-#: ../../../i18n/sources/plugins/backend/backend.gettext.php:17
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:8
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:18
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:20
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:28
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:30
 #: ../../../plugins/ods_php/_plugin.php:54
 msgid "Storm"
 msgstr "Storm"
@@ -327,6 +351,38 @@ msgstr "Add your own message:"
 msgid "Envoyer"
 msgstr "Send"
 
+#: ../../../i18n/sources/plugins/aboutcron/aboutcron.gettext.php:2
+#: ../../../plugins/aboutcron/_plugin.php:129
+msgid "testAboutCron"
+msgstr "test aboutCron"
+
+#: ../../../i18n/sources/plugins/aboutcron/aboutcron.gettext.php:6
+msgid "Cron list"
+msgstr "Cron list"
+
+#: ../../../i18n/sources/plugins/aboutcron/aboutcron.gettext.php:7
+#: ../../../i18n/sources/plugins/aboutcron/aboutcron.gettext.php:11
+#: ../../../i18n/sources/plugins/users/users.gettext.php:84
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:21
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:29
+#: ../../../i18n/sources/plugins/prelaunch/prelaunch.gettext.php:5
+#: ../../../i18n/sources/plugins/prelaunch/prelaunch.gettext.php:11
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:71
+msgid "Pages :"
+msgstr "Pages:"
+
+#: ../../../i18n/sources/plugins/aboutcron/aboutcron.gettext.php:8
+msgid "Command"
+msgstr "Command"
+
+#: ../../../i18n/sources/plugins/aboutcron/aboutcron.gettext.php:9
+msgid "Parameters"
+msgstr "Parameters"
+
+#: ../../../i18n/sources/plugins/aboutcron/aboutcron.gettext.php:10
+msgid "Time"
+msgstr "Time"
+
 #: ../../../i18n/sources/plugins/trackbacks/trackbacks.gettext.php:2
 msgid "trackback"
 msgstr "Trackback"
@@ -340,378 +396,434 @@ msgstr "Discuss Public-Storm around! Make a post on your blog by leaving a track
 msgid "Lien de TrackBack"
 msgstr "Trackback link"
 
+#: ../../../i18n/sources/plugins/users/users.gettext.php:2
+#: ../../../plugins/users/_plugin.php:79
+msgid "Membre de Public-Storm depuis plus d'une semaine !"
+msgstr ""
+
 #: ../../../i18n/sources/plugins/users/users.gettext.php:3
+#: ../../../i18n/sources/plugins/users/users.gettext.php:20
+msgid "Cher"
+msgstr "Dear"
+
+#: ../../../i18n/sources/plugins/users/users.gettext.php:4
+msgid "Vous êtes inscrit depuis plus d'une semaine sur Public-Storm ;"
+msgstr ""
+
+#: ../../../i18n/sources/plugins/users/users.gettext.php:5
+#: ../../../i18n/sources/plugins/users/users.gettext.php:22
+msgid "Toute l'équipe vous remercie pour votre participation."
+msgstr ""
+
+#: ../../../i18n/sources/plugins/users/users.gettext.php:6
+msgid "À ce titre, nous vous encourageons à <a href=\"%1?utm_source=plusOneWeek&utm_medium=email&utm_term=key2&utm_campaign=Public-Storm\">créer des Storms</a>."
+msgstr ""
+
+#: ../../../i18n/sources/plugins/users/users.gettext.php:11
 msgid "inscription.welcome"
 msgstr "inscription.welcome"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:4
-#: ../../../i18n/sources/plugins/users/users.gettext.php:87
-#: ../../../i18n/sources/plugins/users/users.gettext.php:102
-#: ../../../i18n/sources/plugins/users/users.gettext.php:120
+#: ../../../i18n/sources/plugins/users/users.gettext.php:12
+#: ../../../i18n/sources/plugins/users/users.gettext.php:106
+#: ../../../i18n/sources/plugins/users/users.gettext.php:121
+#: ../../../i18n/sources/plugins/users/users.gettext.php:139
 msgid "field.nom"
 msgstr "Lastname"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:5
-#: ../../../i18n/sources/plugins/users/users.gettext.php:86
-#: ../../../i18n/sources/plugins/users/users.gettext.php:101
-#: ../../../i18n/sources/plugins/users/users.gettext.php:119
+#: ../../../i18n/sources/plugins/users/users.gettext.php:13
+#: ../../../i18n/sources/plugins/users/users.gettext.php:105
+#: ../../../i18n/sources/plugins/users/users.gettext.php:120
+#: ../../../i18n/sources/plugins/users/users.gettext.php:138
 msgid "field.prenom"
 msgstr "Firstname"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:6
-#: ../../../i18n/sources/plugins/users/users.gettext.php:13
-#: ../../../i18n/sources/plugins/users/users.gettext.php:38
-#: ../../../i18n/sources/plugins/users/users.gettext.php:56
-#: ../../../i18n/sources/plugins/users/users.gettext.php:80
-#: ../../../i18n/sources/plugins/users/users.gettext.php:89
-#: ../../../i18n/sources/plugins/users/users.gettext.php:104
-#: ../../../i18n/sources/plugins/users/users.gettext.php:122
+#: ../../../i18n/sources/plugins/users/users.gettext.php:14
+#: ../../../i18n/sources/plugins/users/users.gettext.php:29
+#: ../../../i18n/sources/plugins/users/users.gettext.php:57
+#: ../../../i18n/sources/plugins/users/users.gettext.php:75
+#: ../../../i18n/sources/plugins/users/users.gettext.php:99
+#: ../../../i18n/sources/plugins/users/users.gettext.php:108
+#: ../../../i18n/sources/plugins/users/users.gettext.php:123
+#: ../../../i18n/sources/plugins/users/users.gettext.php:141
 msgid "field.login"
 msgstr "Login"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:7
-#: ../../../i18n/sources/plugins/users/users.gettext.php:14
-#: ../../../i18n/sources/plugins/users/users.gettext.php:39
-#: ../../../i18n/sources/plugins/users/users.gettext.php:81
-#: ../../../i18n/sources/plugins/users/users.gettext.php:90
-#: ../../../i18n/sources/plugins/users/users.gettext.php:105
-#: ../../../i18n/sources/plugins/users/users.gettext.php:106
-#: ../../../i18n/sources/plugins/users/users.gettext.php:123
+#: ../../../i18n/sources/plugins/users/users.gettext.php:15
+#: ../../../i18n/sources/plugins/users/users.gettext.php:30
+#: ../../../i18n/sources/plugins/users/users.gettext.php:58
+#: ../../../i18n/sources/plugins/users/users.gettext.php:100
+#: ../../../i18n/sources/plugins/users/users.gettext.php:109
+#: ../../../i18n/sources/plugins/users/users.gettext.php:124
+#: ../../../i18n/sources/plugins/users/users.gettext.php:125
+#: ../../../i18n/sources/plugins/users/users.gettext.php:142
 msgid "field.password"
 msgstr "Password"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:12
+#: ../../../i18n/sources/plugins/users/users.gettext.php:19
+#: ../../../plugins/users/_plugin.php:141
+msgid "Membre de Public-Storm depuis plus de 2 semaines !"
+msgstr ""
+
+#: ../../../i18n/sources/plugins/users/users.gettext.php:21
+msgid "Vous êtes inscrit depuis plus de 2 semaines sur Public-Storm ;"
+msgstr ""
+
+#: ../../../i18n/sources/plugins/users/users.gettext.php:23
+msgid "À ce titre, nous vous encourageons à <a href=\"%1?utm_source=plusTwoWeeks&utm_medium=email&utm_term=key2&utm_campaign=Public-Storm\">créer des Storms</a> et à participer aux suggestions."
+msgstr ""
+
+#: ../../../i18n/sources/plugins/users/users.gettext.php:28
 msgid "fogotten_password.intro"
 msgstr "fogotten_password.intro"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:15
+#: ../../../i18n/sources/plugins/users/users.gettext.php:31
 msgid "fogotten_password.signature"
 msgstr "fogotten_password.signature"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:18
-#: ../../../i18n/sources/plugins/users/users.gettext.php:112
+#: ../../../i18n/sources/plugins/users/users.gettext.php:34
+#: ../../../i18n/sources/plugins/users/users.gettext.php:131
 msgid "mes_storms"
 msgstr "My Storms"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:19
-#: ../../../i18n/sources/plugins/users/users.gettext.php:21
-#: ../../../i18n/sources/plugins/users/users.gettext.php:31
-#: ../../../i18n/sources/plugins/users/users.gettext.php:33
+#: ../../../i18n/sources/plugins/users/users.gettext.php:35
+#: ../../../i18n/sources/plugins/users/users.gettext.php:37
+#: ../../../i18n/sources/plugins/users/users.gettext.php:48
+#: ../../../i18n/sources/plugins/users/users.gettext.php:50
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:28
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:30
 msgid "Semaine"
 msgstr "Week"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:20
-#: ../../../i18n/sources/plugins/users/users.gettext.php:32
+#: ../../../i18n/sources/plugins/users/users.gettext.php:36
+#: ../../../i18n/sources/plugins/users/users.gettext.php:49
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:29
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:63
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:66
 msgid "(suite)"
 msgstr "(suite)"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:22
-#: ../../../i18n/sources/plugins/users/users.gettext.php:34
-#: ../../../i18n/sources/plugins/users/users.gettext.php:61
+#: ../../../i18n/sources/plugins/users/users.gettext.php:38
+#: ../../../i18n/sources/plugins/users/users.gettext.php:51
+#: ../../../i18n/sources/plugins/users/users.gettext.php:80
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:31
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:64
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:67
 msgid "I love this Storm !"
 msgstr "I love this Storm !"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:25
+#: ../../../i18n/sources/plugins/users/users.gettext.php:39
+#: ../../../i18n/sources/plugins/users/users.gettext.php:52
+msgid "créé le"
+msgstr "created on"
+
+#: ../../../i18n/sources/plugins/users/users.gettext.php:42
 msgid "Storms de %1"
 msgstr "%1's Storms"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:26
+#: ../../../i18n/sources/plugins/users/users.gettext.php:43
 msgid "Membre depuis le %1"
 msgstr "Member since %1"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:27
+#: ../../../i18n/sources/plugins/users/users.gettext.php:44
 msgid "Langue :"
 msgstr "Languages:"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:28
-#: ../../../i18n/sources/plugins/users/users.gettext.php:29
-#: ../../../i18n/sources/plugins/users/users.gettext.php:30
+#: ../../../i18n/sources/plugins/users/users.gettext.php:45
+#: ../../../i18n/sources/plugins/users/users.gettext.php:46
+#: ../../../i18n/sources/plugins/users/users.gettext.php:47
 #: ../../../plugins/users/index.php:121
 msgid "Flux Rss"
 msgstr "RSS Feed"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:37
+#: ../../../i18n/sources/plugins/users/users.gettext.php:55
 msgid "login intro"
 msgstr "Log in to take advantage of public-Storm"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:40
-#: ../../../i18n/sources/plugins/users/users.gettext.php:83
+#: ../../../i18n/sources/plugins/users/users.gettext.php:56
+#: ../../../plugins/users/login.php:58
+msgid "Login page"
+msgstr "Login page"
+
+#: ../../../i18n/sources/plugins/users/users.gettext.php:59
+#: ../../../i18n/sources/plugins/users/users.gettext.php:102
 msgid "ok"
 msgstr "ok"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:41
-#: ../../../i18n/sources/plugins/users/users.gettext.php:82
+#: ../../../i18n/sources/plugins/users/users.gettext.php:60
+#: ../../../i18n/sources/plugins/users/users.gettext.php:101
 msgid "persistent"
 msgstr "Remember me"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:42
-#: ../../../i18n/sources/plugins/users/users.gettext.php:85
-#: ../../../i18n/sources/plugins/users/users.gettext.php:116
-#: ../../../i18n/sources/plugins/users/users.gettext.php:127
-#: ../../../i18n/sources/plugins/backend/backend.gettext.php:11
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:49
+#: ../../../i18n/sources/plugins/users/users.gettext.php:61
+#: ../../../i18n/sources/plugins/users/users.gettext.php:104
+#: ../../../i18n/sources/plugins/users/users.gettext.php:135
+#: ../../../i18n/sources/plugins/users/users.gettext.php:146
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:12
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:24
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:52
 #: ../../../plugins/users/creer-un-compte.php:39
 msgid "creer_un_compte"
 msgstr "Create an account"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:43
-#: ../../../i18n/sources/plugins/users/users.gettext.php:84
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:50
+#: ../../../i18n/sources/plugins/users/users.gettext.php:62
+#: ../../../i18n/sources/plugins/users/users.gettext.php:103
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:53
 #: ../../../plugins/users/mot-de-passe-oublie.php:25
 msgid "mot_de_passe_oublie"
 msgstr "Forgot your password"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:46
-#: ../../../i18n/sources/plugins/users/users.gettext.php:111
+#: ../../../i18n/sources/plugins/users/users.gettext.php:65
+#: ../../../i18n/sources/plugins/users/users.gettext.php:130
 msgid "mes_parametres"
 msgstr "My options"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:47
+#: ../../../i18n/sources/plugins/users/users.gettext.php:66
 msgid "Vous pouvez vous inscrire à la newsletter du site Internet Collaboratif pour recevoir des informations sur les projets en cours. (3 à 4 emails par an)"
 msgstr "You can subscribe to the newsletter of the Collaborative website to receive information about ongoing projects. (3 to 4 emails per year)"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:48
+#: ../../../i18n/sources/plugins/users/users.gettext.php:67
 msgid "Nom :"
 msgstr "Lastname:"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:49
+#: ../../../i18n/sources/plugins/users/users.gettext.php:68
 msgid "Prénom :"
 msgstr "Firstname:"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:50
+#: ../../../i18n/sources/plugins/users/users.gettext.php:69
 msgid "S'abonner"
 msgstr "Subscribe"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:51
+#: ../../../i18n/sources/plugins/users/users.gettext.php:70
 msgid "Gérer mes abonnements"
 msgstr "Manage my subscriptions"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:54
+#: ../../../i18n/sources/plugins/users/users.gettext.php:73
 msgid "Vous avez oublié votre mot de passe ? Saisissez votre identifiant OU votre email et nous vous enverrons un nouveau mot de passe immédiatement."
 msgstr "Forgot your password? Enter your username OR email and we'll send you a new password immediately."
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:55
-#: ../../../i18n/sources/plugins/users/users.gettext.php:88
-#: ../../../i18n/sources/plugins/users/users.gettext.php:103
-#: ../../../i18n/sources/plugins/users/users.gettext.php:121
+#: ../../../i18n/sources/plugins/users/users.gettext.php:74
+#: ../../../i18n/sources/plugins/users/users.gettext.php:107
+#: ../../../i18n/sources/plugins/users/users.gettext.php:122
+#: ../../../i18n/sources/plugins/users/users.gettext.php:140
 msgid "field.email"
 msgstr "Email"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:57
-#: ../../../i18n/sources/plugins/users/users.gettext.php:93
-#: ../../../i18n/sources/plugins/users/users.gettext.php:107
+#: ../../../i18n/sources/plugins/users/users.gettext.php:76
+#: ../../../i18n/sources/plugins/users/users.gettext.php:112
+#: ../../../i18n/sources/plugins/users/users.gettext.php:126
 msgid "valider"
 msgstr "Validate"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:60
-#: ../../../i18n/sources/plugins/users/users.gettext.php:113
+#: ../../../i18n/sources/plugins/users/users.gettext.php:79
+#: ../../../i18n/sources/plugins/users/users.gettext.php:132
 msgid "Mes favoris"
 msgstr "My Favorites"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:65
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:15
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:23
-#: ../../../i18n/sources/plugins/prelaunch/prelaunch.gettext.php:5
-#: ../../../i18n/sources/plugins/prelaunch/prelaunch.gettext.php:11
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:68
-msgid "Pages :"
-msgstr "Pages:"
-
-#: ../../../i18n/sources/plugins/users/users.gettext.php:66
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:69
+#: ../../../i18n/sources/plugins/users/users.gettext.php:85
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:72
 msgid "Page précédente"
 msgstr "Previous page"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:67
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:70
-#: ../../../plugins/public_storm/storms_list_alpha.php:45
+#: ../../../i18n/sources/plugins/users/users.gettext.php:86
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:73
+#: ../../../plugins/public_storm/storms_list_alpha.php:46
 #: ../../../plugins/public_storm/storm.php:45
-#: ../../../plugins/public_storm/storm.php:179
-#: ../../../plugins/public_storm/storms_list.php:48
+#: ../../../plugins/public_storm/storm.php:188
+#: ../../../plugins/public_storm/storms_list.php:49
 #: ../../../plugins/public_storm/add_storm.php:42
 msgid "Storms"
 msgstr "Storms"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:68
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:71
+#: ../../../i18n/sources/plugins/users/users.gettext.php:87
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:74
 msgid "page"
 msgstr "Page"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:69
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:72
+#: ../../../i18n/sources/plugins/users/users.gettext.php:88
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:75
 msgid "Page suivante"
 msgstr "Next page"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:72
+#: ../../../i18n/sources/plugins/users/users.gettext.php:91
 #: ../../../plugins/users/mon-compte.php:27
 msgid "mon_compte"
 msgstr "My account"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:73
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:48
+#: ../../../i18n/sources/plugins/users/users.gettext.php:92
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:51
 msgid "ajouter_un_storm"
 msgstr "Add a Storm"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:74
+#: ../../../i18n/sources/plugins/users/users.gettext.php:93
 #: ../../../plugins/admin/admin-main.php:27
 msgid "admin"
 msgstr "Administration"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:75
+#: ../../../i18n/sources/plugins/users/users.gettext.php:94
 msgid "logout"
 msgstr "Logout"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:78
+#: ../../../i18n/sources/plugins/users/users.gettext.php:97
 msgid "To create a storm you need to have an account"
 msgstr "To create a storm you need to have an account"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:79
+#: ../../../i18n/sources/plugins/users/users.gettext.php:98
 msgid "connectez_vous"
 msgstr "Login"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:91
-#: ../../../i18n/sources/plugins/users/users.gettext.php:124
+#: ../../../i18n/sources/plugins/users/users.gettext.php:110
+#: ../../../i18n/sources/plugins/users/users.gettext.php:143
 msgid "field.captcha"
 msgstr "Captcha"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:92
-#: ../../../i18n/sources/plugins/users/users.gettext.php:125
+#: ../../../i18n/sources/plugins/users/users.gettext.php:111
+#: ../../../i18n/sources/plugins/users/users.gettext.php:144
 msgid "field.reload_captcha"
 msgstr "unreadable captcha"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:96
+#: ../../../i18n/sources/plugins/users/users.gettext.php:115
 msgid "mes_alertes"
 msgstr "My alerts"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:99
-#: ../../../i18n/sources/plugins/users/users.gettext.php:110
+#: ../../../i18n/sources/plugins/users/users.gettext.php:118
+#: ../../../i18n/sources/plugins/users/users.gettext.php:129
 msgid "mes_informations"
 msgstr "My informations"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:100
+#: ../../../i18n/sources/plugins/users/users.gettext.php:119
 msgid "Changer ma photo"
 msgstr "Change my photo"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:117
+#: ../../../i18n/sources/plugins/users/users.gettext.php:136
 msgid "gratuit"
 msgstr "free"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:118
+#: ../../../i18n/sources/plugins/users/users.gettext.php:137
 msgid "sur Public-Storm !"
 msgstr "on Public-Storm!"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:126
+#: ../../../i18n/sources/plugins/users/users.gettext.php:145
 msgid "Les champs marqués d'un * sont obligatoires."
 msgstr "*: Mandatory"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:130
-#: ../../../i18n/sources/plugins/users/users.gettext.php:131
+#: ../../../i18n/sources/plugins/users/users.gettext.php:149
+#: ../../../i18n/sources/plugins/users/users.gettext.php:150
 msgid "avantage_1"
 msgstr "avantage_1"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:132
-#: ../../../i18n/sources/plugins/users/users.gettext.php:133
+#: ../../../i18n/sources/plugins/users/users.gettext.php:151
+#: ../../../i18n/sources/plugins/users/users.gettext.php:152
 msgid "avantage_2"
 msgstr "avantage_2"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:134
-#: ../../../i18n/sources/plugins/users/users.gettext.php:135
+#: ../../../i18n/sources/plugins/users/users.gettext.php:153
+#: ../../../i18n/sources/plugins/users/users.gettext.php:154
 msgid "avantage_3"
 msgstr "avantage_3"
 
-#: ../../../i18n/sources/plugins/users/users.gettext.php:136
-#: ../../../i18n/sources/plugins/users/users.gettext.php:137
+#: ../../../i18n/sources/plugins/users/users.gettext.php:155
+#: ../../../i18n/sources/plugins/users/users.gettext.php:156
 msgid "avantage_4"
 msgstr "avantage_4"
 
 #: ../../../i18n/sources/plugins/admin/admin.gettext.php:2
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:35
+#: ../../../plugins/admin/_plugin.php:51
+msgid "sendMailToAdmin"
+msgstr "send Mail To Admin"
+
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:6
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:43
 msgid "liste_plugins"
 msgstr "Plugins list"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:3
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:16
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:30
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:7
+msgid "Afficher tout"
+msgstr "Show all"
+
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:8
+msgid "Masquer les inactifs"
+msgstr "Hide disabled"
+
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:9
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:22
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:38
 msgid "Nom"
 msgstr "Name"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:4
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:31
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:10
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:37
 msgid "Description"
 msgstr "Description"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:5
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:11
 msgid "Date de mise à jour"
 msgstr "Update"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:6
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:12
 msgid "Lien de mise à jour"
 msgstr "Update link"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:7
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:13
 msgid "Statut"
 msgstr "Status"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:9
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:15
 msgid "Activer"
 msgstr "Enable"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:10
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:16
 msgid "Désactiver"
 msgstr "Disable"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:11
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:17
 msgid "Configurer"
 msgstr "Config"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:14
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:37
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:20
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:45
 msgid "list_users"
 msgstr "Users list"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:17
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:23
 msgid "Prénom"
 msgstr "Firstname"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:19
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:25
 #: ../../../i18n/sources/plugins/prelaunch/prelaunch.gettext.php:6
 msgid "Email"
 msgstr "Email"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:20
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:26
 msgid "Lang"
 msgstr "Lang"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:21
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:27
 msgid "date d'inscription"
 msgstr "Subscribtion date"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:22
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:28
 msgid "Mise à jour"
 msgstr "Update"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:26
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:32
 #: ../../../plugins/admin/forbidden.php:27
 msgid "forbidden"
 msgstr "No access to this page!"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:27
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:33
 msgid "forbidden_details"
 msgstr "You are not allowed to see this page<br />Please, go away."
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:32
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:36
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:44
+msgid "configuration"
+msgstr "Configuration"
+
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:39
 msgid "Valeur"
 msgstr "Value"
 
-#: ../../../i18n/sources/plugins/admin/admin.gettext.php:36
-msgid "configuration"
-msgstr "Configuration"
+#: ../../../i18n/sources/plugins/admin/admin.gettext.php:40
+msgid "Ok"
+msgstr "Ok"
 
 #: ../../../i18n/sources/plugins/i18n/i18n.gettext.php:2
 msgid "language name"
@@ -742,18 +854,30 @@ msgstr "Invitation"
 msgid "articles"
 msgstr "Articles"
 
-#: ../../../i18n/sources/plugins/backend/backend.gettext.php:8
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:47
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:5
+msgid "Suggestion"
+msgstr "Suggestion"
+
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:7
+#: ../../../plugins/public_storm/_plugin.php:347
+msgid "Anonyme"
+msgstr "Anonymous"
+
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:9
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:21
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:50
 msgid "suggest_it"
 msgstr "\"<strong>%1</strong>\" makes you think of other expressions? <br /> Suggest:"
 
-#: ../../../i18n/sources/plugins/backend/backend.gettext.php:9
-#: ../../../i18n/sources/plugins/backend/backend.gettext.php:18
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:10
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:22
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:31
 msgid "Tous les Storms de %1"
 msgstr "All Storms from %1"
 
-#: ../../../i18n/sources/plugins/backend/backend.gettext.php:10
-#: ../../../i18n/sources/plugins/backend/backend.gettext.php:19
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:11
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:23
+#: ../../../i18n/sources/plugins/backend/backend.gettext.php:32
 msgid "%1 est un utilisateur régulier de Public-Storm, avec ses %2 suggestions"
 msgstr "%1 est un utilisateur régulier de Public-Storm, avec ses %2 suggestions"
 
@@ -832,165 +956,173 @@ msgstr "Export combinations of ideas in Open Document Sheet 'or Csv! You will ge
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:24
 msgid "intro_p4"
-msgstr "The advantages and the principle of Public-Storm fascinates you? <br /> So feel free to create a free account it's easy ... You will have access to additional features, and you will be primarily recognized by the community ... <br /> <button type=\"button\" class=\"fg-button ui-ui-state-default-all corner\" onclick=\"location.href='/user/create-a-compte.php'\">Register</button>"
+msgstr "The advantages and the principle of Public-Storm fascinates you? <br /> So feel free to create a free account it's easy ... You will have access to additional features, and you will be primarily recognized by the community ... <br /> <button type=\"button\" class=\"fg-button ui-ui-state-default-all corner\" onclick=\"location.href='/users/creer-un-compte.php'\">Register</button>"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:27
 msgid "Liste des derniers Storms créés :"
 msgstr "List of recently created Storms:"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:32
-msgid "créé par <a href=\"%1/utilisateurs/%2/\">%3</a>"
-msgstr "created by <a href=\"%1/utilisateurs/%2/\">%3</a>"
+msgid "créé par"
+msgstr "created by"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:33
 msgid "le %1"
 msgstr "on %1"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:36
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:37
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:38
+msgid "Flux Rss des suggestions de '%1'"
+msgstr "Rss feed for '%1' suggestions"
+
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:39
 #: ../../../plugins/ods_php/_plugin.php:56
 msgid "Création du storm :"
 msgstr "Storm creation:"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:37
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:40
 msgid "Auteur du storm %1 :"
 msgstr "Author of the storm %1:"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:38
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:41
 msgid "Contributeurs :"
 msgstr "Contributors:"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:39
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:42
 msgid "Utilisateurs connectés :"
 msgstr "Users:"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:40
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:41
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:43
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:44
 msgid "Partager avec mes amis"
 msgstr "Partager avec mes amis"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:42
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:45
 msgid "export2ods"
 msgstr "Export to Ods"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:43
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:46
 msgid "export2csv"
 msgstr "Export to Csv"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:44
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:47
 msgid "Ajouter aux favoris"
 msgstr "Add to favorites"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:45
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:48
 msgid "Enlever des favoris"
 msgstr "Remove from Favorites"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:46
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:49
 msgid "accroche incitation suggestion"
 msgstr "The Storm \"<strong>%1</strong>\" makes you think of other expressions?<br />Suggest:"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:51
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:52
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:54
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:55
 msgid "Hubs Viadeo liés à '%1'"
 msgstr "Viadeo Hubs related to '%1'"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:53
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:56
 msgid "Suggestions principales"
 msgstr "Main suggestions"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:54
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:57
 #: ../../../plugins/tagcloud/_plugin.php:47
 msgid "Je suggère moi aussi !"
 msgstr "I suggest me too!"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:55
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:58
 msgid "Pas encore de suggestion pour %1"
 msgstr "Still no suggestion for %1"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:56
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:59
 msgid "Autres suggestions"
 msgstr "Other suggestions"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:57
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:60
 msgid "Chargement en cours..."
 msgstr "Loading ..."
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:58
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:61
 msgid "Start / Stop"
 msgstr "Start / Stop"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:59
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:62
 msgid "Nuage de storms liés à %1"
 msgstr "Cloud of storms related to %1"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:62
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:65
 msgid "Liste des Storms triés par ordre alphabêtique :"
 msgstr "Storms list sorted alphabetically:"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:75
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:78
 msgid "storms"
 msgstr "Storms"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:76
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:79
 msgid "list_alpha"
 msgstr "Storms list in alphabetical order"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:77
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:80
+#: ../../../plugins/public_storm/storms_list_alpha.php:56
+#: ../../../plugins/public_storm/storms_list.php:59
 msgid "list_date"
 msgstr "List by creation date"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:78
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:81
 msgid "plus_actifs"
 msgstr "Most active"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:80
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:83
 msgid "Les plus appréciés"
 msgstr "Best loved (stared)"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:81
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:84
 msgid "contribuez"
 msgstr "Contribute"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:82
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:85
 msgid "contribuez_p1"
 msgstr "Participate in the development or translation of Public-Storm;"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:83
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:86
 msgid "contribuez_p2"
 msgstr "Develop using the Public-Storm API;"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:84
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:87
 msgid "contribuez_p3"
 msgstr "<a href=\"http://github.com/mathcoll/Public-Storm\">Public-Storm on GitHub</a>"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:85
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:88
 msgid "contribuez_p4"
 msgstr "... or follow us on <a href=\"http://twitter.com/publicstorm\"><img height=\"28\" width=\"30\" title=\"Twitter\" alt=\"Twitter\" src=\"%1/themes/ps/templates/img/twitter.png\" /></a><a href=\"http://identi.ca/publicstorm\"><img height=\"28\" width=\"37\" title=\"Identi.ca\" alt=\"Identi.ca\" src=\"%1/themes/ps/templates/img/identica.png\" /></a><a href=\"%1/backend/rss.php\"><img height=\"28\" width=\"28\" title=\"RSS\" alt=\"RSS\" src=\"%1/themes/ps/templates/img/rss.png\" /></a>"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:86
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:89
 msgid "discutez"
 msgstr "Discuss"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:87
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:90
 msgid "discutez_p1"
 msgstr "Comment, suggest ideas for development ..."
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:88
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:91
 msgid "Mon avis sur Public-Storm"
 msgstr "My opinion on Public-Storm"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:89
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:92
 msgid "telechargez"
 msgstr "Download"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:90
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:93
 msgid "telechargez_p1"
 msgstr "Public-Storm is licensed under the GNU / GPL v3"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:91
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:94
 msgid "telechargez_p2"
 msgstr "Download <a href=\"http://github.com/mathcoll/Public-Storm\">Public-Storm from GitHub</a>"
 
-#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:94
+#: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:97
 msgid "Ajouter ce 'Storm' :"
 msgstr "Add this 'Storm' :"
 
@@ -1003,6 +1135,45 @@ msgstr "Partage, Partagez, connexion, OAuth, yahoo, Google, Facebook, %s"
 #, php-format
 msgid "Partagez le Storm %s via une connexion OAuth"
 msgstr "Partagez le Storm %s via une connexion OAuth"
+
+#: ../../../plugins/aboutcron/_plugin.php:45
+msgid "Crontab list"
+msgstr "Crontab list"
+
+#: ../../../plugins/aboutcron/aboutcron.php:39
+msgid "DEV mode: on"
+msgstr "DEV mode: on"
+
+#: ../../../plugins/aboutcron/aboutcron.php:42
+msgid "ok, Token Identifier is valid."
+msgstr "ok, Token Identifier is valid."
+
+#: ../../../plugins/aboutcron/aboutcron.php:43
+msgid "Get actions list..."
+msgstr "Get actions list..."
+
+#: ../../../plugins/aboutcron/aboutcron.php:46
+#, php-format
+msgid "-> %s action(s) to play."
+msgstr "-> %s action(s) to play."
+
+#: ../../../plugins/aboutcron/aboutcron.php:49
+#, php-format
+msgid "Executing command: '%s' with params (%s)"
+msgstr "Executing command: '%s' with params (%s)"
+
+#: ../../../plugins/aboutcron/aboutcron.php:53
+#, php-format
+msgid "Error: '%s' with params (%s)"
+msgstr "Error: '%s' with params (%s)"
+
+#: ../../../plugins/aboutcron/aboutcron.php:57
+msgid "End actions."
+msgstr "End actions."
+
+#: ../../../plugins/aboutcron/aboutcron.php:59
+msgid "You must provide a valid aboutcron token identifier !"
+msgstr "You must provide a valid aboutcron token identifier !"
 
 #: ../../../plugins/trackbacks/index.php:54
 msgid "Erreur, SPAM détecté"
@@ -1033,6 +1204,16 @@ msgstr "Meteor COUNTSUBSCRIBERS"
 msgid "%s is marked as spam"
 msgstr "%s is marked as spam"
 
+#: ../../../plugins/users/_plugin.php:89
+#: ../../../plugins/users/_plugin.php:151
+msgid "DEV mode: on => no mail sent"
+msgstr "DEV mode: on => no mail sent"
+
+#: ../../../plugins/users/_plugin.php:100
+#: ../../../plugins/users/_plugin.php:162
+msgid "Email was not found ; We had removed the cron from the list."
+msgstr "Email was not found ; We had removed the cron from the list."
+
 #: ../../../plugins/users/remove-from-favorites.php:37
 #, php-format
 msgid "Le Storm '%s' à été enlevé de vos favoris !"
@@ -1056,15 +1237,15 @@ msgstr "<i>Public-Storm</i> is an online <i><strong>brainstorming</strong></i> t
 msgid "Liste des Storms de %s, page %s"
 msgstr "Storms by %s, page %s"
 
-#: ../../../plugins/users/creer-un-compte.php:48
+#: ../../../plugins/users/creer-un-compte.php:47
 msgid "The code you entered was incorrect. Go back and try again."
 msgstr "The code you entered was incorrect. Go back and try again."
 
-#: ../../../plugins/users/creer-un-compte.php:52
+#: ../../../plugins/users/creer-un-compte.php:51
 msgid "Veuillez spécifier un email !"
 msgstr "Veuillez spécifier un email !"
 
-#: ../../../plugins/users/creer-un-compte.php:56
+#: ../../../plugins/users/creer-un-compte.php:55
 msgid "Veuillez spécifier un identifiant !"
 msgstr "Veuillez spécifier un identifiant !"
 
@@ -1102,7 +1283,7 @@ msgstr "Storm '%s' was added to your favorites!"
 msgid "L'adresse e-mail '%s' n'est pas valide"
 msgstr "Email adresse '%s' does not validate"
 
-#: ../../../plugins/users/valideremail.php:32
+#: ../../../plugins/users/valideremail.php:31
 msgid "Error : user exists"
 msgstr "Error : user exists"
 
@@ -1117,6 +1298,39 @@ msgstr "Oops, an error occured! Probably our bad. :-)"
 #: ../../../plugins/users/mes-informations.php:62
 msgid "password_error"
 msgstr "Error: password confirmation doesn't match!"
+
+#: ../../../plugins/admin/index.php:44
+#, php-format
+msgid "Installing new plugin: '%s'"
+msgstr "Installing new plugin: '%s'"
+
+#: ../../../plugins/admin/index.php:46
+#, php-format
+msgid "plugin: '%s' currently not installed"
+msgstr "plugin: '%s' currently not installed"
+
+#: ../../../plugins/admin/index.php:59
+#, php-format
+msgid "plugin: '%s' is now installed"
+msgstr "plugin: '%s' is now installed"
+
+#: ../../../plugins/admin/index.php:61
+#, php-format
+msgid "plugin: '%s' could not be installed (ERROR)"
+msgstr "plugin: '%s' could not be installed (ERROR)"
+
+#: ../../../plugins/admin/index.php:64
+#, php-format
+msgid "plugin: '%s' yet installed"
+msgstr "plugin: '%s' yet installed"
+
+#: ../../../plugins/admin/index.php:67
+msgid "ERROR, no plugin to install!"
+msgstr "ERROR, no plugin to install!"
+
+#: ../../../plugins/admin/index.php:69
+msgid "End of 'install-plugin'"
+msgstr "End of 'install-plugin'"
 
 #: ../../../plugins/i18n/index.php:43
 msgid "Changement de langue effectué"
@@ -1179,6 +1393,12 @@ msgstr "Flux RSS"
 msgid "Flux Atom"
 msgstr "Flux Atom"
 
+#: ../../../plugins/backend/rss.php:61
+#: ../../../plugins/public_storm/storm.php:87
+#, php-format
+msgid "Suggestions de '%s'"
+msgstr "Suggestions from '%s'"
+
 #: ../../../plugins/rechercher/index.php:63
 #: ../../../plugins/rechercher/index.php:64
 #: ../../../plugins/rechercher/index.php:95
@@ -1196,12 +1416,12 @@ msgstr "marque"
 msgid "personnalite"
 msgstr "personnalite"
 
-#: ../../../plugins/public_storm/_plugin.php:352
-msgid "Anonyme"
-msgstr "Anonymous"
-
-#: ../../../plugins/public_storm/storms_list_alpha.php:43
-#: ../../../plugins/public_storm/storms_list.php:46
+#: ../../../plugins/public_storm/storms_list_alpha.php:44
+#: ../../../plugins/public_storm/storms_list_alpha.php:55
+#: ../../../plugins/public_storm/storms_list_alpha.php:57
+#: ../../../plugins/public_storm/storms_list.php:47
+#: ../../../plugins/public_storm/storms_list.php:58
+#: ../../../plugins/public_storm/storms_list.php:60
 #, php-format
 msgid "Liste des Storms, page %s"
 msgstr "Storms, page %s"
@@ -1221,6 +1441,8 @@ msgstr "New storm added: %s %s (by %s)"
 msgid "Erreur lors de la création du storm %s"
 msgstr "Error adding the storm %s"
 
+#~ msgid "créé par <a href=\"%1/utilisateurs/%2/\">%3</a>"
+#~ msgstr "created by <a href=\"%1/utilisateurs/%2/\">%3</a>"
 #~ msgid "Ajouter"
 #~ msgstr "Add"
 #~ msgid "period_"

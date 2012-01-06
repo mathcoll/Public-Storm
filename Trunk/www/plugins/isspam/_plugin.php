@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -68,7 +68,7 @@ final class isspam extends Plugins
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()
@@ -86,11 +86,6 @@ final class isspam extends Plugins
 		return self::$subdirs;
 	}
 	
-	/**
-	 * Deprecated !!
-	 * @param int $word_id
-	 * @return PDOStatement
-	 */
 	public function markAsSpam($word_id)
 	{
 		$q = 'INSERT INTO bee_spam (by_user_id, word_id) VALUES ("%s", "%d");';

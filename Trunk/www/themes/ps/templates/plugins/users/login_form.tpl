@@ -1,5 +1,6 @@
-<form action="{$base_url}/utilisateurs/login/" method="post">
+<form action="{$base_url}/utilisateurs/login/" method="post" id="loginForm">
 	<p>{t}login intro{/t}</p>
+	<p class="login_page"><a href="{$base_url}/utilisateurs/login/">{t}Login page{/t}</a></p>
 	<p>
 		<input type="text" class="login_form" name="login" id="login_v" value="{t}field.login{/t}" onfocus="this.select();" />
 	</p>

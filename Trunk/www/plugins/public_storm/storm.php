@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -57,6 +57,7 @@ if ( !isset($id) ) {
 		//print "Root=".$root."<br/>";
 		//print "permaname=".$storm_permaname."<br/>";
 		//print "storm_root=".$storm_root."<br/>";
+		$storm_permaname = str_replace("&", "", $storm_permaname);
 		if ( $id = public_storm::addStorm($storm_permaname, time(), urldecode($storm_root), $_SESSION['id']) ) {
 			$_SESSION["message"] = i18n::_("Vous venez de créer le storm %s !", array(urldecode($storm_root)));
 			if( DEV != true ) {
@@ -64,6 +65,7 @@ if ( !isset($id) ) {
 				identica_php::updateStatus(i18n::_("Nouveau storm créé : %s %s par %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname), $_SESSION["prenom"]." ".$_SESSION["nom"])));
 			}
 			else {
+				//identica_php::updateStatus(i18n::_("Nouveau storm créé : %s %s par %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname), $_SESSION["prenom"]." ".$_SESSION["nom"])));
 				//print "updateStatus => ".fixEncoding(i18n::_("Nouveau storm créé : %s %s par %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname), $_SESSION["prenom"]." ".$_SESSION["nom"])));
 			}
 		} else {
@@ -171,16 +173,18 @@ if ( isset($id) ) {
 		}
 	}
 	
-	$hubs = viadeo_api::getJsonGroups($root, 5);
-	//print_r($hubs["data"]);
-	$n=0;
-	foreach($hubs["data"] as $data) {
-		//print_r($data);
-		$containerId = substr($data["link"], strpos($data["link"], "containerId=")+12, strlen($data["link"])); 
-		$hubs["data"][$n]["link"] = "http://www.viadeo.com/hu03/".$containerId."/".urlencode($data["name"]);
-		$n++;
+	if( $statuses['viadeo_api'] == 1 ) {
+		$hubs = viadeo_api::getJsonGroups($root, 5);
+		//print_r($hubs["data"]);
+		$n=0;
+		foreach($hubs["data"] as $data) {
+			//print_r($data);
+			$containerId = substr($data["link"], strpos($data["link"], "containerId=")+12, strlen($data["link"])); 
+			$hubs["data"][$n]["link"] = "http://www.viadeo.com/hu03/".$containerId."/".urlencode($data["name"]);
+			$n++;
+		}
+		if( is_array($hubs) ) $sPlug->AddData("hubs", $hubs["data"]);
 	}
-	if( is_array($hubs) ) $sPlug->AddData("hubs", $hubs["data"]);
 	
 	Settings::setVar('title', "Storm ".$root);
 	$sPlug->AddData("rss_storm", Settings::getVar('base_url').'/backend/storm/'.urldecode($uri[$ind+1]).'/rss.php');

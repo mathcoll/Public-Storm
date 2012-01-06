@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -28,7 +28,7 @@ final class jquery_ui extends Plugins
 	{
 		//require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		//require_once('./plugins/'.self::$name.'/classes/'.self::$name.'.php');
-		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").'/plugins/'.self::$name.'/css/custom-theme/jquery-ui-1.8.9.custom.css', 'all.css');
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").'/plugins/'.self::$name.'/css/custom-theme/jquery-ui-1.8.9.custom.css', 'screen.css');
 		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").'/plugins/'.self::$name.'/js/jquery-1.4.4.min.js', 'jquery.js');
 		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").'/plugins/'.self::$name.'/js/jquery-ui-1.8.9.custom.min.js', 'jquery.js');
 		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").'/plugins/'.self::$name.'/js/jquery.js', 'jquery.js');
@@ -57,7 +57,7 @@ final class jquery_ui extends Plugins
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()

@@ -1,68 +1,67 @@
-function add_suggestion(base_url)
-{
+function add_suggestion(base_url) {
 	var formulaire = document.getElementById("suggestionForm");
 	//var exists = suggestion_exists(permaname(formulaire.suggestion.value));
 	//var suggestion = formulaire.suggestion.value;
-	var suggestion = $jQuery("#suggestion").val();
-	var storm_id = $jQuery("#storm_id").val();
-	var exists = suggestion_exists(permaname(suggestion));
-	if( exists == false )
-	{
-		var id = 'elt_'+alea(5);
-		var username = $jQuery("#username").html() ? $jQuery("#username").html() : "Anonymous";
-		var e = $jQuery(
-			'<li class="size_10 hidden bulle" id="'+id+'">' +
-			'<blockquote title=""><a href="'+base_url+'/storm/'+permaname(suggestion)+'/'+ucfirst(suggestion)+'/">'+ucfirst(suggestion)+'</a>' +
-			'	<span class="size" id="total_'+permaname(suggestion)+'">(1)</span>' +
-			'	<span id="suggestions_'+permaname(suggestion)+'" class="hidden" style="vertical-align:top;" />' +
-			'	<input type="hidden" name="suggestion" value="'+permaname(suggestion)+'">' +
-			'</blockquote>' +
-			'	<cite>' +
-			'		Suggérée par ' + username +
-			'	</cite>' +
-			'</li>'
-		);
-	}
-	if( $jQuery("#storm_"+storm_id+" li.no_suggestion") )
-	{
-		$jQuery("#storm_"+storm_id+" li.no_suggestion").hide();
-	}
-	_gaq.push(['_trackPageview', '/add_suggestion/'+$jQuery('#storm_permaname').val()+'/'+permaname(suggestion)]);
-	$jQuery.post(
-		formulaire.action,
-		{
-			suggestion: suggestion,
-			storm_id: storm_id
-		},
-		function(data)
-		{
-			if( e )
-			{
-				$jQuery('#storm_'+storm_id).append(e);
-				$jQuery('#'+id).fadeIn("slow");
-			}
-		},
-		"text"
-	);
-
-	// send to meteor
-	if ( Meteor )
-	{
+	var suggestions = $jQuery("#suggestion").val();
+	//alert(suggestions);
+	var reg=new RegExp("[/\|~:;,]+", "");
+	var suggs = suggestions.split(reg); 
+	$jQuery.each(suggs, function(i) {
+		var s = suggs[i];
+		var storm_id = $jQuery("#storm_id").val();
+		var exists = suggestion_exists(permaname(s));
+		if( exists == false ) {
+			var id = 'elt_'+alea(5);
+			var username = $jQuery("#username").html() ? $jQuery("#username").html() : "Anonymous";
+			var e = $jQuery(
+				'<li class="size_10 hidden bulle" id="'+id+'">' +
+				'<blockquote title=""><a href="'+base_url+'/storm/'+permaname(s)+'/'+ucfirst(s)+'/">'+ucfirst(s)+'</a>' +
+				'	<span class="size" id="total_'+permaname(s)+'">(1)</span>' +
+				'	<span id="suggestions_'+permaname(s)+'" class="hidden" style="vertical-align:top;" />' +
+				'	<input type="hidden" name="suggestion" value="'+permaname(s)+'">' +
+				'</blockquote>' +
+				'	<cite>' +
+				'		Suggérée par ' + username +
+				'	</cite>' +
+				'</li>'
+			);
+		}
+		if( $jQuery("#storm_"+storm_id+" li.no_suggestion") ) {
+			$jQuery("#storm_"+storm_id+" li.no_suggestion").hide();
+		}
+		_gaq.push(['_trackPageview', '/add_suggestion/'+$jQuery('#storm_permaname').val()+'/'+permaname(s)]);
+		//alert(s);
 		$jQuery.post(
-			//BASE_URL+'/admin/gettab/meteor/addSuggestion/'+getChannelName()+'/',
-			BASE_URL+'/meteor/meteor.php',
-			{
-				command: "addSuggestion", 
-				user: '', 
-				channel: getChannelName(), 
-				message: suggestion
+			formulaire.action, {
+				suggestion: s,
+				storm_id: storm_id
 			},
-			function(data) { setSubscribers(data); },
-			"json"
+			function(data) {
+				if( e ) {
+					$jQuery('#storm_'+storm_id).append(e);
+					$jQuery('#'+id).fadeIn("slow");
+				}
+			},
+			"text"
 		);
-	}
-
-	display_new_suggestion('storm_'+storm_id, '+1', permaname(suggestion));
+	
+		// send to meteor
+		if ( Meteor ) {
+			$jQuery.post(
+				//BASE_URL+'/admin/gettab/meteor/addSuggestion/'+getChannelName()+'/',
+				BASE_URL+'/meteor/meteor.php', {
+					command: "addSuggestion", 
+					user: '', 
+					channel: getChannelName(), 
+					message: s
+				},
+				function(data) { setSubscribers(data); },
+				"json"
+			);
+		}
+	
+		display_new_suggestion('storm_'+storm_id, '+1', permaname(s));
+	});
 	//formulaire.suggestion.value = "";
 	$jQuery("#suggestion").val("");
 }
@@ -128,11 +127,9 @@ function add_this_storm(form, base_url)
 	document.location.href = form.action + permaname(form.storm.value) + '/' + encodeURI(form.storm.value) + '/';
 }
 
-function display_new_suggestion(id, inhtml, elt)
-{
+function display_new_suggestion(id, inhtml, elt) {
 	$jQuery('#' + id + ' li input[name=suggestion]').each(
-		function(index, element)
-		{
+		function(index, element) {
 			var v = $jQuery(element).val();
 			//alert(v+' '+elt);
 			if (v == elt) {

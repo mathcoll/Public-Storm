@@ -1,5 +1,11 @@
 <?php
+gettext("sendMailToAdmin");
+gettext("inscription.signature");
+
+?><?php
 gettext("liste_plugins");
+gettext("Afficher tout");
+gettext("Masquer les inactifs");
 gettext("Nom");
 gettext("Description");
 gettext("Date de mise à jour");
@@ -27,9 +33,11 @@ gettext("forbidden");
 gettext("forbidden_details");
 
 ?><?php
-gettext("Nom");
+gettext("configuration");
 gettext("Description");
+gettext("Nom");
 gettext("Valeur");
+gettext("Ok");
 
 ?><?php
 gettext("liste_plugins");

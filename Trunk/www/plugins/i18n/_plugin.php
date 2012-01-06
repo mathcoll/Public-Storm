@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -47,10 +47,6 @@ final class i18n extends Plugins
 		/* end Load languages */
 	}
 	
-	/**
-	 * List all available languages
-	 * @return array
-	 */
 	public function langs()
 	{
 		$ls = explode(";", Settings::getVar('languages'));
@@ -68,34 +64,23 @@ final class i18n extends Plugins
 		return $l;
 	}	
 	
-	/**
-	 * Localize a string using gettext
-	 * @param string $index
-	 * @param string $datas
-	 * @return string the internationalized string
-	 */
-	public function _($index, $datas=null) {
+	public function _($index, $datas=null)
+	{
 		//print dgettext("*", $index)."<br />";
 		//return dgettext("*", $index);
 		if ( !isset($datas) ) {
 			return gettext($index);
-		} else {
+		}
+		else {
 			return vsprintf(gettext($index), $datas);
 		}
 	}
 	
-	/**
-	 * Alias of _
-	 */
-	public function l($index, $datas=null) {
+	public function l($index, $datas=null)
+	{
 		return self::_($index, $datas);
 	}
 	
-	/**
-	 * Setup the local variable for the user
-	 * @param string $locale
-	 * @return string
-	 */
 	public function setLocale($locale)
 	{
 		$_SESSION["LANG"] = $locale;
@@ -112,35 +97,43 @@ final class i18n extends Plugins
 		return $locale;
 	}		
 	
-	public function loadLang() {
+	public function loadLang()
+	{
 		return parent::loadLang(self::$name);
 	}	
 	
-	public function getVersion() {
+	public function getVersion()
+	{
 		return parent::getVersion();
 	}
 	
-	public function getName() {
+	public function getName()
+	{
 		return self::$name;
 	}
 	
-	public function getDescription() {
+	public function getDescription()
+	{
 		return parent::getDescription();
 	}
 	
-	public function getAuthor() {
-		return self::getAuthor();
+	public function getAuthor()
+	{
+		return parent::getAuthor();
 	}
 	
-	public function getIcon() {
+	public function getIcon()
+	{
 		return parent::getIcon(self::$name);
 	}
 	
-	public function getStatus() {
+	public function getStatus()
+	{
 		return parent::getStatus(self::$name);
 	}
 	
-	public function getSubDirs() {
+	public function getSubDirs()
+	{
 		return self::$subdirs;
 	}
 }

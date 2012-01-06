@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -56,7 +56,7 @@ foreach($customizable as $custom)
 	{
 		array_push($c, array($custom, Settings::getVar($custom), Settings::getCustomizableDesc($custom), Settings::getCustomizableType($custom) ));
 	}
-	elseif( Settings::getCustomizableType($custom) == $uri[$ind+3] )
+	elseif( Settings::getCustomizableType($custom) == $uri[$ind+3] || $uri[$ind+3] == "undefined" )
 	{
 		array_push($c, array($custom, Settings::getVar($custom), Settings::getCustomizableDesc($custom), Settings::getCustomizableType($custom) ));
 	}

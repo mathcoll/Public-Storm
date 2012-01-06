@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -28,7 +28,7 @@ final class share extends Plugins
 	public function __construct()
 	{
 		require(Settings::getVar('prefix') . 'conf/share.php');
-		Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/share/styles/share.css', 'all.css');
+		Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/share/styles/share.css', 'screen.css');
 		Settings::addJs('text/javascript', Settings::getVar('theme_dir').'plugins/share/scripts/share.js');
 		//require_once("./plugins/default/classes/share.php");
 
@@ -56,7 +56,7 @@ final class share extends Plugins
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()

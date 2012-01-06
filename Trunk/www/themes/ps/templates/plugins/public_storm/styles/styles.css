@@ -217,7 +217,8 @@ a span.add-to-favorites
 {
 	background-position:0 -458px;
 	padding:13px 0 5px 30px;
-}span.remove-from-favorites
+}
+span.remove-from-favorites
 {
 	background-position:0 -487px;
 	padding:10px 0 5px 30px;
@@ -318,7 +319,9 @@ span.suggest-too input:hover
 {
     background-position:1px 1px;
 }
-
+#login form p.login_page {
+	display:none;
+}
 .neato
 {
 	width: 450px;

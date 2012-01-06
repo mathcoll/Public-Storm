@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -32,12 +32,13 @@ final class public_storm extends Plugins
 	public function __construct()
 	{
 		require(Settings::getVar('prefix') . 'conf/public_storm.php');
-		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/public_storm/styles/styles.css', 'all.css');
-		/* general styles */
-		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/styles.css', 'all.css');
-		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/widgetWikio.css', 'all.css');
-		//Settings::addCss('print', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/print.css', 'all.css');
-
+		Settings::addCss('handheld', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/public_storm/styles/handheld.css', 'handheld.css');
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/public_storm/styles/styles.css', 'screen.css');
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/styles.css', 'screen.css');
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/widgetWikio.css', 'screen.css');
+		Settings::addCss('print', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/public_storm/styles/print.css', 'print.css');
+		Settings::addCss('print', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/print.css', 'print.css');
+		
 		/* Public-Storm scripts */
 		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'scripts/main.js', 'all.js');
 		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/public_storm/scripts/public_storm.js', 'all.js');
@@ -49,18 +50,12 @@ final class public_storm extends Plugins
 		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'scripts/jquery.serialScroll-min.js', 'jquery.js');
 		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'scripts/coda-slider.js', 'jquery.js');
 
-		if ( !class_exists(Settings::$DB_TYPE) )
-		{
+		if ( !class_exists(Settings::$DB_TYPE) ) {
 			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR, __LINE__, __FILE__);
-		}
-		else
-		{
-			if ( self::$db = new Settings::$DB_TYPE )
-			{
+		} else {
+			if ( self::$db = new Settings::$DB_TYPE ) {
 				return true;
-			}
-			else
-			{
+			} else {
 				Debug::Log($err, ERROR, __LINE__, __FILE__);
 				return false;
 				exit($err);
@@ -101,7 +96,7 @@ final class public_storm extends Plugins
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()

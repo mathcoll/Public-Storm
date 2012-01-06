@@ -11,13 +11,27 @@
 	<meta property="og:description" content="{$meta_description|strip_tags}" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	{foreach from=$rssfeeds item=rss}
-		<link href="{$rss.href}" rel="{$rss.rel}" type="{$rss.type}" title="{$rss.title}" />
+<link href="{$rss.href}" rel="{$rss.rel}" type="{$rss.type}" title="{$rss.title}" />
 	{/foreach}
 	<link rel="shortcut icon" href="{$theme_dir}favicon.ico" type="image/x-icon" />
 	<meta name="description" content="{t}baseline{/t} {$meta_description|strip_tags}" />
 	<meta name="keywords" content="{$meta_keywords}" />
 	<meta name="generator" content="{$site_name} {$version} - {$base_url_http}" />
-
+{if $has_prev != ""}
+<link rel="prev" href="{$has_prev.href}" title="{$has_prev.title}" />
+{/if}
+{if $has_start != ""}
+<link rel="start" href="{$has_start.href}" title="{$has_start.title}" />
+{/if}
+{if $has_next != ""}
+<link rel="next" href="{$has_next.href}" title="{$has_next.title}" />
+{/if}
+{if $is_mobile eq 1}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{/if}
+{if $statuses.trackbacks eq 1}
+	<link rel="pingback" href="{$base_url_http}/trackbacks/index.php" />
+{/if}
 	{foreach from=$styles item=style}
 <link rel="stylesheet" type="text/css" media="{$style.media}" href="{$style.stylesheet}" />
 	{/foreach}
@@ -63,7 +77,7 @@
 				{/foreach}
 			</ul>
 			<p>&nbsp;</p>
-			<p><a href="mailto:contact@internetcollaboratif.info">{t}Aider à la traduction{/t}</a></p>
+			<p class="nomobile"><a href="mailto:contact@internetcollaboratif.info">{t}Aider à la traduction{/t}</a></p>
 		</div><!-- languages -->
 		{/if}
 		

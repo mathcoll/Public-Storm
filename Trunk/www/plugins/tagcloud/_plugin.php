@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -30,16 +30,11 @@ final class tagcloud extends Plugins
 		//require(Settings::getVar('prefix') . 'conf/tagcloud.php');
 		require_once("./plugins/tagcloud/classes/wordcloud.class.php");
 		//Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/tagcloud/styles/wordcloud.css');
-		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/tagcloud/styles/wordcloud.css', 'all.css');
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/tagcloud/styles/wordcloud.css', 'screen.css');
 		self::$cloud = new wordCloud(self::$words);
 		//print "version ".self::$version;
 	}
 	
-	/**
-	 * Get or display a cloud
-	 * @param boolean $displaySuggestion
-	 * @return string
-	 */
 	public function showCloud($displaySuggestion=false)
 	{
 		$myCloud = self::$cloud->showCloud("array");
@@ -51,27 +46,17 @@ final class tagcloud extends Plugins
 				$js = "suggest_too('".addslashes($value['word']) . "', '".Settings::getVar('BASE_URL')."')";
 				$s = '<span class="suggest-too" title="'._('Je suggère moi aussi !').'"><input type="button" value="+" onclick="'.$js.'"/></span>';
 			} else { $s = ""; }
-			$c .= ' <span class="nobr"><a href="'.Settings::getVar('BASE_URL_HTTP').'/storm/'.modifier_url($value['word']).'/" class="word size'.$value['sizeRange'].'" title="'.$value['word'].' : '.$value['sizeRange'].' suggest.">'.$value['word'].'</a>'.$s.'&nbsp;</span>';
+			$c .= ' <span class="nobr"><a href="'.Settings::getVar('BASE_URL_HTTP').'/storm/'.modifier_url($value['word']).'/'.urlencode(UcFirst($value['word'])).'/" class="word size'.$value['sizeRange'].'" title="'.$value['word'].' : '.$value['sizeRange'].' suggest.">'.$value['word'].'</a>'.$s.'&nbsp;</span>';
 		}
 		return $c;
 	}
 	
-	/**
-	 * Add a word to the current cloud
-	 * @param string $word
-	 * @param int $value
-	 * @return array
-	 */
 	public function addWord($word, $value)
 	{
 		//print_r(self::getWords());
 		return self::$cloud->addWord($word, $value);
 	}
 	
-	/**
-	 * Get the words list
-	 * @return array
-	 */
 	public function getWords()
 	{
 		return self::$words;
@@ -99,7 +84,7 @@ final class tagcloud extends Plugins
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()

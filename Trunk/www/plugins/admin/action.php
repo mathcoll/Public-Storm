@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -25,12 +25,12 @@ switch ( $action )
 {
 	case "activer" :
 		Plugins::activatePlugin($uri[$ind+3]);
-		$_SESSION["message"] = i18n::_("activer %s", array($uri[$ind+3]));
+		$_SESSION["message"] = "activer ".$uri[$ind+3];
 		break;
 		
 	case "desactiver" :
 		Plugins::deActivatePlugin($uri[$ind+3]);
-		$_SESSION["message"] = i18n::_("désactiver %s", array($uri[$ind+3]));
+		$_SESSION["message"] = "desactiver ".$uri[$ind+3];
 		break;
 	
 	default : break;

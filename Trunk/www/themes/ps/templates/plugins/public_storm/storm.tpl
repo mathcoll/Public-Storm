@@ -1,6 +1,6 @@
 {assign var=rootCap value=$storm.root|ucfirst}
 
-<div itemscope itemtype="http://data-vocabulary.org/Review">
+<div itemscope itemtype="http://data-vocabulary.org/Review" class="pageContent">
 	<span itemprop="summary" class="Review">{$title}</span>
 	<span itemprop="rating" class="Review">{$rating}</span>
 	<span itemprop="count" class="Review">{$votes}</span>

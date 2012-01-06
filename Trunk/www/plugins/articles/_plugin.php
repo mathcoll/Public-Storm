@@ -1,7 +1,7 @@
 <?php
 /*
  Public-Storm
- Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+ Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
  This file is part of Public-Storm.
 
  Public-Storm is free software: you can redistribute it and/or modify
@@ -30,7 +30,8 @@ final class articles extends Plugins {
 			if ( self::$db = new Settings::$DB_TYPE) {
 				self::$db = new PDO("sqlite:./datas/articles.db");
 				return true;
-			} else {
+			}
+			else {
 				Debug::Log($err, ERROR, __LINE__, __FILE__);
 				return false;
 				exit($err);
@@ -55,7 +56,7 @@ final class articles extends Plugins {
 	}
 
 	public function getAuthor() {
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 
 	public function getSubDirs() {
@@ -70,23 +71,10 @@ final class articles extends Plugins {
 		return parent::getStatus(self::$name);
 	}
 
-	/**
-	 * Escapes a string for use in a mysql_query
-	 * @link http://www.php.net/manual/en/function.mysql-escape-string.php
-	 * @param unescaped_string string <p>
-	 * The string that is to be escaped.
-	 * </p>
-	 * @return string the escaped string.
-	 */
 	public static function escape_string($str) {
 		return mysql_escape_string($str);
 	}
 
-	/**
-	 * Get a list of all available titles from DataBase filter by language
-	 * @param string $lang the filter
-	 * @return array
-	 */
 	public function getArticlesTitles($lang=NULL) {
 		$lang = isset($lang) ? $lang : $_SESSION['LANG'];
 		$q = 'SELECT title, uid FROM articles a, articles_meta_datas amd WHERE (a.article_id = amd.article_id) AND (amd.meta_name = "lang") AND (amd.meta_value="%s")';
@@ -108,12 +96,6 @@ final class articles extends Plugins {
 		return $r;
 	}
 
-	/**
-	 * Retrieve all the datas§meta_datas from DataBase
-	 * @param string $uid
-	 * @param string $lang the filter
-	 * @return array
-	 */
 	public function getDatas($uid=NULL, $lang=NULL) {
 		$lang = isset($lang) ? $lang : $_SESSION['LANG'];
 		$q = 'SELECT title, content FROM articles a, articles_meta_datas amd WHERE (a.uid="%s") AND (a.article_id = amd.article_id) AND (amd.meta_name = "lang") AND (amd.meta_value="%s") LIMIT 1';
@@ -135,4 +117,6 @@ final class articles extends Plugins {
 		return $r;
 	}
 }
+
+
 ?>

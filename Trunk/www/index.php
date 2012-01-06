@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -24,7 +24,6 @@ ob_start();
 require("core.php");
 require("prepend.php");
 $s = new Settings::$VIEWER_TYPE;
-
 $s->AddData("locale", LANG);
 $s->AddData("site_name", Settings::getVar('SITE_NAME'));
 $s->AddData("site_description", Settings::getVar('SITE_DESCRIPTION'));
@@ -37,36 +36,43 @@ $s->AddData("theme_dir", Settings::getVar('theme_dir'));
 $s->AddData("current_lang", @$_COOKIE["locale"]);
 $s->AddData("s", @$_SESSION['s']);
 $s->AddData("langs", i18n::langs());
+$s->AddData("is_mobile", Settings::getVar('is_mobile'));
+$s->AddData("has_prev", Settings::getVar('has_prev')); #TODO
+$s->AddData("has_next", Settings::getVar('has_next')); #TODO
+$s->AddData("has_start", Settings::getVar('has_start')); #TODO
 $s->AddData("fb_app_id", Settings::getVar('fb_app_id'));
 
-if( $statuses['compressor'] == 1 )
-{
+if( $statuses['compressor'] == 1 ) {
 	$listeCss = explode(",", Settings::getVar('listeCss'));
-	foreach( $listeCss as $css )
-	{
-		/* compression des Css */
-		$csss = array();
-		foreach( Settings::getCsss('screen', true) as $file )
-		{
-			//print_r(Settings::getCsss('screen', true))."\n";
-			if ( $file['file'] == $css )
-			{
-				array_push(
-					$csss,
-					$file['stylesheet']
-				);
+	foreach( $listeCss as $css ) {
+		foreach( Settings::getCsss($css, true) as $file ) {
+			if ( $file['media'] == $css ) {
 				Settings::removeCss($file['stylesheet']);
 			}
-			//print "--> ".$file['stylesheet']."<br />\n";
 		}
-		//print_r(Settings::getCsss('screen', true))."\n";
-		$debug = DEBUG == true ? "debug/" : "";
-		Settings::addCss('screen', Settings::getVar('base_url')."/css/groups/".$css."/".$debug, $css);
+	}
+	
+	$debug = DEBUG == true ? "debug/" : "";
+	if ( Settings::getVar('listeCss-handheld') == true ) {
+		//print "listeCss-handheld";
+		Settings::setVar('listeCss-screen', true);
+	}
+	foreach( $listeCss as $css ) {
+		$media=$css=="admin"?"screenToForce":$css;#TODO !!!! grrrr !!!!
+		$media=$css=="handheld"?"screenToForce":$css;#TODO !!!! grrrr !!!!
+		//print $css."=>".$media."<br />\n";
+		if ( Settings::getVar('listeCss-'.$css) == true ) {
+			//print $media." - media<br />";
+			//print $css." - css<br />";
+			//print Settings::getVar('base_url')."/css/groups/".$css.".css/"." - stylesheet<br />";
+			Settings::addCss($media, Settings::getVar('base_url')."/css/groups/".$css.".css/".$debug, $css.".css");
+		} else {
+			//print $css." - disabled<br />";
+		}
 	}
 	
 	$listeJs = explode(",", Settings::getVar('listeJs'));
-	foreach( $listeJs as $js )
-	{
+	foreach( $listeJs as $js ) {
 		/* compression des Js */
 		$jss = array();
 		foreach( Settings::getJss('text/javascript', true) as $file )

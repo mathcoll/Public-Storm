@@ -114,22 +114,22 @@ function tab(name, id, folder, subpage) {
 	if (subpage !== null) {
 		name = name + "/" + subpage;
 	}
-	$jQuery
-			.get(BASE_URL + "/" + folder + "/gettab/" + name + "/",
-					function(data) {
-						if (data) {
-							$jQuery("#content").html(data);
-						} else {
-							$jQuery("#content").html("ERREUR !!");
-						}
+	var url = BASE_URL + "/" + folder + "/gettab/" + name + "/";
+	
+	$jQuery.get(
+				url,
+				function(data) {
+					if (data) {
+						$jQuery("#content").html(data);
+					} else {
+						$jQuery("#content").html("ERREUR !!");
+					}
 
-						$jQuery("#menu ul li a").each(function(i) {
-							$jQuery(this).removeClass('tab-hightlight');
-						});
-
-						$jQuery("#menu ul li a span#" + id).parent().addClass(
-								'tab-hightlight');
-						$jQuery("#menu ul li a span#" + id).parent()
-								.removeClass('tab');
+					$jQuery("#menu ul li a").each(function(i) {
+						$jQuery(this).removeClass('tab-hightlight');
 					});
+
+					$jQuery("#menu ul li a span#" + id).parent().addClass('tab-hightlight');
+					$jQuery("#menu ul li a span#" + id).parent().removeClass('tab');
+				});
 }

@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -35,11 +35,6 @@ final class ods_php extends Plugins
 		return $this;
 	}
 	
-	/**
-	 * Write a file to server
-	 * @param string $storm
-	 * @return ods_php
-	 */
 	public function generateFile($storm)
 	{
 		//print_r($storm);
@@ -121,7 +116,7 @@ final class ods_php extends Plugins
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()

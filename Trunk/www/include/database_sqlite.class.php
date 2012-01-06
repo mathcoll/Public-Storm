@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -87,28 +87,22 @@ class Database_sqlite extends Database
 		}
 	}
 	
-	public static function authentificationByUid( $uid )
-	{
-		$q = 'SELECT r.role_id as role_id, u.user_id as id, u.uid, u.lang, u.nom, u.prenom, u.email, u.login FROM users u, roles r WHERE (uid = "%s" AND persistent="1") AND (u.role_id = r.role_id)';
+	public static function authentificationByUid( $uid ) {
+		$q = 'SELECT r.role_id as role_id, u.user_id as id, u.uid, u.lang, u.nom, u.prenom, u.email, u.login, u.password, u.persistent, u.subscription_date FROM users u, roles r WHERE (uid = "%s" AND persistent="1") AND (u.role_id = r.role_id) LIMIT 1';
 		$query = sprintf(
 			$q,
 			self::escape_string($uid)
 		);
 		$result = self::$dbUser->query($query);
-		if ( DEBUG )
-		{
-			Debug::Log("Erreur authentificationByUid ".$query, SQL, __LINE__, __FILE__);
+		if ( DEBUG ) {
+			Debug::Log("authentificationByUid ".$query, SQL, __LINE__, __FILE__);
 			#Debug::Log(print_r(mysql_fetch_assoc($result), 1), NOTICE, __LINE__, __FILE__);
 		}
-		if ( !$result && DEBUG )
-		{
-			Debug::Log("Erreur 12".$query, ERROR, __LINE__, __FILE__);
+		if ( !$result && DEBUG ) {
+			Debug::Log("Erreur 12 ".$query, ERROR, __LINE__, __FILE__);
 			return false;
-		}
-		else
-		{
-			while ( $row = $result->fetch() )
-			{
+		} else {
+			while ( $row = $result->fetch() ) {
 				$datas['id'] = $row['id'];
 				$datas['uid'] = $row['uid'];
 				$datas['prenom'] = $row['prenom'];
@@ -116,7 +110,11 @@ class Database_sqlite extends Database
 				$datas['nom'] = $row['nom'];
 				$datas['lang'] = $row['lang'];
 				$datas['email'] = $row['email'];
+				$datas['password'] = $row['password'];
+				$datas['persistent'] = $row['persistent'];
+				$datas['subscription_date'] = $row['subscription_date'];
 				$datas['isadmin'] = $row['role_id'] == 1 ? 1 : 0;
+				//print_r($datas);
 				return $datas;
 			}
 		}
@@ -148,7 +146,7 @@ class Database_sqlite extends Database
 	public static function userUpdateSessionId($login, $password_md5, $persistent=false)
 	{
 		$persistent = $persistent == true ? 1 : 0;
-		$q = 'UPDATE users SET session_id=md5(now()), persistent="%s" WHERE login = "%s" AND password="%s"';
+		$q = 'UPDATE users SET session_id=md5(now()), persistent="%s" WHERE login = "%s" AND password="%s" LIMIT 1';
 		$query = sprintf(
 			$q,
 			self::escape_string($persistent),
@@ -405,15 +403,11 @@ class Database_sqlite extends Database
 		}
 	}
 	
-	public static function q( $q, $database, $datas )
-	{
-		try
-		{
+	public static function q( $q, $database, $datas ) {
+		try {
 			self::$db_custom = new PDO("sqlite:./datas/".$database);
 			if ( !self::$db_custom ) throw new DatabaseException("error");
-		}
-		catch (Exception $e)
-		{
+		} catch (Exception $e) {
 			Debug::Log($e, ERROR, __LINE__, __FILE__);
 			return false;
 		}
@@ -427,14 +421,10 @@ class Database_sqlite extends Database
 		}
 		//print $query."<br />";
 		$result = self::$db_custom->query($query);
-		if ( !$result && DEBUG )
-		{
+		if ( !$result && DEBUG ) {
 			Debug::Log("Erreur q ".$query, SQL, __LINE__, __FILE__);
-		}
-		else
-		{
-			while ( $row = $result->fetch() )
-			{
+		} else {
+			while ( $row = $result->fetch() ) {
 				$datas[] = $row;
 			}
 			//print_r($datas);
@@ -442,15 +432,11 @@ class Database_sqlite extends Database
 		}
 	}
 	
-	public static function q2( $q, $database, $datas )
-	{
-		try
-		{
+	public static function q2( $q, $database, $datas ) {
+		try {
 			self::$db_custom = new PDO("sqlite:./datas/".$database);
 			if ( !self::$db_custom ) throw new DatabaseException("error");
-		}
-		catch (Exception $e)
-		{
+		} catch (Exception $e) {
 			Debug::Log($e, ERROR, __LINE__, __FILE__);
 			return false;
 		}
@@ -478,7 +464,6 @@ class Database_sqlite extends Database
 			$q,
 			self::escape_string($datas[0])
 		);
-		//print $query;
 		Debug::Log($query, SQL, __LINE__, __FILE__);
 		if ( self::$db_custom->query($query) )
 		{
@@ -488,11 +473,6 @@ class Database_sqlite extends Database
 		{
 			return self::$db_custom->errorInfo();
 		}
-	}
-	
-	public static function escape_string($str)
-	{
-		return mysql_escape_string($str);
 	}
 
 	public static function install()

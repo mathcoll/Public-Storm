@@ -1,6 +1,6 @@
 <h3>{t}mes_informations{/t}</h3>
 
-<form action="{$base_url}/utilisateurs/mon-compte/mes-informations/" method="post" class="formulaire">
+<form action="{$base_url}/utilisateurs/mon-compte/mes-informations/" method="post" class="formulaire mes-informations">
 	<div class="table">
 		<div class="table-row">
 			<div class="table-cell">{* left col *}

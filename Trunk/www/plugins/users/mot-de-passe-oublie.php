@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -31,7 +31,7 @@ Settings::setVar('meta_description', i18n::_("description", array("")));
 $sPlug->AddData("site_baseline", Settings::getVar('SITE_BASELINE'));
 $sPlug->AddData("version", Settings::getVar('SITE_VERSION'));
 $sPlug->AddData("prefix", Settings::getVar('prefix'));
-$sPlug->AddData("base_url", Settings::getVar('base_url_http'));
+$sPlug->AddData("base_url_http", Settings::getVar('base_url_http'));
 $sPlug->AddData("theme_dir", Settings::getVar('theme_dir'));
 $sPlug->AddData("theme_dir_http", Settings::getVar('theme_dir_http'));
 $sPlug->AddData("user_infos", $user_infos);
@@ -48,7 +48,7 @@ if ( $_POST && ( $_POST["email"] || $_POST["login"] ) )
 	$prenom = $user["prenom"];
 	
 	
-	if ( isset($login) )
+	if ( isset($login) && User::getEmailFromLogin($login) ) /* check that email exist in DB */
 	{
 		if ( $password = User::userResetPassword($login) )
 		{
@@ -80,7 +80,7 @@ $user = Array(
 	'id'		=> $_SESSION['user_id'],
 	'prenom'	=> $_SESSION['prenom'],
 	'nom'		=> $_SESSION['nom'],
-	'email'	=> $_SESSION['email']
+	'email'		=> $_SESSION['email']
 );
 $sPlug->AddData("user", $user);
 

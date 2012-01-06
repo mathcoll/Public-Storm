@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -30,7 +30,7 @@ final class prelaunch extends Plugins
 	{
 		$s = new Settings::$VIEWER_TYPE;
 		require(Settings::getVar('prefix') . 'conf/prelaunch.php');
-		Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/prelaunch/styles/prelaunch.css', 'all.css');
+		Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/prelaunch/styles/prelaunch.css', 'screen.css');
 		$s->AddData("storm", $storm);
 		#$s->AddData("i18n", i18n::getLng());
 		$s->AddData("site_name", Settings::getVar('SITE_NAME'));
@@ -87,20 +87,12 @@ final class prelaunch extends Plugins
 		exit;
 	}
 	
-	/**
-	 * Return how many users are in DataBase from prelaunch DB
-	 */
 	public static function getNbPrelaunchUsers()
 	{
 		$count = self::$db->q("SELECT count(*) as nb FROM prelaunch", "prelaunch.db", array());
 		return $count[0]['nb'];
 	}
 	
-	/**
-	 * Get a list of users who subscribe to prelaunch
-	 * @param int $from
-	 * @param int $nombre the number of rows to get
-	 */
 	public static function getAllPrelaunchUsers($from=0, $nombre=5)
 	{
 		return self::$db->q2("SELECT email, date, referrer FROM prelaunch ORDER BY date DESC LIMIT :from, :nombre", "prelaunch.db", array(':from' => $from, ':nombre' => $nombre));
@@ -134,7 +126,7 @@ final class prelaunch extends Plugins
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()

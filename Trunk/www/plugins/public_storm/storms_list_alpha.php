@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -36,8 +36,9 @@ else
 }
 
 $current_page = $uri[$ind+2] != NULL ? $uri[$ind+2] : 1;
+$nb_pages = ceil(public_storm::getNbStorms() / Settings::getVar('storms_per_page'));
 $sPlug->AddData("current_page", $current_page);
-$sPlug->AddData("nb_pages", ceil(public_storm::getNbStorms() / Settings::getVar('storms_per_page')));
+$sPlug->AddData("nb_pages", $nb_pages);
 $sPlug->AddData("nbstorms", public_storm::getNbStorms());
 
 Settings::setVar('title', i18n::_("Liste des Storms, page %s", array($current_page)));
@@ -50,6 +51,11 @@ Settings::setVar('breadcrumb', $breadcrumb);
 $sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
 #$sPlug->->AddData("i18n", i18n::getLng());
 $sPlug->AddData("storms", public_storm::getStormsByAlpha($current_page==1 ? 0 : ((Settings::getVar('storms_per_page')*($current_page-1))), Settings::getVar('storms_per_page')));
+if ( $nb_pages > 1 ) {
+	if ( $current_page > 1 ) Settings::setVar('has_prev', array('href' => '/storms/alpha/'.($current_page-1).'/', 'title' => i18n::_("Liste des Storms, page %s", array($current_page-1))));
+	Settings::setVar('has_start', array('href' => '/storms/alpha/', 'title' => i18n::_("list_date")));
+	if ( $current_page < $nb_pages ) Settings::setVar('has_next', array('href' => '/storms/alpha/'.($current_page+1).'/', 'title' => i18n::_("Liste des Storms, page %s", array($current_page+1))));
+}
 $content = $sPlug->fetch("storms_list_alpha.tpl", "plugins/public_storm");
 
 

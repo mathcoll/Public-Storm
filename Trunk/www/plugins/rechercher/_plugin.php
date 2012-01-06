@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -28,6 +28,29 @@ final class rechercher extends Plugins
 		require(Settings::getVar('prefix') . 'conf/rechercher.php');
 	}
 	
+	public function getArticlesTitles()
+	{
+		return self::$articles;
+	}
+	
+	public function getTitle($id=NULL)
+	{
+		if( isset($id) )
+		{
+			foreach( self::$articles as $article)
+			{
+				if ( $article{'id'} == $id )
+				{
+					return $article{'title'};
+				}
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
 	public function loadLang()
 	{
 		return parent::loadLang(self::$name);
@@ -50,7 +73,7 @@ final class rechercher extends Plugins
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()

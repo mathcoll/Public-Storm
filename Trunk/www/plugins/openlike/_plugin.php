@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -29,7 +29,7 @@ final class openlike extends Plugins
 	{
 		require(Settings::getVar('prefix') . 'conf/openlike.php');
 
-		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").'/plugins/openlike/openlike/v1/openlike.css', 'all.css');
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").'/plugins/openlike/openlike/v1/openlike.css', 'screen.css');
 		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").'/plugins/openlike/openlike/v1/openlike.dev.js', 'all.js');
 	}
 	
@@ -55,7 +55,7 @@ final class openlike extends Plugins
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()

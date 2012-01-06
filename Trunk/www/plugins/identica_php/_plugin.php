@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -35,23 +35,23 @@ final class identica_php extends Plugins
 		}
 	}
 	
-	/**
-	 * update the identica status of the account
-	 * @param string $string
-	 * @return Ambigous <the, mixed>
-	 */
-	public function updateStatus($string)
-	{	
-		return self::$identica->updateStatus(substr($string, 0, 140));
+	public function updateStatus($string, $cronId=null) {
+		$json_decoded = json_decode($string);
+		if ( $json_decoded->{'string'} != null ) {
+			$string = $json_decoded->{'string'};
+		}
+		if ( !$updateStatus = self::$identica->updateStatus(substr($string, 0, 140)) ) {
+			if ( Plugins::isActive("aboutcron") && $cronId == null ) {
+				aboutcron::addAction(array("identica_php::updateStatus", json_encode(array("string" => $string)), time()+3600));
+			}
+		} else {
+			if ( $cronId != null ) {
+				aboutcron::removeAction($cronId);
+			}
+			return $updateStatus;
+		}
 	}
 	
-	/** 
-    * Returns extended information of a given user, specified by ID or email as per the required id parameter.  
-    * @param format is the extension for the result file (xml, json). 
-    * @param id is the ID of specified user.
-    * @param email is the email of specified user.
-    * @return extended information of a given user.
-    */
 	public function showUser($format, $id, $email = NULL)
 	{
 		return self::$identica->showUser($format, $id, $email=NULL);
@@ -79,7 +79,7 @@ final class identica_php extends Plugins
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()

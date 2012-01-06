@@ -4,6 +4,7 @@
 gettext("Nous contacter :");
 gettext("a_propos");
 gettext("version");
+gettext("Sondage Public-Storm");
 
 ?><?php
 gettext("baseline");

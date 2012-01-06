@@ -1,6 +1,6 @@
 <html>
 <body>
-<a href="{$base_url}"><img src="{$theme_dir_http}img/logo.jpg" align="left" border="0"></a>
+<a href="{$base_url_http}?utm_source=nouveau-compte&utm_medium=email&utm_term=key1&utm_campaign=Public-Storm"><img src="{$theme_dir_http}img/logo.jpg" align="left" border="0"></a>
 <h1 style="font-size:18px;">{t}inscription.subject{/t}</h1>
 <p style="font-size:12px;">
 	{t}inscription.welcome{/t}

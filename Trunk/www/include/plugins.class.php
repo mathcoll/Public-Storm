@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -60,15 +60,7 @@ class Plugins
 			}
 		}
 	}
-
-	/**
-	 * Add items in the admin menu
-	 * @return boolean
-	 */
-	public function initAdminMenu() {
-		admin::addAdminMenu(array(i18n::L("Menu link"), "pluginName/file.php", "identifier"));
-		return true;
-	}
+	
 	/**
 	 * Retrieve the status information of a plugin
 	 * @param string $pluginName The name of the plugin to check
@@ -81,6 +73,18 @@ class Plugins
 		//print $pluginName." ".$res['status']."<br />";
 		self::$activatedPlugins[$pluginName] = $res[1]['status'];
 		return self::$activatedPlugins[$pluginName];
+	}
+	
+	/**
+	 * return true if a plugin is already installed in database ; false if not
+	 * @param string $pluginName The name of the plugin to check
+	 * @return boolean
+	 */
+	public static function isInstalled($pluginName) {
+		$res = self::$db->q('SELECT * FROM plugins WHERE name="%s"', 'plugins.db', array($pluginName));
+		//print $res[0];
+		//print_r($res);
+		return $res[1]['name'] == $pluginName?true:false;
 	}
 	
 	/**
@@ -307,6 +311,32 @@ class Plugins
 	public function getAuthor()
 	{
 		return self::$author;
+	}
+	
+	
+	/**
+	 * install a plugin in the Database
+	 * @return void
+	 */
+	public function install($datas) {
+		$q = 'INSERT INTO plugins ( description, sort, author, last_updated, name, status, update_link, version ) VALUES ("%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s")';
+		$query = sprintf(
+			$q,
+			Database::escape_string($datas[0]),
+			Database::escape_string($datas[1]),
+			Database::escape_string($datas[2]),
+			Database::escape_string($datas[3]),
+			Database::escape_string($datas[4]),
+			Database::escape_string($datas[5]),
+			Database::escape_string($datas[6]),
+			Database::escape_string($datas[7]),
+			Database::escape_string($datas[8])
+		);
+		//print $query;
+		if ( DEBUG ) {
+			Debug::Log("Erreur 3".$query, SQL, __LINE__, __FILE__);
+		}
+		return is_array(self::$db->q2($query, "plugins.db"))?true:false;
 	}
 }
 

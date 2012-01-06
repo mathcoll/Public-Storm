@@ -31,7 +31,9 @@
 				{assign var=rootCap value=$storm|ucfirst}
 				<p><img src="{$theme_dir_http}favicon.ico" align="absmiddle" alt="{$title}" />&nbsp;{t}Storm{/t} <a href="{$base_url_http}/storm/{$storm}/?utm_source=backend&amp;utm_medium=rss_storm&amp;utm_campaign={$version}">{$storm|ucfirst}</a> - <i>{$title}</i></p>
 				<p>{t escape="" 1=$rootCap}suggest_it{/t} <a href="{$base_url_http}/storm/{$storm}/?utm_source=backend&amp;utm_medium=rss_storm&amp;utm_campaign={$version}">{$storm|ucfirst}</a></p>
-				<p><a href="{$base_url_http}/utilisateurs/{$suggestion.author_login}/?utm_source=backend&amp;utm_medium=rss_storm&amp;utm_campaign={$version}">{t 1=$suggestion.author}Tous les Storms de %1{/t}</a></p>
+				{if $suggestion.author_login}
+					<p><a href="{$base_url_http}/utilisateurs/{$suggestion.author_login}/?utm_source=backend&amp;utm_medium=rss_storm&amp;utm_campaign={$version}">{t 1=$suggestion.author}Tous les Storms de %1{/t}</a></p>
+				{/if}
 				{if $suggestion.author_nbsuggestions}
 					<p>
 						{t 1=$suggestion.author 2=$suggestion.authornbsuggestions}%1 est un utilisateur régulier de Public-Storm, avec ses %2 suggestions{/t}

@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -45,20 +45,11 @@ final class backend extends Plugins
 		);
 	}
 	
-	/**
-	 * Add an Rss to the stack
-	 * @param array $rss
-	 * @return array
-	 */
 	public function addRssfeeds($rss=array()) {
 		array_push(self::$rssfeeds, $rss); 
 		return self::$rssfeeds;
 	}
 	
-	/**
-	 * Get a list of all Rss set
-	 * @return array
-	 */
 	public function getRssfeeds() {
 		return self::$rssfeeds;
 	}
@@ -85,7 +76,7 @@ final class backend extends Plugins
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()

@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -27,7 +27,7 @@ final class sendtoafriend extends Plugins {
 	public function __construct() {
 		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/'.self::$name.'/scripts/'.self::$name.'.js', 'all.js');
-		//Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/'.self::$name.'/styles/'.self::$name.'.css', 'all.css');
+		//Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/'.self::$name.'/styles/'.self::$name.'.css', 'screen.css');
 	}	
 	
 	public function loadLang()
@@ -52,7 +52,7 @@ final class sendtoafriend extends Plugins {
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()

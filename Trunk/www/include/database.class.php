@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -132,5 +132,9 @@ abstract class Database {
 	public function getAllTb($limit=5) {}
 	
 	public static function install() {}
+	
+	public static function escape_string($str) {
+		return mysql_escape_string($str);
+	}
 }
 ?>

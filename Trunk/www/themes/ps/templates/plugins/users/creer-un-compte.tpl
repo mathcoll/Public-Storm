@@ -1,6 +1,6 @@
 <div class="table must-login">
 	<div class="table-row">
-		<div class="table-cell _w710 table-cell-create-account" style="height: 100px;">
+		<div class="table-cell _w710 table-cell-create-account">
 			{if $useradd!="true"}
 			<h3>{t}creer_un_compte{/t} <span class="free">{t}gratuit{/t}</span> {t}sur Public-Storm !{/t}</h3>
 			<p></p>

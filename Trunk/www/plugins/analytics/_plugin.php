@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -28,10 +28,6 @@ final class analytics extends Plugins
 		require(Settings::getVar('prefix') . 'conf/analytics.php');
 	}
 	
-	/**
-	 * Return the Google Analytics code identifier
-	 * @return string
-	 */
 	public function getCode()
 	{
 		return Settings::getVar('code');
@@ -59,7 +55,7 @@ final class analytics extends Plugins
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()

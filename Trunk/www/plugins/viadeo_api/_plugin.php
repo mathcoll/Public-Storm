@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -29,16 +29,10 @@ final class viadeo_api extends Plugins
 	{
 		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		require_once('./plugins/'.self::$name.'/classes/'.self::$name.'.php');
-		Settings::addCss('screen', Settings::getVar('ROOT').Settings::getVar('theme_dir').'/plugins/'.self::$name.'/styles/'.self::$name.'.css', 'all.css');
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/'.self::$name.'/styles/'.self::$name.'.css', 'screen.css');
 		//Settings::addJs('text/javascript', Settings::getVar('ROOT').Settings::getVar('theme_dir').'/plugins/'.self::$name.'/scripts/'.self::$name.'.js');
 	}
 	
-	/**
-	 * Get group/hub datas retrieved from Viadeo API
-	 * @param string $storm_permaname
-	 * @param int $limit
-	 * @return string the json datas retrieved from Viadeo API
-	 */
 	public function getJsonGroups($storm_permaname, $limit=10) {
 		$client_id     = Settings::getVar('Client Id');
 		$client_secret = Settings::getVar('Client Secret');
@@ -74,7 +68,7 @@ final class viadeo_api extends Plugins
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()

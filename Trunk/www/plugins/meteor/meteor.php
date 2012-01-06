@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -70,6 +70,7 @@ if ( $op = fsockopen(Settings::getVar('meteorServerIP'), Settings::getVar('meteo
 		$user = Settings::getVar('MeteorDefaultUserName');
 	}
 	$message = isset($_POST['message']) ? $_POST['message'] : "";
+	$print = isset($uri[$ind+5]) ? $uri[$ind+5] : "";
 	$ch = isset($_POST['channel']) ? $_POST['channel'] : $uri[$ind+4];
 	$time = time();
 	
@@ -78,19 +79,28 @@ if ( $op = fsockopen(Settings::getVar('meteorServerIP'), Settings::getVar('meteo
 
 	$haswritten = false;
 	$buf = "";
-	switch( $command )
-	{
+	switch( $command ) {
 		case "COUNTSUBSCRIBERS" :
 		case "getSubscribers" :
-			$out = "COUNTSUBSCRIBERS ".$ch."\n";
-			$ans = askMeteor($out, $op);
-			preg_match("/OK (\d+)/", $ans, $m);
-			$array = array(
-				"call" => "setSubscribers",
-				"channel" => $ch,
-				"nombre" => $m[1]
-			);
-			print json_encode($array);
+			if( $ch=="" ) {
+				print "<script>var foo=prompt('Channel ?');tab('meteor/COUNTSUBSCRIBERS', 'meteor3', 'admin', foo+'/print/');</script>";
+			} else {
+				$out = "COUNTSUBSCRIBERS ".$ch."\n";
+				$ans = askMeteor($out, $op);
+				preg_match("/OK (\d+)/", $ans, $m);
+				$array = array(
+					"call" => "setSubscribers",
+					"channel" => $ch,
+					"nombre" => $m[1]
+				);
+				print json_encode($array);
+				if ( $print ) {
+					print "<p>".$array["channel"]." : ".$array["nombre"]." users.</p>";
+				}
+				//print "<pre>";
+				//var_dump($array);
+				//print "</pre>";
+			}
 			break;
 			
 		case "SHOWSTATS" :
@@ -100,19 +110,38 @@ if ( $op = fsockopen(Settings::getVar('meteorServerIP'), Settings::getVar('meteo
 			
 		case "LISTCHANNELS" :
 			$out = "LISTCHANNELS\n";
-			print nl2br( askMeteor($out, $op) );
+			//print nl2br( askMeteor($out, $op) );
+			print i18n::_("LISTCHANNELS: ")."<br />";
+			$array = explode("\n", askMeteor($out, $op));
+			if( rtrim($array[0]) == "OK" ) {
+				$n=0;
+				while( rtrim($array[$n]) != "--EOT--" ) {
+					//elections-presidentielles(15/0)
+					//print $array[$n];exit;
+					list($storm, $suggestion, $users) = preg_split("/[\(\/\)]+/", rtrim($array[$n]));
+					if( rtrim($array[$n]) != "OK" ) {
+						printf("%s users ; %s suggestions <a href=\"/storm/%s/\">%s</a><br />\n", $users, $suggestion, $storm, $storm);
+					}
+					$n++;
+				}
+			}
 			break;
 			
 		case "addSuggestion" :
+			/*
 			$array = array(
 				"call" => "newSuggestion",
 				"suggestion" => stripslashes($message),
 				"user" => stripslashes($user)
 			);
+			*/
 			//$out = "ADDMESSAGE ".$ch." ".json_encode($array)."\n";
-			$out = "ADDMESSAGE ".$ch." {call:'newSuggestion',suggestion:'".stripslashes($message)."',user:'".stripslashes($user)."'}\n";
-			$ans = askMeteor($out, $op);
-			print $ans;
+			//foreach( split("[,;:|\/]", stripslashes($message)) as $m ) {
+				//print $m."<-----";
+				$out = "ADDMESSAGE ".$ch." {call:'newSuggestion',suggestion:'".stripslashes($message)."',user:'".stripslashes($user)."'}\n";
+				$ans = askMeteor($out, $op);
+				print $ans;
+			//}
 			break;
 			
 		case "ADDMESSAGE" :

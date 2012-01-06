@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -28,7 +28,7 @@ final class meteor extends Plugins
 	{
 		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		//require_once('./plugins/'.self::$name.'/classes/'.self::$name.'.php');
-		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/'.self::$name.'/styles/'.self::$name.'.css', 'all.css');
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/'.self::$name.'/styles/'.self::$name.'.css', 'screen.css');
 		if( @$_SESSION['isadmin'] == 1 )
 		{
 			Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/'.self::$name.'/styles/admin.css', 'admin.css');
@@ -41,7 +41,7 @@ final class meteor extends Plugins
 	{
 		admin::addAdminMenu(array(i18n::L("Meteor LISTCHANNELS"), self::$name."/LISTCHANNELS", "meteor1"));
 		admin::addAdminMenu(array(i18n::L("Meteor SHOWSTATS"), self::$name."/SHOWSTATS", "meteor2"));
-		admin::addAdminMenu(array(i18n::L("Meteor COUNTSUBSCRIBERS"), self::$name."/COUNTSUBSCRIBERS", "meteor3", "demo"));
+		admin::addAdminMenu(array(i18n::L("Meteor COUNTSUBSCRIBERS"), self::$name."/COUNTSUBSCRIBERS", "meteor3", ""));
 		return true;
 	}
 	
@@ -67,7 +67,7 @@ final class meteor extends Plugins
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()

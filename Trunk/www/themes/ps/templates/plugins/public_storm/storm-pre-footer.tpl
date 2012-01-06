@@ -1,4 +1,4 @@
-<div class="table-cell _30">
+<div class="table-cell _30 _column1">
 	<h3>{t}storms{/t}</h3>
 	<ul>
 		<li><a href="{$base_url}/storms/alpha/">{t}list_alpha{/t}</a></li>
@@ -17,7 +17,7 @@
 	{/foreach}
 	</ul>
 </div>
-<div class="table-cell _30">
+<div class="table-cell _30 _column2">
 	<h3>{t}contribuez{/t}</h3>
 	<p>{t}contribuez_p1{/t}</p>
 	<p>{t}contribuez_p2{/t}</p>

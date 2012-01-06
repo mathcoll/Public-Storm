@@ -1,7 +1,7 @@
 <?php
 /*
  Public-Storm
- Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+ Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
  This file is part of Public-Storm.
 
  Public-Storm is free software: you can redistribute it and/or modify
@@ -97,6 +97,22 @@ final class User {
 			self::$logged = true;
 			return $_SESSION['id'];
 		}
+	}
+
+	/**
+	 * Get a User_id
+	 * @return the user_id
+	 */
+	public static function getUserId() {
+		return self::$id;
+	}
+
+	/**
+	 * Get a User_id (Alias of getUserId)
+	 * @return the user_id
+	 */
+	public static function getId() {
+		return self::getUserId();
 	}
 
 	/**
@@ -215,16 +231,16 @@ final class User {
 	 * @param string $uid
 	 * @return boolean
 	 */
-	public static function authentificationByUid($uid)
-	{
+	public static function authentificationByUid($uid) {
 		$datas = self::$db->authentificationByUid($uid);
-		if ( isset($datas['id']) )
-		{
-			$sessionId = self::$db->userUpdateSessionId($login, $password_md5);
+		if ( isset($datas['id']) ) {
+			$login = $datas['login'];
+			$password_md5 = $datas['password'];
+			self::$persistent = $datas['persistent'] == true ? 1 : 0;// should be alway 1 ! :-)
 			//print_r($datas);
+			$sessionId = self::$db->userUpdateSessionId($login, $password_md5, self::$persistent);
 			$id = $datas['id'];
 			$uid = $datas['uid'];
-			$login = $datas['login'];
 			$prenom = $datas['prenom'];
 			$nom = $datas['nom'];
 			$lang = $datas['lang'];
@@ -234,7 +250,6 @@ final class User {
 			$subscription_date = $datas['subscription_date'];
 			self::$current->id = $id;
 			self::$sessionId = $sessionId;
-			self::$persistent = $persistent == true ? 1 : 0;
 			self::$id = $id;
 			self::$uid = $uid;
 			self::$login = $login;
@@ -256,11 +271,12 @@ final class User {
 			$_SESSION['email'] = $email;
 			$_SESSION['avatar'] = $avatar;
 			$_SESSION['isadmin'] = $isadmin;
-			i18n::setLocale($lang);
+			if ( is_object("i18n") ) {
+				i18n::setLocale($lang);
+			}
 			setcookie("locale", $_SESSION["LANG"], time() + 3600 * 24 * 30, Settings::getVar("BASE_URL")."/");
-			Session::StartUser(User::GetById($id));
-			if ( self::$persistent == "1" )
-			{
+			Session::StartUser(self::GetById($id));
+			if ( self::$persistent == "1" ) {
 				$end = time() + 3600 * 24 * 15;/* expire dans 15 jours */
 				setcookie("persistentConnection", self::$persistent, $end, Settings::getVar("BASE_URL")."/");
 				setcookie("uid", self::$uid, $end, Settings::getVar("BASE_URL")."/");
@@ -270,9 +286,7 @@ final class User {
 				header("Expires: Sat, 26 Jul 1997 05:00:00 GMT", true); // Date in the past
 			}
 			return true;
-		}
-		else
-		{
+		} else {
 			return false;
 		}
 	}

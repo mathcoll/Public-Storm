@@ -1,7 +1,7 @@
 <?php
 /*
     Public-Storm
-    Copyright (C) 2008-2011 Mathieu Lory <mathieu@internetcollaboratif.info>
+    Copyright (C) 2008-2012 Mathieu Lory <mathieu@internetcollaboratif.info>
     This file is part of Public-Storm.
 
     Public-Storm is free software: you can redistribute it and/or modify
@@ -29,6 +29,17 @@ final class errordocument extends Plugins
 	{
 		require(Settings::getVar('prefix') . 'conf/errordocument.php');
 		self::$s = new Settings::$VIEWER_TYPE;	
+		if ( !class_exists(Settings::$DB_TYPE) ) {
+			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR, __LINE__, __FILE__);
+		} else {
+			if ( self::$db = new Settings::$DB_TYPE ) {
+				return true;
+			} else {
+				Debug::Log($err, ERROR, __LINE__, __FILE__);
+				return false;
+				exit($err);
+			}
+		}
 	}
 	
 	/**
@@ -80,6 +91,16 @@ final class errordocument extends Plugins
 		}
 		header('Status: '.$status, true, $errorCode);
 		header('HTTP/1.1 '.$status, true, $errorCode);
+		Debug::Log("Error Status ".$status." : ".$_SERVER['HTTP_REFERER']." ".$_SERVER['REQUEST_URI']." ".$_SERVER['REMOTE_ADDR'], ERROR, __LINE__, __FILE__);
+		$errors = array(
+			":status" => $errorCode,
+			":referer" => $_SERVER['HTTP_REFERER'],
+			":request" => $_SERVER['REQUEST_URI'],
+			":ip" => $_SERVER['REMOTE_ADDR'],
+			":date" => time()
+		);
+		self::$db->q2("INSERT into errors (status, referer, request, ip, date) VALUES (:status, :referer, :request, :ip, :date)", "errordocument.db", $errors);
+		
 		if ( $fetchTemplate ) {
 			self::$s->AddData("site_name", Settings::getVar('SITE_NAME'));
 			self::$s->AddData("site_description", Settings::getVar('SITE_DESCRIPTION'));
@@ -115,7 +136,7 @@ final class errordocument extends Plugins
 	
 	public function getAuthor()
 	{
-		return self::getAuthor();
+		return parent::getAuthor();
 	}
 	
 	public function getIcon()
