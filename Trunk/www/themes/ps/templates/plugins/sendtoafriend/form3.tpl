@@ -9,7 +9,7 @@
 	<meta name="keywords" content="{$meta_keywords}" />
 	<meta name="generator" content="{$site_name} {$version} - {$base_url_http}" />
 
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/groups/all.css/" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/groups/screen.css/" />
 
     <script type="text/javascript" defer="defer">
   		var BASE_URL = "{$base_url}";
@@ -28,7 +28,12 @@
 </head>
 
 <body>
-<h4>{t}Partager à me amis{/t} > {t}Storm{/t} <b>{$storm}</b></h4>
-<p>{$message}</p>
+<h4>{t}Partager à me amis{/t} &gt; {t}Storm{/t} <b>{$storm|ucfirst}</b></h4>
+<div id="site_name" class="sprite">
+	<p>{$message}</p>
+	<p>Vous pouvez désormais <a href="javascript:self.close();">{t}fermer cette fenêtre{/t}.</a></p>
+</div>
+
+
 </body>
 </html>

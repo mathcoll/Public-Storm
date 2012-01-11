@@ -9,7 +9,7 @@
 	<meta name="keywords" content="{$meta_keywords}" />
 	<meta name="generator" content="{$site_name} {$version} - {$base_url_http}" />
 
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/groups/all.css/" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/groups/screen.css/" />
 
     <script type="text/javascript" defer="defer">
   		var BASE_URL = "{$base_url}";
@@ -52,8 +52,13 @@
     <h3><a href="#">3. {t}...et leur envoyer un message{/t}</a></h3>
     <div>
     	<p>{t}Ajoutez votre message personnel :{/t}</p>	
-		<textarea style="width:100%;height:200px;" name="message_perso" rows="5" cols="20"></textarea>
-		<input type="submit" value="{t}Envoyer{/t}" />
+		<textarea style="width:100%;height:200px;" name="message_perso" rows="5" cols="20">{t}Bonjour,{/t}
+		
+{t}Je viens de découvrir ce site, et j'ai pensé qu'il pourrait t'intéresser !{/t}
+
+
+{t}À bientôt.{/t}</textarea>
+		<input type="submit" value="{t}Envoyer{/t}" class="ui-state-default ui-corner-all" />
     </div>
 </div>
 </form>

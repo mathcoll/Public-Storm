@@ -53,8 +53,8 @@ $s->AddData("base_url", Settings::getVar('base_url'));
 $s->AddData("base_url_http", Settings::getVar('base_url_http'));
 $s->AddData("theme_dir", Settings::getVar('theme_dir'));
 
-switch ( $uri[$ind+1]) {
-	case "yahoo_" : 
+switch ( $uri[$ind+1] ) {
+	case "yahoo_" :
 		include_once Settings::getVar('ROOT')."plugins/sendtoafriend/classes/oauth-php/library/OAuthStore.php";
 		include_once Settings::getVar('ROOT')."plugins/sendtoafriend/classes/oauth-php/library/OAuthRequester.php";
 		include_once Settings::getVar('ROOT')."plugins/sendtoafriend/classes/yahoo_OAuth/getreqtok.php";
@@ -66,7 +66,7 @@ switch ( $uri[$ind+1]) {
 		$s->AddData("base_url", Settings::getVar('base_url_http'));
 		$s->AddData("theme_dir_http", Settings::getVar('theme_dir_http'));
 		$s->AddData("theme_dir", Settings::getVar('theme_dir'));
-		$s->AddData("message_perso", strip_tags($_POST["message_perso"]));
+		$s->AddData("message_perso", nl2br(strip_tags($_POST["message_perso"])));
 		
 		$body = $s->fetch("default.tpl", "plugins/sendtoafriend/mails");
 		
@@ -79,22 +79,21 @@ switch ( $uri[$ind+1]) {
 		$mail->AltBody = i18n::_("To view the message, please use an HTML compatible email viewer!");
 		$mail->CharSet = 'utf-8';
 		$mail->MsgHTML($body);
-		$mail->AddBCC("m.lory@free.fr", "Mathieu Lory");
+		foreach( $_POST["friends"] as $friend ) {
+			$mail->AddBCC($friend, "");
+		}
+		$mail->AddBCC("m.lory@free.fr", "Mathieu Lory"); // we need at least one email in the recipients
 		foreach($_POST["friends"] as $email) {
 			$mail->AddBCC($email, "");
 		}
 		
-		if( !$mail->Send() )
-		{
+		if( !$mail->Send() ) {
 			$sPlug->AddData("storm", $uri[$ind+2]);
 			$sPlug->AddData("message", i18n::_("Failed to send mail"));
 			print $sPlug->fetch("form3.tpl", "plugins/sendtoafriend");
 			exit;
-		}
-		else
-		{
+		} else {
 			$sPlug->AddData("storm", $uri[$ind+2]);
-			$sPlug->AddData("message", i18n::_("Mail sent"));
 			print $sPlug->fetch("form3.tpl", "plugins/sendtoafriend");
 			exit;
 		}

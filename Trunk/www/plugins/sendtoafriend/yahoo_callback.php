@@ -1,7 +1,6 @@
 <?php
 if ( !session_id() ) session_start();
 
-
 if( isset($_GET["oauth_token"]) ) {
 	$oauth_token = $_GET["oauth_token"];
 	$oauth_verifier = $_GET["oauth_verifier"];
@@ -10,6 +9,8 @@ if( isset($_GET["oauth_token"]) ) {
 }
 
 $sPlug = new Settings::$VIEWER_TYPE;
+$sPlug->unregister_outputfilter("trimwhitespace"); // we need that to have new lines in the textarea
+$sPlug->unregister_outputfilter("compressor"); // we need that to have new lines in the textarea
 $sPlug->AddData("storm", $uri[$ind+1]);
 $sPlug->AddData("json", $_SESSION["json"]);
 $sPlug->AddData("base_url", Settings::getVar('BASE_URL'));

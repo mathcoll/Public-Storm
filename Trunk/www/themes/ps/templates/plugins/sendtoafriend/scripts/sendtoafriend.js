@@ -1,6 +1,6 @@
 $jQuery(document).ready( function() {
-	 $jQuery("a.sendToAFriend").click(function() {
-		 window.open($jQuery(this).attr("href"), 'sendToAFriend', 'width=500,height=300');
+	 $jQuery("a span.sendToAFriend").parent().click(function() {
+		 window.open($jQuery(this).attr("href"), 'sendToAFriend', 'width=500,height=500');
 		 /*
 		$jQuery("body").append('<div id="sendToAFriend"></div>');
 		$jQuery("#sendToAFriend").dialog({
@@ -27,8 +27,10 @@ function populateFriends(json) {
 	var liste = "";
 	for( i=0; i<json.contacts.count; i++ ) {
 		var email = json.contacts.contact[i].fields[0].value;
-		var givenName = json.contacts.contact[i].fields[2].value.givenName;
-		var familyName = json.contacts.contact[i].fields[2].value.familyName;
+		var givenName = "";
+		var familyName = "";
+		if ( json.contacts.contact[i].fields[2] ) { givenName = json.contacts.contact[i].fields[2].value.givenName; }
+		if ( json.contacts.contact[i].fields[2] ) { familyName = json.contacts.contact[i].fields[2].value.familyName; }
 		liste += '<li><input type="checkbox" name="friends[]" value="'+email+'" id="friend'+i+'" /><label for="friend'+i+'">'+givenName+' '+familyName+' ('+email+')</label></li>\n';
 	}
 	$jQuery("#friends").html("");

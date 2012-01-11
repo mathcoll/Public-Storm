@@ -47,6 +47,10 @@ final class viewer_smarty extends Viewer
 		self::$smarty->compile_check = true;
 		self::$smarty->debugging = false;
 	}
+  
+	public static function unregister_outputfilter($filter) {
+		self::$smarty->unregister_outputfilter($filter);
+	}
 
 	public static function AddData($data_name, $data)
 	{

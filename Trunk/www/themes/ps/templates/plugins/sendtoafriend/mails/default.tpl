@@ -1,6 +1,6 @@
 <html>
 <body>
-<a href="{$base_url}"><img src="{$theme_dir_http}img/logo.jpg" align="left" border="0"></a>
+<a href="{$base_url}?utm_source=sendtoafriend&utm_medium=email&utm_term=key1&utm_campaign=Public-Storm"><img src="{$theme_dir_http}img/logo.jpg" align="left" border="0"></a>
 <h1 style="font-size:18px;">{t}Invitation à consulter Public-Storm{/t}</h1>
 <p style="font-size:11px;">
 	{t}Votre ami vous suggère de consulter Public-Storm...{/t}
