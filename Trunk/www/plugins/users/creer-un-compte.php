@@ -55,16 +55,21 @@ if ( $_POST ) {
 				$_SESSION["message"] = i18n::_("Veuillez spécifier un identifiant !");
 				Settings::setVar('pageview', '/creer-un-compte-error');
 			} else {
-				$_POST['lang'] = $_POST['lang'] != "" ? $_POST['lang'] : $_SESSION['LANG'];
-				if ( User::userAdd($_POST) ) {
-					User::sendWelcomeMail($_POST, $sPlug);
-					aboutcron::addAction(array("users::plusTwoWeeks", json_encode(array("login" => $_POST['login'])), time()+2*604800)); //+ 2 weeks
-					$useradd="true";
-					Settings::setVar('pageview', '/creer-un-compte-ok');
-					$_SESSION["message"] = i18n::_("Vérifier voter boite de réception email !");
-				} else {
-					$_SESSION["message"] = i18n::_("Erreur lors de la création du compte !");
+				if( in_array($_POST['login'], Settings::getVar('badlogins')) ) {
+					$_SESSION["message"] = i18n::_("Forbidden login!");
 					Settings::setVar('pageview', '/creer-un-compte-error');
+				} else {
+					$_POST['lang'] = $_POST['lang'] != "" ? $_POST['lang'] : $_SESSION['LANG'];
+					if ( User::userAdd($_POST) ) {
+						User::sendWelcomeMail($_POST, $sPlug);
+						aboutcron::addAction(array("users::plusTwoWeeks", json_encode(array("login" => $_POST['login'])), time()+2*604800)); //+ 2 weeks
+						$useradd="true";
+						Settings::setVar('pageview', '/creer-un-compte-ok');
+						$_SESSION["message"] = i18n::_("Vérifier voter boite de réception email !");
+					} else {
+						$_SESSION["message"] = i18n::_("Erreur lors de la création du compte !");
+						Settings::setVar('pageview', '/creer-un-compte-error');
+					}
 				}
 			}
 		}

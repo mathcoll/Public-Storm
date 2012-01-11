@@ -24,7 +24,9 @@
 include_once("./core.php");
 $login = $_GET["login"];
 if ( $user = User::userExists($login) ) {
-	print "Error user exists (".$user['id'].")";
+	print i18n::_("Error user exists (%s)", array($user['id']));
+} elseif ( in_array($_GET['login'], Settings::getVar('badlogins')) ) {
+	print i18n::_("Forbidden login!");
 }
 exit;
 ?>

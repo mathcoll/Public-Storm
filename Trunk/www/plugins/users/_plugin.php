@@ -27,6 +27,7 @@ final class users extends Plugins {
 	public static $db;
  	
 	public function __construct() {
+		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/users/styles/users.css', 'screen.css');
 		if ( !class_exists(Settings::$DB_TYPE) ) {
 			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR, __LINE__, __FILE__);
@@ -190,10 +191,13 @@ final class users extends Plugins {
 		return $favorite[0]["c"];
 	}
 	
-	public function getMyFavorites()
-	{
-		$favorites = self::$db->q2("SELECT storm_id FROM favorites WHERE user_id=:user_id", "users.db", array(":user_id" => $_SESSION['id']));
-		return $favorites;
+	public function getMyFavorites() {
+		if ( isset($_SESSION['id']) ) {
+			$favorites = self::$db->q2("SELECT storm_id FROM favorites WHERE user_id=:user_id", "users.db", array(":user_id" => $_SESSION['id']));
+			return $favorites;
+		} else {
+			return null;
+		}
 	}
 	
 	public function getUsersList()
