@@ -17,7 +17,7 @@
 									<label for="prenom">{t}field.prenom{/t} :</label>
 								</div><!-- //table-cell -->
 								<div class="table-cell">
-									<input type="text" tabindex="1" name="prenom" value="{$user_infos.prenom}" id="prenom" class="field" />
+									<input type="text" tabindex="21" name="prenom" value="{$user_infos.prenom}" id="prenom" class="field" />
 								</div><!-- //table-cell -->
 							</div><!-- //table-row -->
 							
@@ -26,7 +26,7 @@
 									<label for="nom">{t}field.nom{/t} :</label>
 								</div><!-- //table-cell -->
 								<div class="table-cell">
-									<input type="text" tabindex="2" name="nom" value="{$user_infos.nom}" id="nom" class="field" />
+									<input type="text" tabindex="22" name="nom" value="{$user_infos.nom}" id="nom" class="field" />
 								</div><!-- //table-cell -->
 							</div><!-- //table-row -->
 							
@@ -35,7 +35,7 @@
 									<label for="emailField">{t}field.email{/t}* :</label>
 								</div><!-- //table-cell -->
 								<div class="table-cell">
-									<input type="text" tabindex="3" name="email" value="{$user_infos.email}" id="emailField" class="field" onchange="validerEmail(this.value);" />
+									<input type="text" tabindex="23" name="email" value="{$user_infos.email}" id="emailField" class="field" onchange="validerEmail(this.value);" />
 									<img style="display: none;" src="{$theme_dir}img/dialog-warning_002.png" alt="warning" id="emailError" class="pictoError" height="15" width="15" /><img style="display: none;" src="{$theme_dir}img/apply.png" alt="valid" id="emailValid" class="pictoValid" height="15" width="15" />
 								</div><!-- //table-cell -->
 							</div><!-- //table-row -->
@@ -45,7 +45,7 @@
 									<label for="loginField">{t}field.login{/t}* :</label>
 								</div><!-- //table-cell -->
 								<div class="table-cell">
-									<input type="text" tabindex="4" name="login" id="loginField" value="{$user_infos.login}" class="field" onchange="validerIdentifiant(this.value);" />
+									<input type="text" tabindex="24" name="login" id="loginField" value="{$user_infos.login}" class="field" onchange="validerIdentifiant(this.value);" />
 									<img style="display: none;" src="{$theme_dir}img/dialog-warning_002.png" alt="warning" id="identifiantError" class="pictoError" height="15" width="15" /><img style="display: none;" src="{$theme_dir}img/apply.png" alt="valid" id="identifiantValid" class="pictoValid" height="15" width="15" />
 								</div><!-- //table-cell -->
 							</div><!-- //table-row -->
@@ -55,7 +55,7 @@
 									<label for="password">{t}field.password{/t}* :</label>
 								</div><!-- //table-cell -->
 								<div class="table-cell">
-									<input type="password" tabindex="5" name="password" value="{$user_infos.password}" id="password" class="field" />
+									<input type="password" tabindex="25" name="password" value="{$user_infos.password}" id="password" class="field" />
 								</div><!-- //table-cell -->
 							</div><!-- //table-row -->
 							
@@ -65,7 +65,7 @@
 								</div><!-- //table-cell -->
 								<div class="table-cell">
 									<img id="captcha" src="{$base_url}/include/securimage/securimage_show.php" alt="CAPTCHA Image" /><br />
-									<input type="text" tabindex="6" name="captcha_code" id="captcha_code" size="10" maxlength="6" class="field" /><br />
+									<input type="text" tabindex="26" name="captcha_code" id="captcha_code" size="10" maxlength="6" class="field" /><br />
 									<label style="float:none;"><a href="#" onclick="document.getElementById('captcha').src = '{$base_url}/include/securimage/securimage_show.php?' + Math.random(); return false">{t}field.reload_captcha{/t}</a></label>
 								</div><!-- //table-cell -->
 							</div><!-- //table-row -->
@@ -80,7 +80,7 @@
 								<div class="table-cell"></div>
 								<div class="table-cell">
 									<div>
-										<span><input type="submit" tabindex="7" value="{t}creer_un_compte{/t}" class="ui-state-default ui-corner-all field" /></span>
+										<span><input type="submit" tabindex="27" value="{t}creer_un_compte{/t}" class="ui-state-default ui-corner-all field" /></span>
 									</div>
 								</div><!-- //table-cell -->
 							</div><!-- //table-row -->

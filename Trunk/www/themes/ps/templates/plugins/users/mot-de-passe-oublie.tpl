@@ -8,7 +8,7 @@
 						<label for="emailField">{t}field.email{/t}</label>
 					</div>
 					<div class="table-cell">
-						<input type="text" name="email" id="emailField" value="{$user_infos.email}" class="field" />
+						<input type="text" tabindex="21" name="email" id="emailField" value="{$user_infos.email}" class="field" />
 					</div>
 				</div>
 				<div class="table-row">
@@ -16,13 +16,13 @@
 						<label for="loginField">{t}field.login{/t}</label>
 					</div>
 					<div class="table-cell">
-						<input type="text" name="login" id="loginField" value="{$user_infos.login}" class="field" />
+						<input type="text" tabindex="22" name="login" id="loginField" value="{$user_infos.login}" class="field" />
 					</div>
 				</div>
 				<div class="table-row">
 					<div class="table-cell"></div>
 					<div class="table-cell">
-						<span><input type="submit" value="{t}valider{/t}" class="ui-state-default ui-corner-all field" /></span>
+						<span><input type="submit" tabindex="23" value="{t}valider{/t}" class="ui-state-default ui-corner-all field" /></span>
 					</div>
 				</div>
 			</div>

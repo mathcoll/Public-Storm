@@ -19,7 +19,7 @@
 							<label for="field.login">{t}field.login{/t}</label>
 						</div>
 						<div class="table-cell">
-							<input type="text" class="login_form field" name="login" id="field.login" value="" onfocus="this.select();" />
+							<input type="text" tabindex="11" class="login_form field" name="login" id="field.login" value="" onfocus="this.select();" />
 						</div>
 					</div>
 					<div class="table-row">
@@ -27,19 +27,19 @@
 							<label for="field.password">{t}field.password{/t}</label>
 						</div>
 						<div class="table-cell">
-							<input type="password" class="login_form field" name="password" id="field.password" value="" onfocus="this.select();" />
+							<input type="password" tabindex="12" class="login_form field" name="password" id="field.password" value="" onfocus="this.select();" />
 						</div>
 					</div>
 					<div class="table-row">
 						<div class="table-cell">&nbsp;</div>
 						<div class="table-cell">
-							<label for="persistent2" style="float:left;text-align:left;"><input type="checkbox" name="persistent" id="persistent2" value="true" /> {t}persistent{/t}</label></span>
+							<label for="persistent2" tabindex="13" style="float:left;text-align:left;"><input type="checkbox" name="persistent" id="persistent2" value="true" /> {t}persistent{/t}</label></span>
 						</div>
 					</div>
 					<div class="table-row">
 						<div class="table-cell"></div>
 						<div class="table-cell">
-							<span><input type="submit" value="{t}ok{/t}" class="ui-state-default ui-corner-all field" /></span>
+							<span><input type="submit" tabindex="14" value="{t}ok{/t}" class="ui-state-default ui-corner-all field" /></span>
 						</div>
 					</div>
 				</div>
@@ -63,7 +63,7 @@
 						<label for="prenom">{t}field.prenom{/t}</label>
 					</div>
 					<div class="table-cell">
-						<input type="text" name="prenom" value="{$user_infos.prenom}" id="prenom" class="field" />
+						<input type="text" tabindex="21" name="prenom" value="{$user_infos.prenom}" id="prenom" class="field" />
 					</div>
 				</div>
 				<div class="table-row">
@@ -71,7 +71,7 @@
 						<label for="nom">{t}field.nom{/t}</label>
 					</div>
 					<div class="table-cell">
-						<input type="text" name="nom" value="{$user_infos.nom}" id="nom" class="field" />
+						<input type="text" tabindex="22" name="nom" value="{$user_infos.nom}" id="nom" class="field" />
 					</div>
 				</div>
 				<div class="table-row">
@@ -79,7 +79,7 @@
 						<label for="emailField">{t}field.email{/t}</label>
 					</div>
 					<div class="table-cell">
-						<input type="text" name="email" value="{$user_infos.email}" id="emailField" class="field" onchange="validerEmail(this.value);" />
+						<input type="text" tabindex="23" name="email" value="{$user_infos.email}" id="emailField" class="field" onchange="validerEmail(this.value);" />
 						<img style="display: none;" src="{$theme_dir}img/dialog-warning_002.png" id="emailError" class="pictoError" height="15" width="15" />
 						<img style="display: none;" src="{$theme_dir}img/apply.png" id="emailValid" class="pictoValid" height="15" width="15" />
 					</div>
@@ -89,7 +89,7 @@
 						<label for="loginField">{t}field.login{/t}</label>
 					</div>
 					<div class="table-cell">
-						<input type="text" name="login" id="loginField" value="{$user_infos.login}" class="field" onchange="validerIdentifiant(this.value);" />
+						<input type="text" tabindex="24" name="login" id="loginField" value="{$user_infos.login}" class="field" onchange="validerIdentifiant(this.value);" />
 						<img style="display: none;" src="{$theme_dir}img/dialog-warning_002.png" id="identifiantError" class="pictoError" height="15" width="15" />
 						<img style="display: none;" src="{$theme_dir}img/apply.png" id="identifiantValid" class="pictoValid" height="15" width="15" />
 					</div>
@@ -99,7 +99,7 @@
 						<label for="password">{t}field.password{/t}</label>
 					</div>
 					<div class="table-cell">
-						<input type="password" name="password" value="{$user_infos.password}" id="password" class="field" />
+						<input type="password" tabindex="25" name="password" value="{$user_infos.password}" id="password" class="field" />
 					</div>
 				</div>
 						
@@ -108,7 +108,7 @@
 					<div class="table-cell">
 						<label for="captcha_code" style="float:left;text-align:left;">{t escape=""}field.captcha{/t}</label><br />
 						<img id="captcha" src="{$base_url}/include/securimage/securimage_show.php" alt="CAPTCHA Image" /><br />
-						<input type="text" name="captcha_code" id="captcha_code" size="10" maxlength="6" class="field" /><br />
+						<input type="text" tabindex="26" name="captcha_code" id="captcha_code" size="10" maxlength="6" class="field" /><br />
 						<label style="float:none;"><a href="#" onclick="document.getElementById('captcha').src = '{$base_url}/include/securimage/securimage_show.php?' + Math.random(); return false">{t}field.reload_captcha{/t}</a></label>
 					</div><!-- //table-cell -->
 				</div><!-- //table-row -->
@@ -118,7 +118,7 @@
 					<div class="table-cell">
 						<div class="spacer">&nbsp;</div>
 						<div>
-							<span><input type="submit" value="{t}valider{/t}" class="ui-state-default ui-corner-all field" /></span>
+							<span><input type="submit" tabindex="27" value="{t}valider{/t}" class="ui-state-default ui-corner-all field" /></span>
 						</div>
 					</div><!-- //table-cell -->
 				</div><!-- //table-row -->

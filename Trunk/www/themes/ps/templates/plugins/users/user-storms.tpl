@@ -9,14 +9,14 @@
 		<img src="{$avatar}" alt="{$username|escape}" itemprop="image" style="float:left; margin: 0 5px 0 0;" />
 		<ul class="nolist nomargin">
 			<li><span itemprop="name"><b>{$prenom|ucfirst} {$nom|ucfirst}</b></span></li>
-			<li>{t 1=$member_since|date_format:"%d %B %Y"}Membre depuis le %1{/t}</li>
+			<li>{t 1=$member_since|date_format:"%d %B %Y"}Membre de Public-Storm depuis le %1{/t}</li>
 			<li>{t}Langue :{/t} {t}{$lang}{/t}</li>
 		</ul>
 	</div>
 	<div class="left">
 		<a href="rss/">
 			<img width="14" height="14" align="top" src="{$theme_dir}/img/rss.png" alt="{t}Flux Rss{/t} {$username|escape}" title="{t}Flux Rss{/t} {$username|escape}" />
-			{t}Flux Rss{/t} {$username}
+			{t 1=$username|ucwords}Flux Rss de l'auteur %1{/t}
 		</a>
 	</div>
 </div>
