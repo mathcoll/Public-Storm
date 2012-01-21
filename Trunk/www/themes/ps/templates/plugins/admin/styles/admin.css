@@ -158,13 +158,11 @@ ul.list-plugins li span.update_link
 {
 	width: 100px;
 }
-ul.list-users li span.uid
-{
+ul.list-users li span.uid {
 	width: 130px;
 }
 ul.list-users li span.subscription_date,
-ul.list-users li span.updated_date
-{
+ul.list-users li span.updated_date {
 	width: 180px;
 }
 div.status_actions

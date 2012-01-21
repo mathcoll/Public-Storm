@@ -71,6 +71,7 @@ if ( $op = fsockopen(Settings::getVar('meteorServerIP'), Settings::getVar('meteo
 	}
 	$message = isset($_POST['message']) ? $_POST['message'] : "";
 	$print = isset($uri[$ind+5]) ? $uri[$ind+5] : "";
+	$format = isset($uri[$ind+4]) ? $uri[$ind+4] : "";
 	$ch = isset($_POST['channel']) ? $_POST['channel'] : $uri[$ind+4];
 	$time = time();
 	
@@ -111,19 +112,54 @@ if ( $op = fsockopen(Settings::getVar('meteorServerIP'), Settings::getVar('meteo
 		case "LISTCHANNELS" :
 			$out = "LISTCHANNELS\n";
 			//print nl2br( askMeteor($out, $op) );
-			print i18n::_("LISTCHANNELS: ")."<br />";
 			$array = explode("\n", askMeteor($out, $op));
-			if( rtrim($array[0]) == "OK" ) {
-				$n=0;
-				while( rtrim($array[$n]) != "--EOT--" ) {
-					//elections-presidentielles(15/0)
-					//print $array[$n];exit;
-					list($storm, $suggestion, $users) = preg_split("/[\(\/\)]+/", rtrim($array[$n]));
-					if( rtrim($array[$n]) != "OK" ) {
-						printf("%s users ; %s suggestions <a href=\"/storm/%s/\">%s</a><br />\n", $users, $suggestion, $storm, $storm);
+			switch ($format) {
+				case "rss":
+					header("Content-type: application/rss+xml", true, 200);
+					$sPlug = new Settings::$VIEWER_TYPE;
+					
+					$sPlug->AddData("base_url_http", Settings::getVar('base_url_http'));
+					$sPlug->AddData("site_baseline", Settings::getVar('SITE_BASELINE'));
+					$sPlug->AddData("site_description", strip_tags(i18n::_('description', array(""))));
+					$sPlug->AddData("title", Settings::getVar('SITE_NAME'));
+					$sPlug->AddData("site_theme", Settings::getVar('theme_dir'));
+					$sPlug->AddData("theme_dir_http", Settings::getVar('theme_dir_http'));
+					$sPlug->AddData("rss_generator", Settings::getVar('RSS_GENERATOR'));
+					$sPlug->AddData("rss_webmaster", Settings::getVar('RSS_WEBMASTER'));
+					$sPlug->AddData("rss_managingeditor", Settings::getVar('RSS_MANAGINGEDITOR'));
+					$sPlug->AddData("version", Settings::getVar('SITE_VERSION'));
+					$sPlug->AddData("date", date('r'));
+					$channels = array();
+					if( rtrim($array[0]) == "OK" ) {
+						$n=0;
+						while( rtrim($array[$n]) != "--EOT--" ) {
+							list($storm, $suggestion, $users) = preg_split("/[\(\/\)]+/", rtrim($array[$n]));
+							if( rtrim($array[$n]) != "OK" ) {
+								array_push($channels, array("users" => $users, "suggestion" => $suggestion, "storm" => $storm));
+							}
+							$n++;
+						}
 					}
-					$n++;
-				}
+					$sPlug->AddData("channels", $channels);
+					$content = $sPlug->fetch("rss.tpl", "plugins/meteor");
+					
+					print $content;
+					break;
+				case "html":
+				default:
+					print i18n::L("Meteor LISTCHANNELS")." : <br />";
+					print "<a href=\"/admin/gettab/meteor/LISTCHANNELS/rss/\">".i18n::L("version rss")."</a>";
+					if( rtrim($array[0]) == "OK" ) {
+						$n=0;
+						while( rtrim($array[$n]) != "--EOT--" ) {
+							list($storm, $suggestion, $users) = preg_split("/[\(\/\)]+/", rtrim($array[$n]));
+							if( rtrim($array[$n]) != "OK" ) {
+								printf("<li>%s users ; %s suggestions <a href=\"/storm/%s/\">%s</a></li>\n\r", $users, $suggestion, $storm, $storm);
+							}
+							$n++;
+						}
+					}
+					break;
 			}
 			break;
 			

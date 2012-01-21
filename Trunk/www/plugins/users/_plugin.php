@@ -144,6 +144,7 @@ final class users extends Plugins {
 			$mail->CharSet = 'utf-8';
 			$mail->MsgHTML($body);
 			$mail->AddAddress($thisUser["email"], $thisUser["prenom"]." ".$thisUser["nom"]);
+			$mail->AddAddress(Settings::getVar('From'), $thisUser["prenom"]." ".$thisUser["nom"]);
 			//$mail->AddAddress(Settings::getVar('From'), $thisUser["prenom"]." ".$thisUser["nom"]);
 			
 			//print $body.$thisUser["email"]; exit;
