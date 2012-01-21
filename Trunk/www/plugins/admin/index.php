@@ -88,7 +88,7 @@ if( $_SESSION['isadmin'] != 1 ) {
 				default : break;
 			}
 		} else {
-			require(Settings::getVar('plug_dir')."admin/list-plugins.php");
+			require(Settings::getVar('plug_dir')."admin/list-users.php");
 			require(Settings::getVar('plug_dir')."admin/admin-main.php");
 		}
 	}
