@@ -115,7 +115,7 @@
 								{foreach from=$storm.suggestions item=suggestion}
 								<li class="size_{$size} bulle">
 									<blockquote title="Suggérée le {$suggestion.date|date_format:"%A %d %B %Y %Hh%M:%S GMT"}">
-										<a href="{$base_url}/storm/{$suggestion.suggestion|url}/{$suggestion.suggestion|ucfirst}/">{$suggestion.suggestion|ucfirst}</a>
+										<a href="{$base_url}/storm/{$suggestion.suggestion|url}/{$suggestion.suggestion|ucfirst|urlencode}/">{$suggestion.suggestion|ucfirst}</a>
 										<span class="size" id="total_{$suggestion.suggestion|url}">({$suggestion.nb})</span>
 										<span id="suggestions_{$suggestion.suggestion|url}" class="hidden" style="vertical-align:top;"></span>
 										<input type="hidden" name="suggestion" value="{$suggestion.suggestion|url}" />

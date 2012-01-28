@@ -68,6 +68,21 @@ final class public_storm extends Plugins
 		return self::$db->q2("SELECT storm_id FROM suggestions WHERE suggestion = :suggestion AND storm_id != :storm_id", "public_storms.db", array($suggestion, $storm_id));
 	}
 	
+	public function getSuggestionPermaname($suggestion) {
+		$suggestion    = utf8_encode(
+				strtr(
+					utf8_decode($suggestion),
+					utf8_decode("ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ. ?&"),
+					"aaaaaaaaaaaaooooooooooooeeeeeeeecciiiiiiiiuuuuuuuuynn----"
+				)
+			);
+		$suggestion    = htmlentities(strtolower($suggestion));
+		//$suggestion    = preg_replace("/([^a-z0-9]+)/", "-", html_entity_decode($suggestion));
+		$suggestion    = trim($suggestion, "-");
+		$suggestion    = urlencode($suggestion);
+		return $suggestion;
+	}	
+	
 	
 	public function getUrl($storm_root)
 	{
@@ -293,6 +308,7 @@ final class public_storm extends Plugins
 				$author = self::getStormAuthor($suggestions[$storm_id][$n]['user_id']);
 				$suggestions[$storm_id][$n]['author'] = $author['prenom']." ".$author['nom'];
 				$suggestions[$storm_id][$n]['author_login'] = $author['login'];
+				$suggestions[$storm_id][$n]['url'] = $u.self::getSuggestionPermaname($suggestions[$storm_id][$n]['suggestion'])."/".urlencode($suggestions[$storm_id][$n]['suggestion'])."/";
 			}
 			//print "SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = ".$storm_id." GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC LIMIT ".$nb."<br />\n";
 			//print_r($suggestions);

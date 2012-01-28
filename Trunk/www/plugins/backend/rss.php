@@ -60,7 +60,8 @@ if ( $uri[$ind+1] == "storm" && $id = public_storm::getStormIdFromUrl(urldecode(
 	/* Rss for a storm : list last suggestions */
 	$sPlug->AddData("title", i18n::_("Suggestions de '%s'", array(urldecode($uri[$ind+2]))));
 	$sPlug->AddData("storm", urldecode($uri[$ind+2]));
-	$sPlug->AddData("suggestions", public_storm::getSuggestions($id, Settings::getVar('backend number of items')));
+	$su = public_storm::getSuggestions($id, Settings::getVar('backend number of items'));
+	$sPlug->AddData("suggestions", $su);
 	$sPlug->Show("rss_storm.tpl", "plugins/backend");
 	//$content = "<pre>".htmlentities($sPlug->fetch("rss.tpl", "plugins/backend"))."</pre>";
 } else {
