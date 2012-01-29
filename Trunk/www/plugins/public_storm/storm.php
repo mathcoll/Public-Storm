@@ -63,6 +63,9 @@ if ( !isset($id) ) {
 			if( DEV != true ) {
 				//print "identica_php::updateStatus";
 				identica_php::updateStatus(i18n::_("Nouveau storm créé : %s %s par %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname), $_SESSION["prenom"]." ".$_SESSION["nom"])));
+				
+				/* TODO: to improve to network delay on Storm creation, we need to test the following line instead of the previous one: */
+				//aboutcron::addAction(array("identica_php::updateStatus", json_encode(array("string" => i18n::_("Nouveau storm créé : %s %s par %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname), $_SESSION["prenom"]." ".$_SESSION["nom"])))), time()));				
 			}
 			else {
 				//identica_php::updateStatus(i18n::_("Nouveau storm créé : %s %s par %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname), $_SESSION["prenom"]." ".$_SESSION["nom"])));

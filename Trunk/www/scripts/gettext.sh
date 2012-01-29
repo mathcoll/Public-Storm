@@ -34,3 +34,4 @@ rm -f ../cache/*.php
 touch ${output}
 find ../ -iname "*.php" -exec xgettext -nFj --debug --from-code=utf-8 --output=${output} --copyright-holder="${Translator}" --package-name="${name}" --package-version="${version}" {} \;
 
+echo "END ; gettext is now ready and up to date."
