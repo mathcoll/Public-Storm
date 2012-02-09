@@ -51,31 +51,40 @@ if ( !isset($id) ) {
 		$content = $sPlug->fetch("add_storm_or_loggin.tpl", "plugins/users");
 	} else {
 		/* user loggé : on créé le Storm */
-		//print "user loggé : on créé le Storm";
-		$storm_root = $uri[$ind+2] != "" ? $uri[$ind+2] : $storm_permaname;
-				
-		//print "Root=".$root."<br/>";
-		//print "permaname=".$storm_permaname."<br/>";
-		//print "storm_root=".$storm_root."<br/>";
-		$storm_permaname = str_replace("&", "", $storm_permaname);
-		if ( $id = public_storm::addStorm($storm_permaname, time(), urldecode($storm_root), $_SESSION['id']) ) {
-			$_SESSION["message"] = i18n::_("Vous venez de créer le storm %s !", array(urldecode($storm_root)));
-			if( DEV != true ) {
-				//print "identica_php::updateStatus";
-				identica_php::updateStatus(i18n::_("Nouveau storm créé : %s %s par %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname), $_SESSION["prenom"]." ".$_SESSION["nom"])));
-				
-				/* TODO: to improve to network delay on Storm creation, we need to test the following line instead of the previous one: */
-				//aboutcron::addAction(array("identica_php::updateStatus", json_encode(array("string" => i18n::_("Nouveau storm créé : %s %s par %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname), $_SESSION["prenom"]." ".$_SESSION["nom"])))), time()));				
-			}
-			else {
-				//identica_php::updateStatus(i18n::_("Nouveau storm créé : %s %s par %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname), $_SESSION["prenom"]." ".$_SESSION["nom"])));
-				//print "updateStatus => ".fixEncoding(i18n::_("Nouveau storm créé : %s %s par %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname), $_SESSION["prenom"]." ".$_SESSION["nom"])));
-			}
+		$metaData = users::getMetaData("ask_before_create");
+		if ( $metaData["meta_value"] == "true" && $_GET["IAgree"] != "true" ) {
+			// user wants to be informed before creating a new storm
+			$storm_root = $uri[$ind+2] != "" ? $uri[$ind+2] : $storm_permaname;
+			$storm_permaname = str_replace("&", "", $storm_permaname);
+			$_SESSION["question"] = i18n::_("Voulez vous vraiment créer le storm '%s' ?", array(urldecode($storm_root)));
 		} else {
-			$_SESSION["message"] = i18n::_("Erreur lors de la création du storm %s", array(urldecode($storm_root)));
+			// create the storm bypassing the user
+			//print "user loggé : on créé le Storm";
+			$storm_root = $uri[$ind+2] != "" ? $uri[$ind+2] : $storm_permaname;
+					
+			//print "Root=".$root."<br/>";
+			//print "permaname=".$storm_permaname."<br/>";
+			//print "storm_root=".$storm_root."<br/>";
+			$storm_permaname = str_replace("&", "", $storm_permaname);
+			if ( $id = public_storm::addStorm($storm_permaname, time(), urldecode($storm_root), $_SESSION['id']) ) {
+				$_SESSION["message"] = i18n::_("Vous venez de créer le storm %s !", array(urldecode($storm_root)));
+				if( DEV != true ) {
+					//print "identica_php::updateStatus";
+					identica_php::updateStatus(i18n::_("Nouveau storm créé : %s %s par %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname), $_SESSION["prenom"]." ".$_SESSION["nom"])));
+					
+					/* TODO: to improve to network delay on Storm creation, we need to test the following line instead of the previous one: */
+					//aboutcron::addAction(array("identica_php::updateStatus", json_encode(array("string" => i18n::_("Nouveau storm créé : %s %s par %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname), $_SESSION["prenom"]." ".$_SESSION["nom"])))), time()));				
+				}
+				else {
+					//identica_php::updateStatus(i18n::_("Nouveau storm créé : %s %s par %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname), $_SESSION["prenom"]." ".$_SESSION["nom"])));
+					//print "updateStatus => ".fixEncoding(i18n::_("Nouveau storm créé : %s %s par %s", array(urldecode($storm_root), public_storm::getUrl($storm_permaname), $_SESSION["prenom"]." ".$_SESSION["nom"])));
+				}
+			} else {
+				$_SESSION["message"] = i18n::_("Erreur lors de la création du storm %s", array(urldecode($storm_root)));
+			}
+			$storm = public_storm::getStorm($id);
+			$storm["storm_id"] = $id;
 		}
-		$storm = public_storm::getStorm($id);
-		$storm["storm_id"] = $id;
 	}
 }
 

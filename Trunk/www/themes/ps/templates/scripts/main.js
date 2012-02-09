@@ -13,6 +13,24 @@ $jQuery(document).ready(function() {
 			}
 		});
 	}
+	if ($jQuery("#question").html() != "") {
+		$jQuery("#question").dialog( {
+			title : "Question",
+			resizable : true,
+			modal : true
+		});
+		$jQuery("#question").dialog("option", "width", 420);
+		$jQuery("#question").dialog("option", "height", 140);
+		$jQuery("#question").dialog("option", "buttons", {
+			"Non" : function() {
+				$jQuery(this).dialog("close");
+			},
+			"Oui" : function() {
+				window[$jQuery("#question").attr("rel")]();
+				$jQuery(this).dialog("close");
+			}
+		});
+	}
 	if ($jQuery("input[type=submit]").html()) {
 		$jQuery("input[type=submit]").button( {
 			icons : {
@@ -31,6 +49,12 @@ $jQuery(document).ready(function() {
 	}
 	loadMeteor();
 });
+
+function answerYes() {
+	window.location = "./?IAgree=true"
+	//$jQuery("html").load("./", {'IAgree': "true"});
+	$jQuery.post("./", {'IAgree': "true"});
+}
 
 function habillage_sondage() {
 	$jQuery("body")

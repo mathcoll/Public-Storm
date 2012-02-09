@@ -123,10 +123,14 @@ $s->AddData("description", $description);
 
 //print_r($_SESSION);
 #$s->AddData("i18n", i18n::getLng());
-if ( isset($_SESSION["message"]) || Settings::getVar('message') )
-{
+if ( isset($_SESSION["message"]) || Settings::getVar('message') ) {
 	$s->AddData("message", isset($_SESSION["message"]) ? $_SESSION["message"] : Settings::getVar('message'));
 	$_SESSION["message"] = NULL;
+}
+if ( isset($_SESSION["question"]) || Settings::getVar('question') ) {
+	$s->AddData("question", isset($_SESSION["question"]) ? $_SESSION["question"] : Settings::getVar('question'));
+	$s->AddData("question_rel", "answerYes");
+	$_SESSION["question"] = NULL;
 }
 
 if ( isset($_SESSION['status']) )

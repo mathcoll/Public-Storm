@@ -44,6 +44,7 @@
 	{/foreach}
    <script type="text/javascript" defer="defer">
 		{literal}if($jQuery("#message")) { $jQuery("#message").hide(); }{/literal}
+		{literal}if($jQuery("#question")) { $jQuery("#question").hide(); }{/literal}
 	</script>
 </head>
 <body>
@@ -93,4 +94,5 @@
 		{/if}
 		
 		<div id="message" class="sprite">{$message}</div>
+		<div id="question" class="sprite" rel="{$question_rel}">{$question}</div>
 	</div><!-- rightBox -->

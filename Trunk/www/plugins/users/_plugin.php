@@ -163,33 +163,71 @@ final class users extends Plugins {
 			aboutcron::removeAction($cronId);
 			print i18n::L("Email was not found ; We had removed the cron from the list.")."<br />\n";
 		}
-
 		return true;
 	}
+
+	/**
+	 * Get the list of a user meta datas
+	 * @return list of datas
+	 */
+	public function getMetaData($filter=null) {
+		if ( isset($_SESSION['id']) ) {
+			if ( isset($filter) ) {
+				$metaDatas = self::$db->q2("SELECT meta_name, meta_value FROM metas WHERE user_id = :user_id and meta_name=:meta_name", "users.db", array(":user_id" => $_SESSION['id'], "meta_name" => $filter));
+			} else {
+				$metaDatas = self::$db->q2("SELECT meta_name, meta_value FROM metas WHERE user_id = :user_id", "users.db", array(":user_id" => $_SESSION['id']));
+			}
+			//print_r($metaDatas);
+			return $metaDatas[0];
+		} else {
+			return null;
+		}
+	}
+
+	/**
+	 * Set the list of a user meta datas
+	 * @return boolean
+	 */
+	public function setMetaData($name, $value) {
+		if ( isset($_SESSION['id']) && isset($name) && isset($value ) ) {
+			$metaDatas = self::$db->q2("INSERT OR REPLACE INTO metas (meta_name, meta_value, meta_id, user_id) VALUES (:name, :value, (SELECT meta_id from metas where meta_name=:name AND user_id=:user_id), :user_id);", "users.db", array(":name" => $name, ":value" => $value, ":user_id" => $_SESSION['id']));
+			//print_r($metaDatas);
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
-	public function getUserInfos($username)
-	{
+	public function getUserInfos($username) {
 		$user = self::$db->q2("SELECT u.nom, u.prenom, u.email, u.login, u.lang FROM users u WHERE u.login = :username", "users.db", array(":username" => $username));
 		return $user[0];
 	}
 	
-	public function addToFavorites($storm_id)
-	{
-		$favorite = self::$db->q2("INSERT INTO favorites (user_id, storm_id) VALUES (:user_id, :storm_id)", "users.db", array(":user_id" => $_SESSION['id'], ":storm_id" => $storm_id));
-		return $favorite[0];
+	public function addToFavorites($storm_id) {
+		if ( isset($_SESSION['id']) ) {
+			$favorite = self::$db->q2("INSERT INTO favorites (user_id, storm_id) VALUES (:user_id, :storm_id)", "users.db", array(":user_id" => $_SESSION['id'], ":storm_id" => $storm_id));
+			return $favorite[0];
+		} else {
+			return null;
+		}
 	}
 	
-	public function removeFromFavorites($storm_id)
-	{
-		$favorite = self::$db->q2("DELETE FROM favorites WHERE user_id=:user_id AND storm_id=:storm_id", "users.db", array(":user_id" => $_SESSION['id'], ":storm_id" => $storm_id));
-		return $favorite[0];
+	public function removeFromFavorites($storm_id) {
+		if ( isset($_SESSION['id']) ) {
+			$favorite = self::$db->q2("DELETE FROM favorites WHERE user_id=:user_id AND storm_id=:storm_id", "users.db", array(":user_id" => $_SESSION['id'], ":storm_id" => $storm_id));
+			return $favorite[0];
+		} else {
+			return null;
+		}
 	}
 	
-	public function isFavorites($storm_id)
-	{
-		$favorite = self::$db->q2("SELECT count(storm_id) as c FROM favorites WHERE user_id=:user_id AND storm_id=:storm_id", "users.db", array(":user_id" => $_SESSION['id'], ":storm_id" => $storm_id));
-		//print_r($favorite);
-		return $favorite[0]["c"];
+	public function isFavorites($storm_id) {
+		if ( isset($_SESSION['id']) ) {
+			$favorite = self::$db->q2("SELECT count(storm_id) as c FROM favorites WHERE user_id=:user_id AND storm_id=:storm_id", "users.db", array(":user_id" => $_SESSION['id'], ":storm_id" => $storm_id));
+			return $favorite[0]["c"];
+		} else {
+			return null;
+		}
 	}
 	
 	public function getMyFavorites() {
@@ -201,49 +239,40 @@ final class users extends Plugins {
 		}
 	}
 	
-	public function getUsersList()
-	{
+	public function getUsersList() {
 		$users = self::$db->q2("SELECT u.nom, u.prenom, u.email, u.login FROM users u", "users.db", array());
 		return $users;
 	}
 	
-	public function loadLang()
-	{
+	public function loadLang() {
 		return parent::loadLang(self::$name);
 	}	
 	
-	public function getVersion()
-	{
+	public function getVersion() {
 		return parent::getVersion();
 	}
 	
-	public function getName()
-	{
+	public function getName() {
 		return self::$name;
 	}
 	
-	public function getDescription()
-	{
+	public function getDescription() {
 		return parent::getDescription();
 	}
 	
-	public function getAuthor()
-	{
+	public function getAuthor() {
 		return parent::getAuthor();
 	}
 	
-	public function getIcon()
-	{
+	public function getIcon() {
 		return parent::getIcon(self::$name);
 	}
 	
-	public function getStatus()
-	{
+	public function getStatus() {
 		return parent::getStatus(self::$name);
 	}
 	
-	public function getSubDirs()
-	{
+	public function getSubDirs() {
 		return self::$subdirs;
 	}
 }

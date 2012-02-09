@@ -60,8 +60,7 @@ a.ohloh_iusethis {
 a.ohloh_iusethis:hover {
 	background-position: 0 -23px;
 }
-#message
-{
+#message, #question {
 	z-index: 9999;
 	display:none;
 }
@@ -311,8 +310,7 @@ div.breadcrumb ul li
     overflow: hidden;
 }
 
-#message
-{
+#message, #question {
 	padding: .5em .5em 0 95px;
 	background-position:0 -150px !important;
 	font-size:1.5em;

@@ -21,6 +21,16 @@
     <shtirlic@users.sourceforge.net>
  */
 
+if( isset($_POST) && $_POST["update_meta"] == true ) {
+	//print_r($_POST);
+	foreach($_POST as $name => $value) {
+		if ( $name != "update_meta" ) {
+			print users::setMetaData($name, $value);
+		}
+	}
+	exit;
+}
+
 $sTab = new Settings::$VIEWER_TYPE;
 Settings::setVar('template', 'main.tpl');
 
@@ -29,6 +39,10 @@ Settings::setVar('template', 'main.tpl');
 $sTab->AddData("prefix", Settings::getVar('prefix'));
 $sTab->AddData("base_url", Settings::getVar('BASE_URL'));
 $sTab->AddData("theme_dir", Settings::getVar('theme_dir'));
+$sTab->AddData("meta", users::getMetaData("ask_before_create"));
+$sTab->AddData("email", $_SESSION["email"]);
+$sTab->AddData("nom", $_SESSION["nom"]);
+$sTab->AddData("prenom", $_SESSION["prenom"]);
 
 
 $tabContent = $sTab->fetch("mes-parametres.tpl", "plugins/users");
