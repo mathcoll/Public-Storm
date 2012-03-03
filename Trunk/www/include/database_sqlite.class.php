@@ -64,6 +64,9 @@ class Database_sqlite extends Database
 		);
 		//print $query;
 		$result = self::$dbUser->query($query);
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			bl_query($query);
+		}
 		if ( !$result && DEBUG )
 		{
 			Debug::Log("Erreur userLogin ".$query, ERROR, __LINE__, __FILE__);
@@ -94,6 +97,9 @@ class Database_sqlite extends Database
 			self::escape_string($uid)
 		);
 		$result = self::$dbUser->query($query);
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			bl_query($query);
+		}
 		if ( DEBUG ) {
 			Debug::Log("authentificationByUid ".$query, SQL, __LINE__, __FILE__);
 			#Debug::Log(print_r(mysql_fetch_assoc($result), 1), NOTICE, __LINE__, __FILE__);
@@ -140,6 +146,9 @@ class Database_sqlite extends Database
 		{
 			Debug::Log("Erreur 3".$query, SQL, __LINE__, __FILE__);
 		}
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			bl_query($query);
+		}
 		return self::$dbUser->query($query);
 	}
 	
@@ -154,6 +163,9 @@ class Database_sqlite extends Database
 			self::escape_string($password_md5)
 		);
 		//Debug::Log("no result for request ".$query, ERROR, __LINE__, __FILE__);
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			bl_query($query);
+		}
 		return self::$dbUser->query($query);
 	}
 	
@@ -166,6 +178,9 @@ class Database_sqlite extends Database
 			self::escape_string($user_id)
 		);
 		//Debug::Log("no result for request ".$query, ERROR, __LINE__, __FILE__);
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			bl_query($query);
+		}
 		return self::$dbUser->query($query);
 	}
 	
@@ -186,6 +201,9 @@ class Database_sqlite extends Database
 		{
 			Debug::Log("Erreur 4".$query, SQL, __LINE__, __FILE__);
 		}
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			bl_query($query);
+		}
 		return self::$dbUser->query($query);
 	}
 
@@ -197,15 +215,14 @@ class Database_sqlite extends Database
 			$q,
 			self::escape_string($login)
 		);
-		if ( $result = self::$dbUser->query($query) )
-		{
-			while ( $row = $result->fetch() )
-			{
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			bl_query($query);
+		}
+		if ( $result = self::$dbUser->query($query) ) {
+			while ( $row = $result->fetch() ) {
 				return $row['email'];
 			}
-		}
-		else
-		{
+		} else {
 			Debug::Log("Erreur 12".$query, ERROR, __LINE__, __FILE__);
 		}
 	}
@@ -218,15 +235,14 @@ class Database_sqlite extends Database
 			$q,
 			self::escape_string($email)
 		);
-		if ( $result = self::$dbUser->query($query) )
-		{
-			while ( $row = $result->fetch() )
-			{
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			bl_query($query);
+		}
+		if ( $result = self::$dbUser->query($query) ) {
+			while ( $row = $result->fetch() ) {
 				return $row['login'];
 			}
-		}
-		else
-		{
+		} else {
 			Debug::Log("Erreur 5".$query, SQL, __LINE__, __FILE__);
 		}
 	}
@@ -239,15 +255,14 @@ class Database_sqlite extends Database
 			$q,
 			self::escape_string($email)
 		);
-		if ( $result = self::$dbUser->query($query) )
-		{
-			while ( $row = $result->fetch() )
-			{
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			bl_query($query);
+		}
+		if ( $result = self::$dbUser->query($query) ) {
+			while ( $row = $result->fetch() ) {
 				return $row['prenom']." ".$row['nom'];
 			}
-		}
-		else
-		{
+		} else {
 			Debug::Log("Erreur 5".$query, ERROR, __LINE__, __FILE__);
 		}
 	}
@@ -262,9 +277,11 @@ class Database_sqlite extends Database
 			md5(self::escape_string($password)),
 			self::escape_string($login)
 		);
-		if ( DEBUG )
-		{
+		if ( DEBUG ) {
 			Debug::Log("Erreur 6".$query, SQL, __LINE__, __FILE__);
+		}
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			bl_query($query);
 		}
 		self::$dbUser->query($query);
 		return $password;
@@ -284,37 +301,34 @@ class Database_sqlite extends Database
 		return $generation;
 	}
 	
-	public static function userExists( $login )
-	{
+	public static function userExists( $login ) {
 		$q = 'SELECT user_id as id FROM users WHERE login = "%s"';
 		$query = sprintf(
 			$q,
 			self::escape_string($login)
 		);
 		Debug::Log("userExists ".$query, SQL, __LINE__, __FILE__);
-		if ( $result = self::$dbUser->query($query) )
-		{
-			while ( $row = $result->fetch() )
-			{
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			bl_query($query);
+		}
+		if ( $result = self::$dbUser->query($query) ) {
+			while ( $row = $result->fetch() ) {
 				return $row['id'];
 			}
-		}
-		else
-		{
+		} else {
 			Debug::Log("Erreur userExists ".$query, ERROR, __LINE__, __FILE__);
 		}
 	}
 	
-	public static function getNbUsers()
-	{
+	public static function getNbUsers() {
 		$query = 'SELECT count(*) as nb FROM users';
-		if ( $result = self::$dbUser->query($query) )
-		{
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			bl_query($query);
+		}
+		if ( $result = self::$dbUser->query($query) ) {
 			$row = $result->fetch();
 			return $row['nb'];
-		}
-		else
-		{
+		} else {
 			Debug::Log("Erreur getNbUsers ".$query, ERROR, __LINE__, __FILE__);
 		}
 	}
@@ -329,6 +343,9 @@ class Database_sqlite extends Database
 		);
 		//print $query;
 		Debug::Log("getAllUsers ".$query, SQL, __LINE__, __FILE__);
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			bl_query($query);
+		}
 		if ( $result = self::$dbUser->query($query) )
 		{
 			$r = array();
@@ -361,6 +378,9 @@ class Database_sqlite extends Database
 		{
 			Debug::Log("addTB ".$query, SQL, __LINE__, __FILE__);
 		}
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			bl_query($query);
+		}
 		if ( self::$dbTB->query($query) )
 		{
 			return 1;
@@ -378,6 +398,9 @@ class Database_sqlite extends Database
 			$q,
 			self::escape_string($limit)
 		);
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			bl_query($query);
+		}
 		$result = self::$dbTB->query($query);
 		if ( DEBUG )
 		{
@@ -420,6 +443,9 @@ class Database_sqlite extends Database
 			$query = $q;
 		}
 		//print $query."<br />";
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			bl_query($query);
+		}
 		$result = self::$db_custom->query($query);
 		if ( !$result && DEBUG ) {
 			Debug::Log("Erreur q ".$query, SQL, __LINE__, __FILE__);
@@ -448,15 +474,11 @@ class Database_sqlite extends Database
 		return $sth->fetchAll();		
 	}
 	
-	public static function u( $q, $database, $datas )
-	{
-		try
-		{
+	public static function u( $q, $database, $datas ) {
+		try {
 			self::$db_custom = new PDO("sqlite:./datas/".$database);
 			if ( !self::$db_custom ) throw new DatabaseException("error");
-		}
-		catch (Exception $e)
-		{
+		} catch (Exception $e) {
 			Debug::Log($e, ERROR, __LINE__, __FILE__);
 			return false;
 		}
@@ -465,18 +487,17 @@ class Database_sqlite extends Database
 			self::escape_string($datas[0])
 		);
 		Debug::Log($query, SQL, __LINE__, __FILE__);
-		if ( self::$db_custom->query($query) )
-		{
-			return self::$db_custom->lastInsertId();
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			bl_query($query);
 		}
-		else
-		{
+		if ( self::$db_custom->query($query) ) {
+			return self::$db_custom->lastInsertId();
+		} else {
 			return self::$db_custom->errorInfo();
 		}
 	}
 
-	public static function install()
-	{
+	public static function install() {
 		/* TODO */
 		return false;
 	}

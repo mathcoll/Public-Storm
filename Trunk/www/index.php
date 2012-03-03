@@ -144,6 +144,10 @@ if( $statuses['backend'] == 1 ) {
 	$s->AddData("rssfeeds", $rssfeeds);
 }
 
+if( $statuses['php_bug_lost'] == 1 && DEBUG == 1 ) {
+	$s->AddData("bl_debug", bl_debug());
+}
+
 if( $statuses['users'] == 1 )
 {
 	$isLogged = User::isLogged() != NULL ? 1 : 0;

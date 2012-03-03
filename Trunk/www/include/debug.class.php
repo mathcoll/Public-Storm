@@ -70,16 +70,18 @@ final class Debug {
 			self::$instance->log_file = true;
 		}
 		elseif (stristr($debug_type,"screen")) {
-			self::$instance->log_screen = true;
-			print "<script defer='defer'>\r\n\tvar fdebug = window.open('about:blank', 'fdebug', 'scrollbars=1,width=1000,height=700');\r\n";
-			print "\tfdebug.document.write('<h1>".gettext("Debug window")."</h1>');\r\n";
-			print "\tfdebug.document.write('<style>ul.liste li {list-style: inline;}div.logLine span {display:table-row;}div.logLine span {display:table-cell;}div.logLine span.date {display:none}div.logLine span.info {width: 400px;}div.logLine span.line {width: 20px;}div.logLine span.file {width: 400px;overflow:hidden;}div.logLine:hover {background:#cdcdcd;}</style>');\r\n";
-			print "\tfdebug.document.write('<ul class=\'liste\'>');\r\n";
-			print "\tfdebug.document.write('	<li id=\"".NOTICE."\"><h2>".NOTICE."</h2></li>');\r\n";
-			print "\tfdebug.document.write('	<li id=\"".WARNING."\"><h2>".WARNING."</h2></li>');\r\n";
-			print "\tfdebug.document.write('	<li id=\"".ERROR."\"><h2>".ERROR."</h2></li>');\r\n";
-			print "\tfdebug.document.write('	<li id=\"".SQL."\"><h2>".SQL."</h2></li>');\r\n";
-			print "\tfdebug.document.write('</ul>');</script>\r\n\r\n";
+			if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+				self::$instance->log_screen = true;
+				print "<script defer='defer'>\r\n\tvar fdebug = window.open('about:blank', 'fdebug', 'scrollbars=1,width=1000,height=700');\r\n";
+				print "\tfdebug.document.write('<h1>".gettext("Debug window")."</h1>');\r\n";
+				print "\tfdebug.document.write('<style>ul.liste li {list-style: inline;}div.logLine span {display:table-row;}div.logLine span {display:table-cell;}div.logLine span.date {display:none}div.logLine span.info {width: 400px;}div.logLine span.line {width: 20px;}div.logLine span.file {width: 400px;overflow:hidden;}div.logLine:hover {background:#cdcdcd;}</style>');\r\n";
+				print "\tfdebug.document.write('<ul class=\'liste\'>');\r\n";
+				print "\tfdebug.document.write('	<li id=\"".NOTICE."\"><h2>".NOTICE."</h2></li>');\r\n";
+				print "\tfdebug.document.write('	<li id=\"".WARNING."\"><h2>".WARNING."</h2></li>');\r\n";
+				print "\tfdebug.document.write('	<li id=\"".ERROR."\"><h2>".ERROR."</h2></li>');\r\n";
+				print "\tfdebug.document.write('	<li id=\"".SQL."\"><h2>".SQL."</h2></li>');\r\n";
+				print "\tfdebug.document.write('</ul>');</script>\r\n\r\n";
+			}
 		}
 
 		self::$last_debug_type = $debug_type;
@@ -106,27 +108,47 @@ final class Debug {
 	 * @return string
 	 */
 	private static function PrepareLine ($data) {
-		switch( $data[0] ) {
-			case NOTICE :
-				$line = $data[1];
-				break;
-			case ERROR :
-				$line = $data[1];
-				break;
-			case WARNING :
-				$line = $data[1];
-				break;
-			case SQL :
-				$line = $data[1];
-				break;
-			default :
-				$line = $data[1];
-				break;
+		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
+			switch( $data[0] ) {
+				case NOTICE :
+					bl_log($data[1]);
+					break;
+				case ERROR :
+					bl_error($data[1]);
+					break;
+				case WARNING :
+					bl_warn($data[1]);
+					break;
+				case SQL :
+					bl_query($data[1]);
+					break;
+				default :
+					bl_info($data[1]);
+					break;
+			}
+		} else {
+			switch( $data[0] ) {
+				case NOTICE :
+					$line = $data[1];
+					break;
+				case ERROR :
+					$line = $data[1];
+					break;
+				case WARNING :
+					$line = $data[1];
+					break;
+				case SQL :
+					$line = $data[1];
+					break;
+				default :
+					$line = $data[1];
+					break;
+			}
+			$line = "<script defer='defer'>";
+			$line .= "	fdebug.document.getElementById('".$data[0]."').innerHTML+='<div class=\'logLine\'><span class=\'date\'>".date("d/m/Y h\hi:s")."</span><span class=\'info\'>".$data[1]."</span><span class=\'file\'>".$data[3]."</span><span class=\'line\'>".$data[2]."</span></div>';";
+			$line .= "</script>\r\n";
+			return $line;
 		}
-		$line = "<script defer='defer'>";
-		$line .= "	fdebug.document.getElementById('".$data[0]."').innerHTML+='<div class=\'logLine\'><span class=\'date\'>".date("d/m/Y h\hi:s")."</span><span class=\'info\'>".$data[1]."</span><span class=\'file\'>".$data[3]."</span><span class=\'line\'>".$data[2]."</span></div>';";
-		$line .= "</script>\r\n";
-		return $line;
 	}
 
 

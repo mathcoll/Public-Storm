@@ -36,13 +36,17 @@ Settings::setVar('SITE_BASELINE', '', 'global_settings', 'Site baseline, also de
 Settings::setVar('SITE_DESCRIPTION', '', 'global_settings', 'Site description, also defined in the languages files');
 
 // Current version
-Settings::setVar('SITE_VERSION', '12.01.06', 'global_settings', 'version of the source code');
+Settings::setVar('SITE_VERSION', '12.02.25', 'global_settings', 'version of the source code');
 
 // Site name
 Settings::setVar('fb_app_id', '21015190410', 'global_settings', 'Facebook, préciser les administrateurs dans une balise méta fb:app_id');
 
 // Debug switch. Set it to true for output additional information.
-@define('DEBUG', false);
+if( $_GET["DEBUG"] == "true" ) {
+	@define('DEBUG', true);
+} else {
+	@define('DEBUG', false);
+}
 
 // Theme name
 Settings::setVar('SITE_THEME', 'ps', 'global_settings', 'Website theme name (css theme folder)');

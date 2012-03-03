@@ -13,5 +13,6 @@
 	<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
 	  {literal}{lang: 'fr'}{/literal}
 	</script>
+{if $user.isadmin eq 1}{if $statuses.php_bug_lost eq 1}{$bl_debug}{/if}{/if}
 </body>
 </html>
