@@ -127,6 +127,32 @@ final class User {
 	}
 
 	/**
+	 * Get all variable for User from its Id
+	 * @param string $id
+	 * @return array
+	 */
+	public static function GetDataById($id)
+	{
+		self::GetById($id);
+		//return $id;
+		$u = array();
+		$u["id"] = self::$id;
+		$u["uid"] = self::$uid;
+		$u["prenom"] = self::$prenom;
+		$u["nom"] = self::$nom;
+		$u["email"] = self::$email;
+		$u["avatar"] = self::$avatar;
+		$u["subscription_date"] = self::$subscription_date;
+		$u["login"] = self::$login;
+		$u["lang"] = self::$lang;
+		$u["sessionId"] = self::$sessionId;
+		$u["persistent"] = self::$persistent;
+		$u["logged"] = self::$logged;
+		$u["isadmin"] = self::$isadmin;
+		return $u;
+	}
+
+	/**
 	 * Set the default user language in DataBase
 	 * @param string $lang the lang to set
 	 */
