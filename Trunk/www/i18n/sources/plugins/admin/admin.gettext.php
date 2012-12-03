@@ -18,11 +18,11 @@ gettext("Configurer");
 
 ?><?php
 gettext("list_users");
+gettext("%1 subscribed users");
 gettext("Pages :");
-gettext("Nom");
 gettext("Prénom");
+gettext("Nom");
 gettext("Login");
-gettext("Email");
 gettext("Lang");
 gettext("date d'inscription");
 gettext("Mise à jour");
@@ -34,14 +34,16 @@ gettext("forbidden_details");
 
 ?><?php
 gettext("configuration");
+gettext("Afficher tout");
+gettext("Masquer tout");
 gettext("Description");
 gettext("Nom");
 gettext("Valeur");
 gettext("Ok");
 
 ?><?php
+gettext("list_users");
 gettext("liste_plugins");
 gettext("configuration");
-gettext("list_users");
 
 ?>

@@ -20,7 +20,9 @@ gettext("Membre de Public-Storm depuis plus de 2 semaines !");
 gettext("Cher");
 gettext("Vous êtes inscrit depuis plus de 2 semaines sur Public-Storm ;");
 gettext("Toute l'équipe vous remercie pour votre participation.");
+gettext("Nous aimerions désormais que vous participiez d'avantage à l'enrichissement de Public-Storm.");
 gettext("À ce titre, nous vous encourageons à <a href=\"%1?utm_source=plusTwoWeeks&utm_medium=email&utm_term=key2&utm_campaign=Public-Storm\">créer des Storms</a> et à participer aux suggestions.");
+gettext("Merci pour votre <a href=\"%1?utm_source=plusTwoWeeks&utm_medium=email&utm_term=key3&utm_campaign=Public-Storm\">prochaine visite</a> et à bientôt.");
 gettext("inscription.signature");
 
 ?><?php
@@ -40,11 +42,11 @@ gettext("créé le");
 
 ?><?php
 gettext("Storms de %1");
-gettext("Membre depuis le %1");
+gettext("Membre de Public-Storm depuis le %1");
 gettext("Langue :");
 gettext("Flux Rss");
 gettext("Flux Rss");
-gettext("Flux Rss");
+gettext("Flux Rss de l'auteur %1");
 gettext("Semaine");
 gettext("(suite)");
 gettext("Semaine");
@@ -63,7 +65,14 @@ gettext("mot_de_passe_oublie");
 
 ?><?php
 gettext("mes_parametres");
+gettext("Ask before creating a new storm?");
+gettext("yes");
+gettext("no");
+gettext("Mettre à jour");
+gettext("Vos informations ont été mises à jour.");
+gettext("Newsletter");
 gettext("Vous pouvez vous inscrire à la newsletter du site Internet Collaboratif pour recevoir des informations sur les projets en cours. (3 à 4 emails par an)");
+gettext("Email :");
 gettext("Nom :");
 gettext("Prénom :");
 gettext("S'abonner");

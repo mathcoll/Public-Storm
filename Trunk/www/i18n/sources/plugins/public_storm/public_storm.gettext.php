@@ -10,18 +10,24 @@ gettext("intro_title1");
 gettext("intro_title1");
 gettext("intro_title1");
 gettext("intro_p1");
+gettext("Suivant");
 gettext("intro_title2");
 gettext("intro_title2");
 gettext("intro_title2");
 gettext("intro_p2");
+gettext("Précédent");
+gettext("Suivant");
 gettext("intro_title3");
 gettext("intro_title3");
 gettext("intro_title3");
 gettext("intro_p3");
+gettext("Précédent");
+gettext("Suivant");
 gettext("intro_title4");
 gettext("intro_title4");
 gettext("intro_title4");
 gettext("intro_p4");
+gettext("Précédent");
 
 ?><?php
 gettext("Liste des derniers Storms créés :");
@@ -30,7 +36,6 @@ gettext("(suite)");
 gettext("Semaine");
 gettext("I love this Storm !");
 gettext("créé par");
-gettext("le %1");
 
 ?><?php
 gettext("Flux Rss des suggestions de '%1'");
