@@ -35,7 +35,10 @@
 						{/if}
 						<li class="cap">{t}Semaine{/t} {$storm.date|date_format:"%W"}</li>
 					{/if}
-					<li>{if $storm.hearts}<span class="sprite heart1" title="{t}I love this Storm !{/t}"></span>{/if} <a href="{$base_url}/storm/{$storm.permaname}/" class="storm">{$storm.root|ucfirst}</a>, {t}créé le{/t} {$storm.date|date_format:"%A %d %B %Y %Hh%M GMT"}</li>
+					<li>
+						{if $storm.hearts}<span class="sprite heart1" title="{t}I love this Storm !{/t}"></span>{/if} <a href="{$base_url}/storm/{$storm.permaname}/" class="storm">{$storm.root|ucfirst}</a>
+						<a href="/backend/storm/{$storm.permaname}/rss.php"><img width="14" height="14" align="top" src="{$theme_dir}/img/rss.png" alt="{t 1=$storm.permaname}Flux Rss des suggestions de '%1'{/t}" title="{t 1=$storm.permaname}Flux Rss des suggestions de '%1'{/t}" /></a>, {$storm.date|date:"d/m/Y"}
+					</li>
 					{assign var=week value=$storm.date|date_format:"%W"}
 					{assign var=year value=$storm.date|date_format:"%Y"}
 				{/if}

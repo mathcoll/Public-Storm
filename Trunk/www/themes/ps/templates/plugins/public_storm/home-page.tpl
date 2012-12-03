@@ -29,9 +29,11 @@
 							<img src="{$theme_dir}img/creer_storms.png" title="{t}intro_title1{/t}" alt="{t}intro_title1{/t}" width="320" height="320" />
 							<h4>{t}intro_title1{/t}</h4>
 							<ul class="panel-desc">
-								<li>{t}intro_p1{/t}</li>
-								<li class="icon">
-									<a href="#tab2"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab2', 'clicked']);">&gt;</button></a>
+								<li>
+									{t}intro_p1{/t}
+									<div>
+										<a href="#tab2"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab2', 'clicked']);">{t}Suivant{/t}</button></a>
+									</div>
 								</li>
 							</ul>
 						</div>
@@ -39,12 +41,12 @@
 							<img src="{$theme_dir}img/suggest.png" title="{t}intro_title2{/t}" alt="{t}intro_title2{/t}" width="320" height="320" />
 							<h4>{t}intro_title2{/t}</h4>
 							<ul class="panel-desc">
-								<li class="icon">
-									<a href="#tab1"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab1', 'clicked']);">&lt;</button></a>
-								</li>
-								<li>{t}intro_p2{/t}</li>
-								<li class="icon">
-									<a href="#tab3"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab3', 'clicked']);">&gt;</button></a>
+								<li>
+									{t}intro_p2{/t}
+									<div>
+										<a href="#tab1"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab1', 'clicked']);">{t}Précédent{/t}</button></a>
+										<a href="#tab3"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab3', 'clicked']);">{t}Suivant{/t}</button></a>
+									</div>
 								</li>
 							</ul>
 						</div>
@@ -52,12 +54,12 @@
 							<img src="{$theme_dir}img/export.png" title="{t}intro_title3{/t}" alt="{t}intro_title3{/t}" width="320" height="320" />
 							<h4>{t}intro_title3{/t}</h4>
 							<ul class="panel-desc">
-								<li class="icon">
-									<a href="#tab2"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab2', 'clicked']);">&lt;</button></a>
-								</li>
-								<li>{t}intro_p3{/t}</li>
-								<li class="icon">
-									<a href="#tab4"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab4', 'clicked']);">&gt;</button></a>
+								<li>
+									{t}intro_p3{/t}
+									<div>
+										<a href="#tab2"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab2', 'clicked']);">{t}Précédent{/t}</button></a>
+										<a href="#tab4"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab4', 'clicked']);">{t}Suivant{/t}</button></a>
+									</div>
 								</li>
 							</ul>
 						</div>
@@ -65,10 +67,12 @@
 							<img src="{$theme_dir}img/creer_storms.png" title="{t}intro_title4{/t}" alt="{t}intro_title4{/t}" width="320" height="320" />
 							<h4>{t}intro_title4{/t}</h4>
 							<ul class="panel-desc">
-								<li class="icon">
-									<a href="#tab3"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab3', 'clicked']);">&lt;</button></a>
+								<li>
+									{t escape=""}intro_p4{/t}
+									<div>
+										<a href="#tab3"><button type="button" class="fg-button ui-state-default ui-corner-all" onclick="_gaq.push(['_trackEvent', 'tab3', 'clicked']);">{t}Précédent{/t}</button></a>
+									</div>
 								</li>
-								<li>{t escape=""}intro_p4{/t}</li>
 							</ul>
 						</div>
 					</div><!-- //scrollContainer -->

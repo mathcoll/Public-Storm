@@ -44,7 +44,7 @@
 						{if $storm.author_login ne ""}
 							{t escape="" 1=$base_url 2=$storm.author_login 3=$storm.author|ucwords}{t}créé par{/t} <a href="%1/utilisateurs/%2/">%3</a>{/t}
 						{/if}
-						{t 1=$storm.date|date_format:"%A %d %B %Y %Hh%M GMT"}le %1{/t}
+						{$storm.date|date:"d/m/Y"}
 					</li>
 					{assign var=week value=$storm.date|date_format:"%W"}
 					{assign var=year value=$storm.date|date_format:"%Y"}

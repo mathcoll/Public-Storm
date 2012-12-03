@@ -1,5 +1,4 @@
-html 
-{ 
+html { 
 	margin-bottom:1px;
 	height: 100%;
 	margin: 0;
@@ -20,8 +19,7 @@ span.nobr {
     white-space: nowrap;
 }
 ul.list-pages li a, ul.list-pages li b {padding:2px 5px;}
-body
-{
+body {
 	background: #ffffff;
 	color: black;
 	font-family: Arial;
@@ -341,25 +339,16 @@ div.breadcrumb ul li
 {
 	border: 1px solid transparent;
 	padding: 0em 3em 0em .2em;
-	border-right: 5px solid transparent;
 	display: block;
 }
 
-#languages ul li a.selected
-{
-	border-right: 5px solid #156e1e;
-	font-style: italic;
+#languages ul li a.selected {
+	background: none repeat scroll 0 0 #A3AB0E;
+	color: #000000;
 }
 
-#languages ul li a:hover
-{
-	border: 1px solid #156e1e;
-	border-right: 5px solid #156e1e;
-}
-
-#languages ul li a.selected:hover
-{
-	border-right: 5px solid #156e1e;
+#languages p a {
+	display:block;
 }
 
 span.centered
