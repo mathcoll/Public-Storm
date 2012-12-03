@@ -86,7 +86,7 @@ if ( $op = fsockopen(Settings::getVar('meteorServerIP'), Settings::getVar('meteo
 			if( $ch=="" ) {
 				print "<script>var foo=prompt('Channel ?');tab('meteor/COUNTSUBSCRIBERS', 'meteor3', 'admin', foo+'/print/');</script>";
 			} else {
-				$out = "COUNTSUBSCRIBERS ".$ch."\n";
+				print "<h3>".i18n::L("Meteor COUNTSUBSCRIBERS %s", array($ch))."</h3><br />";
 				$ans = askMeteor($out, $op);
 				preg_match("/OK (\d+)/", $ans, $m);
 				$array = array(
@@ -105,7 +105,7 @@ if ( $op = fsockopen(Settings::getVar('meteorServerIP'), Settings::getVar('meteo
 			break;
 			
 		case "SHOWSTATS" :
-			$out = "SHOWSTATS\n";
+			print "<h3>".i18n::L("Meteor SHOWSTATS")."</h3><br />";
 			print nl2br( askMeteor($out, $op) );
 			break;
 			
@@ -147,7 +147,7 @@ if ( $op = fsockopen(Settings::getVar('meteorServerIP'), Settings::getVar('meteo
 					break;
 				case "html":
 				default:
-					print i18n::L("Meteor LISTCHANNELS")." : <br />";
+					print "<h3>".i18n::L("Meteor LISTCHANNELS")."</h3><br />";
 					print "<a href=\"/admin/gettab/meteor/LISTCHANNELS/rss/\">".i18n::L("version rss")."</a>";
 					if( rtrim($array[0]) == "OK" ) {
 						$n=0;
