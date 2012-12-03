@@ -133,16 +133,26 @@ final class public_storm extends Plugins
 	public function addStorm($permaname, $date, $root, $user_id)
 	{
 		//print "INSERT into storms (permaname, date, root, user_id) VALUES ('".strToLower($permaname)."', '".$date."', '".strToLower($root)."', '%d')";
-		return self::$db->u("INSERT into storms (permaname, date, root, user_id) VALUES ('".strToLower($permaname)."', '".$date."', '".strToLower($root)."', '%d')", "public_storms.db", array($user_id));
+		// check if storm already exists
+		if ( $id = self::getStormIdFromUrl(strToLower($permaname)) )  {
+			return array($id); /* so nice.. an array :-) */
+		} else {
+			return self::$db->u("INSERT into storms (permaname, date, root, user_id) VALUES ('".strToLower($permaname)."', '".$date."', '".strToLower($root)."', '%d')", "public_storms.db", array($user_id));
+		}
 	}
 	
-	public function getStorm($id, $nb=20)
-	{
-		if( isset($id) && $id != 0 ) {
-			$s = self::$db->q("SELECT s.* FROM storms s WHERE s.storm_id=%d", "public_storms.db", array($id));
+	public function getStorm($id, $nb=20, $returnSuggestionFlag="true", $result_type=PDO::FETCH_BOTH) {
+		// I'm sorry about that non boolean default value...
+		if( isset($id) && $id > 0 ) {
+			$s = self::$db->q("SELECT s.* FROM storms s WHERE s.storm_id=%d", "public_storms.db", array($id), $result_type);
 			//$s = self::$db->q2("SELECT s.* FROM storms s WHERE s.storm_id=:id", "public_storms.db", array(":id" => $id));
-			$s[1]['suggestions'] = self::getSuggestions($id, $nb);
-			$author = self::getStormAuthor($s[1]['user_id']);
+			if ($returnSuggestionFlag != "false") $s[1]['suggestions'] = self::getSuggestions($id, $nb, $result_type);
+			if ($s[1]['user_id'] > 0) $author = self::getStormAuthor($s[1]['user_id']);
+			if ( User::isLogged() && users::isFavorites($id) ) {
+				$s[1]['stared'] = "1";
+			} else {
+				$s[1]['stared'] = "0";
+			}
 			$s[1]['author'] = $author['prenom']." ".$author['nom'];
 			$s[1]['author_login'] = $author['login'];
 			$s[1]['url'] = self::getUrl($s[1]['permaname']);
@@ -215,6 +225,10 @@ final class public_storm extends Plugins
 			$storms[$n]['root'] = $s['root'];
 			$storms[$n]['hearts'] = $hearts[$n];
 			$storms[$n]['url'] = self::getUrl($s['permaname']);
+			$storms[$n]['permaname'] = $s['permaname'];
+			$storms[$n]['date'] = $s['date'];
+			$storms[$n]['author'] = $s['author'];
+			$storms[$n]['author_login'] = $s['author_login'];
 		}
 		//print_r($storms);
 		return $storms;
@@ -293,8 +307,7 @@ final class public_storm extends Plugins
 		return $mostActives;
 	}
 	
-	public function getSuggestions($storm_id, $nb=null)
-	{
+	public function getSuggestions($storm_id, $nb=null, $result_type=null) {
 		if( !@isset($self->$suggestions[$storm_id]) ) {
 			$u = Settings::getVar('BASE_URL_HTTP')."/storm/";
 			//$suggestions = self::$db->q2("SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = :storm_id GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC LIMIT :nb", "public_storms.db", array(':nb' => $nb, ':storm_id' => $storm_id));
@@ -302,12 +315,14 @@ final class public_storm extends Plugins
 			if( isset($nb) && $nb > 0 ) {
 				$q .= " LIMIT ".$nb;
 			}
-			$suggestions[$storm_id] = self::$db->q($q, "public_storms.db", array($storm_id));
-			for($n=0; $n<sizeOf($suggestions[$storm_id]); $n++)
-			{
+			//$result_type = $result_type?$result_type:PDO::FETCH_BOTH; // defined&defaulted earlier
+			//print $q;
+			$suggestions[$storm_id] = self::$db->q($q, "public_storms.db", array($storm_id), $result_type);
+			for($n=0; $n<sizeOf($suggestions[$storm_id]); $n++) {
 				$author = self::getStormAuthor($suggestions[$storm_id][$n]['user_id']);
 				$suggestions[$storm_id][$n]['author'] = $author['prenom']." ".$author['nom'];
 				$suggestions[$storm_id][$n]['author_login'] = $author['login'];
+				$suggestions[$storm_id][$n]['this_storm_id'] = self::getStormIdFromUrl($suggestions[$storm_id][$n]['suggestion']);
 				$suggestions[$storm_id][$n]['url'] = $u.self::getSuggestionPermaname($suggestions[$storm_id][$n]['suggestion'])."/".urlencode($suggestions[$storm_id][$n]['suggestion'])."/";
 			}
 			//print "SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = ".$storm_id." GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC LIMIT ".$nb."<br />\n";
@@ -353,10 +368,10 @@ final class public_storm extends Plugins
 		return $storms[0]['c'];
 	}
 	
-	public function getContributors($storm_id=null, $filter_user_id)
+	public function getContributors($storm_id=null, $filter_user_id, $result_type=PDO::FETCH_BOTH)
 	{
 		//print "-->".$storm_id;
-		$suggestions = @isset($self->$suggestions[$storm_id]) ? $self->$suggestions[$storm_id] : self::getSuggestions($storm_id);
+		$suggestions = @isset($self->$suggestions[$storm_id]) ? $self->$suggestions[$storm_id] : self::getSuggestions($storm_id, null, $result_type);
 		//print_r($suggestions);
 		$contributors = Array();
 		foreach($suggestions as $s) {

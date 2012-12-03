@@ -426,7 +426,7 @@ class Database_sqlite extends Database
 		}
 	}
 	
-	public static function q( $q, $database, $datas ) {
+	public static function q( $q, $database, $datas, $result_type=PDO::FETCH_BOTH ) {
 		try {
 			self::$db_custom = new PDO("sqlite:./datas/".$database);
 			if ( !self::$db_custom ) throw new DatabaseException("error");
@@ -442,15 +442,20 @@ class Database_sqlite extends Database
 		} else {
 			$query = $q;
 		}
+		
+		//http://www.php.net/manual/en/pdostatement.fetch.php
+		$result_type = $result_type?$result_type:PDO::FETCH_BOTH;
+		//print $query." (".$result_type.") <br />";
 		//print $query."<br />";
 		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
 			bl_query($query);
 		}
+		//print $result_type;
 		$result = self::$db_custom->query($query);
 		if ( !$result && DEBUG ) {
 			Debug::Log("Erreur q ".$query, SQL, __LINE__, __FILE__);
 		} else {
-			while ( $row = $result->fetch() ) {
+			while ( $row = $result->fetch($result_type) ) {
 				$datas[] = $row;
 			}
 			//print_r($datas);

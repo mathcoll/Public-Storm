@@ -22,12 +22,16 @@ div.panel ul.panel-desc li {
 	padding: 5px 0;
 	background:#fff;
 }
+div.panel ul.panel-desc li div {
+	background:none;
+	margin: 10px 0 10px 380px;
+}
 div.panel ul.panel-desc li.icon {
 	width:40px;
 	margin:0 5px;
 	background:none !important;
 }
-div.panel ul.panel-desc li.icon a:hover {
+div.panel ul.panel-desc li div a:hover {
 	background:none;
 }
 ul.storm
