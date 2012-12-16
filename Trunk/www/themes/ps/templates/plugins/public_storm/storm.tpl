@@ -157,6 +157,21 @@
 				{$cloud}
 			</div>
 			{/if}
+			<applet 
+                name="wordle" 
+                mayscript="mayscript" 
+                code="wordle.WordleApplet.class"
+                codebase="http://wordle.appspot.com" 
+                archive="/j/v1373/wordle.jar" 
+                width="100%" height="400">
+                
+                <param name="colorwordcounts" value="{$wordle}"/>
+                <param name="bg" value="FFFFFF"/>
+                
+                <param name="java_arguments" value="-Xmx256m -Xms64m">
+                Your browser doesn't seem to understand the APPLET tag.
+                You need to install and enable the <a href="http://java.com/">Java</a> plugin.
+        	</applet>
 		</div>
 	</div>
 </div>

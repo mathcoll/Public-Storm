@@ -91,7 +91,11 @@ if ( !isset($id) ) {
 
 if ( isset($id) ) {
 	/* le Storm vient d'être créé ou alors il exstait déjà */
+	$wordle = "";
 	$storm = public_storm::getStorm($id, 100);
+	foreach($storm['suggestions'] as $suggestion) {
+		$wordle .= sprintf("%s:%d:%s,", ucFirst($suggestion['suggestion']), $suggestion['nb'], "bbbbbb"); 
+	}
 	$root = isset($id) ? $storm['root'] : $storm_permaname;
 	backend::addRssfeeds(
 		array(
@@ -129,6 +133,7 @@ if ( isset($id) ) {
 				//print "</pre>";
 				$is_cloud=true;
 				$cloud->addWord($st['root'], 1);
+				$wordle .= sprintf("%s:%d:%s,", $st['root'], 1/sizeOf($suggestion), "aaaaaa");
 			}
 		}
 	}
@@ -146,6 +151,7 @@ if ( isset($id) ) {
 			foreach( array_slice($suggestions, 5, sizeOf($suggestions)) AS $sugg ) {
 				//print_r($sugg);
 				$cloud1->addWord($sugg['suggestion'], $sugg['nb']);
+				$wordle .= sprintf("%s:%d:%s,", $sugg['suggestion'], $sugg['nb'], "cccccc");
 			}
 			$sPlug->AddData("cloud1", $cloud1->showCloud(true));
 		}
@@ -224,6 +230,7 @@ if ( isset($id) ) {
 		$sPlug->AddData("user", $user);
 	}
 	$sPlug->AddData("statuses", $statuses);
+	$sPlug->AddData("wordle", $wordle);
 	$content = $sPlug->fetch("storm.tpl", "plugins/public_storm");
 }
 
