@@ -167,7 +167,14 @@ if ( $uri[$ind+1] ) {
 			}
 			if ( User::userLogin($params["login"], md5($params["password"]), $params["persistent"]) ) {
 				$user["user"][0]["isLogged"] = User::isLogged()>0?"true":"false";
-				$user["user"][0]["user_id"] = User::isLogged();
+				$user["user"][0]["user_id"] = $_SESSION['id'];
+				$user["user"][0]["nom"] = $_SESSION['nom'];
+				$user["user"][0]["prenom"] = $_SESSION['prenom'];
+				$user["user"][0]["email"] = $_SESSION['email'];
+				$user["user"][0]["login"] = $params["login"];
+				$user["user"][0]["login"] = $params["login"];
+				$user["user"][0]["lang"] = $_SESSION['LANG'];
+				$user["user"][0]["avatar"] = $_SESSION['avatar'];
 			} else {
 				$user["user"][0]["isLogged"] = "false";
 				$user["user"][0]["user_id"] = 0;
