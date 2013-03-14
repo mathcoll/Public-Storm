@@ -116,11 +116,11 @@ function alea(m) {
 function no_accent(str) {
 	str = str.replace(/[ÀÂÄàâä]/g, "a");
 	str = str.replace(/[ÈÉÊËèéêë]/g, "e");
-	str = str.replace(/[ÎÏîï]/g, "i");
+	str = str.replace(/[ÎÏĪîïī]/g, "i");
 	str = str.replace(/[ÔÓÖôóö]/g, "o");
 	str = str.replace(/[ÙÛùûü]/g, "u");
 	str = str.replace(/[Çç]/g, "c");
-	str = str.replace(/[°€]/g, "c");
+	str = str.replace(/[°€]/g, "-");
 	return str;
 }
 function ucfirst(str) {
