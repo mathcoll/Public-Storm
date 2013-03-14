@@ -110,6 +110,8 @@ h3
 	margin: 1em 0 0 0;
 	padding: 0.3em 0 0.5em 1.5em;
 	background: transparent url(../img/sprite.png) no-repeat 0 0;
+	width: 10px;
+	white-space: nowrap;
 }
 
 h4
@@ -260,6 +262,8 @@ div.breadcrumb ul li
 	margin: 10px 0 0 0;
 	padding: 0;
 	background: none;
+	white-space: normal;
+    width: auto;
 }
 
 #intro .title h3 a
@@ -285,8 +289,11 @@ div.breadcrumb ul li
 #pre-footer h3
 {
 	color: #FCEE95;
-	padding: 0 0 0 21px;
+	padding: 0 0 0 12px;
 	line-height: 1.5em;
+	width: 10px;
+	white-space: nowrap;
+	background-position: -60px -5px;
 }
 #pre-footer div.table
 {
@@ -294,7 +301,7 @@ div.breadcrumb ul li
 }
 #pre-footer div div div.table-cell ul
 {
-	margin: 5px 0 0 20px;
+	margin: 5px 0 0 15px;
 	padding: 0;
 }
 
@@ -314,8 +321,7 @@ div.breadcrumb ul li
 	font-size:1.5em;
 }
 
-#rightBox #languages
-{
+#rightBox #languages {
 	float: right;
 	position:relative;
 	margin:-6em 0 0 0;
@@ -714,7 +720,7 @@ div.nuage span.suggest-too input
 {
 	display: table-cell;
 	vertical-align: top;
-	padding:0;
+	padding:0 0 0 5px;
 }
 .table-cell label
 {
@@ -838,7 +844,8 @@ ul.list-pages, ul.list-pages li
 	display:none;
 }
 #habillage {
-	/*background: url(../img/habillage.jpg) no-repeat scroll center top #ffffff !important;*/
+	/*background: url(../img/habillage.png) no-repeat scroll left top #ffffff !important;
+	padding: 70px 0 0;*/
 }
 #a_habillage {
     background: none repeat scroll 0 0 transparent;

@@ -6,7 +6,7 @@
 		<a href="{$base_url}/">{$site_name} {t}version{/t} {$version}</a><br />
 	</div><!-- end of footer -->
 </div><!-- end of page -->
-<a href="javascript:habillage_sondage();" title="{t}Sondage Public-Storm{/t}" id="a_habillage"></a>
+{*<a href="https://play.google.com/store/apps/details?id=info.internetcollaboratif.publicstorm.app&utm_source=skin&utm_medium=website&utm_term=key1-link-to-app&utm_campaign=Public-Storm" title="{t}Public-Storm-App sur Play{/t}" id="a_habillage"></a>*}
 </div><!-- end of habillage -->
 
 {if $statuses.analytics eq 1}{include file="plugins/analytics/analytics.tpl" analytics=$plugins.analytics}{/if}

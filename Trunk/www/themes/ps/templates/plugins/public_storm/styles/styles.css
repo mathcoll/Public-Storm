@@ -128,7 +128,7 @@ li.year
 	list-style: none;
 	font-size: 26px;
 	font-weight: bold;
-	margin: 0 0 0 -30px;
+	margin: 0 0 0 -30px !important;
 	padding: 10px 0 0 0;
 	background: none;
 }
@@ -142,21 +142,21 @@ div#add_this_storm input
 	border:0;
 }
 span.heart1 {
-	background-position:-60px -500px !important;
+	background-position:-60px -505px !important;
 	width:10px;
-	height:15px;
+	height:10px;
 	display:inline-block;
 }
 span.heart2 {
-	background-position:-75px -500px !important;
+	background-position:-75px -505px !important;
 	width:20px;
-	height:15px;
+	height:10px;
 	display:inline-block;
 }
 span.heart3 {
-	background-position:-95px -500px !important;
+	background-position:-95px -505px !important;
 	width:25px;
-	height:15px;
+	height:10px;
 	display:inline-block;
 }
 ._10 { width: 10%; }
@@ -191,7 +191,18 @@ div.right
 h3.storm
 {
 	font-size: 26px;
-	background-position: 0 10px;
+	width: 10px;
+	background-position: 0 7px;
+	position: relative;
+	white-space: nowrap;
+}
+h3.storm:before
+{
+	content: '';
+	position: absolute;
+	z-index: -1;
+	width: 20px;
+	height: 20px;
 }
 span.data
 {
