@@ -157,7 +157,7 @@
 				{$cloud}
 			</div>
 			{/if}
-			<applet 
+			{*<applet 
                 name="wordle" 
                 mayscript="mayscript" 
                 code="wordle.WordleApplet.class"
@@ -171,7 +171,7 @@
                 <param name="java_arguments" value="-Xmx256m -Xms64m">
                 Your browser doesn't seem to understand the APPLET tag.
                 You need to install and enable the <a href="http://java.com/">Java</a> plugin.
-        	</applet>
+        	</applet>*}
 		</div>
 	</div>
 </div>
