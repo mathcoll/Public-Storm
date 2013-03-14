@@ -6,7 +6,7 @@
 	{$user_infos.prenom|escape|ucfirst} {$user_infos.nom|escape|ucfirst},
 	<br />{t}fogotten_password.intro{/t}
 </p>
-<p style="font-size:11px;">
+<p style="font-size:12px;">
 	{t}field.login{/t} : <b>{$user_infos.login|escape}</b><br />
 	{t}field.password{/t} : <b>{$user_infos.password|escape}</b>
 </p>

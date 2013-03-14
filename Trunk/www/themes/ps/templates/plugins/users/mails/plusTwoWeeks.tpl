@@ -8,6 +8,7 @@
 <p style="font-size:12px;">{t}Nous aimerions désormais que vous participiez d'avantage à l'enrichissement de Public-Storm.{/t}</p>
 <p style="font-size:12px;">{t 1=$base_url_http escape=""}À ce titre, nous vous encourageons à <a href="%1?utm_source=plusTwoWeeks&utm_medium=email&utm_term=key2&utm_campaign=Public-Storm">créer des Storms</a> et à participer aux suggestions.{/t}</p>
 <p style="font-size:12px;">{t 1=$base_url_http escape=""}Merci pour votre <a href="%1?utm_source=plusTwoWeeks&utm_medium=email&utm_term=key3&utm_campaign=Public-Storm">prochaine visite</a> et à bientôt.{/t}</p>
+<p style="font-size:12px;">{t}share PS to your friend{/t}</p>
 <p style="font-size:12px;">
 <a href="https://play.google.com/store/apps/details?id=info.internetcollaboratif.publicstorm.app&utm_source=plusTwoWeeks&utm_medium=email&utm_term=key4-link-to-app&utm_campaign=Public-Storm"><img src="{$theme_dir_http}img/app-promo.jpg" border="0" alt="{t}Public-Storm-App sur Play{/t}" /></a>
 <br />

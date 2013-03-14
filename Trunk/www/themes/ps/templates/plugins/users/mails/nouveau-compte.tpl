@@ -5,12 +5,13 @@
 <p style="font-size:12px;">
 	{t}inscription.welcome{/t}
 </p>
-<p style="font-size:11px;">
+<p style="font-size:12px;">
 	{t}field.nom{/t} : <b>{$user_infos.nom|escape}</b><br />
 	{t}field.prenom{/t} : <b>{$user_infos.prenom|escape}</b><br />
 	{t}field.login{/t} : <b>{$user_infos.login|escape}</b><br />
 	{t}field.password{/t} : <b>{$user_infos.password|escape}</b>
 </p>
+<p style="font-size:12px;">{t}share PS to your friend{/t}</p>
 <p style="font-size:12px;">
 <a href="https://play.google.com/store/apps/details?id=info.internetcollaboratif.publicstorm.app&utm_source=nouveau-compte&utm_medium=email&utm_term=key4-link-to-app&utm_campaign=Public-Storm"><img src="{$theme_dir_http}img/app-promo.jpg" border="0" alt="{t}Public-Storm-App sur Play{/t}" /></a>
 <br />
