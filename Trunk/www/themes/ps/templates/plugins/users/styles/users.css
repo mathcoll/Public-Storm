@@ -155,15 +155,18 @@ input:focus
 {
 	background: #a3ab0e;
 }
-
+ul.liste {
+	list-style: none;
+}
 ul.liste li
 {
 	line-height: 16px;
 	margin: 10px 0 0;
 }
-ul.liste li a.storm
-{
+ul.liste li a.storm {
 	font-size: 16px;
+	background: transparent url(/themes/ps/templates/img/sprite.png) no-repeat -60px -7px;
+	padding: 0 0 0 12px;
 }
 .must-login {
 	padding:10px 80px;
@@ -186,8 +189,10 @@ ul.liste li a.storm
 }
 .must-login div.table-cell-must-login h3,
 .must-login div.table-cell-create-account h3 {
-	padding:1.5em 0 1em 2.5em;
+	padding:1.5em 0 1em 4em;
 	background: none;
+	white-space: normal;
+    width: 100%;
 }
 .must-login div.table-cell-forbidden h3 {
 	padding:1.5em 0 1em 4.5em;

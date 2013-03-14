@@ -24,13 +24,13 @@
 						{assign var=loopnum value=0}
 						<div class="table-cell _50">
 							<ul class="liste">
-								{if $week eq $storm.date|date_format:"%W"}
-									<li class="cap">{t}Semaine{/t} {$storm.date|date_format:"%W"} {t}(suite){/t}</li>
+								{if $week eq $storm.date|date_format:"%V"}
+									<li class="cap">{t}Semaine{/t} {$storm.date|date_format:"%V"} {t}(suite){/t}</li>
 								{/if}
 					{/if}
 					
-					{if $week ne $storm.date|date_format:"%W"}
-						<li class="cap">{t}Semaine{/t} {$storm.date|date_format:"%W"}</li>
+					{if $week ne $storm.date|date_format:"%V"}
+						<li class="cap">{t}Semaine{/t} {$storm.date|date_format:"%V"}</li>
 					{/if}
 					
 					{if $loopnum ge $item_per_col|floor}
@@ -46,7 +46,7 @@
 						{/if}
 						{$storm.date|date:"d/m/Y"}
 					</li>
-					{assign var=week value=$storm.date|date_format:"%W"}
+					{assign var=week value=$storm.date|date_format:"%V"}
 					{assign var=year value=$storm.date|date_format:"%Y"}
 				{/if}
 				{assign var=loopnum value=$loopnum+1}
