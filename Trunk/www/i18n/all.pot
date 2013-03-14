@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Public-Storm 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-12 15:13+0100\n"
+"POT-Creation-Date: 2012-12-28 22:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -136,8 +136,9 @@ msgstr ""
 #: ../plugins/meteor/meteor.php:123 ../plugins/public_storm/storm.php:43
 #: ../plugins/public_storm/storm.php:139 ../plugins/public_storm/storm.php:141
 #: ../plugins/public_storm/storm.php:147 ../plugins/public_storm/storm.php:152
-#: ../plugins/public_storm/storm.php:161 ../plugins/public_storm/storm.php:200
-#: ../plugins/sendtoafriend/index.php:39 ../plugins/sendtoafriend/index.php:41
+#: ../plugins/public_storm/storm.php:161 ../plugins/public_storm/storm.php:167
+#: ../plugins/public_storm/storm.php:200 ../plugins/sendtoafriend/index.php:39
+#: ../plugins/sendtoafriend/index.php:41
 #: ../plugins/users/creer-un-compte.php:41
 #: ../plugins/users/creer-un-compte.php:42 ../plugins/users/login.php:60
 #: ../plugins/users/login.php:61 ../plugins/users/mot-de-passe-oublie.php:29
@@ -183,6 +184,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:81
 #: ../i18n/sources/plugins/users/users.gettext.php:83
 #: ../i18n/sources/plugins/users/users.gettext.php:90
+#: ../i18n/sources/plugins/users/users.gettext.php:114
 msgid "by"
 msgstr ""
 
@@ -216,9 +218,11 @@ msgstr ""
 #: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:4
 #: ../i18n/sources/plugins/users/users.gettext.php:7
 #: ../i18n/sources/plugins/users/users.gettext.php:8
+#: ../i18n/sources/plugins/users/users.gettext.php:12
 #: ../i18n/sources/plugins/users/users.gettext.php:16
 #: ../i18n/sources/plugins/users/users.gettext.php:24
 #: ../i18n/sources/plugins/users/users.gettext.php:26
+#: ../i18n/sources/plugins/users/users.gettext.php:41
 msgid "inscription.signature"
 msgstr ""
 
@@ -250,6 +254,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:84
 #: ../i18n/sources/plugins/users/users.gettext.php:86
 #: ../i18n/sources/plugins/users/users.gettext.php:93
+#: ../i18n/sources/plugins/users/users.gettext.php:117
 msgid "Pages :"
 msgstr ""
 
@@ -462,6 +467,7 @@ msgstr ""
 #: ../plugins/public_storm/_plugin.php:347
 #: ../plugins/public_storm/_plugin.php:352
 #: ../plugins/public_storm/_plugin.php:363
+#: ../plugins/public_storm/_plugin.php:378
 msgid "Anonyme"
 msgstr ""
 
@@ -533,6 +539,8 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:146
 #: ../i18n/sources/plugins/users/users.gettext.php:148
 #: ../i18n/sources/plugins/users/users.gettext.php:155
+#: ../i18n/sources/plugins/users/users.gettext.php:168
+#: ../i18n/sources/plugins/users/users.gettext.php:179
 #: ../plugins/users/creer-un-compte.php:39
 msgid "creer_un_compte"
 msgstr ""
@@ -714,6 +722,10 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:48
 #: ../i18n/sources/plugins/users/users.gettext.php:50
 #: ../i18n/sources/plugins/users/users.gettext.php:52
+#: ../i18n/sources/plugins/users/users.gettext.php:57
+#: ../i18n/sources/plugins/users/users.gettext.php:59
+#: ../i18n/sources/plugins/users/users.gettext.php:71
+#: ../i18n/sources/plugins/users/users.gettext.php:73
 msgid "Semaine"
 msgstr ""
 
@@ -735,6 +747,8 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:38
 #: ../i18n/sources/plugins/users/users.gettext.php:49
 #: ../i18n/sources/plugins/users/users.gettext.php:51
+#: ../i18n/sources/plugins/users/users.gettext.php:58
+#: ../i18n/sources/plugins/users/users.gettext.php:72
 msgid "(suite)"
 msgstr ""
 
@@ -773,11 +787,14 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:40
 #: ../i18n/sources/plugins/users/users.gettext.php:51
 #: ../i18n/sources/plugins/users/users.gettext.php:53
+#: ../i18n/sources/plugins/users/users.gettext.php:60
 #: ../i18n/sources/plugins/users/users.gettext.php:61
 #: ../i18n/sources/plugins/users/users.gettext.php:63
+#: ../i18n/sources/plugins/users/users.gettext.php:74
 #: ../i18n/sources/plugins/users/users.gettext.php:80
 #: ../i18n/sources/plugins/users/users.gettext.php:82
 #: ../i18n/sources/plugins/users/users.gettext.php:89
+#: ../i18n/sources/plugins/users/users.gettext.php:111
 msgid "I love this Storm !"
 msgstr ""
 
@@ -857,6 +874,12 @@ msgstr ""
 #: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:41
 #: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:42
 #: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:43
+#: ../i18n/sources/plugins/users/users.gettext.php:61
+#: ../i18n/sources/plugins/users/users.gettext.php:62
+#: ../i18n/sources/plugins/users/users.gettext.php:75
+#: ../i18n/sources/plugins/users/users.gettext.php:76
+#: ../i18n/sources/plugins/users/users.gettext.php:112
+#: ../i18n/sources/plugins/users/users.gettext.php:113
 msgid "Flux Rss des suggestions de '%1'"
 msgstr ""
 
@@ -910,687 +933,26 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:92
 #: ../i18n/sources/plugins/users/users.gettext.php:94
 #: ../i18n/sources/plugins/users/users.gettext.php:101
+#: ../i18n/sources/plugins/users/users.gettext.php:125
 msgid "ajouter_un_storm"
 msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:42
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:46
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:47
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:48
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:49
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:50
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:53
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:58
-#: ../i18n/sources/plugins/users/users.gettext.php:35
-#: ../i18n/sources/plugins/users/users.gettext.php:38
-#: ../i18n/sources/plugins/users/users.gettext.php:43
-#: ../i18n/sources/plugins/users/users.gettext.php:45
-#: ../i18n/sources/plugins/users/users.gettext.php:62
-#: ../i18n/sources/plugins/users/users.gettext.php:64
-#: ../i18n/sources/plugins/users/users.gettext.php:73
-#: ../i18n/sources/plugins/users/users.gettext.php:78
-#: ../i18n/sources/plugins/users/users.gettext.php:84
-#: ../i18n/sources/plugins/users/users.gettext.php:86
-#: ../i18n/sources/plugins/users/users.gettext.php:103
-#: ../i18n/sources/plugins/users/users.gettext.php:105
-#: ../i18n/sources/plugins/users/users.gettext.php:112
-#: ../plugins/users/mot-de-passe-oublie.php:25
-msgid "mot_de_passe_oublie"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:43
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:47
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:50
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:51
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:52
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:53
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:56
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:61
-msgid "Suggestions principales"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:44
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:48
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:51
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:52
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:53
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:54
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:57
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:62
-#: ../plugins/tagcloud/_plugin.php:47 ../plugins/tagcloud/_plugin.php:48
-msgid "Je suggère moi aussi !"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:45
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:49
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:52
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:53
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:54
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:55
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:58
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:63
-msgid "Pas encore de suggestion pour %1"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:46
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:50
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:53
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:54
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:55
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:56
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:59
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:64
-msgid "Autres suggestions"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:47
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:51
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:54
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:55
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:56
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:57
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:60
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:65
-msgid "Chargement en cours..."
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:48
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:49
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:50
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:51
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:52
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:54
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:55
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:59
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:60
-msgid "Hubs Viadeo liés à '%1'"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:48
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:52
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:55
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:56
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:57
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:58
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:61
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:66
-msgid "Start / Stop"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:49
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:53
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:56
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:57
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:58
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:59
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:62
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:67
-msgid "Nuage de storms liés à %1"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:52
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:56
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:59
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:60
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:61
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:62
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:65
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:70
-msgid "Liste des Storms triés par ordre alphabêtique :"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:57
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:62
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:65
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:66
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:67
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:69
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:72
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:77
-#: ../i18n/sources/plugins/users/users.gettext.php:57
-#: ../i18n/sources/plugins/users/users.gettext.php:60
-#: ../i18n/sources/plugins/users/users.gettext.php:66
-#: ../i18n/sources/plugins/users/users.gettext.php:68
-#: ../i18n/sources/plugins/users/users.gettext.php:85
-#: ../i18n/sources/plugins/users/users.gettext.php:87
-#: ../i18n/sources/plugins/users/users.gettext.php:94
-msgid "Page précédente"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:58
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:65
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:68
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:69
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:70
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:72
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:75
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:80
-#: ../i18n/sources/plugins/users/users.gettext.php:58
-#: ../i18n/sources/plugins/users/users.gettext.php:63
-#: ../i18n/sources/plugins/users/users.gettext.php:69
-#: ../i18n/sources/plugins/users/users.gettext.php:71
-#: ../i18n/sources/plugins/users/users.gettext.php:88
-#: ../i18n/sources/plugins/users/users.gettext.php:90
-#: ../i18n/sources/plugins/users/users.gettext.php:97
-msgid "Page suivante"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:61
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:68
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:71
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:72
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:73
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:75
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:78
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:83
-msgid "storms"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:62
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:69
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:72
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:73
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:74
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:76
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:79
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:84
-msgid "list_alpha"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:63
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:66
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:67
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:68
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:70
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:73
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:78
-#: ../i18n/sources/plugins/users/users.gettext.php:61
-#: ../i18n/sources/plugins/users/users.gettext.php:67
-#: ../i18n/sources/plugins/users/users.gettext.php:69
-#: ../i18n/sources/plugins/users/users.gettext.php:86
-#: ../i18n/sources/plugins/users/users.gettext.php:88
-#: ../i18n/sources/plugins/users/users.gettext.php:95
-#: ../plugins/public_storm/storm.php:45 ../plugins/public_storm/storm.php:164
-#: ../plugins/public_storm/storm.php:171 ../plugins/public_storm/storm.php:172
-#: ../plugins/public_storm/storm.php:179 ../plugins/public_storm/storm.php:188
-#: ../plugins/public_storm/storm.php:193 ../plugins/public_storm/storm.php:195
-#: ../plugins/public_storm/storm.php:202 ../plugins/public_storm/storm.php:204
-msgid "Storms"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:63
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:70
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:73
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:74
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:75
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:77
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:80
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:85
-#: ../plugins/public_storm/storms_list.php:59
-#: ../plugins/public_storm/storms_list_alpha.php:56
-msgid "list_date"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:64
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:67
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:68
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:69
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:71
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:74
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:79
-#: ../i18n/sources/plugins/users/users.gettext.php:62
-#: ../i18n/sources/plugins/users/users.gettext.php:68
-#: ../i18n/sources/plugins/users/users.gettext.php:70
-#: ../i18n/sources/plugins/users/users.gettext.php:87
-#: ../i18n/sources/plugins/users/users.gettext.php:89
-#: ../i18n/sources/plugins/users/users.gettext.php:96
-msgid "page"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:64
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:71
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:74
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:75
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:76
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:78
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:81
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:86
-msgid "plus_actifs"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:66
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:73
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:76
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:77
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:78
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:81
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:84
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:89
-msgid "contribuez"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:67
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:74
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:77
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:78
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:79
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:82
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:85
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:90
-msgid "contribuez_p1"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:68
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:75
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:78
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:79
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:80
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:83
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:86
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:91
-msgid "contribuez_p2"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:69
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:76
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:79
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:80
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:81
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:84
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:87
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:92
-msgid "contribuez_p3"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:70
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:77
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:80
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:81
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:82
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:85
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:88
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:93
-msgid "contribuez_p4"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:71
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:78
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:81
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:82
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:83
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:86
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:89
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:94
-msgid "discutez"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:72
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:79
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:82
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:83
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:84
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:87
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:90
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:95
-msgid "discutez_p1"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:73
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:80
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:83
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:84
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:85
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:88
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:91
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:96
-msgid "Mon avis sur Public-Storm"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:74
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:81
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:84
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:85
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:86
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:89
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:92
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:97
-msgid "telechargez"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:75
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:82
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:85
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:86
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:87
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:90
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:93
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:98
-msgid "telechargez_p1"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:76
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:83
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:86
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:87
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:88
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:91
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:94
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:99
-msgid "telechargez_p2"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:79
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:86
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:89
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:90
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:91
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:94
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:97
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:102
-msgid "Ajouter ce 'Storm' :"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:80
-msgid "Ajouter"
-msgstr ""
-
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:80
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:83
-#: ../i18n/sources/plugins/public_storm/public_storm.gettext.php:88
-msgid "Les plus appréciés"
-msgstr ""
-
-#: ../i18n/sources/plugins/rechercher/rechercher.gettext.php:2
-msgid "rechercher_intro"
-msgstr ""
-
-#: ../i18n/sources/plugins/rechercher/rechercher.gettext.php:3
-msgid "rechercher"
-msgstr ""
-
-#: ../i18n/sources/plugins/rechercher/rechercher.gettext.php:6
-msgid "resultat_de_recherche"
-msgstr ""
-
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:2
-#: ../plugins/sendtoafriend/index.php:78
-msgid "Invitation à consulter Public-Storm"
-msgstr ""
-
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:3
-msgid "Votre ami vous suggère de consulter Public-Storm..."
-msgstr ""
-
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:8
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:13
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:14
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:24
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:27
-msgid "Partager à me amis"
-msgstr ""
-
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:10
-msgid "fermer cette fenêtre"
-msgstr ""
-
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:15
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:16
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:26
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:29
-msgid ""
-"Choisissez le service auquel vous souhaitez vous connecter. Vous pourrez "
-"ensuite envoyer un message à vos amis.<br />Public-Storm ne conserve aucune "
-"donnée vous concernant."
-msgstr ""
-
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:16
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:27
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:30
-msgid "Me connecter via OAuth,"
-msgstr ""
-
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:17
-msgid "Me connecter avec un provider OAuth"
-msgstr ""
-
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:17
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:20
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:29
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:32
-msgid "choisir mes amis..."
-msgstr ""
-
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:18
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:20
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:21
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:23
-msgid "Vous devez d'abord vous connecter via un service OAuth."
-msgstr ""
-
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:18
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:19
-msgid "not yet available"
-msgstr ""
-
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:19
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:22
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:30
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:33
-msgid "...et leur envoyer un message"
-msgstr ""
-
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:28
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:31
-msgid "Vous êtes déjà connecté"
-msgstr ""
-
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:31
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:34
-msgid "Ajoutez votre message personnel :"
-msgstr ""
-
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:32
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:38
-msgid "Envoyer"
-msgstr ""
-
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:35
-msgid "Bonjour,"
-msgstr ""
-
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:36
-msgid ""
-"Je viens de découvrir ce site, et j'ai pensé qu'il pourrait t'intéresser !"
-msgstr ""
-
-#: ../i18n/sources/plugins/sendtoafriend/sendtoafriend.gettext.php:37
-msgid "À bientôt."
-msgstr ""
-
-#: ../i18n/sources/plugins/share/share.gettext.php:2
-msgid "Fermer"
-msgstr ""
-
-#: ../i18n/sources/plugins/share/share.gettext.php:3
-msgid "Partager"
-msgstr ""
-
-#: ../i18n/sources/plugins/trackbacks/trackbacks.gettext.php:2
-msgid "trackback"
-msgstr ""
-
-#: ../i18n/sources/plugins/trackbacks/trackbacks.gettext.php:3
-msgid "trackback_intro"
-msgstr ""
-
-#: ../i18n/sources/plugins/trackbacks/trackbacks.gettext.php:4
-#: ../i18n/sources/plugins/trackbacks/trackbacks.gettext.php:5
-msgid "Lien de TrackBack"
-msgstr ""
-
-#: ../i18n/sources/plugins/users/users.gettext.php:2
-#: ../plugins/users/_plugin.php:79 ../plugins/users/_plugin.php:80
-#: ../plugins/users/_plugin.php:86
-msgid "Membre de Public-Storm depuis plus d'une semaine !"
-msgstr ""
-
-#: ../i18n/sources/plugins/users/users.gettext.php:2
-#: ../i18n/sources/plugins/users/users.gettext.php:10
-#: ../i18n/sources/plugins/users/users.gettext.php:128
-#: ../i18n/sources/plugins/users/users.gettext.php:130
-#: ../i18n/sources/plugins/users/users.gettext.php:147
-#: ../i18n/sources/plugins/users/users.gettext.php:149
-#: ../i18n/sources/plugins/users/users.gettext.php:156
-#: ../include/user.class.php:115 ../include/user.class.php:123
-#: ../include/user.class.php:127 ../include/user.class.php:135
-#: ../include/user.class.php:144 ../include/user.class.php:152
-#: ../include/user.class.php:160 ../include/user.class.php:168
-msgid "inscription.subject"
-msgstr ""
-
-#: ../i18n/sources/plugins/users/users.gettext.php:3
-#: ../i18n/sources/plugins/users/users.gettext.php:20
-msgid "Cher"
-msgstr ""
-
-#: ../i18n/sources/plugins/users/users.gettext.php:3
-#: ../i18n/sources/plugins/users/users.gettext.php:11
-msgid "inscription.welcome"
-msgstr ""
-
-#: ../i18n/sources/plugins/users/users.gettext.php:4
-msgid "Vous êtes inscrit depuis plus d'une semaine sur Public-Storm ;"
-msgstr ""
-
-#: ../i18n/sources/plugins/users/users.gettext.php:4
-#: ../i18n/sources/plugins/users/users.gettext.php:12
-#: ../i18n/sources/plugins/users/users.gettext.php:76
-#: ../i18n/sources/plugins/users/users.gettext.php:81
-#: ../i18n/sources/plugins/users/users.gettext.php:87
-#: ../i18n/sources/plugins/users/users.gettext.php:89
-#: ../i18n/sources/plugins/users/users.gettext.php:91
-#: ../i18n/sources/plugins/users/users.gettext.php:96
-#: ../i18n/sources/plugins/users/users.gettext.php:102
-#: ../i18n/sources/plugins/users/users.gettext.php:104
-#: ../i18n/sources/plugins/users/users.gettext.php:106
-#: ../i18n/sources/plugins/users/users.gettext.php:108
-#: ../i18n/sources/plugins/users/users.gettext.php:112
-#: ../i18n/sources/plugins/users/users.gettext.php:115
-#: ../i18n/sources/plugins/users/users.gettext.php:120
-#: ../i18n/sources/plugins/users/users.gettext.php:121
-#: ../i18n/sources/plugins/users/users.gettext.php:122
-#: ../i18n/sources/plugins/users/users.gettext.php:123
-#: ../i18n/sources/plugins/users/users.gettext.php:130
-#: ../i18n/sources/plugins/users/users.gettext.php:139
-#: ../i18n/sources/plugins/users/users.gettext.php:141
-#: ../i18n/sources/plugins/users/users.gettext.php:148
-msgid "field.nom"
-msgstr ""
-
-#: ../i18n/sources/plugins/users/users.gettext.php:5
-#: ../i18n/sources/plugins/users/users.gettext.php:22
-msgid "Toute l'équipe vous remercie pour votre participation."
-msgstr ""
-
-#: ../i18n/sources/plugins/users/users.gettext.php:5
-#: ../i18n/sources/plugins/users/users.gettext.php:13
-#: ../i18n/sources/plugins/users/users.gettext.php:75
-#: ../i18n/sources/plugins/users/users.gettext.php:80
-#: ../i18n/sources/plugins/users/users.gettext.php:86
-#: ../i18n/sources/plugins/users/users.gettext.php:88
-#: ../i18n/sources/plugins/users/users.gettext.php:90
-#: ../i18n/sources/plugins/users/users.gettext.php:95
-#: ../i18n/sources/plugins/users/users.gettext.php:101
-#: ../i18n/sources/plugins/users/users.gettext.php:103
-#: ../i18n/sources/plugins/users/users.gettext.php:105
-#: ../i18n/sources/plugins/users/users.gettext.php:107
-#: ../i18n/sources/plugins/users/users.gettext.php:111
-#: ../i18n/sources/plugins/users/users.gettext.php:114
-#: ../i18n/sources/plugins/users/users.gettext.php:119
-#: ../i18n/sources/plugins/users/users.gettext.php:120
-#: ../i18n/sources/plugins/users/users.gettext.php:121
-#: ../i18n/sources/plugins/users/users.gettext.php:122
-#: ../i18n/sources/plugins/users/users.gettext.php:129
-#: ../i18n/sources/plugins/users/users.gettext.php:138
-#: ../i18n/sources/plugins/users/users.gettext.php:140
-#: ../i18n/sources/plugins/users/users.gettext.php:147
-msgid "field.prenom"
-msgstr ""
-
-#: ../i18n/sources/plugins/users/users.gettext.php:6
-#: ../i18n/sources/plugins/users/users.gettext.php:13
-#: ../i18n/sources/plugins/users/users.gettext.php:14
-#: ../i18n/sources/plugins/users/users.gettext.php:29
-#: ../i18n/sources/plugins/users/users.gettext.php:30
-#: ../i18n/sources/plugins/users/users.gettext.php:31
-#: ../i18n/sources/plugins/users/users.gettext.php:33
-#: ../i18n/sources/plugins/users/users.gettext.php:38
-#: ../i18n/sources/plugins/users/users.gettext.php:40
-#: ../i18n/sources/plugins/users/users.gettext.php:48
-#: ../i18n/sources/plugins/users/users.gettext.php:51
-#: ../i18n/sources/plugins/users/users.gettext.php:56
-#: ../i18n/sources/plugins/users/users.gettext.php:57
-#: ../i18n/sources/plugins/users/users.gettext.php:58
-#: ../i18n/sources/plugins/users/users.gettext.php:59
-#: ../i18n/sources/plugins/users/users.gettext.php:69
-#: ../i18n/sources/plugins/users/users.gettext.php:74
-#: ../i18n/sources/plugins/users/users.gettext.php:75
-#: ../i18n/sources/plugins/users/users.gettext.php:77
-#: ../i18n/sources/plugins/users/users.gettext.php:78
-#: ../i18n/sources/plugins/users/users.gettext.php:80
-#: ../i18n/sources/plugins/users/users.gettext.php:82
-#: ../i18n/sources/plugins/users/users.gettext.php:83
-#: ../i18n/sources/plugins/users/users.gettext.php:84
-#: ../i18n/sources/plugins/users/users.gettext.php:89
-#: ../i18n/sources/plugins/users/users.gettext.php:91
-#: ../i18n/sources/plugins/users/users.gettext.php:93
-#: ../i18n/sources/plugins/users/users.gettext.php:98
-#: ../i18n/sources/plugins/users/users.gettext.php:99
-#: ../i18n/sources/plugins/users/users.gettext.php:101
-#: ../i18n/sources/plugins/users/users.gettext.php:104
-#: ../i18n/sources/plugins/users/users.gettext.php:106
-#: ../i18n/sources/plugins/users/users.gettext.php:108
-#: ../i18n/sources/plugins/users/users.gettext.php:110
-#: ../i18n/sources/plugins/users/users.gettext.php:114
-#: ../i18n/sources/plugins/users/users.gettext.php:117
-#: ../i18n/sources/plugins/users/users.gettext.php:122
-#: ../i18n/sources/plugins/users/users.gettext.php:123
-#: ../i18n/sources/plugins/users/users.gettext.php:124
-#: ../i18n/sources/plugins/users/users.gettext.php:125
-#: ../i18n/sources/plugins/users/users.gettext.php:132
-#: ../i18n/sources/plugins/users/users.gettext.php:141
-#: ../i18n/sources/plugins/users/users.gettext.php:143
-#: ../i18n/sources/plugins/users/users.gettext.php:150
-msgid "field.login"
-msgstr ""
-
-#: ../i18n/sources/plugins/users/users.gettext.php:6
-msgid ""
-"À ce titre, nous vous encourageons à <a href=\"%1\">créer des Storms</a>."
-msgstr ""
-
-#: ../i18n/sources/plugins/users/users.gettext.php:6
-msgid ""
-"À ce titre, nous vous encourageons à <a href=\"%1?"
-"utm_source=plusOneWeek&utm_medium=email&utm_term=key2&utm_campaign=Public-"
-"Storm\">créer des Storms</a>."
-msgstr ""
-
-#: ../i18n/sources/plugins/users/users.gettext.php:7
-#: ../i18n/sources/plugins/users/users.gettext.php:14
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        es/plugins/users/users.gettext.php:14
 #: ../i18n/sources/plugins/users/users.gettext.php:15
+#: ../i18n/sources/plugins/users/users.gettext.php:20
 #: ../i18n/sources/plugins/users/users.gettext.php:30
 #: ../i18n/sources/plugins/users/users.gettext.php:31
 #: ../i18n/sources/plugins/users/users.gettext.php:32
 #: ../i18n/sources/plugins/users/users.gettext.php:34
 #: ../i18n/sources/plugins/users/users.gettext.php:39
 #: ../i18n/sources/plugins/users/users.gettext.php:41
+#: ../i18n/sources/plugins/users/users.gettext.php:47
 #: ../i18n/sources/plugins/users/users.gettext.php:58
 #: ../i18n/sources/plugins/users/users.gettext.php:60
 #: ../i18n/sources/plugins/users/users.gettext.php:70
 #: ../i18n/sources/plugins/users/users.gettext.php:75
 #: ../i18n/sources/plugins/users/users.gettext.php:79
 #: ../i18n/sources/plugins/users/users.gettext.php:81
+#: ../i18n/sources/plugins/users/users.gettext.php:82
 #: ../i18n/sources/plugins/users/users.gettext.php:83
 #: ../i18n/sources/plugins/users/users.gettext.php:84
 #: ../i18n/sources/plugins/users/users.gettext.php:90
@@ -1618,34 +980,73 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:142
 #: ../i18n/sources/plugins/users/users.gettext.php:144
 #: ../i18n/sources/plugins/users/users.gettext.php:151
+#: ../i18n/sources/plugins/users/users.gettext.php:157
+#: ../i18n/sources/plugins/users/users.gettext.php:158
+#: ../i18n/sources/plugins/users/users.gettext.php:175
 msgid "field.password"
+msgstr ""
+
+#: ../i18n/sources/plugins/users/users.gettext.php:7
+#: ../i18n/sources/plugins/users/users.gettext.php:21
+#: ../i18n/sources/plugins/users/users.gettext.php:36
+#: ../i18n/sources/plugins/users/users.gettext.php:48
+msgid "share PS to your friend"
+msgstr ""
+
+#: ../i18n/sources/plugins/users/users.gettext.php:8
+#: ../i18n/sources/plugins/users/users.gettext.php:9
+#: ../i18n/sources/plugins/users/users.gettext.php:11
+#: ../i18n/sources/plugins/users/users.gettext.php:22
+#: ../i18n/sources/plugins/users/users.gettext.php:23
+#: ../i18n/sources/plugins/users/users.gettext.php:25
+#: ../i18n/sources/plugins/users/users.gettext.php:37
+#: ../i18n/sources/plugins/users/users.gettext.php:38
+#: ../i18n/sources/plugins/users/users.gettext.php:40
+#: ../i18n/sources/plugins/users/users.gettext.php:49
+#: ../i18n/sources/plugins/users/users.gettext.php:50
+#: ../i18n/sources/plugins/users/users.gettext.php:52
+msgid "Public-Storm-App sur Play"
+msgstr ""
+
+#: ../i18n/sources/plugins/users/users.gettext.php:10
+#: ../i18n/sources/plugins/users/users.gettext.php:24
+#: ../i18n/sources/plugins/users/users.gettext.php:39
+#: ../i18n/sources/plugins/users/users.gettext.php:51
+msgid ""
+"L'application Android pour tablettes et Smartphones est disponible en "
+"version Beta sur Google Play."
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:11
 #: ../i18n/sources/plugins/users/users.gettext.php:27
 #: ../i18n/sources/plugins/users/users.gettext.php:29
+#: ../i18n/sources/plugins/users/users.gettext.php:44
 #: ../include/user.class.php:153 ../include/user.class.php:161
 #: ../include/user.class.php:165 ../include/user.class.php:173
 #: ../include/user.class.php:187 ../include/user.class.php:195
 #: ../include/user.class.php:203 ../include/user.class.php:211
+#: ../include/user.class.php:229 ../include/user.class.php:237
 msgid "fogotten_password.subject"
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:12
 #: ../i18n/sources/plugins/users/users.gettext.php:28
 #: ../i18n/sources/plugins/users/users.gettext.php:30
+#: ../i18n/sources/plugins/users/users.gettext.php:45
 msgid "fogotten_password.intro"
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:15
 #: ../i18n/sources/plugins/users/users.gettext.php:31
 #: ../i18n/sources/plugins/users/users.gettext.php:33
+#: ../i18n/sources/plugins/users/users.gettext.php:53
 msgid "fogotten_password.signature"
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:18
 #: ../i18n/sources/plugins/users/users.gettext.php:34
 #: ../i18n/sources/plugins/users/users.gettext.php:36
+#: ../i18n/sources/plugins/users/users.gettext.php:56
 #: ../i18n/sources/plugins/users/users.gettext.php:101
 #: ../i18n/sources/plugins/users/users.gettext.php:106
 #: ../i18n/sources/plugins/users/users.gettext.php:112
@@ -1653,16 +1054,19 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:131
 #: ../i18n/sources/plugins/users/users.gettext.php:133
 #: ../i18n/sources/plugins/users/users.gettext.php:140
+#: ../i18n/sources/plugins/users/users.gettext.php:164
 msgid "mes_storms"
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:19
+#: ../i18n/sources/plugins/users/users.gettext.php:29
 #: ../plugins/users/_plugin.php:141 ../plugins/users/_plugin.php:142
 #: ../plugins/users/_plugin.php:144
 msgid "Membre de Public-Storm depuis plus de 2 semaines !"
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:21
+#: ../i18n/sources/plugins/users/users.gettext.php:31
 msgid "Vous êtes inscrit depuis plus de 2 semaines sur Public-Storm ;"
 msgstr ""
 
@@ -1672,10 +1076,12 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:26
 #: ../i18n/sources/plugins/users/users.gettext.php:42
 #: ../i18n/sources/plugins/users/users.gettext.php:44
+#: ../i18n/sources/plugins/users/users.gettext.php:65
 msgid "Storms de %1"
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:23
+#: ../i18n/sources/plugins/users/users.gettext.php:33
 msgid ""
 "Nous aimerions désormais que vous participiez d'avantage à l'enrichissement "
 "de Public-Storm."
@@ -1698,6 +1104,7 @@ msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:23
 #: ../i18n/sources/plugins/users/users.gettext.php:24
+#: ../i18n/sources/plugins/users/users.gettext.php:34
 msgid ""
 "À ce titre, nous vous encourageons à <a href=\"%1?"
 "utm_source=plusTwoWeeks&utm_medium=email&utm_term=key2&utm_campaign=Public-"
@@ -1712,6 +1119,7 @@ msgid "Membre depuis le %1"
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:25
+#: ../i18n/sources/plugins/users/users.gettext.php:35
 msgid ""
 "Merci pour votre <a href=\"%1?"
 "utm_source=plusTwoWeeks&utm_medium=email&utm_term=key3&utm_campaign=Public-"
@@ -1723,6 +1131,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:28
 #: ../i18n/sources/plugins/users/users.gettext.php:44
 #: ../i18n/sources/plugins/users/users.gettext.php:46
+#: ../i18n/sources/plugins/users/users.gettext.php:67
 msgid "Langue :"
 msgstr ""
 
@@ -1734,6 +1143,8 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:46
 #: ../i18n/sources/plugins/users/users.gettext.php:47
 #: ../i18n/sources/plugins/users/users.gettext.php:48
+#: ../i18n/sources/plugins/users/users.gettext.php:68
+#: ../i18n/sources/plugins/users/users.gettext.php:69
 #: ../plugins/users/index.php:121
 msgid "Flux Rss"
 msgstr ""
@@ -1744,6 +1155,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:39
 #: ../i18n/sources/plugins/users/users.gettext.php:55
 #: ../i18n/sources/plugins/users/users.gettext.php:57
+#: ../i18n/sources/plugins/users/users.gettext.php:79
 msgid "login intro"
 msgstr ""
 
@@ -1761,6 +1173,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:102
 #: ../i18n/sources/plugins/users/users.gettext.php:104
 #: ../i18n/sources/plugins/users/users.gettext.php:111
+#: ../i18n/sources/plugins/users/users.gettext.php:135
 msgid "ok"
 msgstr ""
 
@@ -1778,6 +1191,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:101
 #: ../i18n/sources/plugins/users/users.gettext.php:103
 #: ../i18n/sources/plugins/users/users.gettext.php:110
+#: ../i18n/sources/plugins/users/users.gettext.php:134
 msgid "persistent"
 msgstr ""
 
@@ -1787,6 +1201,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:48
 #: ../i18n/sources/plugins/users/users.gettext.php:65
 #: ../i18n/sources/plugins/users/users.gettext.php:67
+#: ../i18n/sources/plugins/users/users.gettext.php:89
 #: ../i18n/sources/plugins/users/users.gettext.php:100
 #: ../i18n/sources/plugins/users/users.gettext.php:105
 #: ../i18n/sources/plugins/users/users.gettext.php:111
@@ -1794,6 +1209,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:130
 #: ../i18n/sources/plugins/users/users.gettext.php:132
 #: ../i18n/sources/plugins/users/users.gettext.php:139
+#: ../i18n/sources/plugins/users/users.gettext.php:163
 msgid "mes_parametres"
 msgstr ""
 
@@ -1804,6 +1220,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:66
 #: ../i18n/sources/plugins/users/users.gettext.php:68
 #: ../i18n/sources/plugins/users/users.gettext.php:74
+#: ../i18n/sources/plugins/users/users.gettext.php:96
 msgid ""
 "Vous pouvez vous inscrire à la newsletter du site Internet Collaboratif pour "
 "recevoir des informations sur les projets en cours. (3 à 4 emails par an)"
@@ -1816,6 +1233,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:67
 #: ../i18n/sources/plugins/users/users.gettext.php:69
 #: ../i18n/sources/plugins/users/users.gettext.php:76
+#: ../i18n/sources/plugins/users/users.gettext.php:98
 msgid "Nom :"
 msgstr ""
 
@@ -1826,6 +1244,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:68
 #: ../i18n/sources/plugins/users/users.gettext.php:70
 #: ../i18n/sources/plugins/users/users.gettext.php:77
+#: ../i18n/sources/plugins/users/users.gettext.php:99
 msgid "Prénom :"
 msgstr ""
 
@@ -1836,6 +1255,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:69
 #: ../i18n/sources/plugins/users/users.gettext.php:71
 #: ../i18n/sources/plugins/users/users.gettext.php:78
+#: ../i18n/sources/plugins/users/users.gettext.php:100
 msgid "S'abonner"
 msgstr ""
 
@@ -1846,10 +1266,12 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:70
 #: ../i18n/sources/plugins/users/users.gettext.php:72
 #: ../i18n/sources/plugins/users/users.gettext.php:79
+#: ../i18n/sources/plugins/users/users.gettext.php:101
 msgid "Gérer mes abonnements"
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:45
+#: ../i18n/sources/plugins/users/users.gettext.php:66
 msgid "Membre de Public-Storm depuis le %1"
 msgstr ""
 
@@ -1860,6 +1282,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:73
 #: ../i18n/sources/plugins/users/users.gettext.php:75
 #: ../i18n/sources/plugins/users/users.gettext.php:82
+#: ../i18n/sources/plugins/users/users.gettext.php:104
 msgid ""
 "Vous avez oublié votre mot de passe ? Saisissez votre identifiant OU votre "
 "email et nous vous enverrons un nouveau mot de passe immédiatement."
@@ -1892,10 +1315,13 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:140
 #: ../i18n/sources/plugins/users/users.gettext.php:142
 #: ../i18n/sources/plugins/users/users.gettext.php:149
+#: ../i18n/sources/plugins/users/users.gettext.php:155
+#: ../i18n/sources/plugins/users/users.gettext.php:173
 msgid "field.email"
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:49
+#: ../i18n/sources/plugins/users/users.gettext.php:70
 msgid "Flux Rss de l'auteur %1"
 msgstr ""
 
@@ -1921,6 +1347,8 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:126
 #: ../i18n/sources/plugins/users/users.gettext.php:128
 #: ../i18n/sources/plugins/users/users.gettext.php:135
+#: ../i18n/sources/plugins/users/users.gettext.php:145
+#: ../i18n/sources/plugins/users/users.gettext.php:159
 msgid "valider"
 msgstr ""
 
@@ -1933,16 +1361,19 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:88
 #: ../i18n/sources/plugins/users/users.gettext.php:102
 #: ../i18n/sources/plugins/users/users.gettext.php:107
+#: ../i18n/sources/plugins/users/users.gettext.php:110
 #: ../i18n/sources/plugins/users/users.gettext.php:113
 #: ../i18n/sources/plugins/users/users.gettext.php:115
 #: ../i18n/sources/plugins/users/users.gettext.php:132
 #: ../i18n/sources/plugins/users/users.gettext.php:134
 #: ../i18n/sources/plugins/users/users.gettext.php:141
+#: ../i18n/sources/plugins/users/users.gettext.php:165
 msgid "Mes favoris"
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:56
 #: ../i18n/sources/plugins/users/users.gettext.php:58
+#: ../i18n/sources/plugins/users/users.gettext.php:80
 #: ../plugins/users/login.php:58
 msgid "Login page"
 msgstr ""
@@ -1954,6 +1385,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:91
 #: ../i18n/sources/plugins/users/users.gettext.php:93
 #: ../i18n/sources/plugins/users/users.gettext.php:100
+#: ../i18n/sources/plugins/users/users.gettext.php:124
 #: ../plugins/users/mon-compte.php:27
 msgid "mon_compte"
 msgstr ""
@@ -1965,6 +1397,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:93
 #: ../i18n/sources/plugins/users/users.gettext.php:95
 #: ../i18n/sources/plugins/users/users.gettext.php:102
+#: ../i18n/sources/plugins/users/users.gettext.php:126
 #: ../plugins/admin/admin-main.php:27
 msgid "admin"
 msgstr ""
@@ -1976,6 +1409,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:94
 #: ../i18n/sources/plugins/users/users.gettext.php:96
 #: ../i18n/sources/plugins/users/users.gettext.php:103
+#: ../i18n/sources/plugins/users/users.gettext.php:127
 msgid "logout"
 msgstr ""
 
@@ -1986,10 +1420,12 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:97
 #: ../i18n/sources/plugins/users/users.gettext.php:99
 #: ../i18n/sources/plugins/users/users.gettext.php:106
+#: ../i18n/sources/plugins/users/users.gettext.php:130
 msgid "To create a storm you need to have an account"
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:68
+#: ../i18n/sources/plugins/users/users.gettext.php:90
 msgid "Ask before creating a new storm?"
 msgstr ""
 
@@ -2000,30 +1436,37 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:98
 #: ../i18n/sources/plugins/users/users.gettext.php:100
 #: ../i18n/sources/plugins/users/users.gettext.php:107
+#: ../i18n/sources/plugins/users/users.gettext.php:131
 msgid "connectez_vous"
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:69
+#: ../i18n/sources/plugins/users/users.gettext.php:91
 msgid "yes"
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:70
+#: ../i18n/sources/plugins/users/users.gettext.php:92
 msgid "no"
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:71
+#: ../i18n/sources/plugins/users/users.gettext.php:93
 msgid "Mettre à jour"
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:72
+#: ../i18n/sources/plugins/users/users.gettext.php:94
 msgid "Vos informations ont été mises à jour."
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:73
+#: ../i18n/sources/plugins/users/users.gettext.php:95
 msgid "Newsletter"
 msgstr ""
 
 #: ../i18n/sources/plugins/users/users.gettext.php:75
+#: ../i18n/sources/plugins/users/users.gettext.php:97
 msgid "Email :"
 msgstr ""
 
@@ -2040,6 +1483,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:143
 #: ../i18n/sources/plugins/users/users.gettext.php:145
 #: ../i18n/sources/plugins/users/users.gettext.php:152
+#: ../i18n/sources/plugins/users/users.gettext.php:176
 msgid "field.captcha"
 msgstr ""
 
@@ -2056,6 +1500,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:144
 #: ../i18n/sources/plugins/users/users.gettext.php:146
 #: ../i18n/sources/plugins/users/users.gettext.php:153
+#: ../i18n/sources/plugins/users/users.gettext.php:177
 msgid "field.reload_captcha"
 msgstr ""
 
@@ -2066,6 +1511,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:115
 #: ../i18n/sources/plugins/users/users.gettext.php:117
 #: ../i18n/sources/plugins/users/users.gettext.php:124
+#: ../i18n/sources/plugins/users/users.gettext.php:148
 msgid "mes_alertes"
 msgstr ""
 
@@ -2082,6 +1528,8 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:129
 #: ../i18n/sources/plugins/users/users.gettext.php:131
 #: ../i18n/sources/plugins/users/users.gettext.php:138
+#: ../i18n/sources/plugins/users/users.gettext.php:151
+#: ../i18n/sources/plugins/users/users.gettext.php:162
 msgid "mes_informations"
 msgstr ""
 
@@ -2092,6 +1540,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:119
 #: ../i18n/sources/plugins/users/users.gettext.php:121
 #: ../i18n/sources/plugins/users/users.gettext.php:128
+#: ../i18n/sources/plugins/users/users.gettext.php:152
 msgid "Changer ma photo"
 msgstr ""
 
@@ -2101,6 +1550,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:145
 #: ../i18n/sources/plugins/users/users.gettext.php:147
 #: ../i18n/sources/plugins/users/users.gettext.php:154
+#: ../i18n/sources/plugins/users/users.gettext.php:178
 msgid "Les champs marqués d'un * sont obligatoires."
 msgstr ""
 
@@ -2118,6 +1568,8 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:152
 #: ../i18n/sources/plugins/users/users.gettext.php:158
 #: ../i18n/sources/plugins/users/users.gettext.php:159
+#: ../i18n/sources/plugins/users/users.gettext.php:182
+#: ../i18n/sources/plugins/users/users.gettext.php:183
 msgid "avantage_1"
 msgstr ""
 
@@ -2135,6 +1587,8 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:154
 #: ../i18n/sources/plugins/users/users.gettext.php:160
 #: ../i18n/sources/plugins/users/users.gettext.php:161
+#: ../i18n/sources/plugins/users/users.gettext.php:184
+#: ../i18n/sources/plugins/users/users.gettext.php:185
 msgid "avantage_2"
 msgstr ""
 
@@ -2152,6 +1606,8 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:156
 #: ../i18n/sources/plugins/users/users.gettext.php:162
 #: ../i18n/sources/plugins/users/users.gettext.php:163
+#: ../i18n/sources/plugins/users/users.gettext.php:186
+#: ../i18n/sources/plugins/users/users.gettext.php:187
 msgid "avantage_3"
 msgstr ""
 
@@ -2160,6 +1616,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:136
 #: ../i18n/sources/plugins/users/users.gettext.php:138
 #: ../i18n/sources/plugins/users/users.gettext.php:145
+#: ../i18n/sources/plugins/users/users.gettext.php:169
 msgid "gratuit"
 msgstr ""
 
@@ -2168,6 +1625,7 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:137
 #: ../i18n/sources/plugins/users/users.gettext.php:139
 #: ../i18n/sources/plugins/users/users.gettext.php:146
+#: ../i18n/sources/plugins/users/users.gettext.php:170
 msgid "sur Public-Storm !"
 msgstr ""
 
@@ -2185,6 +1643,8 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:158
 #: ../i18n/sources/plugins/users/users.gettext.php:164
 #: ../i18n/sources/plugins/users/users.gettext.php:165
+#: ../i18n/sources/plugins/users/users.gettext.php:188
+#: ../i18n/sources/plugins/users/users.gettext.php:189
 msgid "avantage_4"
 msgstr ""
 
@@ -2193,10 +1653,12 @@ msgstr ""
 #: ../i18n/sources/plugins/users/users.gettext.php:148
 #: ../i18n/sources/plugins/users/users.gettext.php:150
 #: ../i18n/sources/plugins/users/users.gettext.php:157
+#: ../i18n/sources/plugins/users/users.gettext.php:181
 #: ../include/user.class.php:136 ../include/user.class.php:137
 #: ../include/user.class.php:148 ../include/user.class.php:149
 #: ../include/user.class.php:165 ../include/user.class.php:166
 #: ../include/user.class.php:181 ../include/user.class.php:182
+#: ../include/user.class.php:207 ../include/user.class.php:208
 #: ../plugins/sendtoafriend/index.php:97
 msgid "Mail sent"
 msgstr ""
@@ -2244,14 +1706,16 @@ msgstr ""
 msgid "2 years ago"
 msgstr ""
 
-#: ../include/debug.class.php:75 ../include/debug.class.php:77
+#: ../include/debug.class.php:75 ../include/debug.class.php:76
+#: ../include/debug.class.php:77
 msgid "Debug window"
 msgstr ""
 
 #: ../include/user.class.php:124 ../include/user.class.php:136
 #: ../include/user.class.php:153 ../include/user.class.php:162
 #: ../include/user.class.php:169 ../include/user.class.php:174
-#: ../include/user.class.php:196 ../include/user.class.php:212
+#: ../include/user.class.php:195 ../include/user.class.php:196
+#: ../include/user.class.php:212 ../include/user.class.php:238
 #: ../plugins/aboutcron/_plugin.php:130 ../plugins/admin/_plugin.php:51
 #: ../plugins/admin/_plugin.php:52 ../plugins/prelaunch/send_invitation.php:55
 #: ../plugins/sendtoafriend/index.php:79 ../plugins/users/_plugin.php:80
@@ -2267,9 +1731,10 @@ msgstr ""
 #: ../include/user.class.php:169 ../include/user.class.php:170
 #: ../include/user.class.php:176 ../include/user.class.php:177
 #: ../include/user.class.php:181 ../include/user.class.php:182
-#: ../include/user.class.php:203 ../include/user.class.php:204
-#: ../include/user.class.php:219 ../include/user.class.php:220
-#: ../plugins/prelaunch/send_invitation.php:62
+#: ../include/user.class.php:202 ../include/user.class.php:203
+#: ../include/user.class.php:204 ../include/user.class.php:219
+#: ../include/user.class.php:220 ../include/user.class.php:245
+#: ../include/user.class.php:246 ../plugins/prelaunch/send_invitation.php:62
 #: ../plugins/prelaunch/send_invitation.php:63
 #: ../plugins/sendtoafriend/index.php:90 ../plugins/sendtoafriend/index.php:92
 msgid "Failed to send mail"
@@ -2279,6 +1744,7 @@ msgstr ""
 #: ../include/user.class.php:186 ../include/user.class.php:187
 #: ../include/user.class.php:208 ../include/user.class.php:209
 #: ../include/user.class.php:224 ../include/user.class.php:225
+#: ../include/user.class.php:250 ../include/user.class.php:251
 msgid "msg confirm mot de passe oublie"
 msgstr ""
 
@@ -2292,7 +1758,7 @@ msgstr ""
 #: ../index.php:118 ../plugins/public_storm/storm.php:137
 #: ../plugins/public_storm/storm.php:139 ../plugins/public_storm/storm.php:145
 #: ../plugins/public_storm/storm.php:150 ../plugins/public_storm/storm.php:159
-#: ../plugins/sendtoafriend/index.php:40
+#: ../plugins/public_storm/storm.php:165 ../plugins/sendtoafriend/index.php:40
 msgid "meta_keywords"
 msgstr ""
 
@@ -2303,12 +1769,19 @@ msgstr ""
 msgid "meta_description"
 msgstr ""
 
+#: ../plugins/api/index.php:142 ../plugins/public_storm/storm.php:64
+#: ../plugins/public_storm/storm.php:65 ../plugins/public_storm/storm.php:73
+#, possible-php-format
+msgid "Nouveau storm créé : %s %s par %s"
+msgstr ""
+
 #: ../plugins/backend/rss.php:58
 msgid "period_"
 msgstr ""
 
 #: ../plugins/backend/rss.php:61 ../plugins/public_storm/storm.php:87
 #: ../plugins/public_storm/storm.php:92 ../plugins/public_storm/storm.php:101
+#: ../plugins/public_storm/storm.php:105
 #, possible-php-format
 msgid "Suggestions de '%s'"
 msgstr ""
@@ -2372,12 +1845,6 @@ msgstr ""
 
 #: ../plugins/public_storm/storm.php:62
 msgid "Nouveau storm créé : %s %s"
-msgstr ""
-
-#: ../plugins/public_storm/storm.php:64 ../plugins/public_storm/storm.php:65
-#: ../plugins/public_storm/storm.php:73
-#, possible-php-format
-msgid "Nouveau storm créé : %s %s par %s"
 msgstr ""
 
 #: ../plugins/public_storm/storm.php:70 ../plugins/public_storm/storm.php:71

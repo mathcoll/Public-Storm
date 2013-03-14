@@ -4,7 +4,7 @@
 gettext("Nous contacter :");
 gettext("a_propos");
 gettext("version");
-gettext("Sondage Public-Storm");
+gettext("Public-Storm-App sur Play");
 
 ?><?php
 gettext("baseline");

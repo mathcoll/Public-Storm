@@ -4,6 +4,11 @@ gettext("Cher");
 gettext("Vous êtes inscrit depuis plus d'une semaine sur Public-Storm ;");
 gettext("Toute l'équipe vous remercie pour votre participation.");
 gettext("À ce titre, nous vous encourageons à <a href=\"%1?utm_source=plusOneWeek&utm_medium=email&utm_term=key2&utm_campaign=Public-Storm\">créer des Storms</a>.");
+gettext("share PS to your friend");
+gettext("Public-Storm-App sur Play");
+gettext("Public-Storm-App sur Play");
+gettext("L'application Android pour tablettes et Smartphones est disponible en version Beta sur Google Play.");
+gettext("Public-Storm-App sur Play");
 gettext("inscription.signature");
 
 ?><?php
@@ -13,6 +18,11 @@ gettext("field.nom");
 gettext("field.prenom");
 gettext("field.login");
 gettext("field.password");
+gettext("share PS to your friend");
+gettext("Public-Storm-App sur Play");
+gettext("Public-Storm-App sur Play");
+gettext("L'application Android pour tablettes et Smartphones est disponible en version Beta sur Google Play.");
+gettext("Public-Storm-App sur Play");
 gettext("inscription.signature");
 
 ?><?php
@@ -23,6 +33,11 @@ gettext("Toute l'équipe vous remercie pour votre participation.");
 gettext("Nous aimerions désormais que vous participiez d'avantage à l'enrichissement de Public-Storm.");
 gettext("À ce titre, nous vous encourageons à <a href=\"%1?utm_source=plusTwoWeeks&utm_medium=email&utm_term=key2&utm_campaign=Public-Storm\">créer des Storms</a> et à participer aux suggestions.");
 gettext("Merci pour votre <a href=\"%1?utm_source=plusTwoWeeks&utm_medium=email&utm_term=key3&utm_campaign=Public-Storm\">prochaine visite</a> et à bientôt.");
+gettext("share PS to your friend");
+gettext("Public-Storm-App sur Play");
+gettext("Public-Storm-App sur Play");
+gettext("L'application Android pour tablettes et Smartphones est disponible en version Beta sur Google Play.");
+gettext("Public-Storm-App sur Play");
 gettext("inscription.signature");
 
 ?><?php
@@ -30,6 +45,10 @@ gettext("fogotten_password.subject");
 gettext("fogotten_password.intro");
 gettext("field.login");
 gettext("field.password");
+gettext("Public-Storm-App sur Play");
+gettext("Public-Storm-App sur Play");
+gettext("L'application Android pour tablettes et Smartphones est disponible en version Beta sur Google Play.");
+gettext("Public-Storm-App sur Play");
 gettext("fogotten_password.signature");
 
 ?><?php
@@ -38,7 +57,8 @@ gettext("Semaine");
 gettext("(suite)");
 gettext("Semaine");
 gettext("I love this Storm !");
-gettext("créé le");
+gettext("Flux Rss des suggestions de '%1'");
+gettext("Flux Rss des suggestions de '%1'");
 
 ?><?php
 gettext("Storms de %1");
@@ -51,7 +71,8 @@ gettext("Semaine");
 gettext("(suite)");
 gettext("Semaine");
 gettext("I love this Storm !");
-gettext("créé le");
+gettext("Flux Rss des suggestions de '%1'");
+gettext("Flux Rss des suggestions de '%1'");
 
 ?><?php
 gettext("login intro");
@@ -87,6 +108,8 @@ gettext("valider");
 ?><?php
 gettext("Mes favoris");
 gettext("I love this Storm !");
+gettext("Flux Rss des suggestions de '%1'");
+gettext("Flux Rss des suggestions de '%1'");
 gettext("by");
 
 ?><?php
