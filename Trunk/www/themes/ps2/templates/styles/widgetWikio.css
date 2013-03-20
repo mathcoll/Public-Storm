@@ -1,0 +1,172 @@
+/*
+ * WIDGET WIKIO SCORE BUTTON
+ * with Boost
+ */
+
+.widgetWikioScoreButton {}
+
+/*** LAYOUT : BIG SQUARE (with label) ***/
+.widgetWikioScoreButton.layoutBigSquare {}
+.widgetWikioScoreButton.layoutBigSquare a {
+  display: block;
+  text-align: center;
+}
+.widgetWikioScoreButton.layoutBigSquare a.wikioScore {
+  padding: 5px 5px 0 0;
+  width: 50px;
+  height: 40px;
+  background-position: 0 0;
+}
+.widgetWikioScoreButton.layoutBigSquare a.wikioScore:hover {
+  background-position: 0 -70px;
+}
+.widgetWikioScoreButton.layoutBigSquare a.wikioScore .wikioScore_score {
+  display: block;
+  padding: 4px 0 4px 0;
+  line-height: 20px;
+  font-size: 18px;
+}
+.widgetWikioScoreButton.layoutBigSquare a.wikioScore .wikioScore_label {
+  display: block;
+  width: 50px;
+  overflow: hidden;
+  line-height: 10px;
+  font-weight: normal;
+  font-size: 9px;
+}
+.widgetWikioScoreButton.layoutBigSquare a.wikioBoost {
+  position: relative;
+  top: 3px;
+  width: 50px;
+  height: 17px;
+  background-position: 0 -50px;
+  line-height: 17px;
+  font-size: 11px;
+}
+.widgetWikioScoreButton.layoutBigSquare a.wikioBoost:hover {
+  background-position: 0 -120px;
+}
+.widgetWikioScoreButton.layoutBigSquare.skinBlue a {
+  background-image: url(../img/widgetWikioScoreButton_layoutBigSquare-skinBlue.png);
+  color: #fff;
+}
+.widgetWikioScoreButton.layoutBigSquare.skinWhite a {
+  background-image: url(../img/widgetWikioScoreButton_layoutBigSquare-skinWhite.png);
+  color: #fff;
+}
+.widgetWikioScoreButton.layoutBigSquare.skinWhite a.wikioScore .wikioScore_score {
+  color: #3b3937;
+}
+.widgetWikioScoreButton.layoutBigSquare.skinWhite a.wikioScore .wikioScore_label {
+  color: #9a9b9b;
+}
+.widgetWikioScoreButton.layoutBigSquare.skinWhite a.wikioScore:hover span {
+  color: #000;
+}
+
+/*** LAYOUT : SQUARE ***/
+.widgetWikioScoreButton.layoutSquare {}
+.widgetWikioScoreButton.layoutSquare a {
+  display: block;
+  text-align: center;
+}
+.widgetWikioScoreButton.layoutSquare a.wikioScore {
+  padding: 5px 5px 0 0;
+  width: 40px;
+  height: 30px;
+  background-position: 0 0;
+}
+.widgetWikioScoreButton.layoutSquare a.wikioScore:hover {
+  background-position: 0 -60px;
+}
+.widgetWikioScoreButton.layoutSquare a.wikioScore .wikioScore_score {
+  display: block;
+  padding: 5px 0;
+  line-height: 20px;
+  font-size: 18px;
+}
+.widgetWikioScoreButton.layoutSquare a.wikioScore .wikioScore_label {
+  display: none;
+}
+.widgetWikioScoreButton.layoutSquare a.wikioBoost {
+  position: relative;
+  top: 3px;
+  width: 40px;
+  height: 17px;
+  background-position: 0 -40px;
+  line-height: 17px;
+  font-size: 11px;
+}
+.widgetWikioScoreButton.layoutSquare a.wikioBoost:hover {
+  background-position: 0 -100px;
+}
+.widgetWikioScoreButton.layoutSquare.skinBlue a {
+  background-image: url(../img/widgetWikioScoreButton_layoutSquare-skinBlue.png);
+  color: #fff;
+}
+.widgetWikioScoreButton.layoutSquare.skinWhite a {
+  background-image: url(../img/widgetWikioScoreButton_layoutSquare-skinWhite.png);
+  color: #fff;
+}
+.widgetWikioScoreButton.layoutSquare.skinWhite a.wikioScore .wikioScore_score {
+  color: #3b3937;
+}
+.widgetWikioScoreButton.layoutSquare.skinWhite a.wikioScore .wikioScore_label {
+  color: #9a9b9b;
+}
+.widgetWikioScoreButton.layoutSquare.skinWhite a.wikioScore:hover span {
+  color: #000;
+}
+
+/*** LAYOUT : CAPSULE ***/
+.widgetWikioScoreButton.layoutCapsule {
+  position: relative;
+  height: 18px;
+  line-height: 18px;
+  overflow: hidden;
+}
+.widgetWikioScoreButton.layoutCapsule .wikioScore_label {
+  display: none;
+}
+.widgetWikioScoreButton.layoutCapsule a {
+  position: relative;
+  display: block;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+.widgetWikioScoreButton.layoutCapsule a.wikioScore {
+  left: 0;
+  width: 31px;
+  background-position: 0 0;
+  font-weight: bold;
+  font-size: 13px;
+}
+.widgetWikioScoreButton.layoutCapsule a.wikioScore:hover {
+  background-position: 0 -20px;
+}
+.widgetWikioScoreButton.layoutCapsule a.wikioBoost {
+  top: -18px;
+  left: 31px;
+  width: 39px;
+  background-position: -31px 0;
+  font-size: 11px;
+}
+.widgetWikioScoreButton.layoutCapsule a.wikioBoost:hover {
+  background-position: -31px -20px;
+}
+.widgetWikioScoreButton.layoutCapsule.skinBlue a {
+  background-image: url(../img/widgetWikioScoreButton_layoutCapsule-skinBlue.png);
+  color: #fff;
+}
+.widgetWikioScoreButton.layoutCapsule.skinWhite a {
+  background-image: url(../img/widgetWikioScoreButton_layoutCapsule-skinWhite.png);
+}
+.widgetWikioScoreButton.layoutCapsule.skinWhite a.wikioScore {
+  color: #3b3937;
+}
+.widgetWikioScoreButton.layoutCapsule.skinWhite a.wikioBoost {
+  color: #fff;
+}
+.widgetWikioScoreButton.layoutCapsule.skinWhite a.wikioScore:hover {
+  color: #000;
+}

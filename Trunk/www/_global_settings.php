@@ -36,7 +36,7 @@ Settings::setVar('SITE_BASELINE', '', 'global_settings', 'Site baseline, also de
 Settings::setVar('SITE_DESCRIPTION', '', 'global_settings', 'Site description, also defined in the languages files');
 
 // Current version
-Settings::setVar('SITE_VERSION', '12.12.03', 'global_settings', 'version of the source code');
+Settings::setVar('SITE_VERSION', '13.03.17', 'global_settings', 'version of the source code');
 
 // Site name
 Settings::setVar('fb_app_id', '21015190410', 'global_settings', 'Facebook, préciser les administrateurs dans une balise méta fb:app_id');
@@ -49,7 +49,7 @@ if( $_GET["DEBUG"] == "true" ) {
 }
 
 // Theme name
-Settings::setVar('SITE_THEME', 'ps', 'global_settings', 'Website theme name (css theme folder)');
+Settings::setVar('SITE_THEME', 'ps2', 'global_settings', 'Website theme name (css theme folder)');
 
 // Default language if nothing specified
 @define('LANG', 'fr_FR.utf8');

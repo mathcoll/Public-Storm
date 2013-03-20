@@ -1,0 +1,37 @@
+/* meteor */
+span#meteorStatus span.status
+{
+	background: url(../img/status_sprite.png) no-repeat;
+	display: table-cell;
+	height: 42px;
+	width: 44px;
+	float:right;
+}
+span.status_0
+{
+	background-position: 0px 0px; 
+}
+span.status_1
+{
+	background-position: 0px -53px; 
+}
+span.status_2
+{
+	background-position: 0px -106px; 
+}
+span.status_3
+{
+	background-position: 0px -159px; 
+}
+span.status_4
+{
+	background-position: 0px -212px; 
+}
+span.status_5
+{
+	background-position: 0px -265px; 
+}
+span.status_6
+{
+	background-position: 0px -318px; 
+}

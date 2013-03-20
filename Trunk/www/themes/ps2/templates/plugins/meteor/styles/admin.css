@@ -1,0 +1,22 @@
+/* meteor */
+
+#meteor1,
+#meteor2,
+#meteor3
+{
+	background-image:url(../img/icon.png);
+	background-position:5px center;
+	background-repeat:no-repeat;
+	padding:1em 0 1em 40px;
+}
+#meteor1.tab-hightlight,
+#meteor2.tab-hightlight,
+#meteor3.tab-hightlight
+{
+	background-image:url(../img/icon.png);
+	background-position:5px center;
+	background-repeat:no-repeat;
+	padding:1em 0 1em 40px;
+	background-color: #156e1e;
+	color: #000000;
+}

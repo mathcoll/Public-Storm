@@ -1,0 +1,203 @@
+/* users */
+
+#menu
+{
+	float: left;
+	width: 220px;
+	margin: 0 0 1em 0;
+}
+#menu ul
+{
+	margin: 0;
+	padding: 0 0 0 1em;
+}
+#menu li
+{
+	list-style: none;
+}
+#mon-compte #menu li a
+{
+	display: block;
+	margin: 0 0 1px 0;
+	padding:1em 0;
+}
+
+#content
+{
+	float: left;
+	border-left: 5px solid #156e1e;
+	padding: 1em;
+	margin: 0 0 1em 0;
+	min-height: 10em;
+	width: 750px;
+}
+.tab
+{
+	background-color: #ffffff;
+	color: #156e1e;
+}
+.tab-hightlight
+{
+	background-color: #156e1e;
+	color: #000000;
+}
+
+
+#mes-informations
+{
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -343px;
+	padding:4px 0 4px 30px;
+}
+#mes-informations:hover
+{
+	background-color: #A3AB0E;
+	color: #000000;
+}
+
+#mes-parametres
+{
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -372px;
+	padding:4px 0 4px 30px;
+}
+#mes-parametres:hover
+{
+	background-color: #A3AB0E;
+	color: #000000;
+}
+
+#mes-storms
+{
+	background: transparent url(../../../img/sprite.png) no-repeat 0 0px;
+	padding:4px 0 4px 30px;
+}
+#mes-storms:hover
+{
+	background-color: #A3AB0E;
+	color: #000000;
+}
+
+#mes-favoris
+{
+	background: transparent url(../../../img/sprite.png) no-repeat 0 -460px;
+	padding:4px 0 4px 30px;
+}
+#mes-favoris:hover
+{
+	background-color: #A3AB0E;
+	color: #000000;
+}
+
+ul.nolist
+{
+	list-style: none;
+	margin:10px;
+}
+ul.nomargin
+{
+	margin:0;
+}
+ul.nolist li a
+{
+	display: block;
+	padding: 1px 0 0 0;
+}
+
+#login
+{
+	float: right;
+}
+#login._0
+{
+	margin-top:-7em;
+}
+#login._1
+{
+	margin-top:-7em;
+	height: 60px;
+	padding: 0 0 0 15px;
+}
+
+#login label
+{
+	right: 0;
+}
+
+#login input[type=text],
+#login input[type=password],
+input.field {
+	border: 1px solid #156e1e;
+}
+input.field {
+	-moz-border-radius: 5px 5px 5px 5px;
+    margin: 0 0 5px;
+    padding: 5px;
+}
+#login input[type=text] {
+	width:240px;
+	margin: 0 0 5px 0;
+}
+#login input[type=password] {
+	width:200px;
+}
+
+#login input
+{
+	margin: 0em; 
+}
+
+#login span.avatar
+{
+	float: left;
+	margin: 1em 0 0 -10px;
+}
+
+input:focus
+{
+	background: #a3ab0e;
+}
+ul.liste,
+ul.col {
+	list-style: none;
+}
+ul.liste li,
+ul.col li
+{
+	line-height: 16px;
+	margin: 10px 0 0;
+}
+ul.liste li a.storm,
+ul.col li a.storm {
+	font-size: 16px;
+	background: transparent url(/themes/ps/templates/img/sprite.png) no-repeat -60px -7px;
+	padding: 0 0 0 12px;
+}
+.must-login {
+	padding:10px 80px;
+	background:url("/themes/ps/templates/img/sunburst.png") no-repeat scroll 50% 50% #FFFFFF;
+}
+.must-login div.table-cell-create-account {
+	border:2px solid #156E1E;
+	padding: 10px 40px;
+	background: url(../img/green-tick.png) no-repeat scroll 0 0 transparent;
+}
+.must-login div.table-cell-must-login {
+	border:2px solid #156E1E;
+	padding: 10px 40px;
+	background: url(../img/ftconnect_creating.png) no-repeat scroll 0 0 transparent;
+}
+.must-login div.table-cell-forbidden {
+	border:2px solid #156E1E;
+	padding: 10px 40px;
+	background: url(../img/PanneauInterdictionBase.png) no-repeat scroll 0 0 transparent;
+}
+.must-login div.table-cell-must-login h3,
+.must-login div.table-cell-create-account h3 {
+	padding:1.5em 0 1em 4em;
+	background: none;
+	white-space: normal;
+    width: 100%;
+}
+.must-login div.table-cell-forbidden h3 {
+	padding:1.5em 0 1em 4.5em;
+	background: none;
+}

@@ -1,0 +1,65 @@
+
+  /************************************************************\
+  *
+  *	  wordCloud Copyright 2007 Derek Harvey
+  *	  www.lotsofcode.com
+  *
+  *	  This file is part of wordCloud.
+  *
+  *	  wordCloud is free software; you can redistribute it and/or modify
+  *	  it under the terms of the GNU General Public License as published by
+  *	  the Free Software Foundation; either version 2 of the License, or
+  *	  (at your option) any later version.
+  *
+  *	  wordCloud is distributed in the hope that it will be useful,
+  *	  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  *	  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	See the
+  *	  GNU General Public License for more details.
+  *
+  *	  You should have received a copy of the GNU General Public License
+  *	  along with wordCloud; if not, write to the Free Software
+  *	  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA	02111-1307	USA
+  *
+  \************************************************************/
+
+  .word {
+  	font-family: Tahoma;
+  	padding: 4px 4px 4px 4px;
+  	letter-spacing: 3px;
+  }
+  .size8 {
+  	color: #ccc;
+  	font-size: .6em;
+  }
+  .size7 {
+  	color: #000;
+  	font-size: 2.4em;
+  }
+  .size8 {
+  	color: #333;
+  	font-size:2.2em;
+  }
+  .size5 {
+  	color: #666;
+  	font-size: 2.0em;
+  }
+  .size4 {
+  	color: #999;
+  	font-size: 1.0em;
+  }
+  .size3 {
+  	color: #aaa;
+  	font-size: 1.6em;
+  }
+  .size2 {
+  	color: #bbb;
+  	font-size: 1.4em;
+  }
+  .size1 {
+  	color: #ccc;
+  	font-size: 1.2em;
+  }
+  .size0 {
+  	color: #ddd;
+  	font-size: .8em;
+  }
