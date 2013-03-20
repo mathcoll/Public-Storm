@@ -35,7 +35,7 @@ if( Settings::getVar('BASE_URL') != "" ) {
 }
 
 
-if ( DEV  ) {
+if ( DEV ) {
 	print i18n::L("DEV mode: on")."<br />\n";
 }
 if ( $uri[$ind+1] == Settings::getVar("aboutcron token") ) {
@@ -46,11 +46,11 @@ if ( $uri[$ind+1] == Settings::getVar("aboutcron token") ) {
 	print i18n::L("-> %s action(s) to play.", array(sizeOf($crontab)))."<br />\n";
 	foreach( $crontab as $command ) {
 		//print_r($command);
-		i18n::L("Executing command: '%s' with params (%s)", array($command["command"], $command["parameters"]))."<br />\n";
+		print i18n::L("Executing command: '%s' with params (%s)", array($command["command"], $command["parameters"]))."<br />\n";
 		try {
 			aboutcron::playAction($command["command"], $command["parameters"], $command["id"]);
 		} catch (Exception $e) {
-			i18n::L("Error: '%s' with params (%s)", array($command["command"], $command["parameters"]))."<br />\n";
+			print i18n::L("Error: '%s' with params (%s)", array($command["command"], $command["parameters"]))."<br />\n";
 		}
 	}
 	//aboutcron::addAction(array("admin::sendMailToAdmin", json_encode(array("var1"=>"1","var2"=>"2")), time()+60));
