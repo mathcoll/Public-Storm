@@ -36,7 +36,7 @@ final class identica_php extends Plugins
 	}
 	
 	public function updateStatus($string, $cronId=null) {
-		$json_decoded = json_decode($string);
+		$json_decoded = urldecode(stripslashes($string));
 		if ( $json_decoded->{'string'} != null ) {
 			$string = $json_decoded->{'string'};
 		}
