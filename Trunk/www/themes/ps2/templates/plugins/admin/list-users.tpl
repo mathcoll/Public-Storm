@@ -23,8 +23,7 @@
 		<span class="nom">{t}Prénom{/t} {t}Nom{/t}</span>
 		<span class="login">{t}Login{/t}</span>
 		<span class="lang">{t}Lang{/t}</span>
-		<span class="subscription_date">{t}date d'inscription{/t}</span>
-		<span class="updated_date">{t}Mise à jour{/t}</span>
+		<span class="subscription_date">{t}date d'inscription{/t}<br />{t}Mise à jour{/t}</span>
 	</li>
 {foreach from=$users item=user}
 	{assign var=role value=$user.role_id}
@@ -35,7 +34,6 @@
 		<span class="login">&nbsp;</span>
 		<span class="lang">&nbsp;</span>
 		<span class="subscription_date">&nbsp;</span>
-		<span class="updated_date">&nbsp;</span>
 	</li>
 	{/if}
 	<li>
@@ -43,8 +41,10 @@
 		<span class="nom">{$user.prenom|ucfirst} {$user.nom|ucfirst}<br /><a href="mailto:{$user.email}">{$user.email}</a></span>
 		<span class="login" title="{$user.uid}"><a href="{$base_url}/utilisateurs/{$user.login}/">{$user.login}</a></span>
 		<span class="lang">{t}{$user.lang}{/t}</span>
-		<span class="subscription_date">{$user.subscription_date|date_format:"%A %e %B %Y, %H:%M:%S"|ucfirst}</span>
-		<span class="updated_date">{$user.updated_date|date_format:"%A %e %B %Y, %H:%M:%S"|ucfirst}</span>
+		<span class="subscription_date">
+			{$user.subscription_date|date_format:"%A %e %B %Y, %H:%M:%S"|ucfirst}<br />
+			{$user.updated_date|date_format:"%A %e %B %Y, %H:%M:%S"|ucfirst}
+		</span>
 	</li>
 	{assign var=prevrole value=$role}
 	

@@ -34,7 +34,7 @@
 #content h3
 {
 	margin: 0 0 1em 0;
-	padding: 0.3em 0 0.5em 1.5em;
+	padding: 0.3em 0 .5em 0;
 	border: 0;
 }
 .tab
