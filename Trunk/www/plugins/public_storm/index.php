@@ -38,8 +38,7 @@ else
 
 
 
-switch ( $uri[$ind] )
-{
+switch ( $uri[$ind] ) {
 		case "storm" :
 			switch ( $uri[$ind+1] )
 			{
@@ -73,6 +72,15 @@ switch ( $uri[$ind] )
 			header("Expires: 0");
 			header("Cache-Control: no-cache, must-revalidate");
 			header("Pragma: no-cache");
+			exit;
+			break;
+		
+		case "random" :
+			$random = public_storm::getRandomStorm(1);
+			header("Expires: 0");
+			header("Cache-Control: no-cache, must-revalidate");
+			header("Pragma: no-cache");
+			errordocument::setError(302, false, $random["url"]);
 			exit;
 			break;
 		

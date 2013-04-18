@@ -18,12 +18,12 @@
     along with Public-Storm. If not, see <http://www.gnu.org/licenses/>.
  */
 
-final class public_storm extends Plugins
-{
+final class public_storm extends Plugins {
  	public static $subdirs = array(
  		'storm',
  		'storms',
  		'stormExport',
+ 		'random',
  	);
  	public static $name = "public_storm";
 	public static $db;
@@ -63,8 +63,7 @@ final class public_storm extends Plugins
 		}
 	}
 	
-	public function getStormsFromSuggestion($suggestion, $storm_id)
-	{
+	public function getStormsFromSuggestion($suggestion, $storm_id) {
 		return self::$db->q2("SELECT storm_id FROM suggestions WHERE suggestion = :suggestion AND storm_id != :storm_id", "public_storms.db", array($suggestion, $storm_id));
 	}
 	
@@ -81,41 +80,33 @@ final class public_storm extends Plugins
 		$suggestion    = trim($suggestion, "-");
 		$suggestion    = urlencode($suggestion);
 		return $suggestion;
-	}	
+	}
 	
-	
-	public function getUrl($storm_root)
-	{
+	public function getUrl($storm_root) {
 		return Settings::getVar('BASE_URL_HTTP')."/storm/".strToLower($storm_root)."/";
 	}
 	
-	public function loadLang()
-	{
+	public function loadLang() {
 		return parent::loadLang(self::$name);
 	}	
 	
-	public function getVersion()
-	{
+	public function getVersion() {
 		return parent::getVersion();
 	}
 	
-	public function getName()
-	{
+	public function getName() {
 		return self::$name;
 	}
 	
-	public function getDescription()
-	{
+	public function getDescription() {
 		return parent::getDescription();
 	}
 	
-	public function getAuthor()
-	{
+	public function getAuthor() {
 		return parent::getAuthor();
 	}
 	
-	public function getIcon()
-	{
+	public function getIcon() {
 		return parent::getIcon(self::$name);
 	}
 	
@@ -130,8 +121,7 @@ final class public_storm extends Plugins
 	}
 	
 	
-	public function addStorm($permaname, $date, $root, $user_id)
-	{
+	public function addStorm($permaname, $date, $root, $user_id) {
 		//print "INSERT into storms (permaname, date, root, user_id) VALUES ('".strToLower($permaname)."', '".$date."', '".strToLower($root)."', '%d')";
 		// check if storm already exists
 		if ( $id = self::getStormIdFromUrl(strToLower($permaname)) )  {
@@ -160,8 +150,7 @@ final class public_storm extends Plugins
 		} else { return null; }
 	}
 	
-	public function getStormsByAuthor($from=0, $nb=null, $user_id)
-	{
+	public function getStormsByAuthor($from=0, $nb=null, $user_id) {
 		$q = "SELECT s.* FROM storms s WHERE s.user_id = :user_id ORDER BY s.date DESC";
 		if ( isset($nb) )
 		{
@@ -187,8 +176,7 @@ final class public_storm extends Plugins
 		return $storms;
 	}
 	
-	public function getStormsByFavorites()
-	{
+	public function getStormsByFavorites() {
 		$liste = array();
 		$storms = array();
 		foreach( users::getMyFavorites() as $favorite ) {
@@ -234,8 +222,7 @@ final class public_storm extends Plugins
 		return $storms;
 	}
 	
-	public function getStormsByDate($from=0, $nb=null)
-	{
+	public function getStormsByDate($from=0, $nb=null) {
 		$q = "SELECT s.* FROM storms s ORDER BY s.date DESC";
 		if ( isset($nb) )
 		{
@@ -263,8 +250,7 @@ final class public_storm extends Plugins
 		return $storms;
 	}
 	
-	public function getStormsByAlpha($from=0, $nb=null)
-	{
+	public function getStormsByAlpha($from=0, $nb=null) {
 		$q = "SELECT s.* FROM storms s ORDER BY LOWER(s.root) ASC";
 		if ( isset($nb) )
 		{
@@ -290,8 +276,7 @@ final class public_storm extends Plugins
 		return $storms;
 	}
 	
-	public function getStormsByMostActive($nb)
-	{
+	public function getStormsByMostActive($nb) {
 		/* récupération des suggestions les plus nombreuses */
 		//$suggestions = self::$db->q2("SELECT s.* FROM suggestions s GROUP BY s.storm_id LIMIT 0, :nb", "public_storms.db", array(':nb' => $nb));
 		$suggestions = self::$db->q2("SELECT s.* FROM suggestions s WHERE s.date BETWEEN :from AND :to GROUP BY s.storm_id LIMIT 0, :nb", "public_storms.db", array(':nb' => $nb, ':from' => time()-(10*24*60*60), ':to' => time()));
@@ -299,8 +284,7 @@ final class public_storm extends Plugins
 		//print_r($suggestions);
 		//return self::getStorm($suggestions[0][2]);
 		$mostActives = array();
-		foreach($suggestions AS $s)
-		{
+		foreach($suggestions AS $s) {
 			array_push($mostActives, self::getStorm($s[2]));		
 		}
 		//print_r($mostActives);
@@ -333,8 +317,7 @@ final class public_storm extends Plugins
 		return @$self->$suggestions[$storm_id];
 	}
 	
-	public function getStormAuthor($user_id)
-	{
+	public function getStormAuthor($user_id) {
 		if( isset($user_id) ) {
 			$author = self::$db->q("SELECT u.* FROM users u WHERE u.user_id=%d", "users.db", array($user_id));
 			unset($author[0]);
@@ -344,19 +327,16 @@ final class public_storm extends Plugins
 		}
 	}
 	
-	public function addSuggestion($storm_id, $suggestion, $user_id)
-	{
+	public function addSuggestion($storm_id, $suggestion, $user_id) {
 		return self::$db->u("INSERT into suggestions (storm_id, user_id, suggestion, date) VALUES ('".$storm_id."', '".$user_id."', '".$suggestion."', '".time()."')", "public_storms.db", array());
 	}
 	
-	public function getStormIdFromUrl($storm)
-	{
+	public function getStormIdFromUrl($storm) {
 		$s = self::$db->q("SELECT s.storm_id FROM storms s WHERE s.permaname = '%s'", "public_storms.db", array($storm));
 		return @is_array($s[1])?$s[1]['storm_id']:null;
 	}
 	
-	public function getNbStorms($user_id=null)
-	{
+	public function getNbStorms($user_id=null) {
 		$q = "SELECT count(*) as c FROM storms s";
 		if ( isset($user_id) ) {
 			$q .= " WHERE s.user_id = :user_id";
@@ -368,8 +348,7 @@ final class public_storm extends Plugins
 		return $storms[0]['c'];
 	}
 	
-	public function getContributors($storm_id=null, $filter_user_id, $result_type=PDO::FETCH_BOTH)
-	{
+	public function getContributors($storm_id=null, $filter_user_id, $result_type=PDO::FETCH_BOTH) {
 		//print "-->".$storm_id;
 		$suggestions = @isset($self->$suggestions[$storm_id]) ? $self->$suggestions[$storm_id] : self::getSuggestions($storm_id, null, $result_type);
 		//print_r($suggestions);
@@ -386,8 +365,7 @@ final class public_storm extends Plugins
 		return $contributors;
 	}
 	
-	public function getNbSuggestionsFromUserId($storm_id=null, $user_id=null)
-	{
+	public function getNbSuggestionsFromUserId($storm_id=null, $user_id=null) {
 		if ( !isset($user_id) || !isset($storm_id) )
 		{
 			return 0;
@@ -398,11 +376,15 @@ final class public_storm extends Plugins
 		$suggestions = self::$db->q2($q, "public_storms.db", $datas);
 		return $suggestions[0]['c'];
 	}
+	
+	public function getRandomStorm($nb=1) {
+		$random = self::$db->q2("SELECT s.* FROM storms s ORDER BY RANDOM() LIMIT :nb", "public_storms.db", array(':nb' => $nb));
+		return @is_array($random[0])?self::getStorm($random[0]['storm_id']):null;
+	}
 }
 
 
-function modifier_url($string)
-{
+function modifier_url($string) {
 	$string    = utf8_encode(
 			strtr(
 				utf8_decode($string),
@@ -417,8 +399,7 @@ function modifier_url($string)
 }
 
 // Function for looking for a value in a multi-dimensional array
-function in_multi_array($value, $array)
-{   
+function in_multi_array($value, $array) {   
     foreach ($array as $key => $item)
     {       
         // Item is not an array

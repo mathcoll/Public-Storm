@@ -48,8 +48,18 @@ final class errordocument extends Plugins
 	* @param boolean $fetchTemplate true means that the page fetch and exit the template page
 	* @return void
 	*/
-	public static function setError($errorCode, $fetchTemplate=true) {
+	public static function setError($errorCode, $fetchTemplate=true, $redirect=false) {
 		switch( $errorCode ) {
+
+			case "301" :
+			default :
+				$status = "Moved Permanently";
+				break;
+				
+			case "302" :
+			default :
+				$status = "Moved Temporarily";
+				break;
 				
 			case "401" : 
 			default :
@@ -110,6 +120,14 @@ final class errordocument extends Plugins
 			self::$s->AddData("base_url", Settings::getVar('base_url_http'));
 			self::$s->AddData("theme_dir", Settings::getVar('theme_dir'));
 			print self::$s->fetch($template, "plugins/errordocument");
+			exit;
+		}
+
+		if ( $redirect && preg_match("/http:\/\//", $redirect) ) {
+			header("Location: ".$redirect);
+			exit;
+		} else {
+			print $redirect;
 			exit;
 		}
 	}
