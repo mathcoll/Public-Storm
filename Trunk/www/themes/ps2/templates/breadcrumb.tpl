@@ -17,3 +17,6 @@
 	{/foreach}
 	</ul>
 </div>
+<div class="random">
+	<a href="/random/">{t}Random{/t}</a>
+</div>

@@ -10,6 +10,7 @@
 	margin: 0 0 1em 0;
 	padding: 0.3em 0 .5em 0;
 	border: 0;
+	clear: both;
 }
 
 .tab {
@@ -78,6 +79,13 @@ ul.list-plugins>li,ul.listCustoms>li,ul.list-users>li {
 ul.list-plugins>li span.icon,ul.listCustoms>li.type span.icon {
 	cursor: pointer;
 }
+ul.list-users>li span.login,
+ul.listCustoms>li span.description {
+	width:100%;
+}
+ul.list-users>li span.subscription_date {
+	white-space:nowrap;
+}
 
 ul.list-plugins>li:nth-child(2n+1),ul.list-users>li:nth-child(2n+1),ul.listCustoms li.type span
 	{
@@ -107,48 +115,36 @@ ul.list-plugins li span.id {
 }
 
 ul.listCustoms li span.nom {
-	width: 190px;
 }
 
 ul.listCustoms li span.description {
-	width: 290px;
 }
 
 ul.list-plugins li span.icon,ul.listCustoms li span.icon {
-	width: 20px;
 }
 
 ul.list-plugins li span.name {
-	width: 120px;
 }
 
 ul.list-plugins li span.description {
-	width: 300px;
 }
 
 ul.list-plugins li span.status {
-	
 }
 
 ul.list-plugins li span.version {
-	
 }
 
 ul.list-plugins li span.last_updated {
-	width: 100px;
 }
 
 ul.list-plugins li span.update_link {
-	width: 100px;
 }
 
 ul.list-users li span.uid {
-	width: 130px;
 }
 
-ul.list-users li span.subscription_date,ul.list-users li span.updated_date
-	{
-	width: 180px;
+ul.list-users li span.subscription_date,ul.list-users li span.updated_date{
 }
 
 div.status_actions {
@@ -166,7 +162,6 @@ div.status_actions ul {
 }
 
 div.status_actions ul li {
-	
 }
 
 span.status:hover>div.status_actions {

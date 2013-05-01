@@ -76,8 +76,7 @@ ul.list-users li.header
 }
 ul.list-plugins > li,
 ul.listCustoms > li,
-ul.list-users > li
-{
+ul.list-users > li {
 	padding: 0;
 	display:table-header-group;
 	height: 60px;

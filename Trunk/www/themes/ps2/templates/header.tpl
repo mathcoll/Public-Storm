@@ -64,22 +64,7 @@
 	</div>
 	<div id="rightBox">
 		{if $statuses.i18n eq 1}
-		<div id="languages">
-			{t}available_languages{/t}
-			<ul>
-				{foreach from=$langs item=lang}
-{if $lang eq $current_lang}
-{assign var="selected" value="selected"}
-{else}
-{assign var="selected" value=""}
-{/if}
-{include file="plugins/i18n/inc_lang.tpl" code=$lang.code name=$lang.name prefix=$prefix selected=$selected}
-	
-				{/foreach}
-			</ul>
-			<p>&nbsp;</p>
-			<p class="nomobile"><a href="mailto:contact@internetcollaboratif.info">{t}Aider à la traduction{/t}</a></p>
-		</div><!-- languages -->
+			{include file="plugins/i18n/i18n.tpl" code=$lang.code name=$lang.name prefix=$prefix selected=$selected}
 		{/if}
 		
 		{if $statuses.users eq 1}

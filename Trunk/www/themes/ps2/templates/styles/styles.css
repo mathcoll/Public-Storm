@@ -151,6 +151,11 @@ div.description {
 	text-align: justify;
 	overflow: auto;
 }
+@media screen and (max-width: 800px) {
+	#site_name h1, #site_name div.description {
+		display:none;
+	}
+}
 
 #site_name {
 	/*height: 80px;*/
@@ -221,6 +226,10 @@ div.breadcrumb ul li {
 	display: inline;
 }
 
+div.random {
+	float:right;
+}
+
 #footer,#pre-footer {
 	clear: both;
 	padding-top: .5em;
@@ -280,6 +289,7 @@ div.breadcrumb ul li {
 	line-height: 1.5em;
 	white-space: nowrap;
 	margin-top: 10px;
+	clear: both;
 }
 
 #pre-footer ul {
@@ -315,18 +325,26 @@ div.breadcrumb ul li {
 }
 
 #rightBox #languages {
-	float: right;
-	position: relative;
-	margin: -6em 0 0 0;
-	padding: 0 0 0 35px;
-	background: transparent url(../plugins/i18n/img/icon.png) no-repeat left
-		top;
+	float:right;
+	position:absolute;
+	width:13em;
+	height:3em;
+	right:1em;
+    top:.1em;
+	background: white url(../plugins/i18n/img/icon.png) no-repeat right top;
 }
 
 #languages ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+	background: white;
+	display:none;
+	list-style:none;
+    margin:3em 0;
+	padding:0;
+	width: 13em;
+}
+
+#rightBox #languages:hover > ul {
+	display:block;
 }
 
 #languages ul li {
@@ -334,9 +352,9 @@ div.breadcrumb ul li {
 }
 
 #languages ul li a {
-	border: 1px solid transparent;
-	padding: 0em 3em 0em .2em;
+	padding:0;
 	display: block;
+	text-align: right;
 }
 
 #languages ul li a.selected {

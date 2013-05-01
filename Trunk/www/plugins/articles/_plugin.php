@@ -24,6 +24,7 @@ final class articles extends Plugins {
 	public static $db;
 
 	public function __construct() {
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/articles/styles/styles.css', 'screen.css');
 		if ( !class_exists(Settings::$DB_TYPE) ) {
 			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR, __LINE__, __FILE__);
 		} else {

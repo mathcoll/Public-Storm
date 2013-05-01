@@ -4,8 +4,8 @@
 	<a href="#" id="hide_all">{t}Masquer tout{/t}</a>
 </p>
 <p>&nbsp;</p>
-<ul class="listCustoms" style="width:700px;">
-	<li class="header" style="width:700px;">
+<ul class="listCustoms">
+	<li class="header">
 		<span class="icon">&nbsp;</span>
 		<span class="description">{t}Description{/t}</span>
 		<span class="nom">{t}Nom{/t}</span>
@@ -15,7 +15,7 @@
 {foreach from=$customizable item=custom}
 	{assign var=type value=$custom.3}
 	{if $type ne $prevtype}
-	<li class="type" style="width:700px;">
+	<li class="type">
 		<span class="icon"><img src="{$theme_dir}plugins/{if $custom.3=="global_settings"}admin{else}{$custom.3}{/if}/img/icon.png" width="32" rel="{$custom.3}" /></span>
 		<span><a href="{$base_url}admin/gettab/configuration/{$type|lower}/#top" onclick="tab(this.name, this.name, 'admin', '{$type|lower}');return false;" name="configuration">{$type|ucfirst}</a></span>
 		<span>&nbsp;</span>
@@ -23,7 +23,7 @@
 		<span>&nbsp;</span>
 	</li>
 	{/if}
-	<li class="hide {$custom.3}" style="width:700px;">
+	<li class="hide {$custom.3}">
 		<span class="icon"><img src="{$theme_dir}plugins/{if $custom.3=="global_settings"}admin{else}{$custom.3}{/if}/img/icon.png" width="22" /></span>
 		<span>{$custom.2}</span>
 		<span><label for="{$custom.0}">{$custom.0}</label></span>

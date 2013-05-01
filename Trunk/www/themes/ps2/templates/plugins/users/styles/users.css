@@ -1,7 +1,5 @@
 /* users */
 #menu {
-	float: left;
-	width: 220px;
 	margin: 0 0 1em 0;
 }
 
@@ -12,6 +10,7 @@
 
 #menu li {
 	list-style: none;
+	float:left;
 }
 
 #mon-compte #menu li a {
@@ -21,12 +20,6 @@
 }
 
 #content {
-	float: left;
-	border-left: 5px solid #156e1e;
-	padding: 1em;
-	margin: 0 0 1em 0;
-	min-height: 10em;
-	width: 750px;
 }
 
 .tab {
@@ -98,11 +91,11 @@ ul.nolist li a {
 }
 
 #login._0 {
-	margin-top: -7em;
+	margin: -7em 15em 0 0;
 }
 
 #login._1 {
-	margin-top: -7em;
+	margin: -8em 15em 0 0;
 	height: 60px;
 	padding: 0 0 0 15px;
 }
