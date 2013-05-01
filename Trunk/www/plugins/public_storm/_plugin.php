@@ -29,13 +29,12 @@ final class public_storm extends Plugins {
 	public static $db;
  	private $suggestions = array();
  	
-	public function __construct()
-	{
+	public function __construct() {
 		require(Settings::getVar('prefix') . 'conf/public_storm.php');
 		Settings::addCss('handheld', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/public_storm/styles/handheld.css', 'handheld.css');
 		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/public_storm/styles/styles.css', 'screen.css');
 		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/styles.css', 'screen.css');
-		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/widgetWikio.css', 'screen.css');
+		//Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/widgetWikio.css', 'screen.css');
 		Settings::addCss('print', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/public_storm/styles/print.css', 'print.css');
 		Settings::addCss('print', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/print.css', 'print.css');
 		

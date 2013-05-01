@@ -25,52 +25,43 @@ final class share extends Plugins
 	public static $db;
 	public static $s;
  	
-	public function __construct()
-	{
+	public function __construct() {
 		require(Settings::getVar('prefix') . 'conf/share.php');
-		Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/share/styles/share.css', 'screen.css');
-		Settings::addJs('text/javascript', Settings::getVar('theme_dir').'plugins/share/scripts/share.js');
+		//Settings::addCss('screen', Settings::getVar('theme_dir').'plugins/share/styles/share.css', 'screen.css');
+		//Settings::addJs('text/javascript', Settings::getVar('theme_dir').'plugins/share/scripts/share.js');
 		//require_once("./plugins/default/classes/share.php");
-
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/share/styles/super-massive-css-sprite-social-icon-set.css', 'screen.css');		
 	}
 	
-	public function loadLang()
-	{
+	public function loadLang() {
 		return parent::loadLang(self::$name);
 	}	
 	
-	public function getVersion()
-	{
+	public function getVersion() {
 		return parent::getVersion();
 	}
 	
-	public function getName()
-	{
+	public function getName() {
 		return self::$name;
 	}
 	
-	public function getDescription()
-	{
+	public function getDescription() {
 		return parent::getDescription();
 	}
 	
-	public function getAuthor()
-	{
+	public function getAuthor() {
 		return parent::getAuthor();
 	}
 	
-	public function getIcon()
-	{
+	public function getIcon() {
 		return parent::getIcon(self::$name);
 	}
 	
-	public function getStatus()
-	{
+	public function getStatus() {
 		return parent::getStatus(self::$name);
 	}
 	
-	public function getSubDirs()
-	{
+	public function getSubDirs() {
 		return self::$subdirs;
 	}
 }

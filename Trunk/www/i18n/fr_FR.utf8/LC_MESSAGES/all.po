@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Public-Storm\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-12-28 22:07+0100\n"
-"PO-Revision-Date: 2012-12-28 22:08+0100\n"
+"PO-Revision-Date: 2013-05-01 09:55+0100\n"
 "Last-Translator: Mathieu Lory <mathieu@internetcollaboratif.info>\n"
 "Language-Team: English <mathieu@internetcollaboratif.info>\n"
 "MIME-Version: 1.0\n"
@@ -1111,7 +1111,7 @@ msgstr "<a href=\"http://github.com/mathcoll/Public-Storm\">Public-Storm sur Git
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:93
 msgid "contribuez_p4"
-msgstr "...ou suivez-nous sur <a href=\"http://twitter.com/publicstorm\"><img height=\"28\" width=\"30\" title=\"Twitter\" alt=\"Twitter\" src=\"%1/themes/ps/templates/img/twitter.png\"/></a> <a href=\"http://identi.ca/publicstorm\"><img height=\"28\" width=\"37\" title=\"Identi.ca\" alt=\"Identi.ca\" src=\"%1/themes/ps/templates/img/identica.png\"/></a> <a href=\"%1/backend/rss.php\"><img height=\"28\" width=\"28\" title=\"Rss\" alt=\"Rss\" src=\"%1/themes/ps/templates/img/rss.png\"/></a> <a href=\"https://plus.google.com/108358173902150195048\" rel=\"publisher\"><img height=\"28\" width=\"28\" title=\"Google+\" alt=\"Google+\" src=\"http://ssl.gstatic.com/s2/oz/images/faviconr2.ico\"/></a>"
+msgstr "...ou suivez-nous sur <ul class=\"socialicons color\"><li><a href=\"http://twitter.com/publicstorm\" class=\"twitter\">Twitter</a></li><li><a href=\"http://identi.ca/publicstorm\" class=\"ichat\">Identi.ca</a></li><li><a href=\"%1/backend/rss.php\" class=\"rss\">Rss</a></li><li><a href=\"https://plus.google.com/108358173902150195048\" rel=\"publisher\" class=\"gplusdark\">Google+</a></li><li><a href=\"http://github.com/mathcoll/Public-Storm\" class=\"github\">github</a></li></ul>"
 
 #: ../../../i18n/sources/plugins/public_storm/public_storm.gettext.php:94
 msgid "discutez"

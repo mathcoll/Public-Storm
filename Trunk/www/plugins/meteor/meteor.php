@@ -74,7 +74,7 @@ if ( $op = fsockopen(Settings::getVar('meteorServerIP'), Settings::getVar('meteo
 	$format = isset($uri[$ind+4]) ? $uri[$ind+4] : "";
 	$ch = isset($_POST['channel']) ? $_POST['channel'] : $uri[$ind+4];
 	$time = time();
-	
+
 	socket_set_blocking($op, false);
 	//exit;
 

@@ -79,7 +79,7 @@ final class Settings
 			}
 		}
 		//print $stylesheet."<br />";
-		//print_r($styles);
+	 	//print_r($styles);
 		return self::setVar('styles', $styles);
 	}
 	
