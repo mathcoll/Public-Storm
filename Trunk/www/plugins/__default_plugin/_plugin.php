@@ -23,8 +23,7 @@
  * @author Firstname Lastname <email>
  *
  */
-final class __default_plugin extends Plugins
-{
+final class __default_plugin extends Plugins {
  	public static $subdirs = array();
  	public static $name = "__default_plugin";
 	public static $db;
@@ -33,51 +32,42 @@ final class __default_plugin extends Plugins
 	/**
 	 * Constructor
 	 */
-	public function __construct()
-	{
+	public function __construct() {
 		require(Settings::getVar('prefix') . 'conf/'.self::$name.'.php');
 		require_once('./plugins/'.self::$name.'/classes/'.self::$name.'.php');
-		Settings::addCss('screen', Settings::getVar('ROOT').Settings::getVar('theme_dir').'/plugins/'.self::$name.'/styles/'.self::$name.'.css', 'screen.css');
-		Settings::addJs('text/javascript', Settings::getVar('ROOT').Settings::getVar('theme_dir').'/plugins/'.self::$name.'/scripts/'.self::$name.'.js');
+		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/'.self::$name.'/styles/styles.css', 'screen.css');
+		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/'.self::$name.'/scripts/scripts.js', 'all.js');
 	}
 	
-	public function loadLang()
-	{
+	public function loadLang() {
 		return parent::loadLang(self::$name);
 	}	
 	
-	public function getVersion()
-	{
+	public function getVersion() {
 		return parent::getVersion();
 	}
 	
-	public function getName()
-	{
+	public function getName() {
 		return self::$name;
 	}
 	
-	public function getDescription()
-	{
+	public function getDescription() {
 		return parent::getDescription();
 	}
 	
-	public function getAuthor()
-	{
+	public function getAuthor() {
 		return parent::getAuthor();
 	}
 	
-	public function getIcon()
-	{
+	public function getIcon() {
 		return parent::getIcon(self::$name);
 	}
 	
-	public function getStatus()
-	{
+	public function getStatus() {
 		return parent::getStatus(self::$name);
 	}
 	
-	public function getSubDirs()
-	{
+	public function getSubDirs() {
 		return self::$subdirs;
 	}
 }
