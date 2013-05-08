@@ -126,9 +126,6 @@ final class errordocument extends Plugins
 		if ( $redirect && preg_match("/http:\/\//", $redirect) ) {
 			header("Location: ".$redirect);
 			exit;
-		} else {
-			print $redirect;
-			exit;
 		}
 	}
 	

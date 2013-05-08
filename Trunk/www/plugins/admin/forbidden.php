@@ -32,7 +32,7 @@ $sPlug->AddData("theme_dir", Settings::getVar('theme_dir'));
 
 
 
-$sPlug->AddData("tabcontent", $tabContent);
+//$sPlug->AddData("tabcontent", $tabContent);
 
 
 if ( isset($_SESSION["message"]) )
@@ -42,6 +42,7 @@ if ( isset($_SESSION["message"]) )
 }
 
 errordocument::setError(401, false);
+
 $breadcrumb = Settings::getVar('breadcrumb');
 array_push($breadcrumb, array("name" => Settings::getVar('title')));
 Settings::setVar('breadcrumb', $breadcrumb);
