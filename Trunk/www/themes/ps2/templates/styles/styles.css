@@ -151,11 +151,6 @@ div.description {
 	text-align: justify;
 	overflow: auto;
 }
-@media screen and (max-width: 800px) {
-	#site_name h1, #site_name div.description {
-		display:none;
-	}
-}
 
 #site_name {
 	/*height: 80px;*/

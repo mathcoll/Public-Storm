@@ -25,13 +25,6 @@
 	margin-left: 0;
 	clear: left;
 }
-@media screen and (max-width: 600px) {
-	.col {
-		width: 95% !important;
-		margin-left: 0 !important;
-		clear: none !important;
-	}
-}
 span.free {
 	font-size:1.8em;
 	font-style:italic;
@@ -135,6 +128,7 @@ form.suggestion input[type="text"]
 {
 	border:1px solid #156e1e;
 	width: 80%;
+	font-size: 2em;
 }
 form.suggestion input[type="text"]:focus
 {

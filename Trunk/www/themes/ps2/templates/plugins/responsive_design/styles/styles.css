@@ -1,0 +1,16 @@
+@media screen and (max-width: 600px) {
+	.col {
+		width: 95% !important;
+		margin-left: 0 !important;
+		clear: none !important;
+	}
+	#pre-footer ._column3 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	#site_name h1, #site_name div.description {
+		display:none;
+	}
+}
