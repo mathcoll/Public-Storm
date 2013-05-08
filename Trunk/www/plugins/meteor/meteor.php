@@ -105,6 +105,7 @@ if ( $op = fsockopen(Settings::getVar('meteorServerIP'), Settings::getVar('meteo
 			break;
 			
 		case "SHOWSTATS" :
+			$out = "SHOWSTATS\n";
 			print "<h3>".i18n::L("Meteor SHOWSTATS")."</h3><br />";
 			print nl2br( askMeteor($out, $op) );
 			break;
