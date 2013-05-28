@@ -35,6 +35,8 @@ else
 	$ind = 1;
 }
 
+Settings::setVar('storms_per_page', public_storm::getNbStorms());
+
 $current_page = $uri[$ind+2] != NULL ? $uri[$ind+2] : 1;
 $nb_pages = ceil(public_storm::getNbStorms() / Settings::getVar('storms_per_page'));
 $sPlug->AddData("current_page", $current_page);

@@ -25,59 +25,60 @@ if (basename($_SERVER['SCRIPT_NAME'])==basename(__FILE__))die(gettext("You musn'
 
 
 @require_once('./_specific.php');
-Settings::setVar('BASE_URL', $BASE_URL);
+$settings = new Settings();
+$settings->setVar('BASE_URL', $BASE_URL);
 // Site name
-Settings::setVar('SITE_NAME', 'Public-Storm', 'global_settings', 'Site name, also defined in the languages files');
+$settings->setVar('SITE_NAME', 'Public-Storm', 'global_settings', 'Site name, also defined in the languages files');
 
 // Site baseline
-Settings::setVar('SITE_BASELINE', '', 'global_settings', 'Site baseline, also defined in the languages files');
+$settings->setVar('SITE_BASELINE', '', 'global_settings', 'Site baseline, also defined in the languages files');
 
 // Site description
-Settings::setVar('SITE_DESCRIPTION', '', 'global_settings', 'Site description, also defined in the languages files');
+$settings->setVar('SITE_DESCRIPTION', '', 'global_settings', 'Site description, also defined in the languages files');
 
 // Current version
-Settings::setVar('SITE_VERSION', '13.03.17', 'global_settings', 'version of the source code');
+$settings->setVar('SITE_VERSION', '13.03.17', 'global_settings', 'version of the source code');
 
 // Site name
-Settings::setVar('fb_app_id', '21015190410', 'global_settings', 'Facebook, préciser les administrateurs dans une balise méta fb:app_id');
+$settings->setVar('fb_app_id', '21015190410', 'global_settings', 'Facebook, préciser les administrateurs dans une balise méta fb:app_id');
 
 // Debug switch. Set it to true for output additional information.
-if( $_GET["DEBUG"] == "true" ) {
+if( @$_GET["DEBUG"] == "true" ) {
 	@define('DEBUG', true);
 } else {
 	@define('DEBUG', false);
 }
 
 // Theme name
-Settings::setVar('SITE_THEME', 'ps2', 'global_settings', 'Website theme name (css theme folder)');
+$settings->setVar('SITE_THEME', 'ps2', 'global_settings', 'Website theme name (css theme folder)');
 
 // Default language if nothing specified
 @define('LANG', 'fr_FR.utf8');
 
 // Timezone
-Settings::setVar('timezone', 'Europe/Paris', 'global_settings', 'Website timezone');
+$settings->setVar('timezone', 'Europe/Paris', 'global_settings', 'Website timezone');
 
 /* viewer_smarty or viewer_default */
-Settings::$VIEWER_TYPE = 'viewer_smarty';
+$settings->setViewerType('viewer_smarty');
 
 // Number of columns in list pages
-Settings::setVar('nbCol', '6', 'global_settings', 'Number of columns in list pages');
+$settings->setVar('nbCol', '6', 'global_settings', 'Number of columns in list pages');
 
 /* DB conf vars */
 @define('DB_CONF_FILE', '_global_db.php');
 @require_once(DB_CONF_FILE);
-Settings::$DB_TYPE = DB_TYPE;
-Settings::setVar('DB_HOST', DB_HOST, 'global_settings', 'Database Host (for Mysql Db)');
-Settings::setVar('DB_USER', DB_USER, 'global_settings', 'Database user (for Mysql Db)');
-Settings::setVar('DB_PASS', DB_PASS, 'global_settings', 'Database password (for Mysql Db)');
-Settings::setVar('DB_NAME', DB_NAME, 'global_settings', 'Database name (for Mysql Db)');
-Settings::setVar('DB_PREFIX', DB_PREFIX, 'global_settings', 'Database table prefix');
+$settings->setDbType(DB_TYPE);
+$settings->setVar('DB_HOST', DB_HOST, 'global_settings', 'Database Host (for Mysql Db)');
+$settings->setVar('DB_USER', DB_USER, 'global_settings', 'Database user (for Mysql Db)');
+$settings->setVar('DB_PASS', DB_PASS, 'global_settings', 'Database password (for Mysql Db)');
+$settings->setVar('DB_NAME', DB_NAME, 'global_settings', 'Database name (for Mysql Db)');
+$settings->setVar('DB_PREFIX', DB_PREFIX, 'global_settings', 'Database table prefix');
 
 /* emails config */
-Settings::setVar('FROMNAME', 'Public-Storm', 'global_settings', 'Email from name');
-Settings::setVar('FROM', 'contact@internetcollaboratif.info', 'global_settings', 'Email from email');
-Settings::setVar('HOST', 'smtp.free.fr', 'global_settings', 'Email smtp host');
-Settings::setVar('MAILER', $MAILER, 'global_settings', 'smtp or mail'); // smtp or mail
+$settings->setVar('FROMNAME', 'Public-Storm', 'global_settings', 'Email from name');
+$settings->setVar('FROM', 'contact@internetcollaboratif.info', 'global_settings', 'Email from email');
+$settings->setVar('HOST', 'smtp.free.fr', 'global_settings', 'Email smtp host');
+$settings->setVar('MAILER', $MAILER, 'global_settings', 'smtp or mail'); // smtp or mail
 
 /* */
 /* */
@@ -91,15 +92,15 @@ Settings::setVar('MAILER', $MAILER, 'global_settings', 'smtp or mail'); // smtp 
 /* */
 global $qdirs, $page, $query;
 /* others global configs */
-Settings::setVar('BASE_URL', $BASE_URL);
+$settings->setVar('BASE_URL', $BASE_URL);
 if( DEV ) {
-	Settings::setVar('ROOT', $_SERVER['DOCUMENT_ROOT'] . ltrim(Settings::getVar('BASE_URL'), '/').'/');
+	$settings->setVar('ROOT', $_SERVER['DOCUMENT_ROOT'] . ltrim($settings->getVar('BASE_URL'), '/').'/');
 } else {
-	Settings::setVar('ROOT', $_SERVER['DOCUMENT_ROOT'] . ltrim(Settings::getVar('BASE_URL'), '/'));
+	$settings->setVar('ROOT', $_SERVER['DOCUMENT_ROOT'] . ltrim($settings->getVar('BASE_URL'), '/'));
 }
-Settings::setVar('BASE_URL_HTTP', 'http://'.$_SERVER["HTTP_HOST"].Settings::getVar('BASE_URL'));
-Settings::setVar('BASE_URL_HTTPS', 'https://'.$_SERVER["HTTP_HOST"].Settings::getVar('BASE_URL'));
-Settings::setVar('REQ_URL', $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+$settings->setVar('BASE_URL_HTTP', 'http://'.$_SERVER["HTTP_HOST"].$settings->getVar('BASE_URL'));
+$settings->setVar('BASE_URL_HTTPS', 'https://'.$_SERVER["HTTP_HOST"].$settings->getVar('BASE_URL'));
+$settings->setVar('REQ_URL', $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 
 /*
 print strpos($_SERVER['REQUEST_URI'], "?");
@@ -109,13 +110,13 @@ exit;
 $pos = (strpos($_SERVER['REQUEST_URI'], "?") > 0) ? strpos($_SERVER['REQUEST_URI'], "?") : strlen($_SERVER['REQUEST_URI']);
 $request_uri = substr($_SERVER['REQUEST_URI'], 0, $pos);
 //print $request_uri."----".$pos;
-if ( strpos(Settings::getVar('BASE_URL'), '/') )
+if ( strpos($settings->getVar('BASE_URL'), '/') )
 {
-	$query = str_replace(Settings::getVar('BASE_URL') . "/", "", $request_uri);
+	$query = str_replace($settings->getVar('BASE_URL') . "/", "", $request_uri);
 }
 else
 {
-	$query = str_replace(Settings::getVar('BASE_URL'), "", $request_uri);
+	$query = str_replace($settings->getVar('BASE_URL'), "", $request_uri);
 }
 $query = ltrim($query, '/');
 $qdirs = split("/", $query);
@@ -146,30 +147,30 @@ if ( !$f->Exists() )
 	$prefix = './';
 }
 
-Settings::setVar('breadcrumb', array());
-Settings::setVar('prefix', $prefix);
-Settings::setVar('theme_dir', Settings::getVar('BASE_URL') . '/themes/' . Settings::getVar('SITE_THEME') . '/templates/');
-Settings::setVar('theme_plug_dir', Settings::getVar('BASE_URL') . '/themes/' . Settings::getVar('SITE_THEME') . '/templates/plugins/');
-Settings::setVar('theme_dir_http', Settings::getVar('BASE_URL_HTTP') . '/themes/' . Settings::getVar('SITE_THEME') . '/templates/');
-Settings::setVar('page_templates_path', Settings::getVar('ROOT') . '/themes/' . Settings::getVar('SITE_THEME') . '/templates/');
-Settings::setVar('theme_mail_dir', Settings::getVar('ROOT') . '/themes/' . Settings::getVar('SITE_THEME') . '/templates/mails/');
-Settings::setVar('mail_templates_path', Settings::getVar('theme_mail_dir'));
-Settings::setVar('page_templates_path_c', Settings::getVar('prefix') . 'cache/');
-Settings::setVar('cache_dir', Settings::getVar('prefix') . 'cache/');
-Settings::setVar('cache_dir_http', Settings::getVar('BASE_URL_HTTP') . '/cache/');
-Settings::setVar('inc_dir', Settings::getVar('ROOT') . '/include/');
-Settings::setVar('conf_dir', Settings::getVar('prefix'));
-Settings::setVar('plug_dir', Settings::getVar('ROOT') . 'plugins/');
-Settings::setVar('plug_path', Settings::getVar('ROOT') . 'themes/' . Settings::getVar('SITE_THEME') . '/templates/plugins/');
+$settings->setVar('breadcrumb', array());
+$settings->setVar('prefix', $prefix);
+$settings->setVar('theme_dir', $settings->getVar('BASE_URL') . '/themes/' . $settings->getVar('SITE_THEME') . '/templates/');
+$settings->setVar('theme_plug_dir', $settings->getVar('BASE_URL') . '/themes/' . $settings->getVar('SITE_THEME') . '/templates/plugins/');
+$settings->setVar('theme_dir_http', $settings->getVar('BASE_URL_HTTP') . '/themes/' . $settings->getVar('SITE_THEME') . '/templates/');
+$settings->setVar('page_templates_path', $settings->getVar('ROOT') . '/themes/' . $settings->getVar('SITE_THEME') . '/templates/');
+$settings->setVar('theme_mail_dir', $settings->getVar('ROOT') . '/themes/' . $settings->getVar('SITE_THEME') . '/templates/mails/');
+$settings->setVar('mail_templates_path', $settings->getVar('theme_mail_dir'));
+$settings->setVar('page_templates_path_c', $settings->getVar('prefix') . 'cache/');
+$settings->setVar('cache_dir', $settings->getVar('prefix') . 'cache/');
+$settings->setVar('cache_dir_http', $settings->getVar('BASE_URL_HTTP') . '/cache/');
+$settings->setVar('inc_dir', $settings->getVar('ROOT') . '/include/');
+$settings->setVar('conf_dir', $settings->getVar('prefix'));
+$settings->setVar('plug_dir', $settings->getVar('ROOT') . 'plugins/');
+$settings->setVar('plug_path', $settings->getVar('ROOT') . 'themes/' . $settings->getVar('SITE_THEME') . '/templates/plugins/');
 
 /* default stylesheet */
-Settings::setVar('styles', array());
+$settings->setVar('styles', array());
 
 /* default javascripts */
-Settings::setVar('javascripts', array());
+$settings->setVar('javascripts', array());
 
 /* Smarty config */
-Settings::setVar('SMARTY_DIR', Settings::getVar('inc_dir') . '/Smarty/libs/');
+$settings->setVar('SMARTY_DIR', $settings->getVar('inc_dir') . '/Smarty/libs/');
 if ( !defined('DIRECTORY_SEPARATOR') ) define('DIRECTORY_SEPARATOR', '/');
 
 

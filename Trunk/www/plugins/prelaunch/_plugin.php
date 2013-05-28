@@ -129,16 +129,6 @@ final class prelaunch extends Plugins
 		return parent::getAuthor();
 	}
 	
-	public function getIcon()
-	{
-		return parent::getIcon(self::$name);
-	}
-	
-	public function getStatus()
-	{
-		return parent::getStatus(self::$name);
-	}
-	
 	public function getSubDirs()
 	{
 		return self::$subdirs;

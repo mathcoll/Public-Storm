@@ -30,29 +30,31 @@ final class public_storm extends Plugins {
  	private $suggestions = array();
  	
 	public function __construct() {
-		require(Settings::getVar('prefix') . 'conf/public_storm.php');
-		Settings::addCss('handheld', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/public_storm/styles/handheld.css', 'handheld.css');
-		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/public_storm/styles/styles.css', 'screen.css');
-		Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/styles.css', 'screen.css');
-		//Settings::addCss('screen', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/widgetWikio.css', 'screen.css');
-		Settings::addCss('print', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/public_storm/styles/print.css', 'print.css');
-		Settings::addCss('print', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'styles/print.css', 'print.css');
+		$settings = new Settings();
+		require($settings->getVar('prefix') . 'conf/public_storm.php');
+		$settings->addCss('handheld', rtrim($settings->getVar('ROOT'), "/").$settings->getVar('theme_dir').'plugins/public_storm/styles/handheld.css', 'handheld.css');
+		$settings->addCss('screen', rtrim($settings->getVar('ROOT'), "/").$settings->getVar('theme_dir').'plugins/public_storm/styles/styles.css', 'screen.css');
+		$settings->addCss('screen', rtrim($settings->getVar('ROOT'), "/").$settings->getVar('theme_dir').'styles/styles.css', 'screen.css');
+		//$settings->addCss('screen', rtrim($settings->getVar('ROOT'), "/").$settings->getVar('theme_dir').'styles/widgetWikio.css', 'screen.css');
+		$settings->addCss('print', rtrim($settings->getVar('ROOT'), "/").$settings->getVar('theme_dir').'plugins/public_storm/styles/print.css', 'print.css');
+		$settings->addCss('print', rtrim($settings->getVar('ROOT'), "/").$settings->getVar('theme_dir').'styles/print.css', 'print.css');
 		
 		/* Public-Storm scripts */
-		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'scripts/main.js', 'all.js');
-		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/public_storm/scripts/public_storm.js', 'all.js');
+		$settings->addJs('text/javascript', rtrim($settings->getVar('ROOT'), "/").$settings->getVar('theme_dir').'scripts/main.js', 'all.js');
+		$settings->addJs('text/javascript', rtrim($settings->getVar('ROOT'), "/").$settings->getVar('theme_dir').'plugins/public_storm/scripts/public_storm.js', 'all.js');
 		
 		/* javascripts jQuery */
-		//Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'scripts/jquery-1.3.2.min.js', 'jquery.js');
-		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'scripts/jquery.scrollTo-min.js', 'jquery.js');
-		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'scripts/jquery.localscroll.js', 'jquery.js');
-		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'scripts/jquery.serialScroll-min.js', 'jquery.js');
-		Settings::addJs('text/javascript', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'scripts/coda-slider.js', 'jquery.js');
+		//$settings->addJs('text/javascript', rtrim($settings->getVar('ROOT'), "/").$settings->getVar('theme_dir').'scripts/jquery-1.3.2.min.js', 'jquery.js');
+		$settings->addJs('text/javascript', rtrim($settings->getVar('ROOT'), "/").$settings->getVar('theme_dir').'scripts/jquery.scrollTo-min.js', 'jquery.js');
+		$settings->addJs('text/javascript', rtrim($settings->getVar('ROOT'), "/").$settings->getVar('theme_dir').'scripts/jquery.localscroll.js', 'jquery.js');
+		$settings->addJs('text/javascript', rtrim($settings->getVar('ROOT'), "/").$settings->getVar('theme_dir').'scripts/jquery.serialScroll-min.js', 'jquery.js');
+		$settings->addJs('text/javascript', rtrim($settings->getVar('ROOT'), "/").$settings->getVar('theme_dir').'scripts/coda-slider.js', 'jquery.js');
 
-		if ( !class_exists(Settings::$DB_TYPE) ) {
-			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR, __LINE__, __FILE__);
+		$class = $settings->getDbType();
+		if ( !class_exists($class) ) {
+			Debug::Log("Classe introuvable : ".$class, ERROR, __LINE__, __FILE__);
 		} else {
-			if ( self::$db = new Settings::$DB_TYPE ) {
+			if ( self::$db = new $class ) {
 				return true;
 			} else {
 				Debug::Log($err, ERROR, __LINE__, __FILE__);
@@ -62,7 +64,7 @@ final class public_storm extends Plugins {
 		}
 	}
 	
-	public function getStormsFromSuggestion($suggestion, $storm_id) {
+	public static function getStormsFromSuggestion($suggestion, $storm_id) {
 		return self::$db->q2("SELECT storm_id FROM suggestions WHERE suggestion = :suggestion AND storm_id != :storm_id", "public_storms.db", array($suggestion, $storm_id));
 	}
 	
@@ -81,8 +83,9 @@ final class public_storm extends Plugins {
 		return $suggestion;
 	}
 	
-	public function getUrl($storm_root) {
-		return Settings::getVar('BASE_URL_HTTP')."/storm/".strToLower($storm_root)."/";
+	public static function getUrl($storm_root) {
+		$settings = new Settings();
+		return $settings->getVar('BASE_URL_HTTP')."/storm/".strToLower($storm_root)."/";
 	}
 	
 	public function loadLang() {
@@ -105,22 +108,13 @@ final class public_storm extends Plugins {
 		return parent::getAuthor();
 	}
 	
-	public function getIcon() {
-		return parent::getIcon(self::$name);
-	}
-	
-	public function getStatus()
-	{
-		return parent::getStatus(self::$name);
-	}
-	
 	public function getSubDirs()
 	{
 		return self::$subdirs;
 	}
 	
 	
-	public function addStorm($permaname, $date, $root, $user_id) {
+	public static function addStorm($permaname, $date, $root, $user_id) {
 		//print "INSERT into storms (permaname, date, root, user_id) VALUES ('".strToLower($permaname)."', '".$date."', '".strToLower($root)."', '%d')";
 		// check if storm already exists
 		if ( $id = self::getStormIdFromUrl(strToLower($permaname)) )  {
@@ -130,7 +124,7 @@ final class public_storm extends Plugins {
 		}
 	}
 	
-	public function getStorm($id, $nb=20, $returnSuggestionFlag="true", $result_type=PDO::FETCH_BOTH) {
+	public static function getStorm($id, $nb=20, $returnSuggestionFlag="true", $result_type=PDO::FETCH_BOTH) {
 		// I'm sorry about that non boolean default value...
 		if( isset($id) && $id > 0 ) {
 			$s = self::$db->q("SELECT s.* FROM storms s WHERE s.storm_id=%d", "public_storms.db", array($id), $result_type);
@@ -149,7 +143,7 @@ final class public_storm extends Plugins {
 		} else { return null; }
 	}
 	
-	public function getStormsByAuthor($from=0, $nb=null, $user_id) {
+	public static function getStormsByAuthor($from=0, $nb=null, $user_id) {
 		$q = "SELECT s.* FROM storms s WHERE s.user_id = :user_id ORDER BY s.date DESC";
 		if ( isset($nb) )
 		{
@@ -175,7 +169,7 @@ final class public_storm extends Plugins {
 		return $storms;
 	}
 	
-	public function getStormsByFavorites() {
+	public static function getStormsByFavorites() {
 		$liste = array();
 		$storms = array();
 		foreach( users::getMyFavorites() as $favorite ) {
@@ -199,7 +193,7 @@ final class public_storm extends Plugins {
 		return $storms;
 	}
 	
-	public function getStormsByMostFavorites() {
+	public static function getStormsByMostFavorites() {
 		$storms = array();
 		$tot = 6;
 		#TODO 
@@ -221,7 +215,7 @@ final class public_storm extends Plugins {
 		return $storms;
 	}
 	
-	public function getStormsByDate($from=0, $nb=null) {
+	public static function getStormsByDate($from=0, $nb=null) {
 		$q = "SELECT s.* FROM storms s ORDER BY s.date DESC";
 		if ( isset($nb) )
 		{
@@ -249,7 +243,7 @@ final class public_storm extends Plugins {
 		return $storms;
 	}
 	
-	public function getStormsByAlpha($from=0, $nb=null) {
+	public static function getStormsByAlpha($from=0, $nb=null) {
 		$q = "SELECT s.* FROM storms s ORDER BY LOWER(s.root) ASC";
 		if ( isset($nb) )
 		{
@@ -275,24 +269,26 @@ final class public_storm extends Plugins {
 		return $storms;
 	}
 	
-	public function getStormsByMostActive($nb) {
+	public static function getStormsByMostActive($nb) {
 		/* récupération des suggestions les plus nombreuses */
 		//$suggestions = self::$db->q2("SELECT s.* FROM suggestions s GROUP BY s.storm_id LIMIT 0, :nb", "public_storms.db", array(':nb' => $nb));
-		$suggestions = self::$db->q2("SELECT s.* FROM suggestions s WHERE s.date BETWEEN :from AND :to GROUP BY s.storm_id LIMIT 0, :nb", "public_storms.db", array(':nb' => $nb, ':from' => time()-(10*24*60*60), ':to' => time()));
+		$suggestions = self::$db->q2("SELECT s.*, count(s.suggestion) as count_s FROM suggestions s WHERE s.date BETWEEN :from AND :to GROUP BY s.storm_id ORDER BY count_s DESC LIMIT 0, :nb", "public_storms.db", array(':nb' => $nb, ':from' => time()-(10*24*60*60), ':to' => time()));
 		//print "->".$suggestions[0][2];
+		//print "SELECT s.*, count(s.suggestion) as count_s FROM suggestions s WHERE s.date BETWEEN :from AND :to GROUP BY s.storm_id LIMIT 0, :nb";
 		//print_r($suggestions);
 		//return self::getStorm($suggestions[0][2]);
 		$mostActives = array();
 		foreach($suggestions AS $s) {
 			array_push($mostActives, self::getStorm($s[2]));		
 		}
-		//print_r($mostActives);
+		//print_r($suggestions);
 		return $mostActives;
 	}
 	
-	public function getSuggestions($storm_id, $nb=null, $result_type=null) {
+	public static function getSuggestions($storm_id, $nb=null, $result_type=null) {
+		$settings = new Settings();
 		if( !@isset($self->$suggestions[$storm_id]) ) {
-			$u = Settings::getVar('BASE_URL_HTTP')."/storm/";
+			$u = $settings->getVar('BASE_URL_HTTP')."/storm/";
 			//$suggestions = self::$db->q2("SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = :storm_id GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC LIMIT :nb", "public_storms.db", array(':nb' => $nb, ':storm_id' => $storm_id));
 			$q = "SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = %s GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC";
 			if( isset($nb) && $nb > 0 ) {
@@ -302,11 +298,11 @@ final class public_storm extends Plugins {
 			//print $q;
 			$suggestions[$storm_id] = self::$db->q($q, "public_storms.db", array($storm_id), $result_type);
 			for($n=0; $n<sizeOf($suggestions[$storm_id]); $n++) {
-				$author = self::getStormAuthor($suggestions[$storm_id][$n]['user_id']);
-				$suggestions[$storm_id][$n]['author'] = $author['prenom']." ".$author['nom'];
-				$suggestions[$storm_id][$n]['author_login'] = $author['login'];
-				$suggestions[$storm_id][$n]['this_storm_id'] = self::getStormIdFromUrl($suggestions[$storm_id][$n]['suggestion']);
-				$suggestions[$storm_id][$n]['url'] = $u.self::getSuggestionPermaname($suggestions[$storm_id][$n]['suggestion'])."/".urlencode($suggestions[$storm_id][$n]['suggestion'])."/";
+				$author = self::getStormAuthor(@$suggestions[$storm_id][$n]['user_id']);
+				@$suggestions[$storm_id][$n]['author'] = $author['prenom']." ".$author['nom'];
+				@$suggestions[$storm_id][$n]['author_login'] = $author['login'];
+				@$suggestions[$storm_id][$n]['this_storm_id'] = self::getStormIdFromUrl($suggestions[$storm_id][$n]['suggestion']);
+				@$suggestions[$storm_id][$n]['url'] = $u.self::getSuggestionPermaname($suggestions[$storm_id][$n]['suggestion'])."/".urlencode($suggestions[$storm_id][$n]['suggestion'])."/";
 			}
 			//print "SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = ".$storm_id." GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC LIMIT ".$nb."<br />\n";
 			//print_r($suggestions);
@@ -316,7 +312,7 @@ final class public_storm extends Plugins {
 		return @$self->$suggestions[$storm_id];
 	}
 	
-	public function getStormAuthor($user_id) {
+	public static function getStormAuthor($user_id) {
 		if( isset($user_id) ) {
 			$author = self::$db->q("SELECT u.* FROM users u WHERE u.user_id=%d", "users.db", array($user_id));
 			unset($author[0]);
@@ -326,16 +322,16 @@ final class public_storm extends Plugins {
 		}
 	}
 	
-	public function addSuggestion($storm_id, $suggestion, $user_id) {
+	public static function addSuggestion($storm_id, $suggestion, $user_id) {
 		return self::$db->u("INSERT into suggestions (storm_id, user_id, suggestion, date) VALUES ('".$storm_id."', '".$user_id."', '".$suggestion."', '".time()."')", "public_storms.db", array());
 	}
 	
-	public function getStormIdFromUrl($storm) {
+	public static function getStormIdFromUrl($storm) {
 		$s = self::$db->q("SELECT s.storm_id FROM storms s WHERE s.permaname = '%s'", "public_storms.db", array($storm));
 		return @is_array($s[1])?$s[1]['storm_id']:null;
 	}
 	
-	public function getNbStorms($user_id=null) {
+	public static function getNbStorms($user_id=null) {
 		$q = "SELECT count(*) as c FROM storms s";
 		if ( isset($user_id) ) {
 			$q .= " WHERE s.user_id = :user_id";
@@ -347,7 +343,7 @@ final class public_storm extends Plugins {
 		return $storms[0]['c'];
 	}
 	
-	public function getContributors($storm_id=null, $filter_user_id, $result_type=PDO::FETCH_BOTH) {
+	public static function getContributors($storm_id=null, $filter_user_id, $result_type=PDO::FETCH_BOTH) {
 		//print "-->".$storm_id;
 		$suggestions = @isset($self->$suggestions[$storm_id]) ? $self->$suggestions[$storm_id] : self::getSuggestions($storm_id, null, $result_type);
 		//print_r($suggestions);
@@ -364,7 +360,7 @@ final class public_storm extends Plugins {
 		return $contributors;
 	}
 	
-	public function getNbSuggestionsFromUserId($storm_id=null, $user_id=null) {
+	public static function getNbSuggestionsFromUserId($storm_id=null, $user_id=null) {
 		if ( !isset($user_id) || !isset($storm_id) )
 		{
 			return 0;
@@ -376,7 +372,7 @@ final class public_storm extends Plugins {
 		return $suggestions[0]['c'];
 	}
 	
-	public function getRandomStorm($nb=1) {
+	public static function getRandomStorm($nb=1) {
 		$random = self::$db->q2("SELECT s.* FROM storms s ORDER BY RANDOM() LIMIT :nb", "public_storms.db", array(':nb' => $nb));
 		return @is_array($random[0])?self::getStorm($random[0]['storm_id']):null;
 	}

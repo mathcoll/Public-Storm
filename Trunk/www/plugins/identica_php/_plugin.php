@@ -37,7 +37,7 @@ final class identica_php extends Plugins
 	
 	public function updateStatus($string, $cronId=null) {
 		$json_decoded = urldecode(stripslashes($string));
-		if ( $json_decoded->{'string'} != null ) {
+		if ( isset($json_decoded->{'string'}) ) {
 			$string = $json_decoded->{'string'};
 		}
 		if ( !$updateStatus = self::$identica->updateStatus(substr($string, 0, 140)) ) {
@@ -80,16 +80,6 @@ final class identica_php extends Plugins
 	public function getAuthor()
 	{
 		return parent::getAuthor();
-	}
-	
-	public function getIcon()
-	{
-		return parent::getIcon(self::$name);
-	}
-	
-	public function getStatus()
-	{
-		return parent::getStatus(self::$name);
 	}
 	
 	public function getSubDirs()

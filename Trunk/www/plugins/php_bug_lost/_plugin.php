@@ -53,16 +53,6 @@ final class php_bug_lost extends Plugins {
 	public function getAuthor() {
 		return parent::getAuthor();
 	}
-	
-	public function getIcon()
-	{
-		return parent::getIcon(self::$name);
-	}
-	
-	public function getStatus() {
-		return parent::getStatus(self::$name);
-	}
-	
 	public function getSubDirs() {
 		return self::$subdirs;
 	}

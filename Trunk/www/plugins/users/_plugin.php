@@ -170,7 +170,7 @@ final class users extends Plugins {
 	 * Get the list of a user meta datas
 	 * @return list of datas
 	 */
-	public function getMetaData($filter=null) {
+	public static function getMetaData($filter=null) {
 		if ( isset($_SESSION['id']) ) {
 			if ( isset($filter) ) {
 				$metaDatas = self::$db->q2("SELECT meta_name, meta_value FROM metas WHERE user_id = :user_id and meta_name=:meta_name", "users.db", array(":user_id" => $_SESSION['id'], "meta_name" => $filter));
@@ -188,7 +188,7 @@ final class users extends Plugins {
 	 * Set the list of a user meta datas
 	 * @return boolean
 	 */
-	public function setMetaData($name, $value) {
+	public static function setMetaData($name, $value) {
 		if ( isset($_SESSION['id']) && isset($name) && isset($value ) ) {
 			$metaDatas = self::$db->q2("INSERT OR REPLACE INTO metas (meta_name, meta_value, meta_id, user_id) VALUES (:name, :value, (SELECT meta_id from metas where meta_name=:name AND user_id=:user_id), :user_id);", "users.db", array(":name" => $name, ":value" => $value, ":user_id" => $_SESSION['id']));
 			//print_r($metaDatas);
@@ -198,12 +198,12 @@ final class users extends Plugins {
 		}
 	}
 	
-	public function getUserInfos($username) {
+	public static function getUserInfos($username) {
 		$user = self::$db->q2("SELECT u.nom, u.prenom, u.email, u.login, u.lang FROM users u WHERE u.login = :username", "users.db", array(":username" => $username));
 		return $user[0];
 	}
 	
-	public function addToFavorites($storm_id) {
+	public static function addToFavorites($storm_id) {
 		if ( isset($_SESSION['id']) ) {
 			$favorite = self::$db->q2("INSERT INTO favorites (user_id, storm_id) VALUES (:user_id, :storm_id)", "users.db", array(":user_id" => $_SESSION['id'], ":storm_id" => $storm_id));
 			return $favorite[0];
@@ -212,7 +212,7 @@ final class users extends Plugins {
 		}
 	}
 	
-	public function removeFromFavorites($storm_id) {
+	public static function removeFromFavorites($storm_id) {
 		if ( isset($_SESSION['id']) ) {
 			$favorite = self::$db->q2("DELETE FROM favorites WHERE user_id=:user_id AND storm_id=:storm_id", "users.db", array(":user_id" => $_SESSION['id'], ":storm_id" => $storm_id));
 			return $favorite[0];
@@ -221,7 +221,7 @@ final class users extends Plugins {
 		}
 	}
 	
-	public function isFavorites($storm_id) {
+	public static function isFavorites($storm_id) {
 		if ( isset($_SESSION['id']) ) {
 			$favorite = self::$db->q2("SELECT count(storm_id) as c FROM favorites WHERE user_id=:user_id AND storm_id=:storm_id", "users.db", array(":user_id" => $_SESSION['id'], ":storm_id" => $storm_id));
 			return $favorite[0]["c"];
@@ -230,7 +230,7 @@ final class users extends Plugins {
 		}
 	}
 	
-	public function getMyFavorites() {
+	public static function getMyFavorites() {
 		if ( isset($_SESSION['id']) ) {
 			$favorites = self::$db->q2("SELECT storm_id FROM favorites WHERE user_id=:user_id", "users.db", array(":user_id" => $_SESSION['id']));
 			return $favorites;
@@ -239,7 +239,7 @@ final class users extends Plugins {
 		}
 	}
 	
-	public function getUsersList() {
+	public static function getUsersList() {
 		$users = self::$db->q2("SELECT u.nom, u.prenom, u.email, u.login FROM users u", "users.db", array());
 		return $users;
 	}
@@ -262,14 +262,6 @@ final class users extends Plugins {
 	
 	public function getAuthor() {
 		return parent::getAuthor();
-	}
-	
-	public function getIcon() {
-		return parent::getIcon(self::$name);
-	}
-	
-	public function getStatus() {
-		return parent::getStatus(self::$name);
 	}
 	
 	public function getSubDirs() {

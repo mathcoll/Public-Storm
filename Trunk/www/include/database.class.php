@@ -134,7 +134,8 @@ abstract class Database {
 	public static function install() {}
 	
 	public static function escape_string($str) {
-		return mysql_escape_string($str);
+		//return mysql_escape_string($str);
+		return $str; #TODO, deprecated
 	}
 }
 ?>

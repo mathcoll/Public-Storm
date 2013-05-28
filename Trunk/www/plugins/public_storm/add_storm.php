@@ -33,15 +33,6 @@ else
 	$ind = 1;
 }
 
-$sPlug->AddData("storm", $storm);
-$sPlug->AddData("base_url", Settings::getVar('BASE_URL'));
-#$sPlug->->AddData("i18n", i18n::getLng());
-
-Settings::setVar('title', "Storm ".$root);
-$breadcrumb = Settings::getVar('breadcrumb');
-array_push($breadcrumb, array("name" => i18n::L("Storms"), "link" => Settings::getVar('BASE_URL')."/storm/"));
-array_push($breadcrumb, array("name" => $root));
-Settings::setVar('breadcrumb', $breadcrumb);
 print $sPlug->fetch("add_storm.tpl", "plugins/public_storm");
 exit;
 

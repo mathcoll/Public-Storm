@@ -18,58 +18,39 @@
     along with Public-Storm. If not, see <http://www.gnu.org/licenses/>.
  */
 
-final class analytics extends Plugins
-{
+final class analytics extends Plugins {
  	public static $subdirs = array();
  	public static $name = "analytics";
  	
-	public function __construct()
-	{
+	public function __construct() {
 		require(Settings::getVar('prefix') . 'conf/analytics.php');
 	}
 	
-	public function getCode()
-	{
+	public static function getCode() {
 		return Settings::getVar('code');
 	}
 	
-	public function loadLang()
-	{
+	public function loadLang() {
 		return parent::loadLang(self::$name);
 	}	
 	
-	public function getVersion()
-	{
+	public function getVersion() {
 		return parent::getVersion();
 	}
 	
-	public function getName()
-	{
+	public function getName() {
 		return self::$name;
 	}
 	
-	public function getDescription()
-	{
+	public function getDescription() {
 		return parent::getDescription();
 	}
 	
-	public function getAuthor()
-	{
+	public function getAuthor() {
 		return parent::getAuthor();
 	}
 	
-	public function getIcon()
-	{
-		return parent::getIcon(self::$name);
-	}
-	
-	public function getStatus()
-	{
-		return parent::getStatus(self::$name);
-	}
-	
-	public function getSubDirs()
-	{
+	public function getSubDirs() {
 		return self::$subdirs;
 	}
 }

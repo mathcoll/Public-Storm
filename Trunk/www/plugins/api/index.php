@@ -212,6 +212,11 @@ if ( $uri[$ind+1] ) {
 			$storm["getMyAccount"][0] = User::GetDataById($params["user_id"]);
 			outputAndExit($storm);
 			break;
+			
+		case "random" :
+			$random["storm"] = public_storm::getRandomStorm(1);
+			outputAndExit($random);
+			break;
 		
 		default : break;
 	}

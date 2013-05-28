@@ -21,7 +21,7 @@
     <shtirlic@users.sourceforge.net>
  */
 
-if( isset($_POST) && $_POST["update_meta"] == true ) {
+if( isset($_POST) && @$_POST["update_meta"] == true ) {
 	//print_r($_POST);
 	foreach($_POST as $name => $value) {
 		if ( $name != "update_meta" ) {

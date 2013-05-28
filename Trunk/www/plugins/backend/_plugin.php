@@ -18,39 +18,38 @@
     along with Public-Storm. If not, see <http://www.gnu.org/licenses/>.
  */
 
-final class backend extends Plugins
-{
+final class backend extends Plugins {
  	public static $subdirs = array('backend');
  	public static $name = "backend";
  	public static $rssfeeds = array();
  	
-	public function __construct()
-	{
-		require(Settings::getVar('prefix') . 'conf/backend.php');
+	public function __construct() {
+		$settings = new Settings();
+		require($settings->getVar('prefix') . 'conf/backend.php');
 		self::addRssfeeds(
 			array(
-				"href"	=> Settings::getVar('base_url').'/backend/rss.php',
+				"href"	=> $settings->getVar('base_url').'/backend/rss.php',
 				"rel"	=> "alternate",
 				"type"	=> "application/rss+xml",
-				"title"	=> i18n::_("Flux RSS")." ".Settings::getVar('site_name'),
+				"title"	=> i18n::_("Flux RSS")." ".$settings->getVar('site_name'),
 			)
 		);
 		self::addRssfeeds(
 			array(
-				"href"	=> Settings::getVar('base_url').'/backend/atom.php',
+				"href"	=> $settings->getVar('base_url').'/backend/atom.php',
 				"rel"	=> "alternate",
 				"type"	=> "application/atom+xml",
-				"title"	=> i18n::_("Flux Atom")." ".Settings::getVar('site_name'),
+				"title"	=> i18n::_("Flux Atom")." ".$settings->getVar('site_name'),
 			)
 		);
 	}
 	
-	public function addRssfeeds($rss=array()) {
+	public static function addRssfeeds($rss=array()) {
 		array_push(self::$rssfeeds, $rss); 
 		return self::$rssfeeds;
 	}
 	
-	public function getRssfeeds() {
+	public static function getRssfeeds() {
 		return self::$rssfeeds;
 	}
 	
@@ -77,16 +76,6 @@ final class backend extends Plugins
 	public function getAuthor()
 	{
 		return parent::getAuthor();
-	}
-	
-	public function getIcon()
-	{
-		return parent::getIcon(self::$name);
-	}
-	
-	public function getStatus()
-	{
-		return parent::getStatus(self::$name);
 	}
 	
 	public function getSubDirs()

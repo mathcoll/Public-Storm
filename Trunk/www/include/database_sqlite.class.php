@@ -32,13 +32,13 @@ if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die(gettext("You musn'
 
 class Database_sqlite extends Database
 {	
-	public function __construct()
-	{
-		self::$host = Settings::getVar('DB_HOST');
-		self::$username = Settings::getVar('DB_USER');
-		self::$password = Settings::getVar('DB_PASS');
-		self::$db_name = Settings::getVar('DB_NAME');
-		self::$db_prefix = Settings::getVar('DB_PREFIX');
+	public function __construct() {
+		$settings = new Settings();
+		self::$host = $settings->getVar('DB_HOST');
+		self::$username = $settings->getVar('DB_USER');
+		self::$password = $settings->getVar('DB_PASS');
+		self::$db_name = $settings->getVar('DB_NAME');
+		self::$db_prefix = $settings->getVar('DB_PREFIX');
 		try
 		{
 			self::$dbUser = new PDO("sqlite:./datas/users.db");
@@ -333,8 +333,7 @@ class Database_sqlite extends Database
 		}
 	}
 	
-	public static function getAllUsers($from=0, $nombre=5)
-	{
+	public static function getAllUsers($from=0, $nombre=5) {
 		$q = 'SELECT u.*, r.role_id as role_id, r.name as role_name FROM users u, roles r WHERE (r.role_id = u.role_id) ORDER BY u.role_id ASC, u.subscription_date DESC LIMIT %d, %d';
 		$query = sprintf(
 			$q,
@@ -346,12 +345,11 @@ class Database_sqlite extends Database
 		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
 			bl_query($query);
 		}
-		if ( $result = self::$dbUser->query($query) )
-		{
+		if ( $result = self::$dbUser->query($query) ) {
 			$r = array();
-			while ( $row = $result->fetch() )
-			{
-				$row['avatar'] = "http://www.gravatar.com/avatar/".md5( strtolower( $row['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir_http')."img/weather-storm.png" )."&size=32";
+			while ( $row = $result->fetch() ) {
+				$settings = new Settings();
+				$row['avatar'] = "http://www.gravatar.com/avatar/".md5( strtolower( $row['email'] ) )."?default=".urlencode( $settings->getVar('theme_dir_http')."img/weather-storm.png" )."&size=32";
 				array_push($r, $row);
 			}
 			return $r;
@@ -452,8 +450,10 @@ class Database_sqlite extends Database
 		}
 		//print $result_type;
 		$result = self::$db_custom->query($query);
-		if ( !$result && DEBUG ) {
-			Debug::Log("Erreur q ".$query, SQL, __LINE__, __FILE__);
+		if ( !is_object($result) ) {
+			if( DEBUG ) {
+				Debug::Log("Erreur q ".$query, SQL, __LINE__, __FILE__);
+			}
 		} else {
 			while ( $row = $result->fetch($result_type) ) {
 				$datas[] = $row;
@@ -489,7 +489,7 @@ class Database_sqlite extends Database
 		}
 		$query = sprintf(
 			$q,
-			self::escape_string($datas[0])
+			self::escape_string(@$datas[0])
 		);
 		Debug::Log($query, SQL, __LINE__, __FILE__);
 		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {

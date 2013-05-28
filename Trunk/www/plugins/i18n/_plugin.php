@@ -18,38 +18,37 @@
     along with Public-Storm. If not, see <http://www.gnu.org/licenses/>.
  */
 
-final class i18n extends Plugins
-{
+final class i18n extends Plugins {
  	public static $subdirs = array();
  	public static $name = "i18n";
  	
-	public function __construct()
-	{
+	public function __construct() {
+		$settings = new Settings();
 		//print "version ".self::$version;
-		require(Settings::getVar('prefix') . 'conf/i18n.php');
-		self::$subdirs = explode(";", Settings::getVar('languages'));
+		require($settings->getVar('prefix') . 'conf/i18n.php');
+		self::$subdirs = explode(";", $settings->getVar('languages'));
 		
 		/* Load languages */
 		$locale = "";
-		if( $_COOKIE["locale"] != "" ) {
-			$locale = $_COOKIE["locale"];
-		} elseif( $_SESSION["LANG"] != "" ) {
-			$locale = $_SESSION["LANG"];
+		if( isset($_COOKIE["locale"]) && @$_COOKIE["locale"] != "" ) {
+			$locale = @$_COOKIE["locale"];
+		} elseif( isset($_SESSION["LANG"]) && @$_SESSION["LANG"] != "" ) {
+			$locale = @$_SESSION["LANG"];
 		} else {
 			$locale = LANG;
 		}
 		//$locale = $_COOKIE["locale"]!=""?$_COOKIE["locale"]:$_SESSION["LANG"]!=""?$_SESSION["LANG"]:LANG; #TODO, why it doesn't works ?
-		Debug::Log("_COOKIE['locale']=".$_COOKIE['locale'], "NOTICE", __LINE__, __FILE__);
-		Debug::Log("_SESSION['LANG']=".$_SESSION['LANG'], "NOTICE", __LINE__, __FILE__);
+		Debug::Log("_COOKIE['locale']=".@$_COOKIE['locale'], "NOTICE", __LINE__, __FILE__);
+		Debug::Log("_SESSION['LANG']=".@$_SESSION['LANG'], "NOTICE", __LINE__, __FILE__);
 		Debug::Log("LANG=".LANG, "NOTICE", __LINE__, __FILE__);
 		Debug::Log("locale=".$locale, "NOTICE", __LINE__, __FILE__);
 		self::setLocale($locale);
 		/* end Load languages */
 	}
 	
-	public function langs()
-	{
-		$ls = explode(";", Settings::getVar('languages'));
+	public static function langs() {
+		$settings = new Settings();
+		$ls = explode(";", $settings->getVar('languages'));
 		$l = array();
 		for($i=0; $i<sizeOf($ls); $i++)
 		{
@@ -64,8 +63,7 @@ final class i18n extends Plugins
 		return $l;
 	}	
 	
-	public function _($index, $datas=null)
-	{
+	public static function _($index, $datas=null) {
 		//print dgettext("*", $index)."<br />";
 		//return dgettext("*", $index);
 		if ( !isset($datas) ) {
@@ -76,18 +74,17 @@ final class i18n extends Plugins
 		}
 	}
 	
-	public function l($index, $datas=null)
-	{
+	public static function l($index, $datas=null) {
 		return self::_($index, $datas);
 	}
 	
-	public function setLocale($locale)
-	{
+	public function setLocale($locale) {
+		$settings = new Settings();
 		$_SESSION["LANG"] = $locale;
 		putenv("LANGUAGE=$locale");
 		setlocale(LC_ALL, $locale);
-		//print Settings::getVar('ROOT') . 'i18n/';
-		bindtextdomain('all', Settings::getVar('ROOT') . 'i18n/');
+		//print $settings->getVar('ROOT') . 'i18n/';
+		bindtextdomain('all', $settings->getVar('ROOT') . 'i18n/');
 		textdomain('all');
 		
 		//print $_COOKIE["locale"]." (i18n/_plugin.php, 56)";
@@ -120,16 +117,6 @@ final class i18n extends Plugins
 	public function getAuthor()
 	{
 		return parent::getAuthor();
-	}
-	
-	public function getIcon()
-	{
-		return parent::getIcon(self::$name);
-	}
-	
-	public function getStatus()
-	{
-		return parent::getStatus(self::$name);
 	}
 	
 	public function getSubDirs()

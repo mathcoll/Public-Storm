@@ -1,5 +1,5 @@
 <?php
-
-Settings::setVar('name', 'val', 'imagepanner', 'desc');
+$settings = new Settings();
+$settings->setVar('name', 'val', 'imagepanner', 'desc');
 
 ?>

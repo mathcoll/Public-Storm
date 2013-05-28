@@ -420,3 +420,15 @@ span.suggest-too input:hover
 {
 	padding: .5em;
 }
+
+div#abcdaire a.actif {
+    color: #000000;
+    cursor: pointer;
+}
+div#abcdaire a {
+    font-size: 20px;
+    padding: 0 9px;
+}
+div#abcdaire a:hover {
+    color: #156E1E;
+}

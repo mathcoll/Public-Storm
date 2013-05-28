@@ -63,20 +63,12 @@ final class articles extends Plugins {
 	public function getSubDirs() {
 		return self::$subdirs;
 	}
-
-	public function getIcon() {
-		return parent::getIcon(self::$name);
-	}
-
-	public function getStatus() {
-		return parent::getStatus(self::$name);
-	}
-
 	public static function escape_string($str) {
-		return mysql_escape_string($str);
+		//return mysql_escape_string($str);
+		return $str; #TODO, deprecated
 	}
 
-	public function getArticlesTitles($lang=NULL) {
+	public static function getArticlesTitles($lang=NULL) {
 		$lang = isset($lang) ? $lang : $_SESSION['LANG'];
 		$q = 'SELECT title, uid FROM articles a, articles_meta_datas amd WHERE (a.article_id = amd.article_id) AND (amd.meta_name = "lang") AND (amd.meta_value="%s")';
 		$query = sprintf(
@@ -97,7 +89,7 @@ final class articles extends Plugins {
 		return $r;
 	}
 
-	public function getDatas($uid=NULL, $lang=NULL) {
+	public static function getDatas($uid=NULL, $lang=NULL) {
 		$lang = isset($lang) ? $lang : $_SESSION['LANG'];
 		$q = 'SELECT title, content FROM articles a, articles_meta_datas amd WHERE (a.uid="%s") AND (a.article_id = amd.article_id) AND (amd.meta_name = "lang") AND (amd.meta_value="%s") LIMIT 1';
 		$query = sprintf(
@@ -113,7 +105,6 @@ final class articles extends Plugins {
 		while ( $row = $result->fetch() ) {
 			$r['title'] = $row['title'];
 			$r['content'] = $row['content'];
-			$n++;
 		}
 		return $r;
 	}

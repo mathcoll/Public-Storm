@@ -49,7 +49,7 @@ final class aboutcron extends Plugins {
 	/**
 	 * get the list of the actions to be done now 
 	 */
-	public function getActions() {
+	public static function getActions() {
 		$query = sprintf("SELECT * FROM crontab WHERE time <= %s", Database::escape_string(time()));# TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		//print $query."<br />";
 		$rows = self::$db->q($query, "aboutcron.db", array());
@@ -59,7 +59,7 @@ final class aboutcron extends Plugins {
 	/**
 	 * play an action
 	 */
-	public function playAction($command, $parameters, $id) {
+	public static function playAction($command, $parameters, $id) {
 		$com = explode("::", $command);
 		$method = $com[1];
 		Settings::setVar('prefix', "./"); # TODO : why ????
@@ -73,7 +73,7 @@ final class aboutcron extends Plugins {
 	/**
 	 * add an action to the triggers queue 
 	 */
-	public function addAction($datas) {
+	public static function addAction($datas) {
 		$q = "INSERT INTO crontab (command, parameters, time) VALUES ('%s', '%s', '%s')";
 		$query = sprintf($q, Database::escape_string($datas[0]), Database::escape_string($datas[1]), Database::escape_string($datas[2]));
 		if ( DEBUG ) {
@@ -85,7 +85,7 @@ final class aboutcron extends Plugins {
 	/**
 	 * remove an action from the triggers queue 
 	 */
-	public function removeAction($id) {
+	public static function removeAction($id) {
 		$query = "DELETE FROM crontab WHERE id=%s";
 		self::$db->q($query, "aboutcron.db", array(Database::escape_string($id)));
 		return true;
@@ -94,7 +94,7 @@ final class aboutcron extends Plugins {
 	/**
 	 * get the list of all the actions
 	 */
-	public function getCrons($from=0, $nombre=5) {
+	public static function getCrons($from=0, $nombre=5) {
 		$query = sprintf("SELECT * FROM crontab ORDER BY time ASC LIMIT %d, %d", $from, $nombre);
 		$rows = self::$db->q($query, "aboutcron.db", array());
 		return is_array($rows)?$rows:false;
@@ -103,7 +103,7 @@ final class aboutcron extends Plugins {
 	/**
 	 * get the number of crons in the queue
 	 */
-	public function getNbCrons() {
+	public static function getNbCrons() {
 		$query = "SELECT * FROM crontab";
 		$rows = self::$db->q($query, "aboutcron.db", array());
 		return is_array($rows)?sizeOf($rows):false;
@@ -112,7 +112,7 @@ final class aboutcron extends Plugins {
 	/**
 	 * Test the aboutCron feature by sending an email
 	 */
-	public function testAboutCron($vars, $id) {
+	public static function testAboutCron($vars, $id) {
 		$sPlugAboutCron = new Settings::$VIEWER_TYPE;
 		require(Settings::getVar('inc_dir') . "phpMailer/class.phpmailer.php");
 		$mail    = new PHPMailer();
@@ -163,16 +163,6 @@ final class aboutcron extends Plugins {
 	public function getAuthor()
 	{
 		return parent::getAuthor();
-	}
-	
-	public function getIcon()
-	{
-		return parent::getIcon(self::$name);
-	}
-	
-	public function getStatus()
-	{
-		return parent::getStatus(self::$name);
 	}
 	
 	public function getSubDirs()

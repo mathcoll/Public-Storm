@@ -25,7 +25,7 @@ final class admin extends Plugins {
  	
 	public function __construct() {
 		require(Settings::getVar('prefix') . 'conf/admin.php');
-		if( $_SESSION['isadmin'] == 1 ) {
+		if( @$_SESSION['isadmin'] == 1 ) {
 			Settings::addCss('admin', rtrim(Settings::getVar('ROOT'), "/").Settings::getVar('theme_dir').'plugins/admin/styles/admin.css', 'admin.css');
 		}
 	}
@@ -70,14 +70,12 @@ final class admin extends Plugins {
 		return self::$db->getAllUsers($from, $nombre);
 	}
 	
-	public function addAdminMenu($menu)
-	{
+	public static function addAdminMenu($menu) {
 		array_push(self::$adminMenu, $menu);
 		return self::$adminMenu;
 	}
 	
-	public function getAdminMenu()
-	{
+	public static function getAdminMenu() {
 		return self::$adminMenu;
 	}
 	
@@ -104,16 +102,6 @@ final class admin extends Plugins {
 	public function getAuthor()
 	{
 		return parent::getAuthor();
-	}
-	
-	public function getIcon()
-	{
-		return parent::getIcon(self::$name);
-	}
-	
-	public function getStatus()
-	{
-		return parent::getStatus(self::$name);
 	}
 	
 	public function getSubDirs()

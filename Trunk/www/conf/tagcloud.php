@@ -1,5 +1,5 @@
 <?php
-
-Settings::setVar('name', 'value', 'tagcloud', 'desc');
+$settings = new Settings();
+$settings->setVar('name', 'value', 'tagcloud', 'desc');
 
 ?>

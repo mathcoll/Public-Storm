@@ -1,4 +1,4 @@
 <?php
-
-Settings::setVar('name', 'val', 'share', 'desc');
+$settings = new Settings();
+$settings->setVar('name', 'val', 'share', 'desc');
 ?>

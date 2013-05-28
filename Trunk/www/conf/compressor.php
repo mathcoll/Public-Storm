@@ -1,16 +1,16 @@
 <?php
-
-Settings::setVar('css_cache_duration', 86400, 'compressor', 'Css cache duration time ; in seconds');
-Settings::setVar('js_cache_duration', 86400, 'compressor', 'Js cache duration time ; in seconds');
-Settings::setVar('compressor_use_gzip', true, 'compressor', 'Gzipping your CSS (true or false)');
-Settings::setVar('listeJs', 'jquery.js,all.js', 'compressor', 'Liste des fichiers de scripts disponibles');
-Settings::setVar('compress html output', true, 'compressor', 'Compress the html output (true or false)');
+$settings = new Settings();
+$settings->setVar('css_cache_duration', 86400, 'compressor', 'Css cache duration time ; in seconds');
+$settings->setVar('js_cache_duration', 86400, 'compressor', 'Js cache duration time ; in seconds');
+$settings->setVar('compressor_use_gzip', true, 'compressor', 'Gzipping your CSS (true or false)');
+$settings->setVar('listeJs', 'jquery.js,all.js', 'compressor', 'Liste des fichiers de scripts disponibles');
+$settings->setVar('compress html output', true, 'compressor', 'Compress the html output (true or false)');
 
 if( !@$_SESSION['isadmin'] ) {
-	Settings::setVar('listeCss', 'screen,print,handheld', 'compressor', 'Liste des feuilles de styles disponibles');
+	$settings->setVar('listeCss', 'screen,print,handheld', 'compressor', 'Liste des feuilles de styles disponibles');
 	//#TODO : add projection and tv medias stylesheets
 } else {
-	Settings::setVar('listeCss', 'screen,print,handheld,admin', 'compressor', 'Liste des feuilles de styles disponibles');
+	$settings->setVar('listeCss', 'screen,print,handheld,admin', 'compressor', 'Liste des feuilles de styles disponibles');
 }
 
 /**

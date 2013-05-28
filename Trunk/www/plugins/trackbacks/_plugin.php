@@ -71,16 +71,6 @@ final class trackbacks extends Plugins
 		return parent::getAuthor();
 	}
 	
-	public function getIcon()
-	{
-		return parent::getIcon(self::$name);
-	}
-	
-	public function getStatus()
-	{
-		return parent::getStatus(self::$name);
-	}
-	
 	public function getSubDirs()
 	{
 		return self::$subdirs;
@@ -91,7 +81,7 @@ final class trackbacks extends Plugins
 		return self::$db->addTB($tb_title, $tb_url, $tb_excerpt, $tb_author);
 	}
 	
-	public function getAllTb($limit=5)
+	public static function getAllTb($limit=5)
 	{
 		return self::$db->getAllTb($limit);
 	}

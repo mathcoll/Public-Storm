@@ -40,15 +40,14 @@ class Plugins
  	public static $author;
  	public static $icon;
 	
-	public function __construct()
-	{
-		if ( !class_exists(Settings::$DB_TYPE) )
-		{
-			Debug::Log("Classe introuvable : ".Settings::$DB_TYPE, ERROR, __LINE__, __FILE__);
-		}
-		else
-		{
-			if ( self::$db = new Settings::$DB_TYPE )
+	public function __construct() {
+		$settings = new Settings();
+		$class = $settings->getDbType();
+		if ( !class_exists($class) ) {
+			Debug::Log("Classe introuvable : ".$settings->getDbType(), ERROR, __LINE__, __FILE__);
+		} else {
+			$class = $settings->getDbType();
+			if ( self::$db = new $class )
 			{
 				return true;
 			}
@@ -139,13 +138,13 @@ class Plugins
 	 * @param string $pluginName The name of the plugin to load
 	 * @return false|string plugin name
 	 */
-	public static function LoadPlugin($pluginName)
-	{
+	public static function LoadPlugin($pluginName) {
+		$settings = new Settings();
 		array_push(self::$loadedPlugins, $pluginName);
-		$f = new File(Settings::getVar('plug_dir') . strtolower($pluginName) . '/_plugin.php');
+		$f = new File($settings->getVar('plug_dir') . strtolower($pluginName) . '/_plugin.php');
 		if ( $f->Exists() )
 		{
-			require(Settings::getVar('plug_dir') . strtolower($pluginName) . '/_plugin.php');
+			require($settings->getVar('plug_dir') . strtolower($pluginName) . '/_plugin.php');
 			if( DEBUG )
 			{
 				Debug::Log('Plugin "' . strtolower($pluginName) . '" is activated', NOTICE, __LINE__, __FILE__);
@@ -155,7 +154,7 @@ class Plugins
 		{
 			if( DEBUG )
 			{
-				Debug::Log(Settings::getVar('plug_dir') . strtolower($pluginName) . '/_plugin.php' . " doesn't exists", NOTICE, __LINE__, __FILE__);
+				Debug::Log($settings->getVar('plug_dir') . strtolower($pluginName) . '/_plugin.php' . " doesn't exists", NOTICE, __LINE__, __FILE__);
 			}
 			return false;
 		}
@@ -168,7 +167,7 @@ class Plugins
 			{
 				foreach ( $subdirs as $dir )
 				{
-					if ( $registred = Settings::registerSubdir($dir, $pluginName) )
+					if ( $registred = $settings->registerSubdir($dir, $pluginName) )
 					{
 						//print_r($registred);
 						Debug::Log('Folder "' . $dir . '" is registered by "' . $pluginName . '"' , NOTICE, __LINE__, __FILE__);
@@ -184,10 +183,10 @@ class Plugins
 	 * @param string $pluginName The name of the plugin
 	 * @return array
 	 */
-	public function listPages($pluginName)
-	{
+	public function listPages($pluginName) {
+		$settings = new Settings();
 		$liste = array();
-		foreach ( scandir(Settings::getVar('plug_dir') . '/' . strtolower($pluginName) . '/') as $node )
+		foreach ( scandir($settings->getVar('plug_dir') . '/' . strtolower($pluginName) . '/') as $node )
 		{
 			if ( ereg('.*\.php$', $node) && $node != strtolower($pluginName).'.php' )
 			{
@@ -252,15 +251,15 @@ class Plugins
 	 * @param string $pluginName The name of the plugin
 	 * @return string
 	 */
-	public function getIcon($name)
-	{
+	public static function getIcon($name) {
+		$settings = new Settings();
 		//$file = Settings::getVar('theme_dir') . 'plugins/' . strtolower($name) . '/img/icon.png';
-		$file = Settings::getVar('plug_path') . strtolower($name) . '/img/icon.png';
+		$file = $settings->getVar('plug_path') . strtolower($name) . '/img/icon.png';
 		//print $file."<br />";
 		$icon = new File($file);
 		if ( $icon->Exists() )
 		{
-			self::$icon = Settings::getVar('theme_dir') . 'plugins/' . strtolower($name) . '/img/icon.png';;
+			self::$icon = $settings->getVar('theme_dir') . 'plugins/' . strtolower($name) . '/img/icon.png';;
 			return self::$icon;
 		}
 	}
