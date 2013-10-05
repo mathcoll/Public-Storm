@@ -93,7 +93,7 @@ $sTab->AddData("user", $user);
 
 $author = public_storm::getStormAuthor($_SESSION['user_id']);
 $sTab->AddData("username", $_SESSION['prenom']." ".$_SESSION['nom']);
-$sTab->AddData("avatar", "http://www.gravatar.com/avatar/".md5( strtolower( $_SESSION['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&size=150");
+$sTab->AddData("avatar", "http://www.gravatar.com/avatar/".md5( strtolower( $_SESSION['email'] ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&amp;size=150");
 
 //$breadcrumb = Settings::getVar('breadcrumb');
 //array_push($breadcrumb, array("name" => Settings::getVar('title')));

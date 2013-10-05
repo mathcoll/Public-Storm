@@ -271,7 +271,7 @@ final class User {
 			$nom = $datas['nom'];
 			$lang = $datas['lang'];
 			$email = $datas['email'];
-			$avatar = "http://www.gravatar.com/avatar/".md5( strtolower( $email ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&size=50";
+			$avatar = "http://www.gravatar.com/avatar/".md5( strtolower( $email ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&amp;size=50";
 			$isadmin = $datas['isadmin'];
 			$subscription_date = $datas['subscription_date'];
 			self::$current->id = $id;
@@ -324,12 +324,10 @@ final class User {
 	 * @param boolean $persistent true if the connection has to be persistent with a cookie
 	 * @return boolean
 	 */
-	public static function userLogin($login, $password_md5, $persistent=false)
-	{
+	public static function userLogin($login, $password_md5, $persistent=false) {
 		self::$persistent = $persistent == true ? 1 : 0;
 		$datas = self::$db->userLogin($login, $password_md5);
-		if ( isset($datas['id']) )
-		{
+		if ( isset($datas['id']) ) {
 			$sessionId = self::$db->userUpdateSessionId($login, $password_md5, self::$persistent);
 			//print_r($datas);
 			$id = $datas['id'];
@@ -338,7 +336,7 @@ final class User {
 			$nom = $datas['nom'];
 			$lang = $datas['lang'];
 			$email = $datas['email'];
-			$avatar = "http://www.gravatar.com/avatar/".md5( strtolower( $email ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&size=50";
+			$avatar = "http://www.gravatar.com/avatar/".md5( strtolower( $email ) )."?default=".urlencode( Settings::getVar('theme_dir')."/img/weather-storm.png" )."&amp;size=50";
 			$isadmin = $datas['isadmin'];
 			$subscription_date = $datas['subscription_date'];
 			self::$current->id = $id;
@@ -367,8 +365,7 @@ final class User {
 			i18n::setLocale($lang);
 			setcookie("locale", $_SESSION["LANG"], time() + 3600 * 24 * 30, Settings::getVar("BASE_URL")."/");
 			Session::StartUser(User::GetById($id));
-			if ( self::$persistent == "1" )
-			{
+			if ( self::$persistent == "1" ) {
 				$end = time()+3600*24*15; // expire dans 15 jours
 				setcookie("persistentConnection", self::$persistent, $end, Settings::getVar("BASE_URL")."/");
 				setcookie("uid", self::$uid, $end, Settings::getVar("BASE_URL")."/");
@@ -378,9 +375,7 @@ final class User {
 				header("Expires: Sat, 26 Jul 1997 05:00:00 GMT", true); // Date in the past
 			}
 			return true;
-		}
-		else
-		{
+		} else {
 			return false;
 		}
 	}

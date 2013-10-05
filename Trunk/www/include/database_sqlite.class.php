@@ -39,23 +39,20 @@ class Database_sqlite extends Database
 		self::$password = $settings->getVar('DB_PASS');
 		self::$db_name = $settings->getVar('DB_NAME');
 		self::$db_prefix = $settings->getVar('DB_PREFIX');
-		try
-		{
+		try {
 			self::$dbUser = new PDO("sqlite:./datas/users.db");
 			if ( !self::$dbUser ) throw new DatabaseException("error");
 			self::$dbTB = new PDO("sqlite:./datas/trackbacks.db");
 			if ( !self::$dbTB ) throw new DatabaseException("error");
 		}
-		catch (Exception $e)
-		{
+		catch (Exception $e) {
 			Debug::Log($e, ERROR, __LINE__, __FILE__);
 			return false;
 		}
 		return self::$db;
 	}
 	
-	public static function userLogin( $login, $password_md5 )
-	{
+	public static function userLogin( $login, $password_md5 ) {
 		$q = 'SELECT r.role_id as role_id, u.user_id as id, u.uid, u.lang, u.nom, u.prenom, u.email FROM users u, roles r WHERE (u.login = "%s") AND (password="%s") AND (u.role_id = r.role_id)';
 		$query = sprintf(
 			$q,
@@ -142,14 +139,14 @@ class Database_sqlite extends Database
 			self::escape_string(time())
 		);
 		//print $query;
-		if ( DEBUG )
-		{
+		$out = self::$dbUser->query($query);
+		if ( DEBUG ) {
 			Debug::Log("Erreur 3".$query, SQL, __LINE__, __FILE__);
 		}
 		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
 			bl_query($query);
 		}
-		return self::$dbUser->query($query);
+		return $out;
 	}
 	
 	public static function userUpdateSessionId($login, $password_md5, $persistent=false)
@@ -349,7 +346,7 @@ class Database_sqlite extends Database
 			$r = array();
 			while ( $row = $result->fetch() ) {
 				$settings = new Settings();
-				$row['avatar'] = "http://www.gravatar.com/avatar/".md5( strtolower( $row['email'] ) )."?default=".urlencode( $settings->getVar('theme_dir_http')."img/weather-storm.png" )."&size=32";
+				$row['avatar'] = "http://www.gravatar.com/avatar/".md5( strtolower( $row['email'] ) )."?default=".urlencode( $settings->getVar('theme_dir_http')."img/weather-storm.png" )."&amp;size=32";
 				array_push($r, $row);
 			}
 			return $r;

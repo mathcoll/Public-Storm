@@ -12,5 +12,4 @@
 		<li>&nbsp;</li>
 		<li><a href="mailto:contact@internetcollaboratif.info">{t}Aider à la traduction{/t}</a></li>
 	</ul>
-	</ul>
 </div>

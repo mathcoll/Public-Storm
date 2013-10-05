@@ -92,23 +92,23 @@ if ( $uri[$ind+1] ) {
 				case "FETCH_BOTH":
 				default: $params["result_type"] = PDO::FETCH_BOTH; break;
 			}
-			$storm["storm"][0] = public_storm::getStorm($params["storm_id"], 20, $params["returnSuggestionFlag"], $params["result_type"]);
 			
+			$storm["storm"][0] = public_storm::getStorm($params["storm_id"], 20, $params["returnSuggestionFlag"], $params["result_type"]);
+
 			$contributors = public_storm::getContributors($params["storm_id"], $params["user_id_filtered_out"], $params["result_type"]);
 			$storm["storm"][0]["contributors"] = array();
 			foreach ( $contributors as $s => $contributor) {
 				//print_r($contributor);
 				array_push($storm["storm"][0]["contributors"], ${contributor});
 			}
-	
+				
 			$storm["storm"][0]['isLogged'] = User::isLogged();
-			
-			if( User::isLogged() && User::isFavorites($params["storm_id"]) ) {
+			if( User::isLogged() && users::isFavorites($params["storm_id"]) ) {
 				$storm["storm"][0]['stared'] = "1";
 			} else {
 				$storm["storm"][0]['stared'] = "0";
 			}
-			
+				
 			//print $_POST["returnSuggestionFlag"]."-".$params["returnSuggestionFlag"];
 			$temp = $storm["storm"][0]["suggestions"];
 			unset($storm["storm"][0]["suggestions"]);
@@ -214,7 +214,36 @@ if ( $uri[$ind+1] ) {
 			break;
 			
 		case "random" :
-			$random["storm"] = public_storm::getRandomStorm(1);
+			$params["returnSuggestionFlag"] = "true";
+			$random["storm"][] = public_storm::getRandomStorm(1);
+			//print $random["storm"][0]["storm_id"];
+			//print_r($random["storm"]);
+			$contributors = public_storm::getContributors($random["storm"][0]["storm_id"], null, PDO::FETCH_BOTH);
+			$random["storm"][0]["contributors"] = array();
+			foreach ( $contributors as $s => $contributor) {
+				//print_r($contributor);
+				array_push($random["storm"][0]["contributors"], ${contributor});
+			}
+			
+			$random["storm"][0]['isLogged'] = User::isLogged();
+			if( User::isLogged() && users::isFavorites($random["storm"][0]["storm_id"]) ) {
+				$random["storm"][0]['stared'] = "1";
+			} else {
+				$random["storm"][0]['stared'] = "0";
+			}
+			
+			//print $_POST["returnSuggestionFlag"]."-".$params["returnSuggestionFlag"];
+			$temp = $random["storm"][0]["suggestions"];
+			unset($random["storm"][0]["suggestions"]);
+			$random["storm"][0]["suggestions"] = null;
+			if ( $params["returnSuggestionFlag"] == "true" ) {
+				$random["storm"][0]["suggestions"] = array();
+				foreach ( $temp as $s => $suggestion) {
+					//print_r($suggestion);
+					array_push($random["storm"][0]["suggestions"], ${suggestion});
+				}
+			}
+			
 			outputAndExit($random);
 			break;
 		
