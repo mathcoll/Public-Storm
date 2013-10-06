@@ -1,0 +1,38 @@
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script>
+	var type = 'ByMostActive'; //ByLove, ByName, ByDate, ByAuthor
+
+	$(document).ready(function(){
+		$.getJSON( "http://public-storm.internetcollaboratif.info/api/"+type+"/", function( storms ) {		
+			var items = [];
+			var storms = storms['storms'];
+			$.each( storms, function( key, val ) {
+				if ( val ) {
+					var s = Object.keys(val.suggestions).length;
+					items.push( "<li id='" + type + val.storm_id + "'><div><a href='"+val.url+"'>"+val.root+"</a> <span>("+s+" suggestions)</span></div>"+val.author+"</li>" );
+				}
+			});
+			$( "<ul/>", {
+				"class": "list-storms",
+				html: items.join( "" )
+			}).appendTo("div.storms");
+		});
+	});
+
+	</script>
+	<style>
+ul.list-storms{margin:0; padding:0; font-size:14px;}
+ul.list-storms li{text-transform:capitalize;list-style: none outside none; background: url("http://public-storm.internetcollaboratif.info/themes/ps2/templates/img/sprite.png") no-repeat scroll -60px -7px transparent;margin:5px 0 10px 5px;}
+ul.list-storms li div span{font-size:9px;}
+ul.list-storms li a{color: #156E1E; outline: 0 none; margin: 15px 0 0 10px; text-decoration:none;}
+ul.list-storms li a:hover{text-decoration:underline;}
+	</style>
+</head>
+<body>
+	<div class="storms">
+		<h2>Storms les plus actifs</h2>
+	</div>
+</body>
+</html>
