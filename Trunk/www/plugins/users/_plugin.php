@@ -239,6 +239,19 @@ final class users extends Plugins {
 		}
 	}
 	
+	public static function getSubscriptionsStatistics() {
+			$statistics = self::$db->q2("SELECT
+strftime('%H', datetime(subscription_date, 'unixepoch', 'localtime')) as hour,
+strftime('%M', datetime(subscription_date, 'unixepoch', 'localtime')) as minute,
+strftime('%w', datetime(subscription_date, 'unixepoch', 'localtime')) as 'dow', -- day of week (sunday==0)
+count(*) as 'qty'
+FROM users
+GROUP BY minute
+ORDER BY qty DESC", "users.db", array());
+			return $statistics;
+
+	}
+	
 	public static function getUsersList() {
 		$users = self::$db->q2("SELECT u.nom, u.prenom, u.email, u.login FROM users u", "users.db", array());
 		return $users;

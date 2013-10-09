@@ -246,6 +246,12 @@ if ( $uri[$ind+1] ) {
 			
 			outputAndExit($random);
 			break;
+			
+		case "getSubscriptionsStatistics" :
+			$params = getParams($uri, $ind);
+			$out["statistics"] = users::getSubscriptionsStatistics();
+			outputAndExit($out);
+			break;
 		
 		default : break;
 	}
