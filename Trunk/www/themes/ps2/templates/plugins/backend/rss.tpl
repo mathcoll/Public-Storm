@@ -25,7 +25,7 @@
 		{foreach from=$storms item=storm}
 		{if $storm.root ne ""}
 		<item>
-			<title>{t}Storm{/t} {$storm.root|ucfirst} {t}by{/t} {$storm.author}</title>
+			<title><![CDATA[{t}Storm{/t} {$storm.root|ucfirst} {t}by{/t} {$storm.author}]]></title>
 			<!--<author>({$storm.author})</author>-->
 			<link>{$base_url_http}/storm/{$storm.permaname}/?utm_source=backend&amp;utm_medium=rss&amp;utm_campaign={$version}</link>
 			<description><![CDATA[

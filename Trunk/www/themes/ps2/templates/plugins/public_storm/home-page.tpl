@@ -5,7 +5,7 @@
 				<h3>{t}intro_accroche{/t}</h3>
 				<ul class="accroche">
 				{foreach from=$storms item=storm name=liste}
-					<li><a href="{$storm.url}">{$storm.root|ucfirst}</a>{if $storm.author_login ne ""} <small class="author">({t}by{/t} <a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author|ucwords}</a>)</small>{/if}</li>
+					{if $storm.root ne ""}<li><a href="{$storm.url}">{$storm.root|ucfirst}</a>{if $storm.author_login ne ""} <small class="author">({t}by{/t} <a href="{$base_url}/utilisateurs/{$storm.author_login}/">{$storm.author|ucwords}</a>)</small>{/if}</li>{/if}
 				{/foreach}
 					<li><a href="{$base_url}/storms/">...</a></li>
 				</ul>
