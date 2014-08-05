@@ -30,8 +30,7 @@
 
 if (basename($_SERVER["SCRIPT_NAME"])==basename(__FILE__))die(gettext("You musn't call this page directly ! please, go away !"));
 
-class Database_sqlite extends Database
-{	
+class Database_sqlite extends Database {	
 	public function __construct() {
 		$settings = new Settings();
 		self::$host = $settings->getVar('DB_HOST');
@@ -64,15 +63,10 @@ class Database_sqlite extends Database
 		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
 			bl_query($query);
 		}
-		if ( !$result && DEBUG )
-		{
+		if ( !$result && DEBUG ) {
 			Debug::Log("Erreur userLogin ".$query, ERROR, __LINE__, __FILE__);
-		}
-		else
-		{
-			while ( $row = $result->fetch() )
-			{
-				
+		} else {
+			while ( $row = $result->fetch() ) {
 				$datas['id'] = $row['id'];
 				$datas['uid'] = $row['uid'];
 				$datas['sessionId'] = $row['sessionId'];
@@ -123,8 +117,7 @@ class Database_sqlite extends Database
 		}
 	}
 	
-	public static function userAdd( $datas )
-	{
+	public static function userAdd( $datas ) {
 		$q = 'INSERT INTO users ( role_id, uid, nom, prenom, email, login, password, lang, subscription_date, updated_date, persistent ) VALUES ("2", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "0")';
 		$query = sprintf(
 			$q,
@@ -149,8 +142,7 @@ class Database_sqlite extends Database
 		return $out;
 	}
 	
-	public static function userUpdateSessionId($login, $password_md5, $persistent=false)
-	{
+	public static function userUpdateSessionId($login, $password_md5, $persistent=false) {
 		$persistent = $persistent == true ? 1 : 0;
 		$q = 'UPDATE users SET session_id=md5(now()), persistent="%s" WHERE login = "%s" AND password="%s" LIMIT 1';
 		$query = sprintf(
@@ -163,11 +155,12 @@ class Database_sqlite extends Database
 		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
 			bl_query($query);
 		}
-		return self::$dbUser->query($query);
+		$out = self::$dbUser->query($query);
+		//self::$dbUser->commit();
+		return $out;
 	}
 	
-	public static function setLang($lang, $user_id)
-	{
+	public static function setLang($lang, $user_id) {
 		$q = 'UPDATE users SET lang="%s" WHERE user_id="%s"';
 		$query = sprintf(
 			$q,
@@ -181,8 +174,7 @@ class Database_sqlite extends Database
 		return self::$dbUser->query($query);
 	}
 	
-	public static function userUpdate($user_infos)
-	{
+	public static function userUpdate($user_infos) {
 		$q = 'UPDATE users SET nom="%s", prenom="%s", email="%s", lang="%s", updated_date=%d, password="%s" WHERE login = "%s"';
 		$query = sprintf(
 			$q,
@@ -194,19 +186,19 @@ class Database_sqlite extends Database
 			self::escape_string($user_infos['password_md5']),
 			self::escape_string($user_infos['login'])
 		);
-		if ( DEBUG )
-		{
+		if ( DEBUG ) {
 			Debug::Log("Erreur 4".$query, SQL, __LINE__, __FILE__);
 		}
 		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
 			bl_query($query);
 		}
-		return self::$dbUser->query($query);
+		$out = self::$dbUser->query($query);
+		self::$dbUser->commit();
+		return $out;
 	}
 
 
-	public static function getEmailFromLogin($login)
-	{
+	public static function getEmailFromLogin($login) {
 		$q = 'SELECT email FROM users WHERE login = "%s" LIMIT 1';
 		$query = sprintf(
 			$q,
@@ -225,8 +217,7 @@ class Database_sqlite extends Database
 	}
 
 
-	public static function getLoginFromEmail($email)
-	{
+	public static function getLoginFromEmail($email) {
 		$q = 'SELECT login FROM users WHERE email = "%s" LIMIT 1';
 		$query = sprintf(
 			$q,
@@ -245,8 +236,7 @@ class Database_sqlite extends Database
 	}
 
 
-	public static function getNameFromEmail($email)
-	{
+	public static function getNameFromEmail($email) {
 		$q = 'SELECT nom, prenom FROM users WHERE email = "%s" LIMIT 1';
 		$query = sprintf(
 			$q,
@@ -265,8 +255,7 @@ class Database_sqlite extends Database
 	}
 
 
-	public static function userResetPassword($login)
-	{
+	public static function userResetPassword($login) {
 		$q = 'UPDATE users SET password="%s" WHERE login = "%s"';
 		$password = self::generatePassword(8);
 		$query = sprintf(
@@ -285,8 +274,7 @@ class Database_sqlite extends Database
 	}
 
 
-	public static function generatePassword($nb_car, $chaine='azertyuiopqsdfghjklmwxcvbn0123456789')
-	{
+	public static function generatePassword($nb_car, $chaine='azertyuiopqsdfghjklmwxcvbn0123456789') {
 		$nb_lettres = strlen($chaine) - 1;
 		$generation = '';
 		for($i=0; $i < $nb_car; $i++)
@@ -350,15 +338,12 @@ class Database_sqlite extends Database
 				array_push($r, $row);
 			}
 			return $r;
-		}
-		else
-		{
+		} else {
 			Debug::Log("Erreur getAllUsers ".$query, ERROR, __LINE__, __FILE__);
 		}
 	}
 	
-	public function addTB($tb_title, $tb_url, $tb_excerpt, $tb_author)
-	{
+	public function addTB($tb_title, $tb_url, $tb_excerpt, $tb_author) {
 		$q = 'INSERT INTO trackbacks (id, url, title, excerpt, author, datetime ) VALUES (NULL, "%s", "%s", "%s", "%s", "%d")';
 		$query = sprintf(
 			$q,
@@ -369,25 +354,20 @@ class Database_sqlite extends Database
 			time()
 		);
 		//print $query;
-		if ( DEBUG )
-		{
+		if ( DEBUG ) {
 			Debug::Log("addTB ".$query, SQL, __LINE__, __FILE__);
 		}
 		if( class_exists('php_bug_lost', false) && php_bug_lost::$isLoaded == true ) {
 			bl_query($query);
 		}
-		if ( self::$dbTB->query($query) )
-		{
+		if ( self::$dbTB->query($query) ) {
 			return 1;
-		}
-		else
-		{
+		} else {
 			return self::$dbTB->errorInfo();
 		}
 	}
 	
-	public function getAllTb($limit=5)
-	{
+	public function getAllTb($limit=5) {
 		$q = 'SELECT * FROM trackbacks ORDER BY datetime DESC LIMIT 0, %d';
 		$query = sprintf(
 			$q,
@@ -397,24 +377,18 @@ class Database_sqlite extends Database
 			bl_query($query);
 		}
 		$result = self::$dbTB->query($query);
-		if ( DEBUG )
-		{
+		if ( DEBUG ) {
 			Debug::Log("getAllTb ".$query, SQL, __LINE__, __FILE__);
 		}
-		if ( !$result )
-		{
-			if ( DEBUG )
-			{
+		if ( !$result ) {
+			if ( DEBUG ) {
 				Debug::Log("Erreur getAllTb ".$query, ERROR, __LINE__, __FILE__);
 			}
 			return false;
-		}
-		else
-		{
+		} else {
 			//print $query;
 			$r = array();
-			while ( $row = $result->fetch() )
-			{
+			while ( $row = $result->fetch() ) {
 				array_push($r, $row);
 			}
 			return $r;
@@ -473,7 +447,7 @@ class Database_sqlite extends Database
 		$sth = self::$db_custom->prepare($q, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 		//Debug::Log($sth->debugDumpParams(), SQL, __LINE__, __FILE__);
 		$sth->execute($datas);
-		return $sth->fetchAll();		
+		return $sth->fetchAll();
 	}
 	
 	public static function u( $q, $database, $datas ) {

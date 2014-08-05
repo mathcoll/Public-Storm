@@ -7,5 +7,4 @@ $settings->setVar('Yahoo Application URL', 'http://public-storm.internetcollabor
 $settings->setVar('Yahoo App Domain', 'public-storm.internetcollaboratif.info', 'sendToAFriend OAuth plugin', '');
 
 $settings->setVar('debug level', false, 'sendToAFriend OAuth plugin debug level : Set to 1 for verbose debugging output', '');
-
 ?>
