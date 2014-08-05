@@ -1,5 +1,5 @@
 <?php
-
-Settings::setVar('akismetAPIKey', '797f448713ac', 'akismet_spam', 'akismet API Key')
+$settings = new Settings();
+$settings->setVar('akismetAPIKey', '', 'akismet_spam', 'akismet API Key')
 
 ?>

@@ -3,6 +3,7 @@
 <div itemscope itemtype="http://data-vocabulary.org/Review" class="pageContent">
 	<span itemprop="summary" class="Review">{$title}</span>
 	<span itemprop="rating" class="Review">{$rating}</span>
+	<span itemprop="best" class="Review">5</span>
 	<span itemprop="count" class="Review">{$votes}</span>
 
 <span class="ficheContainer">

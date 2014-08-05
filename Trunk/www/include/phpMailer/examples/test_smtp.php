@@ -26,7 +26,8 @@ $mail->AltBody    = "To view the message, please use an HTML compatible email vi
 
 $mail->MsgHTML($body);
 
-$mail->AddAddress("whoto@otherdomain.com", "John Doe");
+// Mathieu L. have remove the following line:
+//$mail->AddAddress("whoto@otherdomain.com", "John Doe");
 
 $mail->AddAttachment("images/phpmailer.gif");             // attachment
 

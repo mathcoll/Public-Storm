@@ -191,9 +191,10 @@ final class public_storm extends Plugins {
 		$storms = array();
 		$tot = 6;
 		#TODO 
-		$q = "select storm_id, count(storm_id) as cpt from favorites group by storm_id order by cpt DESC limit ".$tot;
+		$q = "select storm_id, count(storm_id) as cpt from favorites group by storm_id order by cpt DESC limit :lim";
+		$datas = array(":lim" => $tot);
 		//print $q;
-		$storms = self::$db->q2($q, "users.db", array());
+		$storms = self::$db->q2($q, "users.db", $datas);
 		$hearts = array(3,3,2,2,1,1);
 		for($n=0; $n<sizeOf($storms); $n++) {
 			$s = self::getStorm($storms[$n]['storm_id']);
@@ -273,7 +274,7 @@ final class public_storm extends Plugins {
 		//return self::getStorm($suggestions[0][2]);
 		$mostActives = array();
 		foreach($suggestions AS $s) {
-			array_push($mostActives, self::getStorm($s[2]));		
+			array_push($mostActives, self::getStorm($s[2]));
 		}
 		//print_r($suggestions);
 		return $mostActives;
