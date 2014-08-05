@@ -186,10 +186,8 @@ class Plugins
 	public function listPages($pluginName) {
 		$settings = new Settings();
 		$liste = array();
-		foreach ( scandir($settings->getVar('plug_dir') . '/' . strtolower($pluginName) . '/') as $node )
-		{
-			if ( ereg('.*\.php$', $node) && $node != strtolower($pluginName).'.php' )
-			{
+		foreach ( scandir($settings->getVar('plug_dir') . '/' . strtolower($pluginName) . '/') as $node ) {
+			if ( preg_match('.*\.php$', $node) && $node != strtolower($pluginName).'.php' ) {
 				//$liste .= '<li><a href="'.$node.'">'.$node.'</a></li>';
 				array_push($liste, $node);
 			}

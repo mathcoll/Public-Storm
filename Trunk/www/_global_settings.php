@@ -110,16 +110,13 @@ exit;
 $pos = (strpos($_SERVER['REQUEST_URI'], "?") > 0) ? strpos($_SERVER['REQUEST_URI'], "?") : strlen($_SERVER['REQUEST_URI']);
 $request_uri = substr($_SERVER['REQUEST_URI'], 0, $pos);
 //print $request_uri."----".$pos;
-if ( strpos($settings->getVar('BASE_URL'), '/') )
-{
+if ( strpos($settings->getVar('BASE_URL'), '/') ) {
 	$query = str_replace($settings->getVar('BASE_URL') . "/", "", $request_uri);
-}
-else
-{
+} else {
 	$query = str_replace($settings->getVar('BASE_URL'), "", $request_uri);
 }
 $query = ltrim($query, '/');
-$qdirs = split("/", $query);
+$qdirs = explode("/", $query);
 $page = array_pop($qdirs);
 $page = $page != NULL ? $page : "index.php";
 
@@ -135,15 +132,13 @@ print_r($qdirs);
 print sizeOf($qdirs).'</pre>';
 */
 
-for($n=0; $n<sizeOf($qdirs); $n++)
-{
+for($n=0; $n<sizeOf($qdirs); $n++) {
 	$prefix .= "../";
 }
 $prefix = $prefix != NULL ? $prefix : './';
 
 $f = new file($prefix . $query);
-if ( !$f->Exists() )
-{
+if ( !$f->Exists() ) {
 	$prefix = './';
 }
 

@@ -205,7 +205,7 @@ class file {
 		$dh = opendir($dir);
 		//print $dir;
 		while (($file = readdir($dh)) !== false) {
-			if (ereg($regexp, $file, $match)) {
+			if (preg_match($regexp, $file, $match)) {
 				$id = $match[1];
 				array_push($liste, $id);
 			}
