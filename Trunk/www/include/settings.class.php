@@ -134,12 +134,12 @@ final class Settings
 		}
 	}
 	
-	public static function getJss($filter='text/javascript', $isCleanable=true) {
+	public static function getJss($filter='text/javascript') {
 		#TODO : return only for filters and cleanable boolean filter
 		return self::getVar('javascripts');
 	}
 	
-	public static function getCsss($filter='screen', $isCleanable=true) {
+	public static function getCsss($filter='screen') {
 		$return = array();
 		foreach ( self::getVar('styles') as $style) {
 			if ( $style['media'] == $filter ) {

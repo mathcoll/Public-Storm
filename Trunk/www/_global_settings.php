@@ -37,7 +37,7 @@ $settings->setVar('SITE_BASELINE', '', 'global_settings', 'Site baseline, also d
 $settings->setVar('SITE_DESCRIPTION', '', 'global_settings', 'Site description, also defined in the languages files');
 
 // Current version
-$settings->setVar('SITE_VERSION', '13.03.17', 'global_settings', 'version of the source code');
+$settings->setVar('SITE_VERSION', '14.08.05', 'global_settings', 'version of the source code');
 
 // Site name
 $settings->setVar('fb_app_id', '21015190410', 'global_settings', 'Facebook, préciser les administrateurs dans une balise méta fb:app_id');

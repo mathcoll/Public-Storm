@@ -54,12 +54,12 @@ final class public_storm extends Plugins {
 		if ( !class_exists($class) ) {
 			Debug::Log("Classe introuvable : ".$class, ERROR, __LINE__, __FILE__);
 		} else {
-			if ( self::$db = new $class ) {
+			try {
+				self::$db = new $class;
 				return true;
-			} else {
+			} catch(Exception $e) {
 				Debug::Log($err, ERROR, __LINE__, __FILE__);
 				return false;
-				exit($err);
 			}
 		}
 	}
@@ -285,13 +285,16 @@ final class public_storm extends Plugins {
 		if( !@isset($self->$suggestions[$storm_id]) ) {
 			$u = $settings->getVar('BASE_URL_HTTP')."/storm/";
 			//$suggestions = self::$db->q2("SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = :storm_id GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC LIMIT :nb", "public_storms.db", array(':nb' => $nb, ':storm_id' => $storm_id));
-			$q = "SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = %s GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC";
+			$q = "SELECT s.*, '%s' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = %s GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC";
 			if( isset($nb) && $nb > 0 ) {
-				$q .= " LIMIT ".$nb;
+				$q .= " LIMIT %s";
+				$query = sprintf($q, $u, $storm_id, $nb);
+			} else {
+				$query = sprintf($q, $u, $storm_id);
 			}
 			//$result_type = $result_type?$result_type:PDO::FETCH_BOTH; // defined&defaulted earlier
-			//print $q;
-			$suggestions[$storm_id] = self::$db->q($q, "public_storms.db", array($storm_id), $result_type);
+			
+			$suggestions[$storm_id] = self::$db->q($query, "public_storms.db", null, $result_type);
 			for($n=0; $n<sizeOf($suggestions[$storm_id]); $n++) {
 				$author = self::getStormAuthor(@$suggestions[$storm_id][$n]['user_id']);
 				@$suggestions[$storm_id][$n]['author'] = $author['prenom']." ".$author['nom'];
@@ -299,8 +302,6 @@ final class public_storm extends Plugins {
 				@$suggestions[$storm_id][$n]['this_storm_id'] = self::getStormIdFromUrl($suggestions[$storm_id][$n]['suggestion']);
 				@$suggestions[$storm_id][$n]['url'] = $u.self::getSuggestionPermaname($suggestions[$storm_id][$n]['suggestion'])."/".urlencode($suggestions[$storm_id][$n]['suggestion'])."/";
 			}
-			//print "SELECT s.*, '".$u."' || s.suggestion || '/' as url, COUNT(s.suggestion) as nb FROM suggestions s WHERE s.storm_id = ".$storm_id." GROUP BY LOWER(s.suggestion) ORDER BY nb DESC, s.date ASC LIMIT ".$nb."<br />\n";
-			//print_r($suggestions);
 			unset($suggestions[$storm_id][0]);
 			@$self->$suggestions[$storm_id] = $suggestions[$storm_id];
 		}
@@ -373,47 +374,4 @@ final class public_storm extends Plugins {
 	}
 }
 
-
-function modifier_url($string) {
-	$string    = utf8_encode(
-			strtr(
-				utf8_decode($string),
-				utf8_decode("ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ. "),
-				"aaaaaaaaaaaaooooooooooooeeeeeeeecciiiiiiiiuuuuuuuuynn--"
-			)
-		);
-	$string    = htmlentities(strtolower($string));
-	//$string    = preg_replace("/([^a-z0-9]+)/", "-", html_entity_decode($string));
-	$string    = trim($string, "-");
-	return $string;
-}
-
-// Function for looking for a value in a multi-dimensional array
-function in_multi_array($value, $array) {   
-    foreach ($array as $key => $item)
-    {       
-        // Item is not an array
-        if (!is_array($item))
-        {
-            // Is this item our value?
-            if ($item == $value) return true;
-        }
-      
-        // Item is an array
-        else
-        {
-            // See if the array name matches our value
-            //if ($key == $value) return true;
-          
-            // See if this array matches our value
-            if (in_array($value, $item)) return true;
-          
-            // Search this array
-            else if (in_multi_array($value, $item)) return true;
-        }
-    }
-  
-    // Couldn't find the value in array
-    return false;
-}
 ?>

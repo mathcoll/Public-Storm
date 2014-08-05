@@ -120,8 +120,10 @@ final class User {
 	 * @param string $id
 	 * @return User
 	 */
-	public static function GetById($id)
-	{
+	public static function GetById($id) {
+		if ( is_null($id) ) {
+			return false;
+		}
 		$obj = new User();
 		return $obj;
 	}

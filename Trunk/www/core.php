@@ -40,6 +40,29 @@ checkFileWritable(Settings::getVar('prefix') . 'datas/' . 'users.db');
 checkFileWritable(Settings::getVar('prefix') . 'datas/' . 'errordocument.db');
 checkFileWritable(Settings::getVar('prefix') . 'datas/' . 'aboutcron.db');
 
+if( DEBUG == true ) { Settings::setVar("Starting at", microtime(true)); }
+date_default_timezone_set(Settings::getVar('timezone'));
+
+Server::Normalize();
+User::$current = Session::Start();
+header('Content-Type: text/html; charset=utf-8');
+/*
+ $expires = 3600;
+header("Pragma: public", true);
+header("Cache-Control: maxage=".$expires.", must-revalidate");
+header("Expires: " . gmdate("D, d M Y H:i:s", time()+$expires) . " GMT");
+*/
+if( DEBUG == true ) {
+	error_reporting(E_ALL);
+	ini_set('error_reporting', E_ALL);
+	ini_set('display_errors', 1);
+} else {
+	error_reporting(0);
+	ini_set('error_reporting', '');
+	ini_set('display_errors', 0);
+}
+
+
 function __autoload($class_name) {
 	try {
 		require_once './include/' . strtolower($class_name) . '.class.php';
@@ -52,7 +75,6 @@ function __autoload($class_name) {
 		}
 	}
 }
-if( DEBUG == true ) { Settings::setVar("Starting at", microtime(true)); }
 
 /**
  * Check if a file have some permission, read, write, execute
@@ -107,28 +129,49 @@ function checkFileWritable($path) {
 	}
 }
 
-date_default_timezone_set(Settings::getVar('timezone'));
 
-Server::Normalize();
-
-User::$current = Session::Start();
-
-header('Content-Type: text/html; charset=utf-8');
-/*
-$expires = 3600;
-header("Pragma: public", true);
-header("Cache-Control: maxage=".$expires.", must-revalidate");
-header("Expires: " . gmdate("D, d M Y H:i:s", time()+$expires) . " GMT");
-*/
-if( DEBUG == true ) {
-	error_reporting(E_ALL);
-	ini_set('error_reporting', E_ALL);
-	ini_set('display_errors', 1);
-} else {
-	error_reporting(0);
-	ini_set('error_reporting', '');
-	ini_set('display_errors', 0);
+function modifier_url($string) {
+	$string    = utf8_encode(
+			strtr(
+					utf8_decode($string),
+					utf8_decode("ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ. "),
+					"aaaaaaaaaaaaooooooooooooeeeeeeeecciiiiiiiiuuuuuuuuynn--"
+			)
+	);
+	$string    = htmlentities(strtolower($string));
+	//$string    = preg_replace("/([^a-z0-9]+)/", "-", html_entity_decode($string));
+	$string    = trim($string, "-");
+	return $string;
 }
 
+
+// Function for looking for a value in a multi-dimensional array
+function in_multi_array($value, $array) {
+	foreach ($array as $key => $item)
+	{
+		// Item is not an array
+		if (!is_array($item))
+		{
+			// Is this item our value?
+			if ($item == $value) return true;
+		}
+
+		// Item is an array
+		else
+		{
+			// See if the array name matches our value
+			//if ($key == $value) return true;
+
+			// See if this array matches our value
+			if (in_array($value, $item)) return true;
+
+			// Search this array
+			else if (in_multi_array($value, $item)) return true;
+		}
+	}
+
+	// Couldn't find the value in array
+	return false;
+}
 
 ?>

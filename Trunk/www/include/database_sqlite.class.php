@@ -406,7 +406,7 @@ class Database_sqlite extends Database {
 		if( is_array($datas) && sizeOf($datas) > 0 ) {
 			$query = sprintf(
 				$q,
-				self::escape_string($datas[0])
+				self::escape_string($datas[0]) // WTF !!
 			);
 		} else {
 			$query = $q;
