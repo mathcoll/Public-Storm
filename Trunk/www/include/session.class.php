@@ -45,7 +45,7 @@ final class Session
     }
   }
 
-  public static function StartUser($obj) {
+  public static function StartUser(User $obj) {
     if ( !session_id() ) session_start();
     Server::UnregisterGlobals('_SESSION');
     $_SESSION["user_id"]=$obj->getUserId();
