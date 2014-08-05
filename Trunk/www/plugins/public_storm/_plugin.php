@@ -145,19 +145,15 @@ final class public_storm extends Plugins {
 	
 	public static function getStormsByAuthor($from=0, $nb=null, $user_id) {
 		$q = "SELECT s.* FROM storms s WHERE s.user_id = :user_id ORDER BY s.date DESC";
-		if ( isset($nb) )
-		{
+		if ( isset($nb) ) {
 			$q .= " LIMIT :from, :nb";
 			$datas = array(':from' => $from, ':nb' => $nb, ':user_id' => $user_id);
 		}
-		else
-		{
+		else {
 			$datas = array(':user_id' => $user_id);
 		}
-		//print $q;
 		$storms = self::$db->q2($q, "public_storms.db", $datas);
-		for($n=0; $n<sizeOf($storms); $n++)
-		{
+		for($n=0; $n<sizeOf($storms); $n++) {
 			$author = self::getStormAuthor($storms[$n]['user_id']);
 			$storms[$n]['author'] = $author['prenom']." ".$author['nom'];
 			$storms[$n]['author_login'] = $author['login'];
@@ -175,19 +171,17 @@ final class public_storm extends Plugins {
 		foreach( users::getMyFavorites() as $favorite ) {
 			array_push($liste, $favorite["storm_id"]);
 		}
-		//print_r($favorites);
-		$q = "SELECT s.* FROM storms s WHERE s.storm_id IN(".implode(",", $liste).") ORDER BY s.date DESC";
-		//print $q;
-		$storms = self::$db->q2($q, "public_storms.db", array());
-		//print_r($storms);
-		for($n=0; $n<sizeOf($storms); $n++)
-		{
+		$q = sprintf("SELECT s.* FROM storms s WHERE s.storm_id IN(%s) ORDER BY s.date DESC", implode(",", $liste));
+		/* // Can't use prepare like others because of "IN"
+		$datas = array(":storms" => implode(",", $liste));*/
+		$storms = self::$db->q2($q, "public_storms.db");
+		for($n=0; $n<sizeOf($storms); $n++) {
 			$author = self::getStormAuthor($storms[$n]['user_id']);
 			$storms[$n]['author'] = $author['prenom']." ".$author['nom'];
 			$storms[$n]['author_login'] = $author['login'];
 			$storms[$n]['url'] = self::getUrl($storms[$n]['permaname']);
 			if( User::isLogged() ) {
-				$storms[$n]['hearts'] = "1"; // always 1 because getMyFavorites return only the user faforites Storms
+				$storms[$n]['hearts'] = "1"; // always 1 because getMyFavorites return only the user favorites Storms
 			}
 		}
 		return $storms;
